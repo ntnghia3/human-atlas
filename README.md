@@ -30,10 +30,15 @@ Open http://localhost:3016. To build the static site, run `npm run build`; the o
 npm run check
 node scripts/validate-atlas.mjs
 node scripts/validate-interactions.mjs
+npm run test:localization
+npm run test:terminology
+node scripts/validate-terminology.mjs
 npm run build
 ```
 
-Validation covers mesh buffers, names and concept membership, nonoverlapping exploded layouts at desktop and mobile aspect ratios, search and inspection contracts, and tap-versus-drag handling. Browser interaction checks have exercised selection, system controls, search, isolation, rotation, and 390×844, 320×568, and 844×390 layouts. Phone controls stay clear of the exploded inventory, and isolated structures fit the space above or beside the detail panel. Physical-device performance and real multitouch hardware have not been tested.
+Validation covers mesh buffers, names and concept membership, nonoverlapping exploded layouts at desktop and mobile aspect ratios, search and inspection contracts, tap-versus-drag handling, and the static terminology registry. Browser interaction checks have exercised selection, system controls, search, isolation, rotation, and 390×844, 320×568, and 844×390 layouts. Phone controls stay clear of the exploded inventory, and isolated structures fit the space above or beside the detail panel. Physical-device performance and real multitouch hardware have not been tested.
+
+The English–Vietnamese Functional V1 status, coverage, safety boundary, and deferred medical-content policy are documented in [docs/en-vi/BILINGUAL_V1_REPORT.md](docs/en-vi/BILINGUAL_V1_REPORT.md).
 
 ## Anatomy data
 

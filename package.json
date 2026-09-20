@@ -7,9 +7,11 @@
   },
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3016",
-    "build": "vite build",
-    "build:vercel": "vite build",
-    "check": "tsc --noEmit"
+    "build": "node scripts/validate-terminology.mjs && vite build",
+    "build:vercel": "npm run build",
+    "check": "tsc --noEmit",
+    "test:localization": "node scripts/validate-localization.mjs",
+    "test:terminology": "node scripts/test-terminology.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
