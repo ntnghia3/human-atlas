@@ -1,10 +1,10 @@
 # Human Atlas English–Vietnamese Master Specification
 
-Status: binding Phase 0/1 specification for this repository.
+Status: binding Phase 0/1 and Bilingual Functional V1 specification for this repository.
 
 This specification applies to the fork at commit 1c38bf35c254a891200d3cedecfd57abebe83d8d and to later work unless it is deliberately superseded by a reviewed update. The repository is an interactive Vite/React/Three.js viewer whose packaged source of truth is the BodyParts3D 4.0 atlas in public/models.
 
-The current phase establishes architecture and a low-risk foundation. It does not translate the anatomy dataset. There are no production Vietnamese anatomical entries in the Phase 0/1 terminology overlay.
+The current implementation establishes a complete ordinary bilingual UI while preserving the medical-content gate. It does not translate the anatomy dataset. There are no production Vietnamese anatomical entries in the terminology registry.
 
 ## Product boundary
 
@@ -36,7 +36,7 @@ UI localization covers interface copy such as search controls, reset, systems pa
 
 Anatomical terminology covers a Concept identity, the source English name, optional Latin, Vietnamese preferred and alias forms, source IDs, provenance, mapping status, and review state. It never lives in the ordinary UI message dictionary.
 
-The current implementation demonstrates both layers with an empty terminology overlay. The Vietnamese strings currently present in the UI dictionary are ordinary interface labels; they are not mappings for any FMA concept or mesh.
+The current implementation demonstrates both layers with a statically loaded, currently empty terminology registry. The Vietnamese strings present in the UI dictionary are ordinary interface labels; they are not mappings for any FMA concept or mesh.
 
 ## Safe display policy
 
@@ -48,7 +48,10 @@ For language vi, the resolver checks, in order:
 2. mapping status MAPPED;
 3. review status VERIFIED;
 4. a nonempty Vietnamese preferred term;
-5. provenance references that resolve to registered, non-machine-generated source records and include an authoritative Vietnamese source.
+5. source-verification, non-automated medical-review, and release-eligibility audits have passed;
+6. provenance references resolve to verified, non-machine-generated source records with reproducible locators;
+7. at least one provenance source advertises the vietnamese-preferred capability;
+8. any FMA or TA2 identifier has a matching anatomical-identity nomenclature locator.
 
 If any condition fails, the English Atlas.concepts name is returned. The resolver does not modify the English source name from the overlay.
 

@@ -1,11 +1,15 @@
 import assert from 'node:assert/strict';
-import {getMessage, persistLanguage, readStoredLanguage, translate} from '../app/localization.ts';
+import {readFile} from 'node:fs/promises';
+import {getMessage, MESSAGE_KEYS, persistLanguage, readStoredLanguage, translate} from '../app/localization.ts';
 import {normalizeSearchText} from '../app/search-normalization.ts';
+import {SYSTEMS} from '../app/anatomy.ts';
 import {
   TERMINOLOGY_OVERLAY,
   TERMINOLOGY_SOURCES,
   hasVerifiedVietnamese,
+  hasVerifiedLatin,
   matchesTerminologyQuery,
+  resolveSystemName,
   resolveConceptName,
 } from '../app/terminology.ts';
 
@@ -27,9 +31,19 @@ persistLanguage('vi', storage);
 assert.equal(readStoredLanguage(storage), 'vi');
 values.set('human-atlas.language', 'fr');
 assert.equal(readStoredLanguage(storage), 'en');
+const unavailableStorage = {getItem(){throw new Error('TEST_ONLY storage failure');},setItem(){throw new Error('TEST_ONLY storage failure');}};
+assert.equal(readStoredLanguage(unavailableStorage), 'en');
+persistLanguage('vi', unavailableStorage);
+for (const key of MESSAGE_KEYS) assert.notEqual(translate('vi', key), key);
+assert.deepEqual(SYSTEMS.map(system => system.id), ['skeletal','muscular','cardiac','sensory','arterial','venous','nervous','respiratory','digestive','urinary','lymphatic','endocrine','reproductive','integumentary','connective']);
+const sceneSource = await readFile(new URL('../app/scene.tsx', import.meta.url), 'utf8');
+assert.match(sceneSource, /\},\[atlas\]\);/);
+assert.equal(sceneSource.includes('language'), false);
 assert.equal(getMessage('en', 'controls.search'), 'Find a structure');
 assert.equal(getMessage('vi', 'controls.search'), 'Tìm cấu trúc');
 assert.equal(translate('en', 'loading.progress', {progress: 50, count: 12}), '50% · Loading 12 pieces');
+assert.equal(Object.keys(TERMINOLOGY_OVERLAY).length, 0);
+assert.equal(Object.keys(TERMINOLOGY_SOURCES).length, 0);
 
 assert.equal(normalizeSearchText('  Đặng   CỘNG  '), 'dang cong');
 assert.equal(normalizeSearchText('BẠN\n bè'), 'ban be');
@@ -42,8 +56,8 @@ assert.equal(matchesTerminologyQuery(concept, 'internal carotid', TERMINOLOGY_OV
 const draftEntry = {
   conceptId: concept.id,
   sourceIds: {fma: 'TEST_ONLY_FMA_ID'},
-  english: {preferred: concept.name, aliases: []},
-  vietnamese: {preferred: 'TEST_ONLY_VI_TÉRM', aliases: [], searchAliases: [], asciiSearchForms: ['test_only_vi_term']},
+  english: {preferred: concept.name, aliases: ['TEST_ONLY_ENGLISH_ALIAS']},
+  vietnamese: {preferred: 'TEST_ONLY_VI_TÉRM', aliases: ['TEST_ONLY_VI_ALIAS'], searchAliases: ['TEST_ONLY_VI_SEARCH'], asciiSearchForms: ['test_only_vi_term']},
   provenance: [{sourceId: 'TEST_ONLY_MACHINE'}],
   mapping: {status: 'MAPPED'},
   review: {status: 'DRAFT'},
@@ -86,11 +100,11 @@ const verifiedEntry = {
       automated: true,
     },
   },
-  latin: {preferred: 'TEST_ONLY_LATIN_TERM', aliases: []},
+  latin: {preferred: 'TEST_ONLY_LATIN_TERM', aliases: ['TEST_ONLY_LATIN_ALIAS']},
   vietnamese: {
     preferred: 'TEST_ONLY_VI_TÉRM',
-    aliases: [],
-    searchAliases: [],
+    aliases: ['TEST_ONLY_VI_ALIAS'],
+    searchAliases: ['TEST_ONLY_VI_SEARCH'],
     asciiSearchForms: ['test_only_vi_term'],
   },
 };
@@ -125,9 +139,17 @@ const verifiedSources = {
 };
 assert.equal(hasVerifiedVietnamese(verifiedEntry, TERMINOLOGY_SOURCES), false);
 assert.equal(hasVerifiedVietnamese(verifiedEntry, verifiedSources), true);
+assert.equal(hasVerifiedLatin(verifiedEntry, verifiedSources), true);
+assert.equal(resolveSystemName({id: 'TEST_ONLY_SYSTEM', name: 'TEST_ONLY system'}, 'vi'), 'TEST_ONLY system');
 assert.equal(resolveConceptName(concept, 'vi', verifiedOverlay, verifiedSources), 'TEST_ONLY_VI_TÉRM');
 assert.equal(resolveConceptName(concept, 'en', verifiedOverlay), concept.name);
+assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_ENGLISH_ALIAS', verifiedOverlay, verifiedSources), true);
+assert.equal(matchesTerminologyQuery(concept, 'FMA00000', verifiedOverlay, verifiedSources), true);
+assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_FMA_ID', verifiedOverlay, verifiedSources), true);
 assert.equal(matchesTerminologyQuery(concept, 'test_only_vi_term', verifiedOverlay, verifiedSources), true);
+assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_VI_ALIAS', verifiedOverlay, verifiedSources), true);
+assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_VI_SEARCH', verifiedOverlay, verifiedSources), true);
 assert.equal(matchesTerminologyQuery(concept, 'test_only_latin_term', verifiedOverlay, verifiedSources), true);
+assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_LATIN_ALIAS', verifiedOverlay, verifiedSources), true);
 
 console.log('Language persistence, UI fallback, Vietnamese search normalization, and terminology release gates passed.');

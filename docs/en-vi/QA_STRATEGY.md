@@ -9,7 +9,7 @@ The repository has no general test framework. Its validation is executable Node 
 | npm run check | TypeScript type checking with no emit. |
 | node scripts/validate-atlas.mjs | Exact mesh/concept counts, unique mesh IDs, names, concept membership, binary bounds, finite positions, valid indices, and triangle total. |
 | node scripts/validate-interactions.mjs | Explosion layout at desktop/mobile aspect ratios, atlas tool search/inspection contracts, pointer tap/drag/multitouch/cancel behavior, and empty layout. |
-| npm run test:localization | Language persistence, UI dictionary keys and interpolation, Vietnamese matching normalization, English fallback, verified release gate, and Latin/Vietnamese search fields. |
+| npm run test:localization | English/Vietnamese dictionary parity, ordinary UI lookup and interpolation, persistence and storage failure fallback, document-safe language behavior contract, empty production registry, English fallback, verified release gate, and Latin/Vietnamese search fields. |
 | npm run test:terminology | TEST_ONLY fixtures for source capabilities, provenance locators, review audits, release gating, orphan and mesh references, normalized collisions, and coverage. |
 | node scripts/validate-terminology.mjs | Validates the static source/entry registry against the current atlas and prints independent coverage metrics. Add `--json` for machine-readable diagnostics. |
 | npm run build | Production Vite build and static dist output. |
@@ -94,7 +94,7 @@ The 3D regression set must retain:
 - WebMCP tool names and concept IDs;
 - BodyParts3D attribution.
 
-Measure before introducing a search index or lazy-loading terminology. Terminology must remain outside the render loop and must not add language-specific geometry, picker meshes, GPU textures, or chunk requests.
+Measure before introducing a search index or lazy-loading terminology. Terminology must remain outside the render loop and must not add language-specific geometry, picker meshes, GPU textures, or chunk requests. Language-switch smoke checks must confirm the atlas object, selected IDs, visibility, isolate/explosion state, and scene mount remain stable while UI labels update.
 
 ## Manual review
 

@@ -3,6 +3,7 @@ import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {
+  hasVerifiedLatin,
   hasVerifiedVietnamese,
   sourceSupportsCapability,
 } from '../app/terminology.ts';
@@ -306,6 +307,14 @@ function validateLocator(locator, path, result) {
   );
 }
 
+function hasReproducibleLocator(locator) {
+  return Boolean(
+    isObject(locator) &&
+      ((Number.isInteger(locator.page) && locator.page > 0) ||
+        ['chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId'].some(key => nonemptyString(locator[key]))),
+  );
+}
+
 function validateProvenance(entry, entryPath, sourceCatalog, result, requiresProvenance) {
   if (!Array.isArray(entry.provenance)) {
     addError(result, 'invalid-provenance', 'provenance must be an array', `${entryPath}.provenance`);
@@ -447,6 +456,34 @@ function validateVietnamese(entry, entryPath, result) {
   }
 }
 
+function validateLatin(entry, entryPath, sourceCatalog, result) {
+  if (entry.latin === undefined) return;
+  if (!isObject(entry.latin)) {
+    addError(result, 'invalid-latin-record', 'latin must be an object', `${entryPath}.latin`);
+    return;
+  }
+  if (entry.mapping?.status !== 'MAPPED') {
+    addError(result, 'latin-requires-mapped-entry', 'Latin fields require mapping.status MAPPED', `${entryPath}.latin`);
+  }
+  if (entry.latin.preferred !== undefined && !nonemptyString(entry.latin.preferred)) {
+    addError(result, 'invalid-latin-preferred', 'latin.preferred must be a non-empty string', `${entryPath}.latin.preferred`);
+  }
+  validateStringArray(entry.latin.aliases, `${entryPath}.latin.aliases`, result);
+  const hasCanonicalSource = Array.isArray(entry.provenance) && entry.provenance.some(reference => {
+    const source = sourceCatalog[reference.sourceId];
+    return (
+      sourceSupportsCapability(source, 'canonical-latin') &&
+      source?.audit?.status === 'VERIFIED' &&
+      isValidDate(source.audit.verifiedAt) &&
+      nonemptyString(source.audit.verifiedBy) &&
+      hasReproducibleLocator(reference.locator)
+    );
+  });
+  if ((nonemptyString(entry.latin.preferred) || (Array.isArray(entry.latin.aliases) && entry.latin.aliases.length > 0)) && !hasCanonicalSource) {
+    addError(result, 'latin-source-mismatch', 'Latin fields require a verified canonical-latin source with a reproducible locator', `${entryPath}.latin`);
+  }
+}
+
 function validateSourceIds(entry, entryPath, atlasPartIds, result) {
   if (!isObject(entry.sourceIds)) {
     addError(result, 'invalid-source-ids', 'sourceIds must be an object', `${entryPath}.sourceIds`);
@@ -561,6 +598,7 @@ function validateEntries(entryRecords, atlas, sourceCatalog, result) {
     const requiresProvenance = record.mapping?.status === 'MAPPED' || record.review?.status === 'VERIFIED' || entryHasVietnameseCandidate(record);
     validateProvenance(record, entryPath, sourceCatalog, result, requiresProvenance);
     validateExternalIdentifierProvenance(record, entryPath, sourceCatalog, result);
+    validateLatin(record, entryPath, sourceCatalog, result);
     validateVietnamese(record, entryPath, result);
 
     if (entryHasVietnameseCandidate(record)) {
@@ -654,8 +692,7 @@ export function computeCoverage(atlas, entries, sourceCatalog) {
   const releaseEntries = entries.filter(entry => hasVerifiedVietnamese(entry, sourceCatalog));
   const searchableEntries = entries.filter(entry => {
     const englishAliases = Array.isArray(entry.english?.aliases) && entry.english.aliases.some(nonemptyString);
-    const latinTerms = entry.mapping?.status === 'MAPPED' &&
-      (nonemptyString(entry.latin?.preferred) || (Array.isArray(entry.latin?.aliases) && entry.latin.aliases.some(nonemptyString)));
+    const latinTerms = hasVerifiedLatin(entry, sourceCatalog);
     return englishAliases || latinTerms || hasVerifiedVietnamese(entry, sourceCatalog);
   });
   const percentage = count => totalConcepts === 0 ? 0 : Number(((count / totalConcepts) * 100).toFixed(2));

@@ -25,7 +25,7 @@ app/localization.ts defines:
 
 app/page.tsx owns the language state, initializes it from storage, persists changes, and updates the document lang attribute. The switcher changes only this state. It does not change the atlas state, pass a language prop to AnatomyScene, change the atlas key, or remount the scene.
 
-Only a representative set of ordinary controls is migrated in this phase: search, panel headings, presets, hide all, reset, explode labels, loading text, source credits, and related accessibility labels. Existing anatomical system names, explanations, detail prose, camera prose, and attribution prose remain English and are explicitly deferred.
+All ordinary interactive UI copy is routed through semantic keys: search, panel headings, presets, hide/show/reset actions, explosion and camera controls, loading/error states, source-link labels, detail-panel labels, and related accessibility labels. Anatomical system names and descriptions, structure explanations, source-scope prose, and attribution prose remain English unless controlled terminology or approved medical localization exists; these are explicitly deferred content surfaces.
 
 The dictionary is not a terminology database. It must not acquire entries of the form concept name → Vietnamese anatomical term.
 
@@ -41,7 +41,7 @@ app/terminology.ts defines the separate overlay contract:
 - provenance stores stable source references and structured page/section/entry/URL/nomenclature locators validated by the M02A registry checker;
 - mapping and review carry explicit statuses.
 
-TERMINOLOGY_OVERLAY and TERMINOLOGY_SOURCES are intentionally empty in this phase. No Vietnamese anatomical term has been generated or added.
+TERMINOLOGY_OVERLAY and TERMINOLOGY_SOURCES are loaded from the static M02A JSON registry. The production documents are intentionally empty today, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
 
 resolveConceptName takes a Concept, language, overlay, and source catalog. English always returns Concept.name. Vietnamese returns a preferred term only after the release gate. The overlay can enrich a concept but cannot rewrite its original English name or its identity.
 
@@ -66,13 +66,13 @@ The existing UI search is a useMemo over all concepts, limited to 80 results. It
 
 The normalizer in app/search-normalization.ts performs Unicode decomposition, removes combining marks, maps đ/Đ to d, folds case, collapses whitespace, and trims. It is used only for matching. It must never produce a stored or displayed canonical Vietnamese term.
 
-The optional WebMCP find_anatomy tool in app/agent-tools.ts uses the same matcher with the empty overlay. Its stable tool name, input shape, and concept IDs remain unchanged. A future reviewed catalog can be injected without changing the tool contract.
+The optional WebMCP find_anatomy tool in app/agent-tools.ts uses the same matcher, runtime overlay, source catalog, release gate, and result limit as the visible application. Its stable tool name, input shape, and concept IDs remain unchanged.
 
 ## Model lifecycle and performance
 
-The language state is in page.tsx, while the geometry effect in scene.tsx depends on atlas only. A language switch therefore re-renders UI text but does not reload the manifest or binary chunks, dispose/recreate WebGL objects, change picker meshes, or duplicate geometry.
+The language state is in page.tsx, while the geometry-loading effect in scene.tsx depends on atlas only. Localized canvas accessibility text and resolver callbacks are held in refs so a language switch re-renders labels without reloading the manifest or binary chunks, disposing/recreating WebGL objects, changing picker meshes, or duplicating geometry.
 
-Terminology data is small metadata separate from the 33 MB compressed geometry path. It is not consulted by the render loop, GPU textures, picking, explosion layout, or camera fitting. Search remains a scan until measurement justifies indexing.
+Terminology data is small metadata bundled from the JSON registry and separate from the 33 MB compressed geometry path. It is not consulted by the render loop, GPU textures, picking, explosion layout, or camera fitting. Search remains a scan until measurement justifies indexing.
 
 ## Upstream compatibility
 

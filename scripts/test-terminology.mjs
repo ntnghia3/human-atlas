@@ -174,6 +174,7 @@ assert.deepEqual(secondaryResult.errors, [], 'secondary reference source should 
 
 const machineCandidate = verifiedEntry();
 machineCandidate.sourceIds = {};
+delete machineCandidate.latin;
 machineCandidate.provenance = [{sourceId: machineSource.id, locator: {page: 1}}];
 const machineResult = validateTerminologyData(documents([machineCandidate], [machineSource]));
 assert.equal(machineResult.errors.length, 0, 'machine candidates may be stored as unreleased candidates');

@@ -88,7 +88,7 @@ The implemented TypeScript shape is intentionally metadata-only:
       page?, chapter?, section?, table?, entryId?, url?, nomenclatureId?
     }
 
-TERMINOLOGY_OVERLAY is a read-only map keyed by conceptId. TERMINOLOGY_SOURCES is a separate read-only map keyed by source ID. Both remain empty in M02A; the JSON registry is validated but is not yet wired into display or search.
+TERMINOLOGY_OVERLAY is a read-only map keyed by conceptId. TERMINOLOGY_SOURCES is a separate read-only map keyed by source ID. Both are loaded from the M02A JSON registry and are currently empty. The same maps feed display, hover/member labels, UI search, and WebMCP search; release gating still blocks unverified medical terms.
 
 The English field is a source snapshot for comparison and search. It is not permission to rename the atlas concept. The resolver always preserves Atlas.concepts.name for English and as the Vietnamese fallback.
 

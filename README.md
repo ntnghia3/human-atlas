@@ -38,6 +38,8 @@ npm run build
 
 Validation covers mesh buffers, names and concept membership, nonoverlapping exploded layouts at desktop and mobile aspect ratios, search and inspection contracts, tap-versus-drag handling, and the static terminology registry. Browser interaction checks have exercised selection, system controls, search, isolation, rotation, and 390×844, 320×568, and 844×390 layouts. Phone controls stay clear of the exploded inventory, and isolated structures fit the space above or beside the detail panel. Physical-device performance and real multitouch hardware have not been tested.
 
+The English–Vietnamese Functional V1 status, coverage, safety boundary, and deferred medical-content policy are documented in [docs/en-vi/BILINGUAL_V1_REPORT.md](docs/en-vi/BILINGUAL_V1_REPORT.md).
+
 ## Anatomy data
 
 The current viewer uses **BodyParts3D 4.0**, an adult male reference anatomy, licensed **CC BY 4.0**. It does not represent every human structure or variation. Individual source meshes are distinct from named concepts, which may group multiple meshes. Descriptions distinguish general system context from individual organ explanations.

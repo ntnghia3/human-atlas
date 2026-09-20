@@ -1,6 +1,10 @@
 import type {Concept} from './anatomy';
 import type {Language} from './localization';
 import {normalizeSearchText} from './search-normalization.ts';
+import {
+  PRODUCTION_TERMINOLOGY_OVERLAY,
+  PRODUCTION_TERMINOLOGY_SOURCES,
+} from './terminology-data.ts';
 
 export const TERMINOLOGY_STATUSES = [
   'UNMAPPED',
@@ -139,12 +143,16 @@ export interface TerminologyEntry {
   review: TerminologyReview;
 }
 
+export type TerminologyReleaseEntry = Omit<TerminologyEntry, 'conceptId'>;
+export type SystemTerminologyOverlay = Readonly<Record<string, TerminologyReleaseEntry>>;
+
 export type TerminologyOverlay = Readonly<Record<string, TerminologyEntry>>;
 
-/** Deliberately empty in Phase 0/1/M02A: no Vietnamese anatomy has been guessed. */
-export const TERMINOLOGY_OVERLAY: TerminologyOverlay = Object.freeze({});
-/** Source records are also empty until authoritative references are curated. */
-export const TERMINOLOGY_SOURCES: TerminologySourceCatalog = Object.freeze({});
+/** Loaded from the M02A static registry; the production documents are empty today. */
+export const TERMINOLOGY_OVERLAY: TerminologyOverlay = PRODUCTION_TERMINOLOGY_OVERLAY;
+export const TERMINOLOGY_SOURCES: TerminologySourceCatalog = PRODUCTION_TERMINOLOGY_SOURCES;
+/** System labels use the same release gate but have no reviewed records today. */
+export const SYSTEM_TERMINOLOGY_OVERLAY: SystemTerminologyOverlay = Object.freeze({});
 
 const capabilityProperties: Readonly<Record<TerminologySourceCapability, keyof TerminologySourceCapabilities>> = {
   'anatomical-identity': 'anatomicalIdentity',
@@ -194,12 +202,12 @@ function hasPassedAudit(
 }
 
 function hasRequiredNomenclatureLocators(
-  entry: TerminologyEntry,
+  entry: TerminologyReleaseEntry,
   sourceCatalog: TerminologySourceCatalog,
 ): boolean {
-  for (const identifier of [entry.sourceIds.fma, entry.sourceIds.ta2]) {
+  for (const identifier of [entry.sourceIds?.fma, entry.sourceIds?.ta2]) {
     if (!identifier) continue;
-    const found = entry.provenance.some(reference => {
+    const found = (Array.isArray(entry.provenance) ? entry.provenance : []).some(reference => {
       const source = sourceCatalog[reference.sourceId];
       return (
         sourceSupportsCapability(source, 'anatomical-identity') &&
@@ -211,11 +219,12 @@ function hasRequiredNomenclatureLocators(
   return true;
 }
 
-function hasReleaseProvenance(entry: TerminologyEntry, sourceCatalog: TerminologySourceCatalog): boolean {
-  const records = entry.provenance.map(reference => sourceCatalog[reference.sourceId]);
+function hasReleaseProvenance(entry: TerminologyReleaseEntry, sourceCatalog: TerminologySourceCatalog): boolean {
+  const provenance = Array.isArray(entry.provenance) ? entry.provenance : [];
+  const records = provenance.map(reference => sourceCatalog[reference.sourceId]);
   return Boolean(
     records.length &&
-      entry.provenance.every(reference => hasReproducibleLocator(reference.locator)) &&
+      provenance.every(reference => hasReproducibleLocator(reference.locator)) &&
       records.every(
         (record): record is TerminologySourceRecord =>
           Boolean(record) &&
@@ -231,19 +240,52 @@ function hasReleaseProvenance(entry: TerminologyEntry, sourceCatalog: Terminolog
 }
 
 export function hasVerifiedVietnamese(
-  entry: TerminologyEntry | undefined,
+  entry: TerminologyReleaseEntry | undefined,
   sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
 ): boolean {
   return Boolean(
     entry &&
-      entry.mapping.status === 'MAPPED' &&
-      entry.review.status === 'VERIFIED' &&
-      entry.vietnamese?.preferred?.trim() &&
-      hasPassedAudit(entry.review.sourceVerification, 'source-verification', true) &&
-      hasPassedAudit(entry.review.medicalReview, 'medical-review', true) &&
-      hasPassedAudit(entry.review.releaseEligibility, 'release-eligibility', false) &&
+      entry.mapping?.status === 'MAPPED' &&
+      entry.review?.status === 'VERIFIED' &&
+      hasText(entry.vietnamese?.preferred) &&
+      hasPassedAudit(entry.review?.sourceVerification, 'source-verification', true) &&
+      hasPassedAudit(entry.review?.medicalReview, 'medical-review', true) &&
+      hasPassedAudit(entry.review?.releaseEligibility, 'release-eligibility', false) &&
       hasReleaseProvenance(entry, sourceCatalog),
   );
+}
+
+export function hasVerifiedLatin(
+  entry: TerminologyReleaseEntry | undefined,
+  sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
+): boolean {
+  return Boolean(
+      entry &&
+      entry.mapping?.status === 'MAPPED' &&
+      hasText(entry.latin?.preferred) &&
+      hasPassedAudit(entry.review?.sourceVerification, 'source-verification', true) &&
+      (Array.isArray(entry.provenance) ? entry.provenance : []).some(reference => {
+        const source = sourceCatalog[reference.sourceId];
+        return (
+          sourceSupportsCapability(source, 'canonical-latin') &&
+          source.audit?.status === 'VERIFIED' &&
+          hasText(source.audit.verifiedAt) &&
+          hasText(source.audit.verifiedBy) &&
+          hasReproducibleLocator(reference.locator)
+        );
+      }),
+  );
+}
+
+export function resolveSystemName(
+  system: Pick<{id: string; name: string}, 'id' | 'name'>,
+  language: Language,
+  overlay: SystemTerminologyOverlay = SYSTEM_TERMINOLOGY_OVERLAY,
+  sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
+): string {
+  const entry = overlay[system.id];
+  if (language === 'vi' && hasVerifiedVietnamese(entry, sourceCatalog)) return entry.vietnamese!.preferred!.trim();
+  return system.name;
 }
 
 export function resolveConceptName(
@@ -259,7 +301,7 @@ export function resolveConceptName(
 }
 
 function uniqueNonempty(values: readonly (string | undefined)[]): string[] {
-  return [...new Set(values.map(value => value?.trim()).filter((value): value is string => Boolean(value)))];
+  return [...new Set(values.filter((value): value is string => hasText(value)).map(value => value.trim()))];
 }
 
 /**
@@ -274,13 +316,13 @@ export function terminologySearchTerms(
   const terms = uniqueNonempty([
     concept.name,
     concept.id,
-    entry?.english.preferred,
-    ...(entry?.english.aliases ?? []),
-    ...(entry?.sourceIds.bodyParts3d?.ids ?? []),
-    entry?.sourceIds.fma,
-    entry?.sourceIds.ta2,
+    entry?.english?.preferred,
+    ...(entry?.english?.aliases ?? []),
+    ...(entry?.sourceIds?.bodyParts3d?.ids ?? []),
+    entry?.sourceIds?.fma,
+    entry?.sourceIds?.ta2,
   ]);
-  if (entry?.mapping.status === 'MAPPED') {
+  if (entry && hasVerifiedLatin(entry, sourceCatalog)) {
     terms.push(...uniqueNonempty([entry.latin?.preferred, ...(entry.latin?.aliases ?? [])]));
   }
   if (entry && hasVerifiedVietnamese(entry, sourceCatalog)) {

@@ -19,7 +19,7 @@ Each future entry must provide:
 - a mapping status;
 - a review status plus separate source-verification, medical-review, and release-eligibility audit records when needed.
 
-The TypeScript contract is implemented in app/terminology.ts. The Phase 0/1 overlay is empty.
+The TypeScript contract is implemented in app/terminology.ts. The runtime imports the static M02A registry; its current production overlay is empty.
 
 ## Status model
 

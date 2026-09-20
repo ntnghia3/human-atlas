@@ -29,7 +29,18 @@ Minimum foundation:
 
 Exit gate: PASS when the empty production registry validates, synthetic invalid cases fail for the expected reasons, and the existing atlas, interaction, localization, typecheck, and build checks remain green.
 
-## Milestone 3: reviewed terminology pilot
+## Bilingual Functional V1 (completed)
+
+- completed ordinary English/Vietnamese UI localization with semantic keys and matching dictionary coverage;
+- preserved safe language persistence, storage-failure fallback, and `document.documentElement.lang` updates;
+- connected the static registry to the runtime overlay, source-aware resolver, UI search, hover labels, detail panel, and WebMCP search;
+- kept system names behind an empty controlled medical-label boundary and kept system descriptions, concept explanations, and source-scope prose in English;
+- verified that language state is outside the atlas/geometry effect and that the empty terminology registry is a first-class production state;
+- added deployment-readiness documentation without deploying or changing Vercel architecture.
+
+The next execution task after this milestone is deployment validation/review. M03 terminology research and pilot work remain deferred.
+
+## Milestone 3: reviewed terminology pilot (deferred; not started)
 
 Select a small, explicitly scoped concept set. Map identity to existing Concept.id and relevant BodyParts3D, FMA, and TA2 identifiers. Gather authoritative Vietnamese sources and medical review. Do not extrapolate pilot terms to the remaining concepts.
 

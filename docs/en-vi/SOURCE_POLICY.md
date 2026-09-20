@@ -22,7 +22,7 @@ The authoritative registry is now stored as two static, Git-reviewable JSON docu
 - `data/terminology/sources.json` contains `{ "schemaVersion": 1, "sources": [] }` records keyed by stable `id`.
 - `data/terminology/entries.json` contains `{ "schemaVersion": 1, "entries": [] }` records with an explicit `key` that must equal `conceptId`.
 
-The validator loads these files together with the current `public/models/atlas.json`. The runtime overlay and source catalog in `app/terminology.ts` remain empty in M02A; this deliberate validation/runtime boundary prevents an unreviewed registry edit from becoming displayable before the reviewed pilot integration milestone. The registry is not a UI dictionary, geometry manifest, backend database, or translation cache.
+The validator loads these files together with the current `public/models/atlas.json`, and the Vite runtime bundles the same files through `app/terminology-data.ts`. The current documents are empty, so the runtime overlay and source catalog are empty. Future records must pass the validator and release gate before they can display or search as Vietnamese medical terminology. The registry is not a UI dictionary, geometry manifest, backend database, or translation cache.
 
 Every source record requires a title, source class, explicit capability flags, and an audit object. Optional bibliographic metadata includes authors, institution, edition, publication year, publisher, ISBN, URL, access date, language, version, and license note. Placeholder metadata such as `TODO`, `TBD`, `UNKNOWN`, `PLACEHOLDER`, or `N/A` is invalid.
 
