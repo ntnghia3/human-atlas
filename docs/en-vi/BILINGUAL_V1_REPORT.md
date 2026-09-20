@@ -6,7 +6,7 @@
 - Readiness: **READY TO DEPLOY** for static Vercel validation/deployment; deployment was intentionally not executed in this task.
 - Branch: `feature/en-vi-source-registry`
 - Starting commit: `6ac7f370503581fdb14a40926684ce82168e5867`
-- Final commit: recorded in the final handoff after the final verification commit.
+- Final implementation commit: `2634197` (`feat: complete bilingual functional v1`).
 - Scope boundary: functional bilingual UI only. M03 terminology research, source expansion, bulk translation, and production deployment were not started.
 
 ## Implemented
