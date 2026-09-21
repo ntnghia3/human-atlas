@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "M04B2G-RUN-MANIFEST-1",
+  "milestone": "M04B2G",
+  "git": {
+    "branch": "main",
+    "head": "06f73cc80cbcc12b30b5bb682eed703ec45de925"
+  },
+  "atlas": {
+    "path": "public/models/atlas.json",
+    "conceptCount": 3432,
+    "sha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee"
+  },
+  "baseline": {
+    "eligibleConcepts": 421,
+    "source": "data/terminology/research/m04b2e-bulk-match-results.json",
+    "note": "Starting research baseline only; not a target."
+  },
+  "inputs": [
+    {
+      "sourceId": "NVH2008",
+      "sourceKey": "NVH2008_APPROVED",
+      "role": "primary_bilingual",
+      "path": "data/terminology/research/corpora/m04b2e2r-nvh2008-exhaustive.jsonl",
+      "rows": 430,
+      "approvedRows": 430,
+      "sha256": "bea7c414b19279128cb2f0e5bd3af2daff05c15de31f08744c4210e9a91b9f71"
+    },
+    {
+      "sourceId": "NATIONAL_BODY_TERMS_2025",
+      "sourceKey": "MOH2025_BODY_STRUCTURE",
+      "role": "official_bilingual_candidate",
+      "path": "data/terminology/research/corpora/m04b2e2r-moh2025-body-structure.jsonl",
+      "rows": 1506,
+      "approvedRows": 1506,
+      "sha256": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820"
+    },
+    {
+      "sourceId": "HMU2022",
+      "sourceKey": "HMU2022",
+      "role": "qualified_bilingual_corroboration",
+      "path": "data/terminology/research/corpora/hmu2022-attestations.jsonl",
+      "rows": 31,
+      "approvedRows": 31,
+      "sha256": "c8a795acfbbfca2107f19d5fb7b8b6557bd7670d0a5488e2192c1e7e51cd56dd"
+    },
+    {
+      "sourceId": "UMP2023_T2",
+      "sourceKey": "UMP2023_T2",
+      "role": "qualified_bilingual_corroboration",
+      "path": "data/terminology/research/corpora/ump2023-t2-bulk-attestations.jsonl",
+      "rows": 12,
+      "approvedRows": 12,
+      "sha256": "47c274cae6c5221c45adb73decc107311290c8b0004ec9893c1725a57b266ee9"
+    },
+    {
+      "sourceId": "FIPAT_TA2",
+      "sourceKey": "FIPAT_TA2",
+      "role": "identity_only",
+      "path": "data/terminology/research/corpora/fipat-ta2-2019.jsonl",
+      "rows": 7112,
+      "approvedRows": 7112,
+      "sha256": "e982d736b5bb47e54e538d42984c9e899b376cc3fa9bc7a57d3a91591a13ceec"
+    }
+  ],
+  "outputs": {
+    "translationClaims": "data/terminology/research/m04b2g/translation-claims.jsonl",
+    "conceptDecisions": "data/terminology/research/m04b2g/concept-decisions.jsonl",
+    "derivationRules": "data/terminology/research/m04b2g/derivation-rules.json",
+    "closureSummary": "data/terminology/research/m04b2g/closure-summary.json",
+    "unresolvedReview": "data/terminology/research/m04b2g/unresolved-review.jsonl",
+    "sourceContribution": "data/terminology/research/m04b2g/source-contribution.json"
+  },
+  "outputHashes": {
+    "data/terminology/research/m04b2g/translation-claims.jsonl": "981be63301c07578389c8fc9bded386be8d3c25c53a0e099e0dc72078ab745c5",
+    "data/terminology/research/m04b2g/concept-decisions.jsonl": "846cbb91a047f5dfbb6699b120b9080205a30f4ce8ebdbf9258d00c8ff545f39",
+    "data/terminology/research/m04b2g/derivation-rules.json": "a407956e8b80752498b45c77a9710624f65b2f7b07d2a0a8f215368207fd7c31",
+    "data/terminology/research/m04b2g/closure-summary.json": "17de8f349c1b34573e578687b3741987ee50ee70bbfa20ec6f3c598c028f95d1",
+    "data/terminology/research/m04b2g/unresolved-review.jsonl": "ac4cd2cc268e5c950e9497a83cb1e81ec8e56d04205ab8ba171ab6778d0719c1",
+    "data/terminology/research/m04b2g/source-contribution.json": "767a13e8876b73972c271af98847083c2baf1f4909916fe53e1c6196a690992f"
+  },
+  "productionHashes": {
+    "data/terminology/entries.json": "b21a8741b3522644bf021470a27fa843464b10eb99d10bca9b05441b5351d28a",
+    "data/terminology/reviewers.json": "3015971a9083a4be10471597c79d7cf1f382a0255bccba7d6be679185930dbd2",
+    "data/terminology/release.json": "ad805ff4153e735d3bd3167a421d8c388f4a0b5b797f2eb04b2f30ead9d6ad21"
+  },
+  "productionSafety": {
+    "searchableVietnamese": 0,
+    "sourceVerified": 0,
+    "medicallyReviewed": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED"
+  },
+  "policy": {
+    "aiTranslation": false,
+    "umlsRequired": false,
+    "strictFmaSnomedBridgeRequired": false,
+    "preferredTermAdjudication": false,
+    "medicalReview": false,
+    "productionPromotion": false,
+    "safeEnglishNormalization": "Unicode NFKC, edge/collapsed whitespace, case, punctuation normalization only; scope words are retained.",
+    "vietnameseAgreement": "NFC, whitespace and configured harmless punctuation only; no accent folding.",
+    "noMajorityOrAgeWinner": true
+  },
+  "determinism": {
+    "generatedAtOmitted": true,
+    "noRandomness": true,
+    "noNetwork": true,
+    "noAiGeneration": true
+  }
+}

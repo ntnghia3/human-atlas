@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "M04B2G-CLOSURE-SUMMARY-1",
+  "milestone": "M04B2G",
+  "totalConcepts": 3432,
+  "terminalConcepts": 3432,
+  "unclassifiedConcepts": 0,
+  "currentBaselineEligible": 421,
+  "terminalDispositionCounts": {
+    "MULTI_AUTHORITY_AGREEMENT": 14,
+    "DIRECT_AUTHORITY_TRANSLATION": 395,
+    "AUTHORITY_VARIANT": 0,
+    "SOURCE_CONFLICT": 9,
+    "CONTROLLED_DERIVED_TRANSLATION": 0,
+    "SCOPE_REVIEW": 599,
+    "IDENTITY_REVIEW": 0,
+    "NO_DIRECT_AUTHORITY_ATTESTATION": 2415
+  },
+  "conceptsWithAtLeastOneVietnameseCandidate": 1017,
+  "conceptsWithDirectSourceAttestedVietnamese": 418,
+  "conceptsWithDerivedOnlyVietnamese": 0,
+  "conceptsWithMultipleCandidateForms": 716,
+  "conceptsWithZeroVietnameseCandidate": 2415,
+  "coveragePercentages": {
+    "candidate": 29.63,
+    "direct": 12.18,
+    "derivedOnly": 0
+  },
+  "mohContribution": {
+    "rows": 1506,
+    "categories": {
+      "exactLocalizationIdentityMatch": 0,
+      "exactSynonymLocalizationMatch": 0,
+      "scopeBlocked": 1501,
+      "lateralityBlocked": 2,
+      "multipleAtlasTargets": 0,
+      "noAtlasIdentity": 0,
+      "acceptedDirectCandidate": 3
+    },
+    "categorySum": 1506,
+    "matchMethods": {
+      "exactLocalizationIdentityMatch": 0,
+      "exactSynonymLocalizationMatch": 3
+    },
+    "acceptedDirectCandidate": 3,
+    "exactLocalizationIdentityMatch": 0,
+    "exactSynonymLocalizationMatch": 3,
+    "scopeBlocked": 1501,
+    "lateralityBlocked": 2,
+    "multipleAtlasTargets": 0,
+    "noAtlasIdentity": 0,
+    "accountingRowCount": 1506,
+    "uniqueAccountingRows": 1506,
+    "accountingRowDigest": "80534d7dab8750de7b970f09dd034241a0d7c28fabe5de34c3d15974ca30e5ad"
+  },
+  "nvhContribution": {
+    "exactRetainedRowsUsed": 430,
+    "conceptsContributed": 397,
+    "uniqueContribution": 397,
+    "variants": 0,
+    "conflicts": 7,
+    "quarantinedRowsExcluded": 28
+  },
+  "derivationRuleContribution": [
+    {
+      "ruleId": "M04B2G-LATERALITY-001",
+      "conceptCount": 0,
+      "examples": [
+        "right renal artery"
+      ],
+      "sourceDependencies": [
+        "base concept direct authority claim",
+        "independent Vietnamese side modifier attestation"
+      ],
+      "rejectedCases": [
+        "existing source conflict",
+        "scope qualifier",
+        "unsided source",
+        "branch/segment/part-whole relation"
+      ]
+    },
+    {
+      "ruleId": "M04B2G-ORDINAL-001",
+      "conceptCount": 0,
+      "examples": [
+        "first lumbar artery"
+      ],
+      "sourceDependencies": [
+        "exact family base authority claim",
+        "explicit ordinal modifier attestation",
+        "pinned Vietnamese placement convention"
+      ],
+      "rejectedCases": [
+        "branch hierarchy",
+        "segment",
+        "lobule",
+        "region boundary",
+        "aggregate/group/set",
+        "source conflict"
+      ]
+    }
+  ],
+  "productionSafety": {
+    "searchableVietnamese": 0,
+    "sourceVerified": 0,
+    "medicallyReviewed": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED"
+  },
+  "policy": {
+    "aiTranslation": false,
+    "umlsRequired": false,
+    "strictFmaSnomedBridgeRequired": false,
+    "preferredTermAdjudication": false,
+    "medicalReview": false,
+    "productionPromotion": false,
+    "safeEnglishNormalization": "Unicode NFKC, edge/collapsed whitespace, case, punctuation normalization only; scope words are retained.",
+    "vietnameseAgreement": "NFC, whitespace and configured harmless punctuation only; no accent folding.",
+    "noMajorityOrAgeWinner": true
+  }
+}

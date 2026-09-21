@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "M04B2G-DERIVATION-REGISTRY-1",
+  "milestone": "M04B2G",
+  "researchOnly": true,
+  "rules": [
+    {
+      "ruleId": "M04B2G-LATERALITY-001",
+      "version": "1.0.0",
+      "operation": "PLACE_ATTESTED_VIETNAMESE_LATERALITY_MODIFIER",
+      "eligibleConceptPattern": "exact atlas base plus explicit left/right side",
+      "requiredEvidence": [
+        "base concept direct authority claim",
+        "independent Vietnamese side modifier attestation"
+      ],
+      "VietnameseRealization": "approved source-specific side-placement rule required; no fallback spelling",
+      "disqualifiers": [
+        "existing source conflict",
+        "scope qualifier",
+        "unsided source",
+        "branch/segment/part-whole relation"
+      ],
+      "testCases": [
+        {
+          "id": "LAT-001-UNAPPLIED",
+          "input": "right renal artery",
+          "expected": null,
+          "status": "NOT_APPLIED_NO_APPROVED_COMPONENTS"
+        }
+      ],
+      "appliedConceptCount": 0
+    },
+    {
+      "ruleId": "M04B2G-ORDINAL-001",
+      "version": "1.0.0",
+      "operation": "PLACE_EXPLICIT_ORDINAL_WITH_EXACT_BASE",
+      "eligibleConceptPattern": "exact numbered member of an attested family",
+      "requiredEvidence": [
+        "exact family base authority claim",
+        "explicit ordinal modifier attestation",
+        "pinned Vietnamese placement convention"
+      ],
+      "VietnameseRealization": "no composition emitted until a pinned placement convention is present",
+      "disqualifiers": [
+        "branch hierarchy",
+        "segment",
+        "lobule",
+        "region boundary",
+        "aggregate/group/set",
+        "source conflict"
+      ],
+      "testCases": [
+        {
+          "id": "ORD-001-UNAPPLIED",
+          "input": "first lumbar artery",
+          "expected": null,
+          "status": "NOT_APPLIED_NO_APPROVED_COMPONENTS"
+        }
+      ],
+      "appliedConceptCount": 0
+    }
+  ],
+  "derivedClaimsEmitted": 0,
+  "policy": "No ad hoc derivation rules are executed in M04B2G; registry entries are explicit and conservative."
+}

@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "M04B2G-SOURCE-CONTRIBUTION-1",
+  "sources": [
+    {
+      "sourceId": "NVH2008",
+      "sourceKey": "NVH2008_APPROVED",
+      "role": "primary_bilingual",
+      "sourcePath": "data/terminology/research/corpora/m04b2e2r-nvh2008-exhaustive.jsonl",
+      "inputRows": 430,
+      "bilingualRows": 430,
+      "approvedRows": 430,
+      "directClaims": 426,
+      "contributedConcepts": 397,
+      "excludedRows": 0
+    },
+    {
+      "sourceId": "NATIONAL_BODY_TERMS_2025",
+      "sourceKey": "MOH2025_BODY_STRUCTURE",
+      "role": "official_bilingual_candidate",
+      "sourcePath": "data/terminology/research/corpora/m04b2e2r-moh2025-body-structure.jsonl",
+      "inputRows": 1506,
+      "bilingualRows": 1506,
+      "approvedRows": 1506,
+      "directClaims": 3,
+      "contributedConcepts": 3,
+      "excludedRows": 0
+    },
+    {
+      "sourceId": "HMU2022",
+      "sourceKey": "HMU2022",
+      "role": "qualified_bilingual_corroboration",
+      "sourcePath": "data/terminology/research/corpora/hmu2022-attestations.jsonl",
+      "inputRows": 31,
+      "bilingualRows": 31,
+      "approvedRows": 31,
+      "directClaims": 31,
+      "contributedConcepts": 31,
+      "excludedRows": 0
+    },
+    {
+      "sourceId": "UMP2023_T2",
+      "sourceKey": "UMP2023_T2",
+      "role": "qualified_bilingual_corroboration",
+      "sourcePath": "data/terminology/research/corpora/ump2023-t2-bulk-attestations.jsonl",
+      "inputRows": 12,
+      "bilingualRows": 12,
+      "approvedRows": 12,
+      "directClaims": 12,
+      "contributedConcepts": 12,
+      "excludedRows": 0
+    },
+    {
+      "sourceId": "FIPAT_TA2",
+      "sourceKey": "FIPAT_TA2",
+      "role": "identity_only",
+      "sourcePath": "data/terminology/research/corpora/fipat-ta2-2019.jsonl",
+      "inputRows": 7112,
+      "bilingualRows": 0,
+      "approvedRows": 7112,
+      "directClaims": 0,
+      "contributedConcepts": 0,
+      "excludedRows": 0
+    },
+    {
+      "sourceId": "NVH2008_UNAPPROVED_BULK",
+      "sourceKey": "NVH2008_BULK_QUARANTINED",
+      "role": "excluded_parser_integrity",
+      "sourcePath": "data/terminology/research/corpora/nvh2008-bulk.jsonl",
+      "inputRows": 458,
+      "bilingualRows": null,
+      "approvedRows": 0,
+      "directClaims": 0,
+      "contributedConcepts": 0,
+      "excludedRows": 28,
+      "allRowsExcluded": 458,
+      "exclusionReason": "Parser-integrity gate: only m04b2e2r-nvh2008-exhaustive.jsonl EXACT_RECONSTRUCTED_SOURCE_ROW rows are eligible."
+    },
+    {
+      "sourceId": "NQQ",
+      "status": "NOT_LOCAL",
+      "reason": "No registered local corpus or parser output.",
+      "inputRows": 0,
+      "directClaims": 0,
+      "contributedConcepts": 0
+    },
+    {
+      "sourceId": "HUE",
+      "status": "NOT_LOCAL",
+      "reason": "No registered local corpus or parser output.",
+      "inputRows": 0,
+      "directClaims": 0,
+      "contributedConcepts": 0
+    },
+    {
+      "sourceId": "NETTER_VIETNAMESE",
+      "status": "NOT_LOCAL",
+      "reason": "No registered local corpus or parser output.",
+      "inputRows": 0,
+      "directClaims": 0,
+      "contributedConcepts": 0
+    },
+    {
+      "sourceId": "TRINH_VAN_MINH",
+      "status": "NOT_LOCAL",
+      "reason": "No registered local corpus or parser output.",
+      "inputRows": 0,
+      "directClaims": 0,
+      "contributedConcepts": 0
+    },
+    {
+      "sourceId": "UMP2023_T1",
+      "status": "NOT_LOCAL",
+      "reason": "No registered local corpus or parser output.",
+      "inputRows": 0,
+      "directClaims": 0,
+      "contributedConcepts": 0
+    }
+  ],
+  "totals": {
+    "directClaims": 472,
+    "conceptsWithDirectClaims": 418
+  },
+  "duplicatePacksExcluded": [
+    {
+      "path": "data/terminology/research/corpora/m04b2c-vi-authority.jsonl",
+      "reason": "Exact duplicate of HMU2022/UMP2023_T2 rows; not counted as an independent authority."
+    }
+  ]
+}
