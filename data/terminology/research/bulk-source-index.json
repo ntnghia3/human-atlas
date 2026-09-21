@@ -10,11 +10,12 @@
     "mapDStrokeToD": true
   },
   "inputFiles": [
-    "data/terminology/research/corpora/fipat-ta2-2019.jsonl"
+    "data/terminology/research/corpora/fipat-ta2-2019.jsonl",
+    "data/terminology/research/corpora/nvh2008-public-research-seed.jsonl"
   ],
   "sourceCatalogRevision": "m04a-source-93b641cb",
-  "inputRecordCount": 7112,
-  "indexedRecordCount": 7112,
+  "inputRecordCount": 7140,
+  "indexedRecordCount": 7140,
   "duplicateEvidenceRecordCount": 0,
   "unresolvedSourceIds": [],
   "sourceRevisionMismatches": [],
@@ -17271,6 +17272,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-15f81e8e",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A03.2.02.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 94
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Symphysis of vertebral column",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Khớp sụn-sợi của cột sống",
+          "aliases": []
+        },
+        "sourceTermRaw": "Symphysis of vertebral column",
+        "anatomicalCategory": "Joint",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A03.2.02.001"
+        ],
+        "terminologyIds": [
+          "A03.2.02.001"
+        ],
+        "notes": "Generic vertebral-column term; do not auto-compose per-level atlas labels."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-15fc7757",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -25017,6 +25051,39 @@
         "sourceTermRaw": "Caput longum musculi bicipitis femoris",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-20469c6e",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.2.04.006",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 122
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Sternothyroid",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cơ ức-giáp",
+          "aliases": []
+        },
+        "sourceTermRaw": "Sternothyroid",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.2.04.006"
+        ],
+        "terminologyIds": [
+          "A04.2.04.006"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
       },
       "duplicateCount": 1
     },
@@ -32977,6 +33044,41 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-2a1282f2",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A14.2.01.026",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Communicating branch of nasociliary nerve with ciliary ganglion",
+          "aliases": [
+            "Sensory root",
+            "Nasociliary root"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Nhánh nối của thần kinh mũi-mi với hạch mi",
+          "aliases": []
+        },
+        "sourceTermRaw": "Communicating branch of nasociliary nerve with ciliary ganglion",
+        "anatomicalCategory": "Nerve",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A14.2.01.026"
+        ],
+        "terminologyIds": [
+          "A14.2.01.026"
+        ],
+        "notes": "Standalone atlas wording/scope remains identity-context review."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-2a2cde59",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -37775,6 +37877,39 @@
         "sourceTermRaw": "Nodilymphoideiparietales pelvis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part IV; Caput XIII: ORGANA LYMPHOIDEA Chapter 13: LYMPHOID ORGANS",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-2f8facee",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A06.2.03.009",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 199
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Median cricothyroid ligament",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Dây chằng nhẫn-giáp giữa",
+          "aliases": []
+        },
+        "sourceTermRaw": "Median cricothyroid ligament",
+        "anatomicalCategory": "Ligament",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A06.2.03.009"
+        ],
+        "terminologyIds": [
+          "A06.2.03.009"
+        ],
+        "notes": "Do not promote bare 'dây chằng nhẫn-giáp' as equivalent alias automatically."
       },
       "duplicateCount": 1
     },
@@ -44427,6 +44562,41 @@
         "sourceTermRaw": "Pes",
         "context": "FIPAT Terminologia Anatomica, TA2 Part I; Caput I: ANATOMIA GENERALIS Chapter 1: GENERAL ANATOMY",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-37d39de5",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A05.5.01.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 176
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Stomach",
+          "aliases": [
+            "Vị"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Dạ dày",
+          "aliases": []
+        },
+        "sourceTermRaw": "Stomach",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A05.5.01.001"
+        ],
+        "terminologyIds": [
+          "A05.5.01.001"
+        ],
+        "notes": "NVH2008 source heading gives DẠ DÀY; VỊ; alias search/release remains separately gated."
       },
       "duplicateCount": 1
     },
@@ -65148,6 +65318,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-52063394",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A12.2.08.043",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 292
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Inferior thyroid artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch giáp dưới",
+          "aliases": []
+        },
+        "sourceTermRaw": "Inferior thyroid artery",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A12.2.08.043"
+        ],
+        "terminologyIds": [
+          "A12.2.08.043"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-5207bbad",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -71050,6 +71253,38 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-5990f770",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.0.00.045",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Intermediate tendon",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Gân trung gian",
+          "aliases": []
+        },
+        "sourceTermRaw": "Intermediate tendon",
+        "anatomicalCategory": "Tendon",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.0.00.045"
+        ],
+        "terminologyIds": [
+          "A04.0.00.045"
+        ],
+        "notes": "Generic source term; atlas FMA65410 context requires separate identity/scope review."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-599b322c",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -72091,6 +72326,40 @@
         "sourceTermRaw": "Bronchiolus",
         "context": "FIPAT Terminologia Anatomica, TA2 Part III; Caput VI: SYSTEMA RESPIRATORIUM Chapter 6: RESPIRATORY SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-5b1422f3",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.7.03.021",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Deep fascia of leg",
+          "aliases": [
+            "Mạc sâu cẳng chân"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Mạc cẳng chân",
+          "aliases": []
+        },
+        "sourceTermRaw": "Deep fascia of leg",
+        "anatomicalCategory": "Fascia/connective",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.7.03.021"
+        ],
+        "terminologyIds": [
+          "A04.7.03.021"
+        ],
+        "notes": "Related fascia vocabulary only; not evidence for broad deep fascial system."
       },
       "duplicateCount": 1
     },
@@ -82498,6 +82767,38 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-68ca5c6e",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A02.5.12.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Navicular",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương thuyền",
+          "aliases": []
+        },
+        "sourceTermRaw": "Navicular",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A02.5.12.001"
+        ],
+        "terminologyIds": [
+          "A02.5.12.001"
+        ],
+        "notes": "Foot-navicular entry in NVH2008; preserve project conflict with UMP lineage using 'xương ghe'."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-68cab370",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -88851,6 +89152,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-7207e483",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A05.9.01.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 192
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Pancreas",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tụy",
+          "aliases": []
+        },
+        "sourceTermRaw": "Pancreas",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A05.9.01.001"
+        ],
+        "terminologyIds": [
+          "A05.9.01.001"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-7217d6ec",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -91570,6 +91904,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-7516acff",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A06.2.02.017",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 199
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Lateral thyrohyoid ligament",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Dây chằng giáp-móng bên",
+          "aliases": []
+        },
+        "sourceTermRaw": "Lateral thyrohyoid ligament",
+        "anatomicalCategory": "Ligament",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A06.2.02.017"
+        ],
+        "terminologyIds": [
+          "A06.2.02.017"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-75186cfd",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -93697,6 +94064,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-77856d18",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A12.2.08.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 289
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Subclavian artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch dưới đòn",
+          "aliases": []
+        },
+        "sourceTermRaw": "Subclavian artery",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A12.2.08.001"
+        ],
+        "terminologyIds": [
+          "A12.2.08.001"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-7786e0f7",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -95153,6 +95553,39 @@
         "sourceTermRaw": "Substantia intermedia lateralis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-79b7710a",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.4.01.012",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 129
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "External intercostal muscles",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Các cơ gian sườn ngoài",
+          "aliases": []
+        },
+        "sourceTermRaw": "External intercostal muscles",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.4.01.012"
+        ],
+        "terminologyIds": [
+          "A04.4.01.012"
+        ],
+        "notes": "Source entry is plural; do not silently singularize for atlas concept."
       },
       "duplicateCount": 1
     },
@@ -97342,6 +97775,41 @@
         "sourceTermRaw": "Processus spinosus",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput II: OSSA Chapter 2: BONES",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-7d017b12",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A13.2.01.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 343
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Spleen",
+          "aliases": [
+            "Lách"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Tỳ",
+          "aliases": []
+        },
+        "sourceTermRaw": "Spleen",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A13.2.01.001"
+        ],
+        "terminologyIds": [
+          "A13.2.01.001"
+        ],
+        "notes": "NVH2008 explicitly gives both Tỳ and Lách; preferred-form adjudication remains open."
       },
       "duplicateCount": 1
     },
@@ -108393,6 +108861,40 @@
         "sourceTermRaw": "Pars posterior linguae",
         "context": "FIPAT Terminologia Anatomica, TA2 Part III; Caput V: SYSTEMA DIGESTORIUM Chapter 5: DIGESTIVE SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-8baab227",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.7.01.005",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Anterior compartment of leg",
+          "aliases": [
+            "Extensor compartment of leg"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Ngăn cơ cẳng chân trước",
+          "aliases": []
+        },
+        "sourceTermRaw": "Anterior compartment of leg",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.7.01.005"
+        ],
+        "terminologyIds": [
+          "A04.7.01.005"
+        ],
+        "notes": "NVH2008 also gives Vietnamese alternate 'Ngăn cơ duỗi của cẳng chân'."
       },
       "duplicateCount": 1
     },
@@ -126272,6 +126774,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-a32a21f9",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A14.2.01.006",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 462
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Optic nerve [II]",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Thần kinh thị giác [II]",
+          "aliases": []
+        },
+        "sourceTermRaw": "Optic nerve [II]",
+        "anatomicalCategory": "Nerve",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A14.2.01.006"
+        ],
+        "terminologyIds": [
+          "A14.2.01.006"
+        ],
+        "notes": "Unsided base term only; do not auto-compose right/left."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-a33103e1",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -135151,6 +135686,40 @@
         "sourceTermRaw": "Sulcus corporis callosi",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-af1dea47",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.7.01.004",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Medial compartment of thigh",
+          "aliases": [
+            "Adductor compartment of thigh"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Ngăn cơ đùi trong",
+          "aliases": []
+        },
+        "sourceTermRaw": "Medial compartment of thigh",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.7.01.004"
+        ],
+        "terminologyIds": [
+          "A04.7.01.004"
+        ],
+        "notes": "NVH2008 also gives Vietnamese alternate 'Ngăn cơ khép của đùi'."
       },
       "duplicateCount": 1
     },
@@ -149782,6 +150351,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-c27a31cb",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A02.1.02.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 30
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Parietal bone",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương đỉnh",
+          "aliases": []
+        },
+        "sourceTermRaw": "Parietal bone",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A02.1.02.001"
+        ],
+        "terminologyIds": [
+          "A02.1.02.001"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-c2877abf",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -150886,6 +151488,38 @@
         "sourceTermRaw": "Tunica serosa hepatis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part III; Caput V: SYSTEMA DIGESTORIUM Chapter 5: DIGESTIVE SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-c3a2c6bd",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.7.03.002",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Fascia lata",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Mạc đùi",
+          "aliases": []
+        },
+        "sourceTermRaw": "Fascia lata",
+        "anatomicalCategory": "Fascia/connective",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.7.03.002"
+        ],
+        "terminologyIds": [
+          "A04.7.03.002"
+        ],
+        "notes": "Do not collapse atlas 'zone of fascia lata' to fascia lata itself."
       },
       "duplicateCount": 1
     },
@@ -156356,6 +156990,40 @@
         "sourceTermRaw": "Axis internus bulbi oculi",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XV: ORGANA SENSUUM Chapter 15: SENSE ORGANS",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-cab4f4d3",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A11.5.00.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Suprarenal gland",
+          "aliases": [
+            "Adrenal gland"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Tuyến thượng thận",
+          "aliases": []
+        },
+        "sourceTermRaw": "Suprarenal gland",
+        "anatomicalCategory": "Gland",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A11.5.00.001"
+        ],
+        "terminologyIds": [
+          "A11.5.00.001"
+        ],
+        "notes": "Unsided base term only; side-specific atlas labels remain review-gated."
       },
       "duplicateCount": 1
     },
@@ -161958,6 +162626,38 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-d28b8c5b",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A08.1.01.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Kidney",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Thận",
+          "aliases": []
+        },
+        "sourceTermRaw": "Kidney",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A08.1.01.001"
+        ],
+        "terminologyIds": [
+          "A08.1.01.001"
+        ],
+        "notes": "Unsided base term; atlas concept with paired meshes remains scope review."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-d294272f",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -164149,6 +164849,38 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-d55b28fe",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A12.3.04.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Brachiocephalic vein",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tĩnh mạch cánh tay đầu",
+          "aliases": []
+        },
+        "sourceTermRaw": "Brachiocephalic vein",
+        "anatomicalCategory": "Vein",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A12.3.04.001"
+        ],
+        "terminologyIds": [
+          "A12.3.04.001"
+        ],
+        "notes": "Project variant review must preserve modern 'tĩnh mạch tay đầu' evidence separately."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-d5848f19",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -165057,6 +165789,41 @@
         "sourceTermRaw": "Distantia intertrochanterica",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput II: OSSA Chapter 2: BONES",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-d69a4e8c",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A02.5.01.001",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Hip bone",
+          "aliases": [
+            "Coxal bone",
+            "Pelvic bone"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Xương chậu",
+          "aliases": []
+        },
+        "sourceTermRaw": "Hip bone",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A02.5.01.001"
+        ],
+        "terminologyIds": [
+          "A02.5.01.001"
+        ],
+        "notes": "Unsided base term only; do not auto-compose right/left atlas labels."
       },
       "duplicateCount": 1
     },
@@ -171202,6 +171969,39 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-df1cb3c5",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A12.2.08.063",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 293
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Second posterior intercostal artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch gian sườn sau thứ hai",
+          "aliases": []
+        },
+        "sourceTermRaw": "Second posterior intercostal artery",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A12.2.08.063"
+        ],
+        "terminologyIds": [
+          "A12.2.08.063"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-df2517dc",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -175125,6 +175925,40 @@
         "sourceTermRaw": "Sutura ethmoidomaxillaris",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput III: JUNCTURAE Chapter 3: JOINTS",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-e4751213",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.7.01.003",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Posterior compartment of thigh",
+          "aliases": [
+            "Flexor compartment of thigh"
+          ]
+        },
+        "vietnamese": {
+          "preferred": "Ngăn cơ đùi sau",
+          "aliases": []
+        },
+        "sourceTermRaw": "Posterior compartment of thigh",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.7.01.003"
+        ],
+        "terminologyIds": [
+          "A04.7.01.003"
+        ],
+        "notes": "NVH2008 also gives Vietnamese alternate 'Ngăn cơ gấp của đùi'."
       },
       "duplicateCount": 1
     },
@@ -184066,6 +184900,39 @@
         "sourceTermRaw": "Regio metatarsea",
         "context": "FIPAT Terminologia Anatomica, TA2 Part I; Caput I: ANATOMIA GENERALIS Chapter 1: GENERAL ANATOMY",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-ef8f908d",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A04.7.02.048",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 148
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Calcaneal tendon",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Gân gót",
+          "aliases": []
+        },
+        "sourceTermRaw": "Calcaneal tendon",
+        "anatomicalCategory": "Tendon",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A04.7.02.048"
+        ],
+        "terminologyIds": [
+          "A04.7.02.048"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
       },
       "duplicateCount": 1
     },
@@ -194242,6 +195109,38 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-fc2cdd70",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A03.6.10.517",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Long plantar ligament",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Dây chằng gan chân dài",
+          "aliases": []
+        },
+        "sourceTermRaw": "Long plantar ligament",
+        "anatomicalCategory": "Ligament",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A03.6.10.517"
+        ],
+        "terminologyIds": [
+          "A03.6.10.517"
+        ],
+        "notes": "Unsided base term only; side-specific atlas labels remain review-gated."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-fc3fa697",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -194461,6 +195360,39 @@
         "sourceTermRaw": "Anulus lymphoideus pharyngis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part IV; Caput XIII: ORGANA LYMPHOIDEA Chapter 13: LYMPHOID ORGANS",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-fcc16545",
+      "record": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "sourceEdition": "2008",
+        "locator": {
+          "entryId": "A12.3.08.002",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "page": 332
+        },
+        "sourceLanguage": "English; Vietnamese",
+        "english": {
+          "preferred": "Subclavian vein",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tĩnh mạch dưới đòn",
+          "aliases": []
+        },
+        "sourceTermRaw": "Subclavian vein",
+        "anatomicalCategory": "Vein",
+        "laterality": "unsided",
+        "sourceCodes": [
+          "A12.3.08.002"
+        ],
+        "terminologyIds": [
+          "A12.3.08.002"
+        ],
+        "notes": "Exact NVH2008 bilingual terminology entry."
       },
       "duplicateCount": 1
     },
@@ -198167,7 +199099,8 @@
         "m04a-d7b9983f"
       ],
       "adductor compartment of thigh": [
-        "m04a-90e7425f"
+        "m04a-90e7425f",
+        "m04a-af1dea47"
       ],
       "adductor hallucis": [
         "m04a-b2e615f8"
@@ -198215,7 +199148,8 @@
         "m04a-e132d98a"
       ],
       "adrenal gland": [
-        "m04a-366a8822"
+        "m04a-366a8822",
+        "m04a-cab4f4d3"
       ],
       "adrenal medulla": [
         "m04a-c9ad65b8"
@@ -198767,7 +199701,8 @@
         "m04a-402a5803"
       ],
       "anterior compartment of leg": [
-        "m04a-775cd4a6"
+        "m04a-775cd4a6",
+        "m04a-8baab227"
       ],
       "anterior compartment of thigh": [
         "m04a-13e1d0c8"
@@ -200951,7 +201886,8 @@
         "m04a-a3c2edc0"
       ],
       "brachiocephalic vein": [
-        "m04a-5520077b"
+        "m04a-5520077b",
+        "m04a-d55b28fe"
       ],
       "brachioradialis muscle": [
         "m04a-3145ddb5"
@@ -201282,7 +202218,8 @@
         "m04a-475560a2"
       ],
       "calcaneal tendon": [
-        "m04a-b0ec5432"
+        "m04a-b0ec5432",
+        "m04a-ef8f908d"
       ],
       "calcaneal tubercle": [
         "m04a-e37e37f6"
@@ -202545,6 +203482,9 @@
       "communicating branch of fibular artery": [
         "m04a-6d54995d"
       ],
+      "communicating branch of nasociliary nerve with ciliary ganglion": [
+        "m04a-2a1282f2"
+      ],
       "communicating branch of nerve": [
         "m04a-df0293cc"
       ],
@@ -202957,7 +203897,8 @@
         "m04a-01244291"
       ],
       "coxal bone": [
-        "m04a-27445545"
+        "m04a-27445545",
+        "m04a-d69a4e8c"
       ],
       "cranial": [
         "m04a-e8b2794e"
@@ -203504,6 +204445,7 @@
         "m04a-28f2b7c6"
       ],
       "deep fascia of leg": [
+        "m04a-5b1422f3",
         "m04a-cc71ab48"
       ],
       "deep fascia of penis": [
@@ -204878,7 +205820,8 @@
         "m04a-0803d0d6"
       ],
       "extensor compartment of leg": [
-        "m04a-775cd4a6"
+        "m04a-775cd4a6",
+        "m04a-8baab227"
       ],
       "extensor compartment of thigh": [
         "m04a-13e1d0c8"
@@ -205012,6 +205955,7 @@
         "m04a-ae4af090"
       ],
       "external intercostal muscles": [
+        "m04a-79b7710a",
         "m04a-8eb068ed"
       ],
       "external jugular vein": [
@@ -205270,7 +206214,8 @@
         "m04a-40c3d99c"
       ],
       "fascia lata": [
-        "m04a-6ba53109"
+        "m04a-6ba53109",
+        "m04a-c3a2c6bd"
       ],
       "fascia of abdomen": [
         "m04a-3623153a"
@@ -205755,6 +206700,7 @@
         "m04a-caf76787"
       ],
       "flexor compartment of thigh": [
+        "m04a-e4751213",
         "m04a-fcfb0e65"
       ],
       "flexor digiti minimi brevis muscle of foot": [
@@ -207162,7 +208108,8 @@
         "m04a-b10b1979"
       ],
       "hip bone": [
-        "m04a-27445545"
+        "m04a-27445545",
+        "m04a-d69a4e8c"
       ],
       "hip joint": [
         "m04a-fe9bdfa5"
@@ -208189,6 +209136,7 @@
         "m04a-8c96a916"
       ],
       "inferior thyroid artery": [
+        "m04a-52063394",
         "m04a-98cf2f24"
       ],
       "inferior thyroid notch": [
@@ -208780,6 +209728,7 @@
         "m04a-83b7e90d"
       ],
       "intermediate tendon": [
+        "m04a-5990f770",
         "m04a-f4564e6a"
       ],
       "intermediate tendon of digastric muscle": [
@@ -209578,7 +210527,8 @@
         "m04a-14147c76"
       ],
       "kidney": [
-        "m04a-25cdd1d6"
+        "m04a-25cdd1d6",
+        "m04a-d28b8c5b"
       ],
       "kidney lobe": [
         "m04a-9f6acb5e"
@@ -210523,7 +211473,8 @@
         "m04a-30822326"
       ],
       "lateral thyrohyoid ligament": [
-        "m04a-436381d8"
+        "m04a-436381d8",
+        "m04a-7516acff"
       ],
       "lateral tuberal nucleus": [
         "m04a-c3843200"
@@ -211410,7 +212361,8 @@
         "m04a-556eb40b"
       ],
       "long plantar ligament": [
-        "m04a-483a155e"
+        "m04a-483a155e",
+        "m04a-fc2cdd70"
       ],
       "long posterior ciliary arteries": [
         "m04a-132adb22"
@@ -211759,6 +212711,9 @@
       ],
       "lymphoid system": [
         "m04a-95593327"
+      ],
+      "lách": [
+        "m04a-7d017b12"
       ],
       "macula": [
         "m04a-8093540d"
@@ -212234,7 +213189,8 @@
         "m04a-a6bd2ad6"
       ],
       "medial compartment of thigh": [
-        "m04a-90e7425f"
+        "m04a-90e7425f",
+        "m04a-af1dea47"
       ],
       "medial condyle of femur": [
         "m04a-e18461e7"
@@ -212669,6 +213625,7 @@
         "m04a-0bf3d0b7"
       ],
       "median cricothyroid ligament": [
+        "m04a-2f8facee",
         "m04a-c2877abf"
       ],
       "median cubital vein": [
@@ -213907,6 +214864,9 @@
       "myometrium": [
         "m04a-d25e04fa"
       ],
+      "mạc sâu cẳng chân": [
+        "m04a-5b1422f3"
+      ],
       "nail": [
         "m04a-c8461c35"
       ],
@@ -214007,6 +214967,9 @@
       "nasociliary nerve": [
         "m04a-5d3e91ce"
       ],
+      "nasociliary root": [
+        "m04a-2a1282f2"
+      ],
       "nasofrontal vein": [
         "m04a-d5a0ec82"
       ],
@@ -214039,6 +215002,9 @@
       ],
       "natal cleft": [
         "m04a-6309b4d4"
+      ],
+      "navicular": [
+        "m04a-68ca5c6e"
       ],
       "navicular articular surface": [
         "m04a-f182d1c6"
@@ -214887,6 +215853,9 @@
       "optic nerve": [
         "m04a-6ee9dded"
       ],
+      "optic nerve [ii]": [
+        "m04a-a32a21f9"
+      ],
       "optic part of retina": [
         "m04a-795977c1"
       ],
@@ -215348,6 +216317,7 @@
         "m04a-62f5efd1"
       ],
       "pancreas": [
+        "m04a-7207e483",
         "m04a-79756f53"
       ],
       "pancreatic branches of anterior superior pancreaticoduodenal artery": [
@@ -215642,7 +216612,8 @@
         "m04a-92e43ef4"
       ],
       "parietal bone": [
-        "m04a-55b3f55e"
+        "m04a-55b3f55e",
+        "m04a-c27a31cb"
       ],
       "parietal border of temporal bone": [
         "m04a-bcd99ee9"
@@ -215895,6 +216866,9 @@
       ],
       "pedunculopontine tegmental nucleus": [
         "m04a-9cfce8b4"
+      ],
+      "pelvic bone": [
+        "m04a-d69a4e8c"
       ],
       "pelvic cavity": [
         "m04a-1b3281ff",
@@ -217078,6 +218052,7 @@
         "m04a-caf76787"
       ],
       "posterior compartment of thigh": [
+        "m04a-e4751213",
         "m04a-fcfb0e65"
       ],
       "posterior condylar canal": [
@@ -220056,6 +221031,7 @@
         "m04a-ec533834"
       ],
       "second posterior intercostal artery": [
+        "m04a-df1cb3c5",
         "m04a-fad19268"
       ],
       "second rib": [
@@ -220297,6 +221273,9 @@
       ],
       "sensory nucleus of cranial nerve": [
         "m04a-f4727a7f"
+      ],
+      "sensory root": [
+        "m04a-2a1282f2"
       ],
       "sensory root of ciliary ganglion": [
         "m04a-b329208d"
@@ -221209,7 +222188,8 @@
         "m04a-817189a1"
       ],
       "spleen": [
-        "m04a-3f9b30a8"
+        "m04a-3f9b30a8",
+        "m04a-7d017b12"
       ],
       "splenic artery": [
         "m04a-4519761f"
@@ -221392,6 +222372,9 @@
       "sternopericardial ligaments": [
         "m04a-8f0eb573"
       ],
+      "sternothyroid": [
+        "m04a-20469c6e"
+      ],
       "sternothyroid muscle": [
         "m04a-001f65bb"
       ],
@@ -221399,7 +222382,8 @@
         "m04a-f43b27c2"
       ],
       "stomach": [
-        "m04a-075a55ce"
+        "m04a-075a55ce",
+        "m04a-37d39de5"
       ],
       "straight conjugate": [
         "m04a-cff7b7a4"
@@ -221504,7 +222488,8 @@
         "m04a-a2105add"
       ],
       "subclavian artery": [
-        "m04a-277e9598"
+        "m04a-277e9598",
+        "m04a-77856d18"
       ],
       "subclavian groove": [
         "m04a-c15d25e2"
@@ -221519,7 +222504,8 @@
         "m04a-bba7f742"
       ],
       "subclavian vein": [
-        "m04a-d99f6213"
+        "m04a-d99f6213",
+        "m04a-fcc16545"
       ],
       "subclavius muscle": [
         "m04a-7300a13d"
@@ -223050,7 +224036,8 @@
         "m04a-afb5081f"
       ],
       "suprarenal gland": [
-        "m04a-366a8822"
+        "m04a-366a8822",
+        "m04a-cab4f4d3"
       ],
       "suprarenal impression of liver": [
         "m04a-bce61413"
@@ -223252,6 +224239,9 @@
       ],
       "symphysis": [
         "m04a-9227df96"
+      ],
+      "symphysis of vertebral column": [
+        "m04a-15f81e8e"
       ],
       "synarthrosis": [
         "m04a-fb65569f"
@@ -225916,6 +226906,9 @@
       "vulva": [
         "m04a-3d87cfb5"
       ],
+      "vị": [
+        "m04a-37d39de5"
+      ],
       "walls of cochlea": [
         "m04a-63f5a54a"
       ],
@@ -226950,7 +227943,8 @@
         "m04a-d7b9983f"
       ],
       "adductor compartment of thigh": [
-        "m04a-90e7425f"
+        "m04a-90e7425f",
+        "m04a-af1dea47"
       ],
       "adductor hallucis": [
         "m04a-b2e615f8"
@@ -226998,7 +227992,8 @@
         "m04a-e132d98a"
       ],
       "adrenal gland": [
-        "m04a-366a8822"
+        "m04a-366a8822",
+        "m04a-cab4f4d3"
       ],
       "adrenal medulla": [
         "m04a-c9ad65b8"
@@ -227550,7 +228545,8 @@
         "m04a-402a5803"
       ],
       "anterior compartment of leg": [
-        "m04a-775cd4a6"
+        "m04a-775cd4a6",
+        "m04a-8baab227"
       ],
       "anterior compartment of thigh": [
         "m04a-13e1d0c8"
@@ -229734,7 +230730,8 @@
         "m04a-a3c2edc0"
       ],
       "brachiocephalic vein": [
-        "m04a-5520077b"
+        "m04a-5520077b",
+        "m04a-d55b28fe"
       ],
       "brachioradialis muscle": [
         "m04a-3145ddb5"
@@ -230065,7 +231062,8 @@
         "m04a-475560a2"
       ],
       "calcaneal tendon": [
-        "m04a-b0ec5432"
+        "m04a-b0ec5432",
+        "m04a-ef8f908d"
       ],
       "calcaneal tubercle": [
         "m04a-e37e37f6"
@@ -231328,6 +232326,9 @@
       "communicating branch of fibular artery": [
         "m04a-6d54995d"
       ],
+      "communicating branch of nasociliary nerve with ciliary ganglion": [
+        "m04a-2a1282f2"
+      ],
       "communicating branch of nerve": [
         "m04a-df0293cc"
       ],
@@ -231740,7 +232741,8 @@
         "m04a-01244291"
       ],
       "coxal bone": [
-        "m04a-27445545"
+        "m04a-27445545",
+        "m04a-d69a4e8c"
       ],
       "cranial": [
         "m04a-e8b2794e"
@@ -232287,6 +233289,7 @@
         "m04a-28f2b7c6"
       ],
       "deep fascia of leg": [
+        "m04a-5b1422f3",
         "m04a-cc71ab48"
       ],
       "deep fascia of penis": [
@@ -233661,7 +234664,8 @@
         "m04a-0803d0d6"
       ],
       "extensor compartment of leg": [
-        "m04a-775cd4a6"
+        "m04a-775cd4a6",
+        "m04a-8baab227"
       ],
       "extensor compartment of thigh": [
         "m04a-13e1d0c8"
@@ -233795,6 +234799,7 @@
         "m04a-ae4af090"
       ],
       "external intercostal muscles": [
+        "m04a-79b7710a",
         "m04a-8eb068ed"
       ],
       "external jugular vein": [
@@ -234053,7 +235058,8 @@
         "m04a-40c3d99c"
       ],
       "fascia lata": [
-        "m04a-6ba53109"
+        "m04a-6ba53109",
+        "m04a-c3a2c6bd"
       ],
       "fascia of abdomen": [
         "m04a-3623153a"
@@ -234538,6 +235544,7 @@
         "m04a-caf76787"
       ],
       "flexor compartment of thigh": [
+        "m04a-e4751213",
         "m04a-fcfb0e65"
       ],
       "flexor digiti minimi brevis muscle of foot": [
@@ -235945,7 +236952,8 @@
         "m04a-b10b1979"
       ],
       "hip bone": [
-        "m04a-27445545"
+        "m04a-27445545",
+        "m04a-d69a4e8c"
       ],
       "hip joint": [
         "m04a-fe9bdfa5"
@@ -236972,6 +237980,7 @@
         "m04a-8c96a916"
       ],
       "inferior thyroid artery": [
+        "m04a-52063394",
         "m04a-98cf2f24"
       ],
       "inferior thyroid notch": [
@@ -237563,6 +238572,7 @@
         "m04a-83b7e90d"
       ],
       "intermediate tendon": [
+        "m04a-5990f770",
         "m04a-f4564e6a"
       ],
       "intermediate tendon of digastric muscle": [
@@ -238361,7 +239371,8 @@
         "m04a-14147c76"
       ],
       "kidney": [
-        "m04a-25cdd1d6"
+        "m04a-25cdd1d6",
+        "m04a-d28b8c5b"
       ],
       "kidney lobe": [
         "m04a-9f6acb5e"
@@ -238413,6 +239424,9 @@
       ],
       "labyrinthine wall of tympanic cavity": [
         "m04a-58fc4257"
+      ],
+      "lach": [
+        "m04a-7d017b12"
       ],
       "laciniate ligament": [
         "m04a-cefb7a14"
@@ -239306,7 +240320,8 @@
         "m04a-30822326"
       ],
       "lateral thyrohyoid ligament": [
-        "m04a-436381d8"
+        "m04a-436381d8",
+        "m04a-7516acff"
       ],
       "lateral tuberal nucleus": [
         "m04a-c3843200"
@@ -240193,7 +241208,8 @@
         "m04a-556eb40b"
       ],
       "long plantar ligament": [
-        "m04a-483a155e"
+        "m04a-483a155e",
+        "m04a-fc2cdd70"
       ],
       "long posterior ciliary arteries": [
         "m04a-132adb22"
@@ -240542,6 +241558,9 @@
       ],
       "lymphoid system": [
         "m04a-95593327"
+      ],
+      "mac sau cang chan": [
+        "m04a-5b1422f3"
       ],
       "macula": [
         "m04a-8093540d"
@@ -241017,7 +242036,8 @@
         "m04a-a6bd2ad6"
       ],
       "medial compartment of thigh": [
-        "m04a-90e7425f"
+        "m04a-90e7425f",
+        "m04a-af1dea47"
       ],
       "medial condyle of femur": [
         "m04a-e18461e7"
@@ -241452,6 +242472,7 @@
         "m04a-0bf3d0b7"
       ],
       "median cricothyroid ligament": [
+        "m04a-2f8facee",
         "m04a-c2877abf"
       ],
       "median cubital vein": [
@@ -242790,6 +243811,9 @@
       "nasociliary nerve": [
         "m04a-5d3e91ce"
       ],
+      "nasociliary root": [
+        "m04a-2a1282f2"
+      ],
       "nasofrontal vein": [
         "m04a-d5a0ec82"
       ],
@@ -242822,6 +243846,9 @@
       ],
       "natal cleft": [
         "m04a-6309b4d4"
+      ],
+      "navicular": [
+        "m04a-68ca5c6e"
       ],
       "navicular articular surface": [
         "m04a-f182d1c6"
@@ -243670,6 +244697,9 @@
       "optic nerve": [
         "m04a-6ee9dded"
       ],
+      "optic nerve [ii]": [
+        "m04a-a32a21f9"
+      ],
       "optic part of retina": [
         "m04a-795977c1"
       ],
@@ -244131,6 +245161,7 @@
         "m04a-62f5efd1"
       ],
       "pancreas": [
+        "m04a-7207e483",
         "m04a-79756f53"
       ],
       "pancreatic branches of anterior superior pancreaticoduodenal artery": [
@@ -244425,7 +245456,8 @@
         "m04a-92e43ef4"
       ],
       "parietal bone": [
-        "m04a-55b3f55e"
+        "m04a-55b3f55e",
+        "m04a-c27a31cb"
       ],
       "parietal border of temporal bone": [
         "m04a-bcd99ee9"
@@ -244678,6 +245710,9 @@
       ],
       "pedunculopontine tegmental nucleus": [
         "m04a-9cfce8b4"
+      ],
+      "pelvic bone": [
+        "m04a-d69a4e8c"
       ],
       "pelvic cavity": [
         "m04a-1b3281ff",
@@ -245861,6 +246896,7 @@
         "m04a-caf76787"
       ],
       "posterior compartment of thigh": [
+        "m04a-e4751213",
         "m04a-fcfb0e65"
       ],
       "posterior condylar canal": [
@@ -248839,6 +249875,7 @@
         "m04a-ec533834"
       ],
       "second posterior intercostal artery": [
+        "m04a-df1cb3c5",
         "m04a-fad19268"
       ],
       "second rib": [
@@ -249080,6 +250117,9 @@
       ],
       "sensory nucleus of cranial nerve": [
         "m04a-f4727a7f"
+      ],
+      "sensory root": [
+        "m04a-2a1282f2"
       ],
       "sensory root of ciliary ganglion": [
         "m04a-b329208d"
@@ -249992,7 +251032,8 @@
         "m04a-817189a1"
       ],
       "spleen": [
-        "m04a-3f9b30a8"
+        "m04a-3f9b30a8",
+        "m04a-7d017b12"
       ],
       "splenic artery": [
         "m04a-4519761f"
@@ -250175,6 +251216,9 @@
       "sternopericardial ligaments": [
         "m04a-8f0eb573"
       ],
+      "sternothyroid": [
+        "m04a-20469c6e"
+      ],
       "sternothyroid muscle": [
         "m04a-001f65bb"
       ],
@@ -250182,7 +251226,8 @@
         "m04a-f43b27c2"
       ],
       "stomach": [
-        "m04a-075a55ce"
+        "m04a-075a55ce",
+        "m04a-37d39de5"
       ],
       "straight conjugate": [
         "m04a-cff7b7a4"
@@ -250287,7 +251332,8 @@
         "m04a-a2105add"
       ],
       "subclavian artery": [
-        "m04a-277e9598"
+        "m04a-277e9598",
+        "m04a-77856d18"
       ],
       "subclavian groove": [
         "m04a-c15d25e2"
@@ -250302,7 +251348,8 @@
         "m04a-bba7f742"
       ],
       "subclavian vein": [
-        "m04a-d99f6213"
+        "m04a-d99f6213",
+        "m04a-fcc16545"
       ],
       "subclavius muscle": [
         "m04a-7300a13d"
@@ -251833,7 +252880,8 @@
         "m04a-afb5081f"
       ],
       "suprarenal gland": [
-        "m04a-366a8822"
+        "m04a-366a8822",
+        "m04a-cab4f4d3"
       ],
       "suprarenal impression of liver": [
         "m04a-bce61413"
@@ -252035,6 +253083,9 @@
       ],
       "symphysis": [
         "m04a-9227df96"
+      ],
+      "symphysis of vertebral column": [
+        "m04a-15f81e8e"
       ],
       "synarthrosis": [
         "m04a-fb65569f"
@@ -254563,6 +255614,9 @@
       ],
       "vestibulocochlear nerve": [
         "m04a-c078e9a6"
+      ],
+      "vi": [
+        "m04a-37d39de5"
       ],
       "villous folds": [
         "m04a-7eb9ad65"
@@ -281986,10 +283040,316 @@
         "m04a-684bf140"
       ]
     },
-    "vietnamese": {},
-    "sourceCodes": {},
-    "terminologyIds": {},
-    "anatomicalCategory": {}
+    "vietnamese": {
+      "cac co gian suon ngoai": [
+        "m04a-79b7710a"
+      ],
+      "co uc-giap": [
+        "m04a-20469c6e"
+      ],
+      "da day": [
+        "m04a-37d39de5"
+      ],
+      "day chang gan chan dai": [
+        "m04a-fc2cdd70"
+      ],
+      "day chang giap-mong ben": [
+        "m04a-7516acff"
+      ],
+      "day chang nhan-giap giua": [
+        "m04a-2f8facee"
+      ],
+      "dong mach duoi don": [
+        "m04a-77856d18"
+      ],
+      "dong mach gian suon sau thu hai": [
+        "m04a-df1cb3c5"
+      ],
+      "dong mach giap duoi": [
+        "m04a-52063394"
+      ],
+      "gan got": [
+        "m04a-ef8f908d"
+      ],
+      "gan trung gian": [
+        "m04a-5990f770"
+      ],
+      "khop sun-soi cua cot song": [
+        "m04a-15f81e8e"
+      ],
+      "mac cang chan": [
+        "m04a-5b1422f3"
+      ],
+      "mac dui": [
+        "m04a-c3a2c6bd"
+      ],
+      "ngan co cang chan truoc": [
+        "m04a-8baab227"
+      ],
+      "ngan co dui sau": [
+        "m04a-e4751213"
+      ],
+      "ngan co dui trong": [
+        "m04a-af1dea47"
+      ],
+      "nhanh noi cua than kinh mui-mi voi hach mi": [
+        "m04a-2a1282f2"
+      ],
+      "than": [
+        "m04a-d28b8c5b"
+      ],
+      "than kinh thi giac [ii]": [
+        "m04a-a32a21f9"
+      ],
+      "tinh mach canh tay dau": [
+        "m04a-d55b28fe"
+      ],
+      "tinh mach duoi don": [
+        "m04a-fcc16545"
+      ],
+      "tuy": [
+        "m04a-7207e483"
+      ],
+      "tuyen thuong than": [
+        "m04a-cab4f4d3"
+      ],
+      "ty": [
+        "m04a-7d017b12"
+      ],
+      "xuong chau": [
+        "m04a-d69a4e8c"
+      ],
+      "xuong dinh": [
+        "m04a-c27a31cb"
+      ],
+      "xuong thuyen": [
+        "m04a-68ca5c6e"
+      ]
+    },
+    "sourceCodes": {
+      "a02.1.02.001": [
+        "m04a-c27a31cb"
+      ],
+      "a02.5.01.001": [
+        "m04a-d69a4e8c"
+      ],
+      "a02.5.12.001": [
+        "m04a-68ca5c6e"
+      ],
+      "a03.2.02.001": [
+        "m04a-15f81e8e"
+      ],
+      "a03.6.10.517": [
+        "m04a-fc2cdd70"
+      ],
+      "a04.0.00.045": [
+        "m04a-5990f770"
+      ],
+      "a04.2.04.006": [
+        "m04a-20469c6e"
+      ],
+      "a04.4.01.012": [
+        "m04a-79b7710a"
+      ],
+      "a04.7.01.003": [
+        "m04a-e4751213"
+      ],
+      "a04.7.01.004": [
+        "m04a-af1dea47"
+      ],
+      "a04.7.01.005": [
+        "m04a-8baab227"
+      ],
+      "a04.7.02.048": [
+        "m04a-ef8f908d"
+      ],
+      "a04.7.03.002": [
+        "m04a-c3a2c6bd"
+      ],
+      "a04.7.03.021": [
+        "m04a-5b1422f3"
+      ],
+      "a05.5.01.001": [
+        "m04a-37d39de5"
+      ],
+      "a05.9.01.001": [
+        "m04a-7207e483"
+      ],
+      "a06.2.02.017": [
+        "m04a-7516acff"
+      ],
+      "a06.2.03.009": [
+        "m04a-2f8facee"
+      ],
+      "a08.1.01.001": [
+        "m04a-d28b8c5b"
+      ],
+      "a11.5.00.001": [
+        "m04a-cab4f4d3"
+      ],
+      "a12.2.08.001": [
+        "m04a-77856d18"
+      ],
+      "a12.2.08.043": [
+        "m04a-52063394"
+      ],
+      "a12.2.08.063": [
+        "m04a-df1cb3c5"
+      ],
+      "a12.3.04.001": [
+        "m04a-d55b28fe"
+      ],
+      "a12.3.08.002": [
+        "m04a-fcc16545"
+      ],
+      "a13.2.01.001": [
+        "m04a-7d017b12"
+      ],
+      "a14.2.01.006": [
+        "m04a-a32a21f9"
+      ],
+      "a14.2.01.026": [
+        "m04a-2a1282f2"
+      ]
+    },
+    "terminologyIds": {
+      "a02.1.02.001": [
+        "m04a-c27a31cb"
+      ],
+      "a02.5.01.001": [
+        "m04a-d69a4e8c"
+      ],
+      "a02.5.12.001": [
+        "m04a-68ca5c6e"
+      ],
+      "a03.2.02.001": [
+        "m04a-15f81e8e"
+      ],
+      "a03.6.10.517": [
+        "m04a-fc2cdd70"
+      ],
+      "a04.0.00.045": [
+        "m04a-5990f770"
+      ],
+      "a04.2.04.006": [
+        "m04a-20469c6e"
+      ],
+      "a04.4.01.012": [
+        "m04a-79b7710a"
+      ],
+      "a04.7.01.003": [
+        "m04a-e4751213"
+      ],
+      "a04.7.01.004": [
+        "m04a-af1dea47"
+      ],
+      "a04.7.01.005": [
+        "m04a-8baab227"
+      ],
+      "a04.7.02.048": [
+        "m04a-ef8f908d"
+      ],
+      "a04.7.03.002": [
+        "m04a-c3a2c6bd"
+      ],
+      "a04.7.03.021": [
+        "m04a-5b1422f3"
+      ],
+      "a05.5.01.001": [
+        "m04a-37d39de5"
+      ],
+      "a05.9.01.001": [
+        "m04a-7207e483"
+      ],
+      "a06.2.02.017": [
+        "m04a-7516acff"
+      ],
+      "a06.2.03.009": [
+        "m04a-2f8facee"
+      ],
+      "a08.1.01.001": [
+        "m04a-d28b8c5b"
+      ],
+      "a11.5.00.001": [
+        "m04a-cab4f4d3"
+      ],
+      "a12.2.08.001": [
+        "m04a-77856d18"
+      ],
+      "a12.2.08.043": [
+        "m04a-52063394"
+      ],
+      "a12.2.08.063": [
+        "m04a-df1cb3c5"
+      ],
+      "a12.3.04.001": [
+        "m04a-d55b28fe"
+      ],
+      "a12.3.08.002": [
+        "m04a-fcc16545"
+      ],
+      "a13.2.01.001": [
+        "m04a-7d017b12"
+      ],
+      "a14.2.01.006": [
+        "m04a-a32a21f9"
+      ],
+      "a14.2.01.026": [
+        "m04a-2a1282f2"
+      ]
+    },
+    "anatomicalCategory": {
+      "artery": [
+        "m04a-52063394",
+        "m04a-77856d18",
+        "m04a-df1cb3c5"
+      ],
+      "bone": [
+        "m04a-68ca5c6e",
+        "m04a-c27a31cb",
+        "m04a-d69a4e8c"
+      ],
+      "fascia/connective": [
+        "m04a-5b1422f3",
+        "m04a-c3a2c6bd"
+      ],
+      "gland": [
+        "m04a-cab4f4d3"
+      ],
+      "joint": [
+        "m04a-15f81e8e"
+      ],
+      "ligament": [
+        "m04a-2f8facee",
+        "m04a-7516acff",
+        "m04a-fc2cdd70"
+      ],
+      "muscle": [
+        "m04a-20469c6e",
+        "m04a-79b7710a",
+        "m04a-8baab227",
+        "m04a-af1dea47",
+        "m04a-e4751213"
+      ],
+      "nerve": [
+        "m04a-2a1282f2",
+        "m04a-a32a21f9"
+      ],
+      "organ": [
+        "m04a-37d39de5",
+        "m04a-7207e483",
+        "m04a-7d017b12",
+        "m04a-d28b8c5b"
+      ],
+      "tendon": [
+        "m04a-5990f770",
+        "m04a-ef8f908d"
+      ],
+      "vein": [
+        "m04a-d55b28fe",
+        "m04a-fcc16545"
+      ]
+    }
   },
-  "indexRevision": "m04a-index-771cb478"
+  "indexRevision": "m04a-index-f9854623"
 }

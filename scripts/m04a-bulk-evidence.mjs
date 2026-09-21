@@ -753,6 +753,14 @@ function regressionAssessment(result, m03cEntry) {
   const priorBucket = m03cEntry.researchDisposition.dispositionBucket;
   const compatible = M03C_TO_M04A[priorBucket] ?? [];
   if (compatible.includes(result.researchBucket)) return {status: 'PASS', priorBucket, compatibleBuckets: compatible, finding: null};
+  if (priorBucket === 'CONSENSUS_CANDIDATE' && result.researchBucket === 'VARIANT_REVIEW' && result.semanticFlags?.length) {
+    return {
+      status: 'PASS',
+      priorBucket,
+      compatibleBuckets: [...compatible, 'VARIANT_REVIEW'],
+      finding: 'A new safety flag keeps the research candidate in variant review rather than promoting it.',
+    };
+  }
   const inputGap = ['SOURCE_GAP', 'IDENTITY_GAP'].includes(result.researchBucket);
   if (inputGap) return {status: 'INPUT_GAP', priorBucket, compatibleBuckets: compatible, finding: 'The current corpus has not supplied enough evidence to reassess this frozen M03C disposition.'};
   return {
@@ -763,10 +771,61 @@ function regressionAssessment(result, m03cEntry) {
   };
 }
 
-export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntries = []} = {}) {
+function buildResearchAnnotationPayload(researchPack) {
+  if (!isObject(researchPack) || !Array.isArray(researchPack.conceptBindings)) return null;
+  const conceptBindings = researchPack.conceptBindings.filter(isObject).map(clone);
+  return {
+    schemaVersion: 'm04b2a-research-annotations-1',
+    sourcePack: {
+      artifact: 'docs/en-vi/research/M04B2A/M04B2_PUBLIC_RESEARCH_PACK.json',
+      schemaVersion: researchPack.schemaVersion ?? null,
+      generatedDate: researchPack.generatedDate ?? null,
+      startingRepoCommit: researchPack.startingRepoCommit ?? null,
+      status: researchPack.status ?? null,
+      source: clone(researchPack.source ?? {}),
+      corroboration: clone(researchPack.corroboration ?? {}),
+      releaseState: clone(researchPack.releaseState ?? {}),
+    },
+    conceptBindingCount: conceptBindings.length,
+    boundConceptCount: new Set(conceptBindings.map(binding => binding.conceptId).filter(nonemptyString)).size,
+    conceptBindings,
+  };
+}
+
+function applyResearchBindingGuard(classification, conceptBindings) {
+  const dispositions = new Set(conceptBindings.map(binding => binding.disposition));
+  const guard = dispositions.has('CONFLICT_REQUIRES_ADJUDICATION')
+    ? 'CONFLICT_REQUIRES_ADJUDICATION'
+    : dispositions.has('ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED')
+      ? 'ONTOLOGY_SCOPE_REVIEW'
+      : dispositions.has('BASE_TERM_SCOPE_OR_LATERALITY_REVIEW')
+        ? 'LATERALITY_REVIEW'
+        : dispositions.has('IDENTITY_CONTEXT_REVIEW')
+          ? 'IDENTITY_GAP'
+          : dispositions.has('VARIANT_WITH_ALIAS_REVIEW')
+            ? 'VARIANT_REVIEW'
+            : null;
+  if (!guard) return classification;
+  const compatible = guard === 'ONTOLOGY_SCOPE_REVIEW'
+    ? ['ONTOLOGY_SCOPE_REVIEW', 'AGGREGATE_OR_COMPOSITE_REVIEW']
+    : [guard];
+  if (compatible.includes(classification.researchBucket)) return classification;
+  return {
+    researchBucket: guard,
+    reasons: [...new Set([...classification.reasons, 'RESEARCH_ONLY_BINDING_DISPOSITION_GUARD'])].sort(),
+  };
+}
+
+export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntries = [], researchPack} = {}) {
   const relationships = makeMeshRelationships(atlas);
   const recordsById = new Map((index?.records ?? []).map(item => [item.evidenceId, item]));
   const m03cById = new Map((m03cEntries ?? []).filter(isObject).map(entry => [entry.conceptId, entry]));
+  const researchAnnotations = buildResearchAnnotationPayload(researchPack);
+  const bindingsByConceptId = new Map();
+  for (const binding of researchAnnotations?.conceptBindings ?? []) {
+    if (!bindingsByConceptId.has(binding.conceptId)) bindingsByConceptId.set(binding.conceptId, []);
+    bindingsByConceptId.get(binding.conceptId).push(clone(binding));
+  }
   const concepts = relationships.concepts;
   const conceptResults = [];
   for (const concept of concepts) {
@@ -776,7 +835,11 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
     if (m03cById.get(concept.id)?.conflicts?.some(conflict => conflict.status === 'OPEN') && candidateConsensusValue.status === 'NONE') {
       candidateConsensusValue.status = 'CONFLICT';
     }
-    const classification = classifyConcept({concept, match, meshHeuristics, m03cEntry: m03cById.get(concept.id)});
+    const conceptBindings = bindingsByConceptId.get(concept.id) ?? [];
+    const classification = applyResearchBindingGuard(
+      classifyConcept({concept, match, meshHeuristics, m03cEntry: m03cById.get(concept.id)}),
+      conceptBindings,
+    );
     const result = {
       conceptId: concept.id,
       atlasName: concept.name,
@@ -796,8 +859,10 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
       m03cRegression: regressionAssessment({
         researchBucket: classification.researchBucket,
         sourceMatches: match.sourceMatches,
+        semanticFlags: match.semanticFlags,
       }, m03cById.get(concept.id)),
     };
+    if (conceptBindings.length) result.researchAnnotations = {conceptBindings};
     conceptResults.push(result);
   }
 
@@ -855,6 +920,7 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
       mismatchCount: regressionMismatches.length,
       findings: regressionMismatches.map(item => item.finding),
     },
+    ...(researchAnnotations ? {researchAnnotations} : {}),
     summary: {
       conceptCount: concepts.length,
       expectedConceptCount: 3432,

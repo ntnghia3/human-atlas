@@ -17,8 +17,12 @@ const DEFAULT_ATLAS = join(ROOT, 'public', 'models', 'atlas.json');
 const DEFAULT_SOURCES = join(ROOT, 'data', 'terminology', 'sources.json');
 const DEFAULT_ENTRIES = join(ROOT, 'data', 'terminology', 'entries.json');
 const DEFAULT_INDEX = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-index.json');
-const DEFAULT_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'corpora', 'fipat-ta2-2019.jsonl');
+const DEFAULT_CORPORA = [
+  join(ROOT, 'data', 'terminology', 'research', 'corpora', 'fipat-ta2-2019.jsonl'),
+  join(ROOT, 'data', 'terminology', 'research', 'corpora', 'nvh2008-public-research-seed.jsonl'),
+];
 const LEGACY_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
+const DEFAULT_RESEARCH_PACK = join(ROOT, 'docs', 'en-vi', 'research', 'M04B2A', 'M04B2_PUBLIC_RESEARCH_PACK.json');
 const DEFAULT_OUTPUT = join(ROOT, 'data', 'terminology', 'research', 'bulk-match-results.json');
 
 function parseArgs(argv) {
@@ -53,10 +57,11 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     const entriesPath = resolvePath(ROOT, args.entries);
     const indexPath = resolvePath(ROOT, args.index);
     const outputPath = resolvePath(ROOT, args.output);
-    const [atlas, sourcesDocument, entriesDocument] = await Promise.all([
+    const [atlas, sourcesDocument, entriesDocument, researchPack] = await Promise.all([
       readJson(atlasPath),
       readJson(sourcesPath),
       exists(entriesPath) ? readJson(entriesPath) : Promise.resolve({entries: []}),
+      exists(DEFAULT_RESEARCH_PACK) ? readJson(DEFAULT_RESEARCH_PACK) : Promise.resolve(undefined),
     ]);
     let index;
     if (args.corpus.length) {
@@ -65,9 +70,10 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     } else if (await exists(indexPath)) {
       index = await readJson(indexPath);
     } else {
-      const defaultCorpusPath = await exists(DEFAULT_CORPUS) ? DEFAULT_CORPUS : (await exists(LEGACY_CORPUS) ? LEGACY_CORPUS : null);
-      const defaultCorpus = defaultCorpusPath ? await readCorpusFiles([defaultCorpusPath]) : {records: [], files: []};
-      const inputFileLabels = defaultCorpusPath ? [relative(ROOT, defaultCorpusPath).replace(/\\/g, '/')] : [];
+      const defaultCorpusPaths = (await Promise.all(DEFAULT_CORPORA.map(async path => (await exists(path) ? path : null)))).filter(Boolean);
+      const fallbackCorpusPaths = defaultCorpusPaths.length ? defaultCorpusPaths : (await exists(LEGACY_CORPUS) ? [LEGACY_CORPUS] : []);
+      const defaultCorpus = fallbackCorpusPaths.length ? await readCorpusFiles(fallbackCorpusPaths) : {records: [], files: []};
+      const inputFileLabels = defaultCorpus.files.map(path => relative(ROOT, path).replace(/\\/g, '/'));
       index = buildSourceIndex({records: defaultCorpus.records, inputFiles: defaultCorpus.files, inputFileLabels, sourceCatalogDocument: sourcesDocument});
     }
     const results = matchAtlasConcepts({
@@ -75,6 +81,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       index,
       sourceCatalog: loadSourceCatalogDocument(sourcesDocument),
       m03cEntries: entriesDocument.entries ?? [],
+      researchPack,
     });
     await writeJson(outputPath, results);
     console.log('M04A bulk matcher: PASS');

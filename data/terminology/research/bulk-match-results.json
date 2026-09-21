@@ -8,7 +8,7 @@
     "conceptCount": 3432,
     "expectedConceptCount": 3432
   },
-  "inputIndexRevision": "m04a-index-771cb478",
+  "inputIndexRevision": "m04a-index-f9854623",
   "sourceCatalogRevision": "m04a-source-b2b026ab",
   "concepts": [
     {
@@ -4148,6 +4148,45 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-77856d18",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 289
+          },
+          "sourceTermRaw": "Subclavian artery",
+          "english": {
+            "preferred": "Subclavian artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch dưới đòn",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -4186,6 +4225,45 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-77856d18",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 289
+          },
+          "sourceTermRaw": "Subclavian artery",
+          "english": {
+            "preferred": "Subclavian artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch dưới đòn",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -4231,9 +4309,50 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-77856d18",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 289
+          },
+          "sourceTermRaw": "Subclavian artery",
+          "english": {
+            "preferred": "Subclavian artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch dưới đòn",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:artery",
+        "direction:inferior",
         "scope:aggregate"
       ],
       "semanticFlags": [
@@ -4290,26 +4409,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "dong mach duoi don",
+            "surfaceForms": [
+              "Động mạch dưới đòn"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-77856d18"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-77856d18"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA3951",
+            "atlasName": "subclavian artery",
+            "recordEntryId": "A12.2.08.001",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "động mạch dưới đòn"
+          }
+        ]
       }
     },
     {
@@ -5559,6 +5705,45 @@
       "meshCount": 2,
       "sourceMatches": [
         {
+          "evidenceId": "m04a-df1cb3c5",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.063",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 293
+          },
+          "sourceTermRaw": "Second posterior intercostal artery",
+          "english": {
+            "preferred": "Second posterior intercostal artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch gian sườn sau thứ hai",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
           "evidenceId": "m04a-fad19268",
           "duplicateCount": 1,
           "sourceId": "FIPAT_TA2",
@@ -5598,6 +5783,45 @@
         }
       ],
       "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-df1cb3c5",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.063",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 293
+          },
+          "sourceTermRaw": "Second posterior intercostal artery",
+          "english": {
+            "preferred": "Second posterior intercostal artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch gian sườn sau thứ hai",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
         {
           "evidenceId": "m04a-fad19268",
           "duplicateCount": 1,
@@ -5678,7 +5902,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-df1cb3c5",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.063",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 293
+          },
+          "sourceTermRaw": "Second posterior intercostal artery",
+          "english": {
+            "preferred": "Second posterior intercostal artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch gian sườn sau thứ hai",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:artery",
         "direction:posterior",
@@ -5727,26 +5991,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "dong mach gian suon sau thu hai",
+            "surfaceForms": [
+              "Động mạch gian sườn sau thứ hai"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-df1cb3c5"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-df1cb3c5"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "LATERALITY_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
         "compatibleBuckets": [
           "LATERALITY_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA3994",
+            "atlasName": "second posterior intercostal artery",
+            "recordEntryId": "A12.2.08.063",
+            "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+            "candidate": "động mạch gian sườn sau thứ hai"
+          }
+        ]
       }
     },
     {
@@ -9195,6 +9486,44 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-d55b28fe",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.3.04.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Brachiocephalic vein",
+          "english": {
+            "preferred": "Brachiocephalic vein",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tĩnh mạch cánh tay đầu",
+            "aliases": []
+          },
+          "anatomicalCategory": "Vein",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -9236,6 +9565,44 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-d55b28fe",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.3.04.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Brachiocephalic vein",
+          "english": {
+            "preferred": "Brachiocephalic vein",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tĩnh mạch cánh tay đầu",
+            "aliases": []
+          },
+          "anatomicalCategory": "Vein",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -9284,7 +9651,46 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-d55b28fe",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.3.04.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Brachiocephalic vein",
+          "english": {
+            "preferred": "Brachiocephalic vein",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tĩnh mạch cánh tay đầu",
+            "aliases": []
+          },
+          "anatomicalCategory": "Vein",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:vein",
         "scope:aggregate"
@@ -9337,14 +9743,29 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "tinh mach canh tay dau",
+            "surfaceForms": [
+              "Tĩnh mạch cánh tay đầu"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-d55b28fe"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-d55b28fe"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
@@ -9589,6 +10010,45 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-fcc16545",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.3.08.002",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 332
+          },
+          "sourceTermRaw": "Subclavian vein",
+          "english": {
+            "preferred": "Subclavian vein",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tĩnh mạch dưới đòn",
+            "aliases": []
+          },
+          "anatomicalCategory": "Vein",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -9627,6 +10087,45 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-fcc16545",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.3.08.002",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 332
+          },
+          "sourceTermRaw": "Subclavian vein",
+          "english": {
+            "preferred": "Subclavian vein",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tĩnh mạch dưới đòn",
+            "aliases": []
+          },
+          "anatomicalCategory": "Vein",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -9672,9 +10171,50 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-fcc16545",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.3.08.002",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 332
+          },
+          "sourceTermRaw": "Subclavian vein",
+          "english": {
+            "preferred": "Subclavian vein",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tĩnh mạch dưới đòn",
+            "aliases": []
+          },
+          "anatomicalCategory": "Vein",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:vein",
+        "direction:inferior",
         "scope:aggregate"
       ],
       "semanticFlags": [
@@ -9727,26 +10267,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "tinh mach duoi don",
+            "surfaceForms": [
+              "Tĩnh mạch dưới đòn"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-fcc16545"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-fcc16545"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA4725",
+            "atlasName": "subclavian vein",
+            "recordEntryId": "A12.3.08.002",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "tĩnh mạch dưới đòn"
+          }
+        ]
       }
     },
     {
@@ -10154,19 +10721,31 @@
         "independentAuthoritativeSourceCount": 0,
         "evidenceIds": []
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "VARIANT_WITH_ALIAS_REVIEW",
         "compatibleBuckets": [
           "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA4751",
+            "atlasName": "right brachiocephalic vein",
+            "recordEntryId": "A12.3.04.001",
+            "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -15100,6 +15679,47 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-37d39de5",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A05.5.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 176
+          },
+          "sourceTermRaw": "Stomach",
+          "english": {
+            "preferred": "Stomach",
+            "aliases": [
+              "Vị"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Dạ dày",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -15138,6 +15758,47 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-37d39de5",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A05.5.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 176
+          },
+          "sourceTermRaw": "Stomach",
+          "english": {
+            "preferred": "Stomach",
+            "aliases": [
+              "Vị"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Dạ dày",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -15183,7 +15844,49 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-37d39de5",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A05.5.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 176
+          },
+          "sourceTermRaw": "Stomach",
+          "english": {
+            "preferred": "Stomach",
+            "aliases": [
+              "Vị"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Dạ dày",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "scope:aggregate"
       ],
@@ -15226,25 +15929,52 @@
         "ontologyRisk": false
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "da day",
+            "surfaceForms": [
+              "Dạ dày"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-37d39de5"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-37d39de5"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA7148",
+            "atlasName": "stomach",
+            "recordEntryId": "A05.5.01.001",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "dạ dày"
+          }
+        ]
       }
     },
     {
@@ -15459,6 +16189,47 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-7d017b12",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A13.2.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 343
+          },
+          "sourceTermRaw": "Spleen",
+          "english": {
+            "preferred": "Spleen",
+            "aliases": [
+              "Lách"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Tỳ",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -15500,6 +16271,47 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-7d017b12",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A13.2.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 343
+          },
+          "sourceTermRaw": "Spleen",
+          "english": {
+            "preferred": "Spleen",
+            "aliases": [
+              "Lách"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Tỳ",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -15548,7 +16360,49 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-7d017b12",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A13.2.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 343
+          },
+          "sourceTermRaw": "Spleen",
+          "english": {
+            "preferred": "Spleen",
+            "aliases": [
+              "Lách"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Tỳ",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [],
       "semanticFlags": [],
       "meshHeuristics": {
@@ -15576,23 +16430,51 @@
         "ontologyRisk": false
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Tỳ",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "ty",
+            "surfaceForms": [
+              "Tỳ"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-7d017b12"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-7d017b12"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
-      "researchBucketReasons": [],
+      "researchBucket": "VARIANT_REVIEW",
+      "researchBucketReasons": [
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD"
+      ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "VARIANT_WITH_ALIAS_REVIEW",
         "compatibleBuckets": [
           "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA7196",
+            "atlasName": "spleen",
+            "recordEntryId": "A13.2.01.001",
+            "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -15600,6 +16482,45 @@
       "atlasName": "pancreas",
       "meshCount": 4,
       "sourceMatches": [
+        {
+          "evidenceId": "m04a-7207e483",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A05.9.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 192
+          },
+          "sourceTermRaw": "Pancreas",
+          "english": {
+            "preferred": "Pancreas",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tụy",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
         {
           "evidenceId": "m04a-79756f53",
           "duplicateCount": 1,
@@ -15640,6 +16561,45 @@
         }
       ],
       "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-7207e483",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A05.9.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 192
+          },
+          "sourceTermRaw": "Pancreas",
+          "english": {
+            "preferred": "Pancreas",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tụy",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
         {
           "evidenceId": "m04a-79756f53",
           "duplicateCount": 1,
@@ -15720,7 +16680,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-7207e483",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A05.9.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 192
+          },
+          "sourceTermRaw": "Pancreas",
+          "english": {
+            "preferred": "Pancreas",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Tụy",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "scope:aggregate"
       ],
@@ -15777,25 +16777,52 @@
         "ontologyRisk": false
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "tuy",
+            "surfaceForms": [
+              "Tụy"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-7207e483"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-7207e483"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA7198",
+            "atlasName": "pancreas",
+            "recordEntryId": "A05.9.01.001",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "tụy"
+          }
+        ]
       }
     },
     {
@@ -16034,6 +17061,44 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-d28b8c5b",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A08.1.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Kidney",
+          "english": {
+            "preferred": "Kidney",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Thận",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -16075,6 +17140,44 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-d28b8c5b",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A08.1.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Kidney",
+          "english": {
+            "preferred": "Kidney",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Thận",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -16123,7 +17226,46 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-d28b8c5b",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A08.1.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Kidney",
+          "english": {
+            "preferred": "Kidney",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Thận",
+            "aliases": []
+          },
+          "anatomicalCategory": "Organ",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "scope:aggregate"
       ],
@@ -16170,26 +17312,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "than",
+            "surfaceForms": [
+              "Thận"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-d28b8c5b"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-d28b8c5b"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "LATERALITY_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
         "compatibleBuckets": [
           "LATERALITY_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA7203",
+            "atlasName": "kidney",
+            "recordEntryId": "A08.1.01.001",
+            "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+            "candidate": "thận"
+          }
+        ]
       }
     },
     {
@@ -32040,6 +33209,46 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-cab4f4d3",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A11.5.00.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Suprarenal gland",
+          "english": {
+            "preferred": "Suprarenal gland",
+            "aliases": [
+              "Adrenal gland"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Tuyến thượng thận",
+            "aliases": []
+          },
+          "anatomicalCategory": "Gland",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -32081,6 +33290,46 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-cab4f4d3",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A11.5.00.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Suprarenal gland",
+          "english": {
+            "preferred": "Suprarenal gland",
+            "aliases": [
+              "Adrenal gland"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Tuyến thượng thận",
+            "aliases": []
+          },
+          "anatomicalCategory": "Gland",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -32129,7 +33378,48 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-cab4f4d3",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A11.5.00.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Suprarenal gland",
+          "english": {
+            "preferred": "Suprarenal gland",
+            "aliases": [
+              "Adrenal gland"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Tuyến thượng thận",
+            "aliases": []
+          },
+          "anatomicalCategory": "Gland",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [],
       "semanticFlags": [],
       "meshHeuristics": {
@@ -32162,14 +33452,29 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Tuyến thượng thận",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "tuyen thuong than",
+            "surfaceForms": [
+              "Tuyến thượng thận"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-cab4f4d3"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-cab4f4d3"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "HIGH_CONSENSUS_CANDIDATE",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC"
       ],
@@ -32626,6 +33931,45 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-c27a31cb",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A02.1.02.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 30
+          },
+          "sourceTermRaw": "Parietal bone",
+          "english": {
+            "preferred": "Parietal bone",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Xương đỉnh",
+            "aliases": []
+          },
+          "anatomicalCategory": "Bone",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -32664,6 +34008,45 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-c27a31cb",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A02.1.02.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 30
+          },
+          "sourceTermRaw": "Parietal bone",
+          "english": {
+            "preferred": "Parietal bone",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Xương đỉnh",
+            "aliases": []
+          },
+          "anatomicalCategory": "Bone",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -32709,7 +34092,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-c27a31cb",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A02.1.02.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 30
+          },
+          "sourceTermRaw": "Parietal bone",
+          "english": {
+            "preferred": "Parietal bone",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Xương đỉnh",
+            "aliases": []
+          },
+          "anatomicalCategory": "Bone",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:bone",
         "scope:plural"
@@ -32764,26 +34187,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "xuong dinh",
+            "surfaceForms": [
+              "Xương đỉnh"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-c27a31cb"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-c27a31cb"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA9613",
+            "atlasName": "parietal bone",
+            "recordEntryId": "A02.1.02.001",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "xương đỉnh"
+          }
+        ]
       }
     },
     {
@@ -35528,6 +36978,18 @@
           "HIGH_CONSENSUS_CANDIDATE"
         ],
         "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA9756",
+            "atlasName": "external intercostal muscle",
+            "recordEntryId": "A04.4.01.012",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "cơ gian sườn ngoài",
+            "note": "Source is plural; singular atlas wording remains pending scope review."
+          }
+        ]
       }
     },
     {
@@ -38624,6 +40086,45 @@
       "meshCount": 2,
       "sourceMatches": [
         {
+          "evidenceId": "m04a-52063394",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.043",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 292
+          },
+          "sourceTermRaw": "Inferior thyroid artery",
+          "english": {
+            "preferred": "Inferior thyroid artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch giáp dưới",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
           "evidenceId": "m04a-98cf2f24",
           "duplicateCount": 1,
           "sourceId": "FIPAT_TA2",
@@ -38666,6 +40167,45 @@
         }
       ],
       "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-52063394",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.043",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 292
+          },
+          "sourceTermRaw": "Inferior thyroid artery",
+          "english": {
+            "preferred": "Inferior thyroid artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch giáp dưới",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
         {
           "evidenceId": "m04a-98cf2f24",
           "duplicateCount": 1,
@@ -38752,7 +40292,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-52063394",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A12.2.08.043",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 292
+          },
+          "sourceTermRaw": "Inferior thyroid artery",
+          "english": {
+            "preferred": "Inferior thyroid artery",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Động mạch giáp dưới",
+            "aliases": []
+          },
+          "anatomicalCategory": "Artery",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:artery",
         "direction:inferior",
@@ -38812,26 +40392,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "dong mach giap duoi",
+            "surfaceForms": [
+              "Động mạch giáp dưới"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-52063394"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-52063394"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA10662",
+            "atlasName": "inferior thyroid artery",
+            "recordEntryId": "A12.2.08.043",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "động mạch giáp dưới"
+          }
+        ]
       }
     },
     {
@@ -45717,12 +47324,134 @@
       "conceptId": "FMA13343",
       "atlasName": "sternothyroid",
       "meshCount": 2,
-      "sourceMatches": [],
-      "exactEnglishMatches": [],
+      "sourceMatches": [
+        {
+          "evidenceId": "m04a-20469c6e",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.2.04.006",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 122
+          },
+          "sourceTermRaw": "Sternothyroid",
+          "english": {
+            "preferred": "Sternothyroid",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Cơ ức-giáp",
+            "aliases": []
+          },
+          "anatomicalCategory": "Muscle",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
+      "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-20469c6e",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.2.04.006",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 122
+          },
+          "sourceTermRaw": "Sternothyroid",
+          "english": {
+            "preferred": "Sternothyroid",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Cơ ức-giáp",
+            "aliases": []
+          },
+          "anatomicalCategory": "Muscle",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "normalizedEnglishMatches": [],
       "latinMatches": [],
-      "vietnameseCandidateEvidence": [],
-      "detectedQualifiers": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-20469c6e",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.2.04.006",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 122
+          },
+          "sourceTermRaw": "Sternothyroid",
+          "english": {
+            "preferred": "Sternothyroid",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Cơ ức-giáp",
+            "aliases": []
+          },
+          "anatomicalCategory": "Muscle",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
+      "detectedQualifiers": [
+        "category:muscle"
+      ],
       "semanticFlags": [],
       "meshHeuristics": {
         "highMeshCount": false,
@@ -45754,30 +47483,51 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Cơ ức-giáp",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "co uc-giap",
+            "surfaceForms": [
+              "Cơ ức-giáp"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-20469c6e"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-20469c6e"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "HIGH_CONSENSUS_CANDIDATE",
       "researchBucketReasons": [
-        "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
-        "NO_EXACT_OR_SAFELY_NORMALIZED_ENGLISH_IDENTITY",
-        "NO_INDEXED_SOURCE_MATCH"
+        "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC"
       ],
-      "sourceGapReasons": [
-        "NO_EXACT_OR_SAFELY_NORMALIZED_ENGLISH_IDENTITY",
-        "NO_INDEXED_SOURCE_MATCH"
-      ],
+      "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
           "HIGH_CONSENSUS_CANDIDATE"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA13343",
+            "atlasName": "sternothyroid",
+            "recordEntryId": "A04.2.04.006",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "cơ ức-giáp"
+          }
+        ]
       }
     },
     {
@@ -67616,6 +69366,17 @@
           "VARIANT_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA15629",
+            "atlasName": "right adrenal gland",
+            "recordEntryId": "A11.5.00.001",
+            "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -67683,6 +69444,17 @@
           "VARIANT_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA15630",
+            "atlasName": "left adrenal gland",
+            "recordEntryId": "A11.5.00.001",
+            "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -70220,6 +71992,47 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-d69a4e8c",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A02.5.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Hip bone",
+          "english": {
+            "preferred": "Hip bone",
+            "aliases": [
+              "Coxal bone",
+              "Pelvic bone"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Xương chậu",
+            "aliases": []
+          },
+          "anatomicalCategory": "Bone",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -70261,6 +72074,47 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-d69a4e8c",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A02.5.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Hip bone",
+          "english": {
+            "preferred": "Hip bone",
+            "aliases": [
+              "Coxal bone",
+              "Pelvic bone"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Xương chậu",
+            "aliases": []
+          },
+          "anatomicalCategory": "Bone",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -70309,7 +72163,49 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-d69a4e8c",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A02.5.01.001",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Hip bone",
+          "english": {
+            "preferred": "Hip bone",
+            "aliases": [
+              "Coxal bone",
+              "Pelvic bone"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Xương chậu",
+            "aliases": []
+          },
+          "anatomicalCategory": "Bone",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:bone",
         "scope:plural"
@@ -70368,14 +72264,29 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "xuong chau",
+            "surfaceForms": [
+              "Xương chậu"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-d69a4e8c"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-d69a4e8c"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
@@ -70463,6 +72374,17 @@
           "CONFLICT_REQUIRES_ADJUDICATION"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA16586",
+            "atlasName": "right hip bone",
+            "recordEntryId": "A02.5.01.001",
+            "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -70545,6 +72467,17 @@
           "CONFLICT_REQUIRES_ADJUDICATION"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA16587",
+            "atlasName": "left hip bone",
+            "recordEntryId": "A02.5.01.001",
+            "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -83744,6 +85677,17 @@
           "AGGREGATE_OR_COMPOSITE_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA22427",
+            "atlasName": "muscle of posterior compartment of thigh",
+            "recordEntryId": "A04.7.01.003",
+            "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -84213,6 +86157,17 @@
           "AGGREGATE_OR_COMPOSITE_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA22439",
+            "atlasName": "muscle of medial compartment of thigh",
+            "recordEntryId": "A04.7.01.004",
+            "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -85790,6 +87745,17 @@
           "AGGREGATE_OR_COMPOSITE_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA22472",
+            "atlasName": "muscle of anterior compartment of leg",
+            "recordEntryId": "A04.7.01.005",
+            "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -115178,6 +117144,17 @@
           "CONFLICT_REQUIRES_ADJUDICATION"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA24499",
+            "atlasName": "navicular bone of foot",
+            "recordEntryId": "A02.5.12.001",
+            "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -146701,6 +148678,44 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-fc2cdd70",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A03.6.10.517",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Long plantar ligament",
+          "english": {
+            "preferred": "Long plantar ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng gan chân dài",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -146739,6 +148754,44 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-fc2cdd70",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A03.6.10.517",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Long plantar ligament",
+          "english": {
+            "preferred": "Long plantar ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng gan chân dài",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -146784,7 +148837,46 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-fc2cdd70",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A03.6.10.517",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Long plantar ligament",
+          "english": {
+            "preferred": "Long plantar ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng gan chân dài",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:ligament"
       ],
@@ -146822,14 +148914,29 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Dây chằng gan chân dài",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "day chang gan chan dai",
+            "surfaceForms": [
+              "Dây chằng gan chân dài"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-fc2cdd70"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-fc2cdd70"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "HIGH_CONSENSUS_CANDIDATE",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC"
       ],
@@ -146905,6 +149012,17 @@
           "LATERALITY_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA44249",
+            "atlasName": "right long plantar ligament",
+            "recordEntryId": "A03.6.10.517",
+            "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -146976,6 +149094,17 @@
           "LATERALITY_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA44250",
+            "atlasName": "left long plantar ligament",
+            "recordEntryId": "A03.6.10.517",
+            "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -183902,6 +186031,17 @@
           "LATERALITY_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA50875",
+            "atlasName": "right optic nerve",
+            "recordEntryId": "A14.2.01.006",
+            "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -183970,6 +186110,17 @@
           "LATERALITY_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA50878",
+            "atlasName": "left optic nerve",
+            "recordEntryId": "A14.2.01.006",
+            "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -184676,6 +186827,45 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-ef8f908d",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.7.02.048",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 148
+          },
+          "sourceTermRaw": "Calcaneal tendon",
+          "english": {
+            "preferred": "Calcaneal tendon",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Gân gót",
+            "aliases": []
+          },
+          "anatomicalCategory": "Tendon",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -184714,6 +186904,45 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-ef8f908d",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.7.02.048",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 148
+          },
+          "sourceTermRaw": "Calcaneal tendon",
+          "english": {
+            "preferred": "Calcaneal tendon",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Gân gót",
+            "aliases": []
+          },
+          "anatomicalCategory": "Tendon",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -184759,7 +186988,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-ef8f908d",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.7.02.048",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 148
+          },
+          "sourceTermRaw": "Calcaneal tendon",
+          "english": {
+            "preferred": "Calcaneal tendon",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Gân gót",
+            "aliases": []
+          },
+          "anatomicalCategory": "Tendon",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:tendon",
         "scope:aggregate"
@@ -184804,26 +187073,53 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "gan got",
+            "surfaceForms": [
+              "Gân gót"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-ef8f908d"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-ef8f908d"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "VARIANT_REVIEW",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
-          "HIGH_CONSENSUS_CANDIDATE"
+          "HIGH_CONSENSUS_CANDIDATE",
+          "VARIANT_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": "A new safety flag keeps the research candidate in variant review rather than promoting it."
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA51061",
+            "atlasName": "calcaneal tendon",
+            "recordEntryId": "A04.7.02.048",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "gân gót"
+          }
+        ]
       }
     },
     {
@@ -188456,11 +190752,137 @@
       "conceptId": "FMA52672",
       "atlasName": "communicating branch of nasociliary nerve with ciliary ganglion",
       "meshCount": 2,
-      "sourceMatches": [],
-      "exactEnglishMatches": [],
+      "sourceMatches": [
+        {
+          "evidenceId": "m04a-2a1282f2",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A14.2.01.026",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Communicating branch of nasociliary nerve with ciliary ganglion",
+          "english": {
+            "preferred": "Communicating branch of nasociliary nerve with ciliary ganglion",
+            "aliases": [
+              "Sensory root",
+              "Nasociliary root"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Nhánh nối của thần kinh mũi-mi với hạch mi",
+            "aliases": []
+          },
+          "anatomicalCategory": "Nerve",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
+      "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-2a1282f2",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A14.2.01.026",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Communicating branch of nasociliary nerve with ciliary ganglion",
+          "english": {
+            "preferred": "Communicating branch of nasociliary nerve with ciliary ganglion",
+            "aliases": [
+              "Sensory root",
+              "Nasociliary root"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Nhánh nối của thần kinh mũi-mi với hạch mi",
+            "aliases": []
+          },
+          "anatomicalCategory": "Nerve",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "normalizedEnglishMatches": [],
       "latinMatches": [],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-2a1282f2",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A14.2.01.026",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Communicating branch of nasociliary nerve with ciliary ganglion",
+          "english": {
+            "preferred": "Communicating branch of nasociliary nerve with ciliary ganglion",
+            "aliases": [
+              "Sensory root",
+              "Nasociliary root"
+            ]
+          },
+          "vietnamese": {
+            "preferred": "Nhánh nối của thần kinh mũi-mi với hạch mi",
+            "aliases": []
+          },
+          "anatomicalCategory": "Nerve",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:nerve",
         "structure:branch"
@@ -188500,24 +190922,35 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Nhánh nối của thần kinh mũi-mi với hạch mi",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "nhanh noi cua than kinh mui-mi voi hach mi",
+            "surfaceForms": [
+              "Nhánh nối của thần kinh mũi-mi với hạch mi"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-2a1282f2"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-2a1282f2"
+        ]
       },
       "researchBucket": "IDENTITY_GAP",
       "researchBucketReasons": [
         "ATLAS_AGGREGATE_OR_COMPOSITE_HEURISTIC",
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
-        "NO_EXACT_OR_SAFELY_NORMALIZED_ENGLISH_IDENTITY",
-        "NO_INDEXED_SOURCE_MATCH"
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD"
       ],
-      "sourceGapReasons": [
-        "NO_EXACT_OR_SAFELY_NORMALIZED_ENGLISH_IDENTITY",
-        "NO_INDEXED_SOURCE_MATCH"
-      ],
+      "sourceGapReasons": [],
       "m03cRegression": {
         "status": "PASS",
         "priorBucket": "IDENTITY_CONTEXT_REVIEW",
@@ -188526,6 +190959,17 @@
           "ONTOLOGY_SCOPE_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA52672",
+            "atlasName": "communicating branch of nasociliary nerve with ciliary ganglion",
+            "recordEntryId": "A14.2.01.026",
+            "disposition": "IDENTITY_CONTEXT_REVIEW",
+            "candidate": "nhánh nối của thần kinh mũi-mi với hạch mi"
+          }
+        ]
       }
     },
     {
@@ -197098,6 +199542,45 @@
             "researchEligibleVietnamese": false,
             "sourceVerifiedClaimEligible": false
           }
+        },
+        {
+          "evidenceId": "m04a-7516acff",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A06.2.02.017",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 199
+          },
+          "sourceTermRaw": "Lateral thyrohyoid ligament",
+          "english": {
+            "preferred": "Lateral thyrohyoid ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng giáp-móng bên",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
         }
       ],
       "exactEnglishMatches": [
@@ -197139,6 +199622,45 @@
             "locatorSupported": true,
             "authoritativeVietnamese": false,
             "researchEligibleVietnamese": false,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
+          "evidenceId": "m04a-7516acff",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A06.2.02.017",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 199
+          },
+          "sourceTermRaw": "Lateral thyrohyoid ligament",
+          "english": {
+            "preferred": "Lateral thyrohyoid ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng giáp-móng bên",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
             "sourceVerifiedClaimEligible": false
           }
         }
@@ -197187,7 +199709,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-7516acff",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A06.2.02.017",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 199
+          },
+          "sourceTermRaw": "Lateral thyrohyoid ligament",
+          "english": {
+            "preferred": "Lateral thyrohyoid ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng giáp-móng bên",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:ligament",
         "direction:lateral"
@@ -197223,25 +199785,51 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Dây chằng giáp-móng bên",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "day chang giap-mong ben",
+            "surfaceForms": [
+              "Dây chằng giáp-móng bên"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-7516acff"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-7516acff"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "HIGH_CONSENSUS_CANDIDATE",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
           "HIGH_CONSENSUS_CANDIDATE"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA55139",
+            "atlasName": "lateral thyrohyoid ligament",
+            "recordEntryId": "A06.2.02.017",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "dây chằng giáp-móng bên"
+          }
+        ]
       }
     },
     {
@@ -197883,6 +200471,45 @@
       "meshCount": 1,
       "sourceMatches": [
         {
+          "evidenceId": "m04a-2f8facee",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A06.2.03.009",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 199
+          },
+          "sourceTermRaw": "Median cricothyroid ligament",
+          "english": {
+            "preferred": "Median cricothyroid ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng nhẫn-giáp giữa",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
           "evidenceId": "m04a-c2877abf",
           "duplicateCount": 1,
           "sourceId": "FIPAT_TA2",
@@ -197925,6 +200552,45 @@
         }
       ],
       "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-2f8facee",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A06.2.03.009",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 199
+          },
+          "sourceTermRaw": "Median cricothyroid ligament",
+          "english": {
+            "preferred": "Median cricothyroid ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng nhẫn-giáp giữa",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
         {
           "evidenceId": "m04a-c2877abf",
           "duplicateCount": 1,
@@ -198011,7 +200677,47 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-2f8facee",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A06.2.03.009",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+            "page": 199
+          },
+          "sourceTermRaw": "Median cricothyroid ligament",
+          "english": {
+            "preferred": "Median cricothyroid ligament",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Dây chằng nhẫn-giáp giữa",
+            "aliases": []
+          },
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:ligament"
       ],
@@ -198041,23 +200747,49 @@
         "ontologyRisk": false
       },
       "candidateConsensus": {
-        "status": "NONE",
-        "agreedTerm": null,
-        "preferredTermGroups": [],
+        "status": "AGREED",
+        "agreedTerm": "Dây chằng nhẫn-giáp giữa",
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "day chang nhan-giap giua",
+            "surfaceForms": [
+              "Dây chằng nhẫn-giáp giữa"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-2f8facee"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-2f8facee"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "HIGH_CONSENSUS_CANDIDATE",
       "researchBucketReasons": [],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "CONSENSUS_CANDIDATE",
         "compatibleBuckets": [
           "HIGH_CONSENSUS_CANDIDATE"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA55237",
+            "atlasName": "median cricothyroid ligament",
+            "recordEntryId": "A06.2.03.009",
+            "disposition": "CONSENSUS_CANDIDATE",
+            "candidate": "dây chằng nhẫn-giáp giữa"
+          }
+        ]
       }
     },
     {
@@ -208608,6 +211340,17 @@
           "AGGREGATE_OR_COMPOSITE_REVIEW"
         ],
         "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA58775",
+            "atlasName": "zone of fascia lata",
+            "recordEntryId": "A04.7.03.002",
+            "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -227927,6 +230670,44 @@
       "meshCount": 1,
       "sourceMatches": [
         {
+          "evidenceId": "m04a-5990f770",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.0.00.045",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Intermediate tendon",
+          "english": {
+            "preferred": "Intermediate tendon",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Gân trung gian",
+            "aliases": []
+          },
+          "anatomicalCategory": "Tendon",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
+        {
           "evidenceId": "m04a-f4564e6a",
           "duplicateCount": 1,
           "sourceId": "FIPAT_TA2",
@@ -227966,6 +230747,44 @@
         }
       ],
       "exactEnglishMatches": [
+        {
+          "evidenceId": "m04a-5990f770",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.0.00.045",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Intermediate tendon",
+          "english": {
+            "preferred": "Intermediate tendon",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Gân trung gian",
+            "aliases": []
+          },
+          "anatomicalCategory": "Tendon",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        },
         {
           "evidenceId": "m04a-f4564e6a",
           "duplicateCount": 1,
@@ -228046,7 +230865,46 @@
           }
         }
       ],
-      "vietnameseCandidateEvidence": [],
+      "vietnameseCandidateEvidence": [
+        {
+          "evidenceId": "m04a-5990f770",
+          "duplicateCount": 1,
+          "sourceId": "NVH2008",
+          "sourceRevision": "NVH-2008-312P",
+          "sourceEdition": "2008",
+          "locator": {
+            "entryId": "A04.0.00.045",
+            "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"
+          },
+          "sourceTermRaw": "Intermediate tendon",
+          "english": {
+            "preferred": "Intermediate tendon",
+            "aliases": []
+          },
+          "vietnamese": {
+            "preferred": "Gân trung gian",
+            "aliases": []
+          },
+          "anatomicalCategory": "Tendon",
+          "laterality": "unsided",
+          "matchReasons": [
+            "exactEnglish"
+          ],
+          "sourceProfile": {
+            "sourceKnown": true,
+            "sourceClass": "vietnamese-authoritative",
+            "authorityTier": "authoritative",
+            "accessCopy": false,
+            "sourceRevision": "NVH-2008-312P",
+            "revisionMatches": true,
+            "exactLocator": true,
+            "locatorSupported": true,
+            "authoritativeVietnamese": true,
+            "researchEligibleVietnamese": true,
+            "sourceVerifiedClaimEligible": false
+          }
+        }
+      ],
       "detectedQualifiers": [
         "category:tendon",
         "scope:aggregate"
@@ -228087,27 +230945,54 @@
         "ontologyRisk": true
       },
       "candidateConsensus": {
-        "status": "NONE",
+        "status": "BLOCKED_BY_SAFETY_FLAG",
         "agreedTerm": null,
-        "preferredTermGroups": [],
+        "preferredTermGroups": [
+          {
+            "normalizedTerm": "gan trung gian",
+            "surfaceForms": [
+              "Gân trung gian"
+            ],
+            "sourceIds": [
+              "NVH2008"
+            ],
+            "evidenceIds": [
+              "m04a-5990f770"
+            ]
+          }
+        ],
         "aliases": [],
-        "independentAuthoritativeSourceCount": 0,
-        "evidenceIds": []
+        "independentAuthoritativeSourceCount": 1,
+        "evidenceIds": [
+          "m04a-5990f770"
+        ]
       },
-      "researchBucket": "SOURCE_GAP",
+      "researchBucket": "IDENTITY_GAP",
       "researchBucketReasons": [
         "ATLAS_MESH_OVERLAP_OR_LATERALITY_HEURISTIC",
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD",
         "SEMANTIC_SAFETY_FLAG"
       ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "IDENTITY_CONTEXT_REVIEW",
         "compatibleBuckets": [
           "IDENTITY_GAP",
           "ONTOLOGY_SCOPE_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA65410",
+            "atlasName": "intermediate tendon",
+            "recordEntryId": "A04.0.00.045",
+            "disposition": "IDENTITY_CONTEXT_REVIEW",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -314796,17 +317681,30 @@
         "independentAuthoritativeSourceCount": 0,
         "evidenceIds": []
       },
-      "researchBucket": "SOURCE_GAP",
-      "researchBucketReasons": [],
+      "researchBucket": "ONTOLOGY_SCOPE_REVIEW",
+      "researchBucketReasons": [
+        "RESEARCH_ONLY_BINDING_DISPOSITION_GUARD"
+      ],
       "sourceGapReasons": [],
       "m03cRegression": {
-        "status": "INPUT_GAP",
+        "status": "PASS",
         "priorBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
         "compatibleBuckets": [
           "ONTOLOGY_SCOPE_REVIEW",
           "AGGREGATE_OR_COMPOSITE_REVIEW"
         ],
-        "finding": "The current corpus has not supplied enough evidence to reassess this frozen M03C disposition."
+        "finding": null
+      },
+      "researchAnnotations": {
+        "conceptBindings": [
+          {
+            "conceptId": "FMA25511",
+            "atlasName": "intervertebral symphysis",
+            "recordEntryId": "A03.2.02.001",
+            "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+            "candidate": null
+          }
+        ]
       }
     },
     {
@@ -348934,35 +351832,345 @@
   "normalizedCandidateCollisions": [],
   "regression": {
     "frozenM03CConceptCount": 50,
-    "passCount": 33,
-    "inputGapCount": 17,
+    "passCount": 49,
+    "inputGapCount": 1,
     "mismatchCount": 0,
     "findings": []
+  },
+  "researchAnnotations": {
+    "schemaVersion": "m04b2a-research-annotations-1",
+    "sourcePack": {
+      "artifact": "docs/en-vi/research/M04B2A/M04B2_PUBLIC_RESEARCH_PACK.json",
+      "schemaVersion": "m04b2-public-research-pack-1",
+      "generatedDate": "2026-09-21",
+      "startingRepoCommit": "d85ae6dd54b661c0023c00b8fd470336f14e8c1e",
+      "status": "RESEARCH_ONLY_NOT_RELEASE",
+      "source": {
+        "sourceId": "NVH2008",
+        "sourceRevision": "NVH-2008-312P",
+        "authorityIdentity": "Nguyễn Văn Huy (chủ biên), Chu Văn Tuệ Bình, Thuật ngữ giải phẫu Anh - Việt, NXB Y học, 2008, 312 pages",
+        "authorityMetadataUrl": "https://images.xuatbanyhoc.vn/Files/2025-06-30/document-20250630170725501.pdf",
+        "inspectionAccessUrl": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+        "note": "The public access URL is an inspection path only; authority remains the identified NXB Y học 2008 work."
+      },
+      "corroboration": {
+        "HMU2022": {
+          "sourceRevision": "HMU-2022-ISBN-9786046658351",
+          "inspectionAccessUrl": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "confirmedExamples": [
+            {
+              "term": "xương đỉnh",
+              "locator": "§1.2 Xương đỉnh (parietal bone), printed pp.105–106"
+            },
+            {
+              "term": "cơ gian sườn ngoài",
+              "locator": "Cơ và mạc đầu-cổ-thân, intercostal-muscle section"
+            },
+            {
+              "term": "cơ ức-giáp",
+              "locator": "infrahyoid-muscle table"
+            },
+            {
+              "term": "gân gót",
+              "locator": "posterior leg muscle table, printed p.150"
+            },
+            {
+              "term": "dây chằng giáp-móng bên",
+              "locator": "larynx soft-tissue section, around printed p.613"
+            },
+            {
+              "term": "dây chằng nhẫn-giáp giữa",
+              "locator": "larynx soft-tissue section, around printed p.613"
+            },
+            {
+              "term": "động mạch dưới đòn",
+              "locator": "§1.4 Động mạch dưới đòn"
+            },
+            {
+              "term": "động mạch giáp dưới",
+              "locator": "head/neck arterial section"
+            },
+            {
+              "term": "tĩnh mạch dưới đòn",
+              "locator": "deep veins of neck section"
+            },
+            {
+              "term": "dạ dày",
+              "locator": "stomach chapter, printed p.657+"
+            },
+            {
+              "term": "tụy",
+              "locator": "pancreas chapter, printed p.696+"
+            },
+            {
+              "term": "xương chậu",
+              "locator": "lower-limb bone chapter"
+            },
+            {
+              "term": "xương thuyền",
+              "locator": "foot bone chapter; explicitly '(navicular)'"
+            }
+          ],
+          "importantNegativeFindings": [
+            "No 'xương hông' occurrence was found in the inspected HMU2022 web text.",
+            "No 'xương ghe' occurrence was found in the inspected HMU2022 web text."
+          ]
+        }
+      },
+      "releaseState": {
+        "sourceVerified": 0,
+        "medicalReviewed": 0,
+        "releaseEligible": 0,
+        "searchableVietnamese": 0
+      }
+    },
+    "conceptBindingCount": 31,
+    "boundConceptCount": 31,
+    "conceptBindings": [
+      {
+        "conceptId": "FMA9613",
+        "atlasName": "parietal bone",
+        "recordEntryId": "A02.1.02.001",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "xương đỉnh"
+      },
+      {
+        "conceptId": "FMA16586",
+        "atlasName": "right hip bone",
+        "recordEntryId": "A02.5.01.001",
+        "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA16587",
+        "atlasName": "left hip bone",
+        "recordEntryId": "A02.5.01.001",
+        "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA24499",
+        "atlasName": "navicular bone of foot",
+        "recordEntryId": "A02.5.12.001",
+        "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA22439",
+        "atlasName": "muscle of medial compartment of thigh",
+        "recordEntryId": "A04.7.01.004",
+        "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA22472",
+        "atlasName": "muscle of anterior compartment of leg",
+        "recordEntryId": "A04.7.01.005",
+        "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA22427",
+        "atlasName": "muscle of posterior compartment of thigh",
+        "recordEntryId": "A04.7.01.003",
+        "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA9756",
+        "atlasName": "external intercostal muscle",
+        "recordEntryId": "A04.4.01.012",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "cơ gian sườn ngoài",
+        "note": "Source is plural; singular atlas wording remains pending scope review."
+      },
+      {
+        "conceptId": "FMA13343",
+        "atlasName": "sternothyroid",
+        "recordEntryId": "A04.2.04.006",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "cơ ức-giáp"
+      },
+      {
+        "conceptId": "FMA65410",
+        "atlasName": "intermediate tendon",
+        "recordEntryId": "A04.0.00.045",
+        "disposition": "IDENTITY_CONTEXT_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA51061",
+        "atlasName": "calcaneal tendon",
+        "recordEntryId": "A04.7.02.048",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "gân gót"
+      },
+      {
+        "conceptId": "FMA44249",
+        "atlasName": "right long plantar ligament",
+        "recordEntryId": "A03.6.10.517",
+        "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA44250",
+        "atlasName": "left long plantar ligament",
+        "recordEntryId": "A03.6.10.517",
+        "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA55139",
+        "atlasName": "lateral thyrohyoid ligament",
+        "recordEntryId": "A06.2.02.017",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "dây chằng giáp-móng bên"
+      },
+      {
+        "conceptId": "FMA55237",
+        "atlasName": "median cricothyroid ligament",
+        "recordEntryId": "A06.2.03.009",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "dây chằng nhẫn-giáp giữa"
+      },
+      {
+        "conceptId": "FMA3951",
+        "atlasName": "subclavian artery",
+        "recordEntryId": "A12.2.08.001",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "động mạch dưới đòn"
+      },
+      {
+        "conceptId": "FMA10662",
+        "atlasName": "inferior thyroid artery",
+        "recordEntryId": "A12.2.08.043",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "động mạch giáp dưới"
+      },
+      {
+        "conceptId": "FMA3994",
+        "atlasName": "second posterior intercostal artery",
+        "recordEntryId": "A12.2.08.063",
+        "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+        "candidate": "động mạch gian sườn sau thứ hai"
+      },
+      {
+        "conceptId": "FMA4751",
+        "atlasName": "right brachiocephalic vein",
+        "recordEntryId": "A12.3.04.001",
+        "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA4725",
+        "atlasName": "subclavian vein",
+        "recordEntryId": "A12.3.08.002",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "tĩnh mạch dưới đòn"
+      },
+      {
+        "conceptId": "FMA50875",
+        "atlasName": "right optic nerve",
+        "recordEntryId": "A14.2.01.006",
+        "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA50878",
+        "atlasName": "left optic nerve",
+        "recordEntryId": "A14.2.01.006",
+        "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA52672",
+        "atlasName": "communicating branch of nasociliary nerve with ciliary ganglion",
+        "recordEntryId": "A14.2.01.026",
+        "disposition": "IDENTITY_CONTEXT_REVIEW",
+        "candidate": "nhánh nối của thần kinh mũi-mi với hạch mi"
+      },
+      {
+        "conceptId": "FMA7148",
+        "atlasName": "stomach",
+        "recordEntryId": "A05.5.01.001",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "dạ dày"
+      },
+      {
+        "conceptId": "FMA7198",
+        "atlasName": "pancreas",
+        "recordEntryId": "A05.9.01.001",
+        "disposition": "CONSENSUS_CANDIDATE",
+        "candidate": "tụy"
+      },
+      {
+        "conceptId": "FMA7203",
+        "atlasName": "kidney",
+        "recordEntryId": "A08.1.01.001",
+        "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+        "candidate": "thận"
+      },
+      {
+        "conceptId": "FMA7196",
+        "atlasName": "spleen",
+        "recordEntryId": "A13.2.01.001",
+        "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA15629",
+        "atlasName": "right adrenal gland",
+        "recordEntryId": "A11.5.00.001",
+        "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA15630",
+        "atlasName": "left adrenal gland",
+        "recordEntryId": "A11.5.00.001",
+        "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA25511",
+        "atlasName": "intervertebral symphysis",
+        "recordEntryId": "A03.2.02.001",
+        "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+        "candidate": null
+      },
+      {
+        "conceptId": "FMA58775",
+        "atlasName": "zone of fascia lata",
+        "recordEntryId": "A04.7.03.002",
+        "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+        "candidate": null
+      }
+    ]
   },
   "summary": {
     "conceptCount": 3432,
     "expectedConceptCount": 3432,
     "exactConceptCount": 3432,
     "bucketCounts": {
-      "HIGH_CONSENSUS_CANDIDATE": 0,
-      "VARIANT_REVIEW": 2,
+      "HIGH_CONSENSUS_CANDIDATE": 5,
+      "VARIANT_REVIEW": 13,
       "CONFLICT_REQUIRES_ADJUDICATION": 3,
-      "ONTOLOGY_SCOPE_REVIEW": 9,
-      "LATERALITY_REVIEW": 6,
-      "SOURCE_GAP": 2520,
-      "IDENTITY_GAP": 1,
+      "ONTOLOGY_SCOPE_REVIEW": 10,
+      "LATERALITY_REVIEW": 8,
+      "SOURCE_GAP": 2500,
+      "IDENTITY_GAP": 2,
       "AGGREGATE_OR_COMPOSITE_REVIEW": 891
     },
-    "sourceMatchConceptCount": 557,
-    "exactEnglishMatchConceptCount": 557,
+    "sourceMatchConceptCount": 559,
+    "exactEnglishMatchConceptCount": 559,
     "normalizedEnglishMatchConceptCount": 0,
     "latinMatchConceptCount": 557,
-    "noSourceMatchConceptCount": 2875,
-    "authoritativeVietnameseEvidenceConceptCount": 0,
+    "noSourceMatchConceptCount": 2873,
+    "authoritativeVietnameseEvidenceConceptCount": 19,
     "semanticFlaggedConceptCount": 475,
     "aggregateHeuristicConceptCount": 892,
     "normalizedCandidateCollisionCount": 0,
     "regressionMismatchCount": 0,
-    "regressionInputGapCount": 17
+    "regressionInputGapCount": 1
   }
 }

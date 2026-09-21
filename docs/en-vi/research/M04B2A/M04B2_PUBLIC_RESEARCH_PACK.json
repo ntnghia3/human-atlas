@@ -1,0 +1,305 @@
+{
+  "schemaVersion": "m04b2-public-research-pack-1",
+  "generatedDate": "2026-09-21",
+  "startingRepoCommit": "d85ae6dd54b661c0023c00b8fd470336f14e8c1e",
+  "status": "RESEARCH_ONLY_NOT_RELEASE",
+  "source": {
+    "sourceId": "NVH2008",
+    "sourceRevision": "NVH-2008-312P",
+    "authorityIdentity": "Nguyễn Văn Huy (chủ biên), Chu Văn Tuệ Bình, Thuật ngữ giải phẫu Anh - Việt, NXB Y học, 2008, 312 pages",
+    "authorityMetadataUrl": "https://images.xuatbanyhoc.vn/Files/2025-06-30/document-20250630170725501.pdf",
+    "inspectionAccessUrl": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+    "note": "The public access URL is an inspection path only; authority remains the identified NXB Y học 2008 work."
+  },
+  "corroboration": {
+    "HMU2022": {
+      "sourceRevision": "HMU-2022-ISBN-9786046658351",
+      "inspectionAccessUrl": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+      "confirmedExamples": [
+        {
+          "term": "xương đỉnh",
+          "locator": "§1.2 Xương đỉnh (parietal bone), printed pp.105–106"
+        },
+        {
+          "term": "cơ gian sườn ngoài",
+          "locator": "Cơ và mạc đầu-cổ-thân, intercostal-muscle section"
+        },
+        {
+          "term": "cơ ức-giáp",
+          "locator": "infrahyoid-muscle table"
+        },
+        {
+          "term": "gân gót",
+          "locator": "posterior leg muscle table, printed p.150"
+        },
+        {
+          "term": "dây chằng giáp-móng bên",
+          "locator": "larynx soft-tissue section, around printed p.613"
+        },
+        {
+          "term": "dây chằng nhẫn-giáp giữa",
+          "locator": "larynx soft-tissue section, around printed p.613"
+        },
+        {
+          "term": "động mạch dưới đòn",
+          "locator": "§1.4 Động mạch dưới đòn"
+        },
+        {
+          "term": "động mạch giáp dưới",
+          "locator": "head/neck arterial section"
+        },
+        {
+          "term": "tĩnh mạch dưới đòn",
+          "locator": "deep veins of neck section"
+        },
+        {
+          "term": "dạ dày",
+          "locator": "stomach chapter, printed p.657+"
+        },
+        {
+          "term": "tụy",
+          "locator": "pancreas chapter, printed p.696+"
+        },
+        {
+          "term": "xương chậu",
+          "locator": "lower-limb bone chapter"
+        },
+        {
+          "term": "xương thuyền",
+          "locator": "foot bone chapter; explicitly '(navicular)'"
+        }
+      ],
+      "importantNegativeFindings": [
+        "No 'xương hông' occurrence was found in the inspected HMU2022 web text.",
+        "No 'xương ghe' occurrence was found in the inspected HMU2022 web text."
+      ]
+    }
+  },
+  "recordCount": 28,
+  "conceptBindings": [
+    {
+      "conceptId": "FMA9613",
+      "atlasName": "parietal bone",
+      "recordEntryId": "A02.1.02.001",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "xương đỉnh"
+    },
+    {
+      "conceptId": "FMA16586",
+      "atlasName": "right hip bone",
+      "recordEntryId": "A02.5.01.001",
+      "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA16587",
+      "atlasName": "left hip bone",
+      "recordEntryId": "A02.5.01.001",
+      "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA24499",
+      "atlasName": "navicular bone of foot",
+      "recordEntryId": "A02.5.12.001",
+      "disposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA22439",
+      "atlasName": "muscle of medial compartment of thigh",
+      "recordEntryId": "A04.7.01.004",
+      "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA22472",
+      "atlasName": "muscle of anterior compartment of leg",
+      "recordEntryId": "A04.7.01.005",
+      "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA22427",
+      "atlasName": "muscle of posterior compartment of thigh",
+      "recordEntryId": "A04.7.01.003",
+      "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA9756",
+      "atlasName": "external intercostal muscle",
+      "recordEntryId": "A04.4.01.012",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "cơ gian sườn ngoài",
+      "note": "Source is plural; singular atlas wording remains pending scope review."
+    },
+    {
+      "conceptId": "FMA13343",
+      "atlasName": "sternothyroid",
+      "recordEntryId": "A04.2.04.006",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "cơ ức-giáp"
+    },
+    {
+      "conceptId": "FMA65410",
+      "atlasName": "intermediate tendon",
+      "recordEntryId": "A04.0.00.045",
+      "disposition": "IDENTITY_CONTEXT_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA51061",
+      "atlasName": "calcaneal tendon",
+      "recordEntryId": "A04.7.02.048",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "gân gót"
+    },
+    {
+      "conceptId": "FMA44249",
+      "atlasName": "right long plantar ligament",
+      "recordEntryId": "A03.6.10.517",
+      "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA44250",
+      "atlasName": "left long plantar ligament",
+      "recordEntryId": "A03.6.10.517",
+      "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA55139",
+      "atlasName": "lateral thyrohyoid ligament",
+      "recordEntryId": "A06.2.02.017",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "dây chằng giáp-móng bên"
+    },
+    {
+      "conceptId": "FMA55237",
+      "atlasName": "median cricothyroid ligament",
+      "recordEntryId": "A06.2.03.009",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "dây chằng nhẫn-giáp giữa"
+    },
+    {
+      "conceptId": "FMA3951",
+      "atlasName": "subclavian artery",
+      "recordEntryId": "A12.2.08.001",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "động mạch dưới đòn"
+    },
+    {
+      "conceptId": "FMA10662",
+      "atlasName": "inferior thyroid artery",
+      "recordEntryId": "A12.2.08.043",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "động mạch giáp dưới"
+    },
+    {
+      "conceptId": "FMA3994",
+      "atlasName": "second posterior intercostal artery",
+      "recordEntryId": "A12.2.08.063",
+      "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidate": "động mạch gian sườn sau thứ hai"
+    },
+    {
+      "conceptId": "FMA4751",
+      "atlasName": "right brachiocephalic vein",
+      "recordEntryId": "A12.3.04.001",
+      "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA4725",
+      "atlasName": "subclavian vein",
+      "recordEntryId": "A12.3.08.002",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "tĩnh mạch dưới đòn"
+    },
+    {
+      "conceptId": "FMA50875",
+      "atlasName": "right optic nerve",
+      "recordEntryId": "A14.2.01.006",
+      "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA50878",
+      "atlasName": "left optic nerve",
+      "recordEntryId": "A14.2.01.006",
+      "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA52672",
+      "atlasName": "communicating branch of nasociliary nerve with ciliary ganglion",
+      "recordEntryId": "A14.2.01.026",
+      "disposition": "IDENTITY_CONTEXT_REVIEW",
+      "candidate": "nhánh nối của thần kinh mũi-mi với hạch mi"
+    },
+    {
+      "conceptId": "FMA7148",
+      "atlasName": "stomach",
+      "recordEntryId": "A05.5.01.001",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "dạ dày"
+    },
+    {
+      "conceptId": "FMA7198",
+      "atlasName": "pancreas",
+      "recordEntryId": "A05.9.01.001",
+      "disposition": "CONSENSUS_CANDIDATE",
+      "candidate": "tụy"
+    },
+    {
+      "conceptId": "FMA7203",
+      "atlasName": "kidney",
+      "recordEntryId": "A08.1.01.001",
+      "disposition": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidate": "thận"
+    },
+    {
+      "conceptId": "FMA7196",
+      "atlasName": "spleen",
+      "recordEntryId": "A13.2.01.001",
+      "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA15629",
+      "atlasName": "right adrenal gland",
+      "recordEntryId": "A11.5.00.001",
+      "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA15630",
+      "atlasName": "left adrenal gland",
+      "recordEntryId": "A11.5.00.001",
+      "disposition": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA25511",
+      "atlasName": "intervertebral symphysis",
+      "recordEntryId": "A03.2.02.001",
+      "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidate": null
+    },
+    {
+      "conceptId": "FMA58775",
+      "atlasName": "zone of fascia lata",
+      "recordEntryId": "A04.7.03.002",
+      "disposition": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidate": null
+    }
+  ],
+  "releaseState": {
+    "sourceVerified": 0,
+    "medicalReviewed": 0,
+    "releaseEligible": 0,
+    "searchableVietnamese": 0
+  }
+}
