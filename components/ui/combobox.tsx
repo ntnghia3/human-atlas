@@ -15,6 +15,13 @@ import { ChevronDownIcon, XIcon, CheckIcon } from 'lucide-react';
 
 const Combobox = ComboboxPrimitive.Root;
 
+function localizeDismissButtons(label: string): void {
+  if (typeof document === 'undefined') return;
+  document.querySelectorAll<HTMLElement>('span[role="button"][aria-label="Dismiss"]').forEach(element => {
+    element.setAttribute('aria-label', label);
+  });
+}
+
 function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />;
 }
@@ -55,14 +62,22 @@ function ComboboxInput({
   disabled = false,
   showTrigger = true,
   showClear = false,
+  dismissLabel,
   ...props
 }: ComboboxPrimitive.Input.Props & {
   showTrigger?: boolean;
   showClear?: boolean;
+  dismissLabel?: string;
 }) {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  React.useLayoutEffect(() => {
+    if (!dismissLabel) return;
+    localizeDismissButtons(dismissLabel);
+  });
   return (
     <InputGroup className={cn('w-auto', className)}>
       <ComboboxPrimitive.Input
+        ref={inputRef}
         render={<InputGroupInput disabled={disabled} />}
         {...props}
       />
@@ -91,12 +106,24 @@ function ComboboxContent({
   align = 'start',
   alignOffset = 0,
   anchor,
+  dismissLabel,
   ...props
 }: ComboboxPrimitive.Popup.Props &
   Pick<
     ComboboxPrimitive.Positioner.Props,
     'side' | 'align' | 'sideOffset' | 'alignOffset' | 'anchor'
-  >) {
+  > & {dismissLabel?: string}) {
+  React.useLayoutEffect(() => {
+    if (!dismissLabel) return;
+    localizeDismissButtons(dismissLabel);
+  });
+  React.useEffect(() => {
+    if (!dismissLabel || typeof document === 'undefined' || typeof MutationObserver === 'undefined') return;
+    const observer = new MutationObserver(() => localizeDismissButtons(dismissLabel));
+    observer.observe(document.body, {subtree: true, childList: true, attributes: true, attributeFilter: ['aria-label']});
+    localizeDismissButtons(dismissLabel);
+    return () => observer.disconnect();
+  }, [dismissLabel]);
   return (
     <ComboboxPrimitive.Portal>
       <ComboboxPrimitive.Positioner
