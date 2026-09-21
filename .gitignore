@@ -37,5 +37,7 @@ next-env.d.ts
 /outputs/
 /work/
 /.local-sources/
+/.local/terminology-source-inbox/
+/.local/terminology-source-cache/
 tmp/pdfs/
 *.tsbuildinfo

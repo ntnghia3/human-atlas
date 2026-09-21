@@ -756,6 +756,19 @@ function classifyConcept({concept, match, meshHeuristics, m03cEntry}) {
   return {researchBucket, reasons: [...new Set(reasons)].sort()};
 }
 
+function hasParserIntegrityQuarantine(evidence) {
+  return evidence?.context === 'PARSER_INTEGRITY_REVIEW' || /PARSER_INTEGRITY_REVIEW/.test(evidence?.notes ?? '');
+}
+
+function isExpectedEvidenceSupersession(result, priorBucket) {
+  if (priorBucket !== 'CONSENSUS_CANDIDATE' || result.researchBucket !== 'CONFLICT_REQUIRES_ADJUDICATION') return false;
+  const evidence = (result.vietnameseCandidateEvidence ?? [])
+    .filter(item => item.sourceProfile?.researchEligibleVietnamese && item.sourceProfile?.authoritativeVietnamese);
+  const sourceIds = new Set(evidence.map(item => item.sourceId));
+  const terms = new Set(evidence.map(item => normalizeMatchingText(item.vietnamese?.preferred)).filter(Boolean));
+  return sourceIds.size >= 2 && terms.size >= 2 && !evidence.some(hasParserIntegrityQuarantine);
+}
+
 function regressionAssessment(result, m03cEntry) {
   if (!m03cEntry?.researchDisposition) return null;
   const priorBucket = m03cEntry.researchDisposition.dispositionBucket;
@@ -771,11 +784,19 @@ function regressionAssessment(result, m03cEntry) {
   }
   const inputGap = ['SOURCE_GAP', 'IDENTITY_GAP'].includes(result.researchBucket);
   if (inputGap) return {status: 'INPUT_GAP', priorBucket, compatibleBuckets: compatible, finding: 'The current corpus has not supplied enough evidence to reassess this frozen M03C disposition.'};
+  if (isExpectedEvidenceSupersession(result, priorBucket)) {
+    return {
+      status: 'EXPECTED_EVIDENCE_SUPERSESSION',
+      priorBucket,
+      compatibleBuckets: compatible,
+      finding: 'EVIDENCE_SUPERSEDES_FROZEN_BASELINE: independent authority evidence preserves a real unresolved conflict rather than a software regression.',
+    };
+  }
   return {
-    status: 'MISMATCH',
+    status: 'UNEXPLAINED_REGRESSION',
     priorBucket,
     compatibleBuckets: compatible,
-    finding: `Bulk classification ${result.researchBucket} is not compatible with frozen M03C1 disposition ${priorBucket}.`,
+    finding: `UNEXPLAINED_REGRESSION: bulk classification ${result.researchBucket} is not compatible with frozen M03C1 disposition ${priorBucket}.`,
   };
 }
 
@@ -1004,8 +1025,9 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
   const bucketCounts = Object.fromEntries(RESEARCH_BUCKETS.map(bucket => [bucket, 0]));
   for (const result of conceptResults) bucketCounts[result.researchBucket] = (bucketCounts[result.researchBucket] ?? 0) + 1;
   const regressionResults = conceptResults.map(result => result.m03cRegression).filter(Boolean);
-  const regressionMismatches = regressionResults.filter(item => item.status === 'MISMATCH');
+  const regressionMismatches = regressionResults.filter(item => item.status === 'UNEXPLAINED_REGRESSION');
   const regressionInputGaps = regressionResults.filter(item => item.status === 'INPUT_GAP');
+  const regressionSupersessions = regressionResults.filter(item => item.status === 'EXPECTED_EVIDENCE_SUPERSESSION');
   const outputBody = {
     schemaVersion: M04A_SCHEMA_VERSION,
     pipelineVersion: M04A_PIPELINE_VERSION,
@@ -1025,7 +1047,11 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
       passCount: regressionResults.filter(item => item.status === 'PASS').length,
       inputGapCount: regressionInputGaps.length,
       mismatchCount: regressionMismatches.length,
+      expectedEvidenceSupersessionCount: regressionSupersessions.length,
+      unexplainedRegressionCount: regressionMismatches.length,
+      statusCounts: Object.fromEntries(['PASS', 'INPUT_GAP', 'EXPECTED_EVIDENCE_SUPERSESSION', 'UNEXPLAINED_REGRESSION'].map(status => [status, regressionResults.filter(item => item.status === status).length])),
       findings: regressionMismatches.map(item => item.finding),
+      supersessionFindings: regressionSupersessions.map(item => item.finding),
     },
     ...(researchAnnotations ? {researchAnnotations} : {}),
     summary: {
@@ -1044,6 +1070,8 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
       normalizedCandidateCollisionCount: normalizedCandidateCollisions.length,
       regressionMismatchCount: regressionMismatches.length,
       regressionInputGapCount: regressionInputGaps.length,
+      regressionExpectedEvidenceSupersessionCount: regressionSupersessions.length,
+      regressionUnexplainedCount: regressionMismatches.length,
     },
   };
   return outputBody;

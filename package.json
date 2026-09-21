@@ -20,7 +20,10 @@
     "test:m04b1": "node scripts/test-m04b1.mjs",
     "test:m04b2a": "node scripts/test-m04b2a.mjs",
     "test:m04b2c": "node scripts/test-m04b2c.mjs",
-    "test:m04b2d": "node scripts/test-m04b2d-batch1.mjs"
+    "test:m04b2d": "node scripts/test-m04b2d-batch1.mjs",
+    "terminology:m04b2e": "node scripts/m04b2e-bulk-ingestion.mjs",
+    "test:m04b2e": "node scripts/test-m04b2e.mjs",
+    "test:m04b2e2": "node scripts/test-m04b2e2.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
