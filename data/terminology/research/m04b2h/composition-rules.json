@@ -1,0 +1,716 @@
+{
+  "schemaVersion": "M04B2H-COMPOSITION-RULES-1",
+  "researchOnly": true,
+  "rules": [
+    {
+      "ruleId": "M04B2H-LATERALITY-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "laterality realization",
+      "enabled": true,
+      "sourceExamples": [
+        {
+          "english": "right hepatic duct",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Ống gan phải",
+          "secondVietnamese": "Ống gan trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:191:FMA14669:a85a43fd85373519",
+            "NVH2008:192:FMA14670:3e3b0e96f93b3763"
+          ]
+        },
+        {
+          "english": "right main bronchus",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Phế quản chính phải",
+          "secondVietnamese": "Phế quản chính trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:219:FMA7395:110a8e6b61416c8a",
+            "HMU2022:13:FMA7396:ad86ea11e1d84d80"
+          ]
+        },
+        {
+          "english": "right lung",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Phổi phải",
+          "secondVietnamese": "Phổi trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:221:FMA7309:f8f37f46b984f265",
+            "NVH2008:220:FMA7310:f375b78bd34fa19c"
+          ]
+        },
+        {
+          "english": "right gastric artery",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Động mạch vị phải",
+          "secondVietnamese": "Động mạch vị trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:288:FMA14776:b48952aed5946814",
+            "NVH2008:284:FMA14768:73a5ccccc254fb60"
+          ]
+        },
+        {
+          "english": "right colic artery",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Động mạch đại tràng phải",
+          "secondVietnamese": "Động mạch đại tràng trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:299:FMA14811:fb1b53a273eb183d",
+            "NVH2008:301:FMA14826:6996daef0bfd75ed"
+          ]
+        },
+        {
+          "english": "right marginal vein",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Tĩnh mạch bờ phải",
+          "secondVietnamese": "Tĩnh mạch bờ trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:326:FMA4716:8d631244cff029f6",
+            "NVH2008:324:FMA4708:81cd98ad7d3dc4e1"
+          ]
+        },
+        {
+          "english": "right hepatic vein",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Tĩnh mạch gan phải",
+          "secondVietnamese": "Tĩnh mạch gan trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:344:FMA14338:05a4979abd9847fc",
+            "NVH2008:345:FMA14339:0ec77f9e05f7611f"
+          ]
+        },
+        {
+          "english": "right suprarenal vein",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Tĩnh mạch thượng thận phải",
+          "secondVietnamese": "Tĩnh mạch thượng thận trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:347:FMA14343:d67471ebc688bcc7",
+            "NVH2008:346:FMA14349:9e2aae59005e162c"
+          ]
+        },
+        {
+          "english": "right gastric vein",
+          "firstEnglish": "right",
+          "secondEnglish": "left",
+          "firstVietnamese": "Tĩnh mạch vị phải",
+          "secondVietnamese": "Tĩnh mạch vị trái",
+          "firstRealization": "phải",
+          "secondRealization": "trái",
+          "claimIds": [
+            "NVH2008:357:FMA15400:03516e2e46e00b10",
+            "NVH2008:356:FMA15399:9e2a86037f216942"
+          ]
+        }
+      ],
+      "requiredComponents": [
+        {
+          "englishComponent": "right",
+          "vietnameseRealization": "phải",
+          "sourceEvidenceIds": [
+            "NVH2008:191:FMA14669:a85a43fd85373519",
+            "NVH2008:192:FMA14670:3e3b0e96f93b3763",
+            "NVH2008:219:FMA7395:110a8e6b61416c8a",
+            "HMU2022:13:FMA7396:ad86ea11e1d84d80",
+            "NVH2008:221:FMA7309:f8f37f46b984f265",
+            "NVH2008:220:FMA7310:f375b78bd34fa19c",
+            "NVH2008:288:FMA14776:b48952aed5946814",
+            "NVH2008:284:FMA14768:73a5ccccc254fb60",
+            "NVH2008:299:FMA14811:fb1b53a273eb183d",
+            "NVH2008:301:FMA14826:6996daef0bfd75ed",
+            "NVH2008:326:FMA4716:8d631244cff029f6",
+            "NVH2008:324:FMA4708:81cd98ad7d3dc4e1",
+            "NVH2008:344:FMA14338:05a4979abd9847fc",
+            "NVH2008:345:FMA14339:0ec77f9e05f7611f",
+            "NVH2008:347:FMA14343:d67471ebc688bcc7",
+            "NVH2008:346:FMA14349:9e2aae59005e162c",
+            "NVH2008:357:FMA15400:03516e2e46e00b10",
+            "NVH2008:356:FMA15399:9e2a86037f216942"
+          ]
+        },
+        {
+          "englishComponent": "left",
+          "vietnameseRealization": "trái",
+          "sourceEvidenceIds": [
+            "NVH2008:191:FMA14669:a85a43fd85373519",
+            "NVH2008:192:FMA14670:3e3b0e96f93b3763",
+            "NVH2008:219:FMA7395:110a8e6b61416c8a",
+            "HMU2022:13:FMA7396:ad86ea11e1d84d80",
+            "NVH2008:221:FMA7309:f8f37f46b984f265",
+            "NVH2008:220:FMA7310:f375b78bd34fa19c",
+            "NVH2008:288:FMA14776:b48952aed5946814",
+            "NVH2008:284:FMA14768:73a5ccccc254fb60",
+            "NVH2008:299:FMA14811:fb1b53a273eb183d",
+            "NVH2008:301:FMA14826:6996daef0bfd75ed",
+            "NVH2008:326:FMA4716:8d631244cff029f6",
+            "NVH2008:324:FMA4708:81cd98ad7d3dc4e1",
+            "NVH2008:344:FMA14338:05a4979abd9847fc",
+            "NVH2008:345:FMA14339:0ec77f9e05f7611f",
+            "NVH2008:347:FMA14343:d67471ebc688bcc7",
+            "NVH2008:346:FMA14349:9e2aae59005e162c",
+            "NVH2008:357:FMA15400:03516e2e46e00b10",
+            "NVH2008:356:FMA15399:9e2a86037f216942"
+          ]
+        }
+      ],
+      "outputTemplate": "[BASE_VI] [right:phải|left:trái]",
+      "disqualifiers": [
+        "source conflict",
+        "scope review",
+        "branch/segment hierarchy",
+        "unsided target",
+        "ambiguous base term"
+      ],
+      "minimumEvidenceCount": 3,
+      "tests": [
+        {
+          "input": "right hepatic duct",
+          "expectedPair": [
+            "Ống gan phải",
+            "Ống gan trái"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "right main bronchus",
+          "expectedPair": [
+            "Phế quản chính phải",
+            "Phế quản chính trái"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "right lung",
+          "expectedPair": [
+            "Phổi phải",
+            "Phổi trái"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "right gastric artery",
+          "expectedPair": [
+            "Động mạch vị phải",
+            "Động mạch vị trái"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        }
+      ],
+      "realizations": {
+        "right": [
+          "phải"
+        ],
+        "left": [
+          "trái"
+        ]
+      },
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 426,
+      "conceptsRejected": 1989,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 1458,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 104,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 80,
+        "BASE_CONFLICT_OR_SCOPE_REVIEW": 139,
+        "AMBIGUOUS_BASE_TERM": 208
+      }
+    },
+    {
+      "ruleId": "M04B2H-SUPERIOR-INFERIOR-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "superior/inferior realization",
+      "enabled": true,
+      "sourceExamples": [
+        {
+          "english": "superior epigastric artery",
+          "firstEnglish": "superior",
+          "secondEnglish": "inferior",
+          "firstVietnamese": "Động mạch thượng vị trên",
+          "secondVietnamese": "Động mạch thượng vị dưới",
+          "firstRealization": "trên",
+          "secondRealization": "dưới",
+          "claimIds": [
+            "NVH2008:259:FMA10646:6477822ccffc2e5b",
+            "NVH2008:309:FMA20686:ff966be05b18a6c5"
+          ]
+        },
+        {
+          "english": "superior ulnar collateral artery",
+          "firstEnglish": "superior",
+          "secondEnglish": "inferior",
+          "firstVietnamese": "Động mạch bên trụ trên",
+          "secondVietnamese": "Động mạch bên trụ dưới",
+          "firstRealization": "trên",
+          "secondRealization": "dưới",
+          "claimIds": [
+            "NVH2008:273:FMA22706:e009c4b8f57feb34",
+            "NVH2008:274:FMA22710:dec8eceb755c7f98"
+          ]
+        },
+        {
+          "english": "superior lateral genicular artery",
+          "firstEnglish": "superior",
+          "secondEnglish": "inferior",
+          "firstVietnamese": "Động mạch gối trên-ngoài",
+          "secondVietnamese": "Động mạch gối dưới-ngoài",
+          "firstRealization": "trên",
+          "secondRealization": "dưới",
+          "claimIds": [
+            "NVH2008:313:FMA22585:65aa46aba530543e",
+            "NVH2008:315:FMA43888:dc6e5619d7703ef0"
+          ]
+        },
+        {
+          "english": "superior frontal gyrus",
+          "firstEnglish": "superior",
+          "secondEnglish": "inferior",
+          "firstVietnamese": "Hồi trán trên",
+          "secondVietnamese": "Hồi trán dưới",
+          "firstRealization": "trên",
+          "secondRealization": "dưới",
+          "claimIds": [
+            "NVH2008:383:FMA61857:1901bedf70305cb5",
+            "NVH2008:380:FMA61860:6daf00cc418fcf52"
+          ]
+        },
+        {
+          "english": "superior rectus",
+          "firstEnglish": "superior",
+          "secondEnglish": "inferior",
+          "firstVietnamese": "Cơ thẳng trên",
+          "secondVietnamese": "Cơ thẳng dưới",
+          "firstRealization": "trên",
+          "secondRealization": "dưới",
+          "claimIds": [
+            "NVH2008:419:FMA49035:feb5e8e174eca432",
+            "NVH2008:420:FMA49036:da0813dd2c088a0d"
+          ]
+        },
+        {
+          "english": "superior vena cava",
+          "firstEnglish": "superior",
+          "secondEnglish": "inferior",
+          "firstVietnamese": "Tĩnh mạch chủ trên",
+          "secondVietnamese": "TĨNH MẠCH CHỦ DƯỚI",
+          "firstRealization": "trên",
+          "secondRealization": "dưới",
+          "claimIds": [
+            "HMU2022:7:FMA4720:fde9eeec862dbbea",
+            "NVH2008:342:FMA10951:f97d93f082f16947"
+          ]
+        }
+      ],
+      "requiredComponents": [
+        {
+          "englishComponent": "superior",
+          "vietnameseRealization": "trên",
+          "sourceEvidenceIds": [
+            "NVH2008:259:FMA10646:6477822ccffc2e5b",
+            "NVH2008:309:FMA20686:ff966be05b18a6c5",
+            "NVH2008:273:FMA22706:e009c4b8f57feb34",
+            "NVH2008:274:FMA22710:dec8eceb755c7f98",
+            "NVH2008:313:FMA22585:65aa46aba530543e",
+            "NVH2008:315:FMA43888:dc6e5619d7703ef0",
+            "NVH2008:383:FMA61857:1901bedf70305cb5",
+            "NVH2008:380:FMA61860:6daf00cc418fcf52",
+            "NVH2008:419:FMA49035:feb5e8e174eca432",
+            "NVH2008:420:FMA49036:da0813dd2c088a0d",
+            "HMU2022:7:FMA4720:fde9eeec862dbbea",
+            "NVH2008:342:FMA10951:f97d93f082f16947"
+          ]
+        },
+        {
+          "englishComponent": "inferior",
+          "vietnameseRealization": "dưới",
+          "sourceEvidenceIds": [
+            "NVH2008:259:FMA10646:6477822ccffc2e5b",
+            "NVH2008:309:FMA20686:ff966be05b18a6c5",
+            "NVH2008:273:FMA22706:e009c4b8f57feb34",
+            "NVH2008:274:FMA22710:dec8eceb755c7f98",
+            "NVH2008:313:FMA22585:65aa46aba530543e",
+            "NVH2008:315:FMA43888:dc6e5619d7703ef0",
+            "NVH2008:383:FMA61857:1901bedf70305cb5",
+            "NVH2008:380:FMA61860:6daf00cc418fcf52",
+            "NVH2008:419:FMA49035:feb5e8e174eca432",
+            "NVH2008:420:FMA49036:da0813dd2c088a0d",
+            "HMU2022:7:FMA4720:fde9eeec862dbbea",
+            "NVH2008:342:FMA10951:f97d93f082f16947"
+          ]
+        }
+      ],
+      "outputTemplate": "[BASE_VI] [superior:trên|inferior:dưới]",
+      "disqualifiers": [
+        "source conflict",
+        "scope review",
+        "compound modifier",
+        "ambiguous base term"
+      ],
+      "minimumEvidenceCount": 3,
+      "tests": [
+        {
+          "input": "superior epigastric artery",
+          "expectedPair": [
+            "Động mạch thượng vị trên",
+            "Động mạch thượng vị dưới"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "superior ulnar collateral artery",
+          "expectedPair": [
+            "Động mạch bên trụ trên",
+            "Động mạch bên trụ dưới"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "superior lateral genicular artery",
+          "expectedPair": [
+            "Động mạch gối trên-ngoài",
+            "Động mạch gối dưới-ngoài"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "superior frontal gyrus",
+          "expectedPair": [
+            "Hồi trán trên",
+            "Hồi trán dưới"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        }
+      ],
+      "realizations": {
+        "superior": [
+          "trên"
+        ],
+        "inferior": [
+          "dưới"
+        ]
+      },
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 0,
+      "conceptsRejected": 2415,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 2362,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 11,
+        "AMBIGUOUS_BASE_TERM": 6,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 36
+      }
+    },
+    {
+      "ruleId": "M04B2H-ANTERIOR-POSTERIOR-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "anterior/posterior realization",
+      "enabled": true,
+      "sourceExamples": [
+        {
+          "english": "anterior segmental artery",
+          "firstEnglish": "anterior",
+          "secondEnglish": "posterior",
+          "firstVietnamese": "Động mạch phân thuỳ trước",
+          "secondVietnamese": "Động mạch phân thuỳ sau",
+          "firstRealization": "trước",
+          "secondRealization": "sau",
+          "claimIds": [
+            "NVH2008:231:FMA13278:ca43e84e216eb626",
+            "NVH2008:290:FMA13278:2c8966b913b87b4d",
+            "NVH2008:232:FMA13280:0a6892ebf708e87c",
+            "NVH2008:307:FMA13280:0b006ab22c90df96"
+          ]
+        },
+        {
+          "english": "anterior parietal artery",
+          "firstEnglish": "anterior",
+          "secondEnglish": "posterior",
+          "firstVietnamese": "Động mạch đỉnh trước",
+          "secondVietnamese": "Động mạch đỉnh sau",
+          "firstRealization": "trước",
+          "secondRealization": "sau",
+          "claimIds": [
+            "NVH2008:247:FMA50485:9e8d3bb3602c7ed9",
+            "NVH2008:248:FMA50488:d5ec075c8e06a433"
+          ]
+        },
+        {
+          "english": "anterior inferior cerebellar artery",
+          "firstEnglish": "anterior",
+          "secondEnglish": "posterior",
+          "firstVietnamese": "Động mạch tiểu não trước-dưới",
+          "secondVietnamese": "Động mạch tiểu não sau-dưới",
+          "firstRealization": "trước",
+          "secondRealization": "sau",
+          "claimIds": [
+            "NVH2008:256:FMA50544:fe29133bf6619d58",
+            "NVH2008:254:FMA50518:a925b2ec92a08c29"
+          ]
+        },
+        {
+          "english": "anterior superior pancreaticoduodenal artery",
+          "firstEnglish": "anterior",
+          "secondEnglish": "posterior",
+          "firstVietnamese": "Động mạch tá-tụy trên-trước",
+          "secondVietnamese": "Động mạch tá-tụy trên-sau",
+          "firstRealization": "trước",
+          "secondRealization": "sau",
+          "claimIds": [
+            "NVH2008:287:FMA14782:fb1625f6f333041f",
+            "NVH2008:286:FMA14784:d432c3096a3027df"
+          ]
+        }
+      ],
+      "requiredComponents": [
+        {
+          "englishComponent": "anterior",
+          "vietnameseRealization": "trước",
+          "sourceEvidenceIds": [
+            "NVH2008:231:FMA13278:ca43e84e216eb626",
+            "NVH2008:290:FMA13278:2c8966b913b87b4d",
+            "NVH2008:232:FMA13280:0a6892ebf708e87c",
+            "NVH2008:307:FMA13280:0b006ab22c90df96",
+            "NVH2008:247:FMA50485:9e8d3bb3602c7ed9",
+            "NVH2008:248:FMA50488:d5ec075c8e06a433",
+            "NVH2008:256:FMA50544:fe29133bf6619d58",
+            "NVH2008:254:FMA50518:a925b2ec92a08c29",
+            "NVH2008:287:FMA14782:fb1625f6f333041f",
+            "NVH2008:286:FMA14784:d432c3096a3027df"
+          ]
+        },
+        {
+          "englishComponent": "posterior",
+          "vietnameseRealization": "sau",
+          "sourceEvidenceIds": [
+            "NVH2008:231:FMA13278:ca43e84e216eb626",
+            "NVH2008:290:FMA13278:2c8966b913b87b4d",
+            "NVH2008:232:FMA13280:0a6892ebf708e87c",
+            "NVH2008:307:FMA13280:0b006ab22c90df96",
+            "NVH2008:247:FMA50485:9e8d3bb3602c7ed9",
+            "NVH2008:248:FMA50488:d5ec075c8e06a433",
+            "NVH2008:256:FMA50544:fe29133bf6619d58",
+            "NVH2008:254:FMA50518:a925b2ec92a08c29",
+            "NVH2008:287:FMA14782:fb1625f6f333041f",
+            "NVH2008:286:FMA14784:d432c3096a3027df"
+          ]
+        }
+      ],
+      "outputTemplate": "[BASE_VI] [anterior:trước|posterior:sau]",
+      "disqualifiers": [
+        "source conflict",
+        "scope review",
+        "compound modifier",
+        "ambiguous base term"
+      ],
+      "minimumEvidenceCount": 3,
+      "tests": [
+        {
+          "input": "anterior segmental artery",
+          "expectedPair": [
+            "Động mạch phân thuỳ trước",
+            "Động mạch phân thuỳ sau"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "anterior parietal artery",
+          "expectedPair": [
+            "Động mạch đỉnh trước",
+            "Động mạch đỉnh sau"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "anterior inferior cerebellar artery",
+          "expectedPair": [
+            "Động mạch tiểu não trước-dưới",
+            "Động mạch tiểu não sau-dưới"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        },
+        {
+          "input": "anterior superior pancreaticoduodenal artery",
+          "expectedPair": [
+            "Động mạch tá-tụy trên-trước",
+            "Động mạch tá-tụy trên-sau"
+          ],
+          "status": "SOURCE_DEMONSTRATED"
+        }
+      ],
+      "realizations": {
+        "anterior": [
+          "trước"
+        ],
+        "posterior": [
+          "sau"
+        ]
+      },
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 4,
+      "conceptsRejected": 2411,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 2319,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 66,
+        "AMBIGUOUS_BASE_TERM": 7,
+        "BASE_CONFLICT_OR_SCOPE_REVIEW": 1,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 18
+      }
+    },
+    {
+      "ruleId": "M04B2H-ORDINAL-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "numbered structure realization",
+      "enabled": true,
+      "sourceExamples": [
+        {
+          "english": "fourth ventricle",
+          "firstEnglish": "fourth",
+          "secondEnglish": "third",
+          "firstVietnamese": "Thất não tư",
+          "secondVietnamese": "Thất não ba",
+          "firstRealization": "tư",
+          "secondRealization": "ba",
+          "claimIds": [
+            "NVH2008:370:FMA78469:ee96d8e2c854cee7",
+            "NVH2008:378:FMA78454:861c6bea0f28660b"
+          ]
+        }
+      ],
+      "requiredComponents": [
+        {
+          "englishComponent": "fourth",
+          "vietnameseRealization": "tư",
+          "sourceEvidenceIds": [
+            "NVH2008:370:FMA78469:ee96d8e2c854cee7",
+            "NVH2008:378:FMA78454:861c6bea0f28660b"
+          ]
+        },
+        {
+          "englishComponent": "third",
+          "vietnameseRealization": "ba",
+          "sourceEvidenceIds": [
+            "NVH2008:370:FMA78469:ee96d8e2c854cee7",
+            "NVH2008:378:FMA78454:861c6bea0f28660b"
+          ]
+        }
+      ],
+      "outputTemplate": "[BASE_VI] [ordinal realization]",
+      "disqualifiers": [
+        "source conflict",
+        "scope review",
+        "branch/segment/lobule hierarchy",
+        "ambiguous word order",
+        "unattested ordinal"
+      ],
+      "minimumEvidenceCount": 2,
+      "tests": [
+        {
+          "input": "fourth ventricle",
+          "expected": "Thất não tư",
+          "status": "SOURCE_DEMONSTRATED"
+        }
+      ],
+      "realizations": {
+        "fourth": "tư",
+        "third": "ba"
+      },
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 2,
+      "conceptsRejected": 2413,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 2389,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 1,
+        "AMBIGUOUS_BASE_TERM": 7,
+        "BASE_CONFLICT_OR_SCOPE_REVIEW": 2,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 14
+      }
+    }
+  ],
+  "disabledFamilies": [
+    {
+      "family": "medial/lateral",
+      "reason": "Observed realizations vary between giữa/bên and trong/ngoài; no generic word-order rule enabled."
+    },
+    {
+      "family": "internal/external",
+      "reason": "Only one paired direct example; below minimum evidence for generic derivation."
+    },
+    {
+      "family": "simple relational complement",
+      "reason": "No single deterministic order proven across multiple families."
+    }
+  ],
+  "adversarialTests": [
+    {
+      "id": "ADV-RIGHT-LEFT",
+      "input": "right/left renal artery",
+      "expected": "suffix-only rule; no side synthesis without explicit rule"
+    },
+    {
+      "id": "ADV-SUPERIOR-INFERIOR",
+      "input": "superior/inferior renal artery",
+      "expected": "not emitted unless base and paired rule evidence pass"
+    },
+    {
+      "id": "ADV-ANTERIOR-POSTERIOR",
+      "input": "anterior/posterior renal artery",
+      "expected": "not emitted unless base and paired rule evidence pass"
+    },
+    {
+      "id": "ADV-MEDIAL-LATERAL",
+      "input": "medial/lateral renal artery",
+      "expected": "REJECT_AMBIGUOUS_REALIZATION"
+    },
+    {
+      "id": "ADV-INTERNAL-EXTERNAL",
+      "input": "internal/external renal artery",
+      "expected": "REJECT_INSUFFICIENT_PAIRED_EVIDENCE"
+    },
+    {
+      "id": "ADV-NUMBERING",
+      "input": "third/fourth rib",
+      "expected": "ordinal suffix only when observed mapping exists"
+    },
+    {
+      "id": "ADV-BRANCH",
+      "input": "right branch of renal artery",
+      "expected": "REJECT_BLACKLIST_BRANCH"
+    },
+    {
+      "id": "ADV-PART-WHOLE",
+      "input": "entire/part kidney",
+      "expected": "REJECT_SCOPE"
+    },
+    {
+      "id": "ADV-AGGREGATE",
+      "input": "group/set of arteries",
+      "expected": "REJECT_AGGREGATE"
+    },
+    {
+      "id": "ADV-WORD-ORDER",
+      "input": "complex relational complement",
+      "expected": "REJECT_AMBIGUOUS_WORD_ORDER"
+    }
+  ]
+}

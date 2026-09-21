@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "M04B2H-COVERAGE-SUMMARY-1",
+  "milestone": "M04B2H",
+  "totalConcepts": 3432,
+  "processedConcepts": 3432,
+  "unclassifiedConcepts": 0,
+  "before": {
+    "m04b2gCandidateConcepts": 1017,
+    "m04b2gDirectSourceAttestedConcepts": 418
+  },
+  "after": {
+    "conceptsWithAnyVietnameseCandidate": 1449,
+    "conceptsWithAnyUsableVietnameseCandidate": 927,
+    "conceptsWithUsableCandidate": 927,
+    "directUsableConcepts": 495,
+    "directSourceAttestedConcepts": 418,
+    "directLocalizationConcepts": 77,
+    "directCandidateRecords": 516,
+    "multiAuthorityConcepts": 14,
+    "controlledDerivedConcepts": 432,
+    "sourceVariantConcepts": 2,
+    "sourceConflictConcepts": 7,
+    "scopeReviewConcepts": 522,
+    "noSafeTranslationCandidateConcepts": 1983,
+    "candidateGainOverM04B2G": 432,
+    "usableGainOverDirect": 509,
+    "coveragePercentage": 42.22,
+    "usableCoveragePercentage": 27.01
+  },
+  "dispositionCounts": {
+    "DIRECT_SOURCE_TRANSLATION": 472,
+    "MULTI_AUTHORITY_TRANSLATION": 14,
+    "CONTROLLED_DERIVED_TRANSLATION": 432,
+    "SOURCE_VARIANT": 2,
+    "SOURCE_CONFLICT": 7,
+    "SCOPE_REVIEW": 522,
+    "NO_SAFE_TRANSLATION_CANDIDATE": 1983
+  },
+  "ruleContribution": [
+    {
+      "ruleId": "M04B2H-LATERALITY-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "laterality realization",
+      "examplesSupportingRule": 9,
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 426,
+      "conceptsRejected": 1989,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 1458,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 104,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 80,
+        "BASE_CONFLICT_OR_SCOPE_REVIEW": 139,
+        "AMBIGUOUS_BASE_TERM": 208
+      }
+    },
+    {
+      "ruleId": "M04B2H-SUPERIOR-INFERIOR-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "superior/inferior realization",
+      "examplesSupportingRule": 6,
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 0,
+      "conceptsRejected": 2415,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 2362,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 11,
+        "AMBIGUOUS_BASE_TERM": 6,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 36
+      }
+    },
+    {
+      "ruleId": "M04B2H-ANTERIOR-POSTERIOR-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "anterior/posterior realization",
+      "examplesSupportingRule": 4,
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 4,
+      "conceptsRejected": 2411,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 2319,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 66,
+        "AMBIGUOUS_BASE_TERM": 7,
+        "BASE_CONFLICT_OR_SCOPE_REVIEW": 1,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 18
+      }
+    },
+    {
+      "ruleId": "M04B2H-ORDINAL-SUFFIX-001",
+      "ruleVersion": "1.0.0",
+      "family": "numbered structure realization",
+      "examplesSupportingRule": 1,
+      "conceptsEvaluated": 2415,
+      "conceptsAccepted": 2,
+      "conceptsRejected": 2413,
+      "rejectionReasons": {
+        "UNATTESTED_MODIFIER": 2389,
+        "BLACKLISTED_SCOPE_OR_HIERARCHY": 1,
+        "AMBIGUOUS_BASE_TERM": 7,
+        "BASE_CONFLICT_OR_SCOPE_REVIEW": 2,
+        "NO_UNAMBIGUOUS_BASE_IDENTITY": 14
+      }
+    }
+  ],
+  "productionSafety": {
+    "searchableVietnamese": 0,
+    "sourceVerified": 0,
+    "medicallyReviewed": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED"
+  },
+  "policy": {
+    "aiTranslation": false,
+    "webTerminologySearch": false,
+    "umls": false,
+    "ontologyMapping": false,
+    "preferredTermAdjudication": false,
+    "medicalReview": false,
+    "productionPromotion": false,
+    "noMajorityVoting": true,
+    "noNewestSourceWinner": true,
+    "noUncontrolledLaterality": true,
+    "generatedTokensMustBeAuthorityObserved": true,
+    "sourceConflictsNeverDerived": true
+  },
+  "notes": "M04B2G scope-review candidates are retained as unresolved unless the only blocker is generic Structure and an exact pinned atlas alias is present. Genuine Entire/Part/Region/Branch/Segment and laterality mismatches remain blocked."
+}

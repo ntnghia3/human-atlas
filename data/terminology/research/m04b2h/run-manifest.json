@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "M04B2H-RUN-MANIFEST-1",
+  "milestone": "M04B2H",
+  "git": {
+    "branch": "main",
+    "head": "ef5537db0dc52d47e45887673ffca882efaa3dbf"
+  },
+  "atlas": {
+    "path": "public/models/atlas.json",
+    "conceptCount": 3432,
+    "sha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee"
+  },
+  "m04b2gInputs": {
+    "translation-claims.jsonl": {
+      "path": "data/terminology/research/m04b2g/translation-claims.jsonl",
+      "sha256": "981be63301c07578389c8fc9bded386be8d3c25c53a0e099e0dc72078ab745c5"
+    },
+    "concept-decisions.jsonl": {
+      "path": "data/terminology/research/m04b2g/concept-decisions.jsonl",
+      "sha256": "846cbb91a047f5dfbb6699b120b9080205a30f4ce8ebdbf9258d00c8ff545f39"
+    },
+    "closure-summary.json": {
+      "path": "data/terminology/research/m04b2g/closure-summary.json",
+      "sha256": "17de8f349c1b34573e578687b3741987ee50ee70bbfa20ec6f3c598c028f95d1"
+    },
+    "derivation-rules.json": {
+      "path": "data/terminology/research/m04b2g/derivation-rules.json",
+      "sha256": "a407956e8b80752498b45c77a9710624f65b2f7b07d2a0a8f215368207fd7c31"
+    },
+    "unresolved-review.jsonl": {
+      "path": "data/terminology/research/m04b2g/unresolved-review.jsonl",
+      "sha256": "ac4cd2cc268e5c950e9497a83cb1e81ec8e56d04205ab8ba171ab6778d0719c1"
+    },
+    "source-contribution.json": {
+      "path": "data/terminology/research/m04b2g/source-contribution.json",
+      "sha256": "767a13e8876b73972c271af98847083c2baf1f4909916fe53e1c6196a690992f"
+    },
+    "run-manifest.json": {
+      "path": "data/terminology/research/m04b2g/run-manifest.json",
+      "sha256": "48d2fee589a6fcf2133514cdba6d6b021e2dc283521ee5f228110cf477f77341"
+    }
+  },
+  "approvedCorpora": [
+    {
+      "sourceId": "NVH2008",
+      "path": "data/terminology/research/corpora/m04b2e2r-nvh2008-exhaustive.jsonl",
+      "rows": 430,
+      "approvedRows": 430,
+      "sha256": "bea7c414b19279128cb2f0e5bd3af2daff05c15de31f08744c4210e9a91b9f71"
+    },
+    {
+      "sourceId": "NATIONAL_BODY_TERMS_2025",
+      "path": "data/terminology/research/corpora/m04b2e2r-moh2025-body-structure.jsonl",
+      "rows": 1506,
+      "approvedRows": 1506,
+      "sha256": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820"
+    },
+    {
+      "sourceId": "HMU2022",
+      "path": "data/terminology/research/corpora/hmu2022-attestations.jsonl",
+      "rows": 31,
+      "approvedRows": 31,
+      "sha256": "c8a795acfbbfca2107f19d5fb7b8b6557bd7670d0a5488e2192c1e7e51cd56dd"
+    },
+    {
+      "sourceId": "UMP2023_T2",
+      "path": "data/terminology/research/corpora/ump2023-t2-bulk-attestations.jsonl",
+      "rows": 12,
+      "approvedRows": 12,
+      "sha256": "47c274cae6c5221c45adb73decc107311290c8b0004ec9893c1725a57b266ee9"
+    },
+    {
+      "sourceId": "FIPAT_TA2",
+      "path": "data/terminology/research/corpora/fipat-ta2-2019.jsonl",
+      "rows": 7112,
+      "approvedRows": 7112,
+      "sha256": "e982d736b5bb47e54e538d42984c9e899b376cc3fa9bc7a57d3a91591a13ceec"
+    }
+  ],
+  "outputs": {
+    "authority-component-lexicon": "data/terminology/research/m04b2h/authority-component-lexicon.json",
+    "composition-rules": "data/terminology/research/m04b2h/composition-rules.json",
+    "direct-candidates": "data/terminology/research/m04b2h/direct-candidates.jsonl",
+    "derived-candidates": "data/terminology/research/m04b2h/derived-candidates.jsonl",
+    "concept-candidates": "data/terminology/research/m04b2h/concept-candidates.jsonl",
+    "residual": "data/terminology/research/m04b2h/residual.jsonl",
+    "coverage-summary": "data/terminology/research/m04b2h/coverage-summary.json",
+    "M04B2H_CONTROLLED_TRANSLATION_EXPANSION_REPORT.md": "docs/en-vi/M04B2H_CONTROLLED_TRANSLATION_EXPANSION_REPORT.md"
+  },
+  "outputHashes": {
+    "data/terminology/research/m04b2h/authority-component-lexicon.json": "8386f3eb1f7463c9abf89fc20cda2d668bce1bfd6980622eedccb31c9ef8a5fa",
+    "data/terminology/research/m04b2h/composition-rules.json": "5551dfb0b5f859d9c8a89dfdb563cdf9e1a5c601ecae49988a82323b77f60754",
+    "data/terminology/research/m04b2h/direct-candidates.jsonl": "a5d7f20722ab4e7797c16a893c51365b8c6561039c91922ec1dc889c83698b28",
+    "data/terminology/research/m04b2h/derived-candidates.jsonl": "2d0fd4c6169e6f266195ff72e99444ebc674cc2e9fa6d6b5df9644102a277a6c",
+    "data/terminology/research/m04b2h/concept-candidates.jsonl": "c6df8f4d6632a38f683bde22352f5f2970d3b386afa1b294fca0db2099149046",
+    "data/terminology/research/m04b2h/residual.jsonl": "ea182219dc57d34df3ed2b21121b3dcadf8e09538116271d39dd2048d646041b",
+    "data/terminology/research/m04b2h/coverage-summary.json": "b958cb6aeb94b81b9ea5b57f57acb4ece0a5123e37abfcf3d3c46fc10655ca52",
+    "docs/en-vi/M04B2H_CONTROLLED_TRANSLATION_EXPANSION_REPORT.md": "979bd722bf27a391f62efdbfcab09f832512f7e8b26be1bee8425e115c74a382"
+  },
+  "productionHashes": {
+    "data/terminology/entries.json": "b21a8741b3522644bf021470a27fa843464b10eb99d10bca9b05441b5351d28a",
+    "data/terminology/reviewers.json": "3015971a9083a4be10471597c79d7cf1f382a0255bccba7d6be679185930dbd2",
+    "data/terminology/release.json": "ad805ff4153e735d3bd3167a421d8c388f4a0b5b797f2eb04b2f30ead9d6ad21"
+  },
+  "productionSafety": {
+    "searchableVietnamese": 0,
+    "sourceVerified": 0,
+    "medicallyReviewed": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED"
+  },
+  "policy": {
+    "aiTranslation": false,
+    "webTerminologySearch": false,
+    "umls": false,
+    "ontologyMapping": false,
+    "preferredTermAdjudication": false,
+    "medicalReview": false,
+    "productionPromotion": false,
+    "noMajorityVoting": true,
+    "noNewestSourceWinner": true,
+    "noUncontrolledLaterality": true,
+    "generatedTokensMustBeAuthorityObserved": true,
+    "sourceConflictsNeverDerived": true
+  },
+  "localization": {
+    "directLocalizationCandidates": 77,
+    "directLocalizationConcepts": 77,
+    "gate": "EXACT_PINNED_SYNONYM_WITH_STRUCTURE_ONLY_BLOCKER"
+  },
+  "derivation": {
+    "rules": 4,
+    "derivedCandidates": 432,
+    "sourceWebUsed": false,
+    "generatedAtOmitted": true,
+    "deterministic": true
+  }
+}
