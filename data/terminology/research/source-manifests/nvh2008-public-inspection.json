@@ -1,0 +1,19 @@
+{
+  "manifestVersion": 1,
+  "sourceId": "NVH2008",
+  "sourceRevision": "NVH-2008-312P",
+  "authorityIdentity": "Nguyễn Văn Huy (chủ biên), Chu Văn Tuệ Bình, Thuật ngữ giải phẫu Anh - Việt, Nhà xuất bản Y học, 2008, 312 physical pages",
+  "inspectionUrl": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+  "retrieval": {
+    "retrievedAtUtc": "2026-09-21T06:54:15.4299278Z",
+    "httpStatus": 200,
+    "contentType": "text/html; charset=utf-8",
+    "responseBytes": 3038,
+    "responseSha256": "32ED63159C77E21EE19CA1B9AA3213CCF0218EB59539560B132A8E68EF0E18EA",
+    "cachePath": ".local-sources/research/nvh2008-scribd/inspection.html"
+  },
+  "parserVersion": "M04B2B-fetch-gate-1",
+  "inspectionResult": "BLOCKED_CLIENT_CHALLENGE",
+  "visibleTerminologyText": false,
+  "note": "The single permitted response was a Scribd Client Challenge HTML shell; it contained no visible bilingual terminology rows, printed-page headers, or reconstructable entry IDs. The raw response remains gitignored and is not committed."
+}
