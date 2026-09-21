@@ -32,7 +32,7 @@ The anatomy source remains independently recoverable. Localization is an overlay
 
 ## Two-layer localization boundary
 
-UI localization covers interface copy such as search controls, reset, systems panel headings, loading messages, and language controls. It uses stable semantic keys and supports en and vi.
+UI localization covers interface copy such as search controls, reset, systems panel headings, loading messages, and language controls. It uses stable semantic keys and supports en and vi. Medically meaningful preset labels such as Skeleton and Organs may intentionally retain their English source labels until reviewed terminology authorizes Vietnamese wording; this is English medical fallback, not a missing UI translation.
 
 Anatomical terminology covers a Concept identity, the source English name, optional Latin, Vietnamese preferred and alias forms, source IDs, provenance, mapping status, and review state. It never lives in the ordinary UI message dictionary.
 

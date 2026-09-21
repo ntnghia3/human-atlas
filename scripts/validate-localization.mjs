@@ -37,13 +37,27 @@ persistLanguage('vi', unavailableStorage);
 for (const key of MESSAGE_KEYS) assert.notEqual(translate('vi', key), key);
 assert.deepEqual(SYSTEMS.map(system => system.id), ['skeletal','muscular','cardiac','sensory','arterial','venous','nervous','respiratory','digestive','urinary','lymphatic','endocrine','reproductive','integumentary','connective']);
 const sceneSource = await readFile(new URL('../app/scene.tsx', import.meta.url), 'utf8');
+const pageSource = await readFile(new URL('../app/page.tsx', import.meta.url), 'utf8');
+const comboboxSource = await readFile(new URL('../components/ui/combobox.tsx', import.meta.url), 'utf8');
+const sheetSource = await readFile(new URL('../components/ui/sheet.tsx', import.meta.url), 'utf8');
 assert.match(sceneSource, /\},\[atlas\]\);/);
 assert.equal(sceneSource.includes('language'), false);
+assert.match(pageSource, /dismissLabel=\{t\('search\.dismiss'\)\}/);
+assert.equal((pageSource.match(/closeLabel=\{t\('controls\.closePanel'\)\}/g) ?? []).length, 2);
+assert.match(comboboxSource, /dismissLabel/);
+assert.match(sheetSource, /closeLabel/);
 assert.equal(getMessage('en', 'controls.search'), 'Find a structure');
 assert.equal(getMessage('vi', 'controls.search'), 'Tìm cấu trúc');
 assert.equal(translate('en', 'loading.progress', {progress: 50, count: 12}), '50% · Loading 12 pieces');
 assert.equal(Object.keys(TERMINOLOGY_OVERLAY).length, 0);
 assert.equal(Object.keys(TERMINOLOGY_SOURCES).length, 0);
+const intentionallyEnglishUiKeys = new Set(['language.english', 'language.vietnamese', 'controls.skeleton', 'controls.organs']);
+for (const key of MESSAGE_KEYS) {
+  assert.notEqual(translate('vi', key), key);
+  if (!intentionallyEnglishUiKeys.has(key)) assert.notEqual(translate('vi', key), translate('en', key), `${key} must be localized in Vietnamese mode`);
+}
+assert.equal(getMessage('vi', 'controls.skeleton'), getMessage('en', 'controls.skeleton'));
+assert.equal(getMessage('vi', 'controls.organs'), getMessage('en', 'controls.organs'));
 
 assert.equal(normalizeSearchText('  Đặng   CỘNG  '), 'dang cong');
 assert.equal(normalizeSearchText('BẠN\n bè'), 'ban be');

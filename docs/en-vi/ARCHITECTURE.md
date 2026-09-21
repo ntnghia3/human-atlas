@@ -25,7 +25,7 @@ app/localization.ts defines:
 
 app/page.tsx owns the language state, initializes it from storage, persists changes, and updates the document lang attribute. The switcher changes only this state. It does not change the atlas state, pass a language prop to AnatomyScene, change the atlas key, or remount the scene.
 
-All ordinary interactive UI copy is routed through semantic keys: search, panel headings, presets, hide/show/reset actions, explosion and camera controls, loading/error states, source-link labels, detail-panel labels, and related accessibility labels. Anatomical system names and descriptions, structure explanations, source-scope prose, and attribution prose remain English unless controlled terminology or approved medical localization exists; these are explicitly deferred content surfaces.
+All ordinary interactive UI copy is routed through semantic keys: search, panel headings, presets, hide/show/reset actions, explosion and camera controls, loading/error states, source-link labels, detail-panel labels, and related accessibility labels. Medically meaningful preset labels such as Skeleton and Organs remain English in Vietnamese mode while the production terminology registry is empty; they are not Vietnamese terminology entries. Anatomical system names and descriptions, structure explanations, source-scope prose, and attribution prose remain English unless controlled terminology or approved medical localization exists; these are explicitly deferred content surfaces.
 
 The dictionary is not a terminology database. It must not acquire entries of the form concept name → Vietnamese anatomical term.
 

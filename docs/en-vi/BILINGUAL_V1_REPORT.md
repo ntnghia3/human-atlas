@@ -6,7 +6,8 @@
 - Readiness: **READY TO DEPLOY** for static Vercel validation/deployment; deployment was intentionally not executed in this task.
 - Branch: `feature/en-vi-source-registry`
 - Starting commit: `6ac7f370503581fdb14a40926684ce82168e5867`
-- Final implementation commit: `2634197` (`feat: complete bilingual functional v1`).
+- Original V1 implementation commit: `2634197` (`feat: complete bilingual functional v1`).
+- Localization hotfix commit: recorded in the final handoff after verification.
 - Scope boundary: functional bilingual UI only. M03 terminology research, source expansion, bulk translation, and production deployment were not started.
 
 ## Implemented
@@ -14,7 +15,8 @@
 - Added the static runtime boundary in `app/terminology-data.ts`. It imports the existing M02A JSON registry and exposes only validated production entries and sources. The production registry remains intentionally empty.
 - Connected the same terminology overlay, source catalog, resolver, and search policy to the page UI and WebMCP tools.
 - Centralized concept-name resolution for detail panels, included-member lists, hover labels, system presentation, search results, and tool search results.
-- Added semantic English/Vietnamese UI messages for navigation, controls, search, status text, detail actions, source actions, about headings, and generic runtime errors.
+- Added semantic English/Vietnamese UI messages for navigation, controls, search, status text, detail actions, source actions, about headings, panel dismiss/close actions, and generic runtime errors.
+- Kept the medically meaningful `Skeleton` and `Organs` quick-preset labels in English in Vietnamese mode. They still use semantic UI keys, but the empty production terminology registry does not authorize Vietnamese anatomical wording for these presets.
 - Added a controlled system-name boundary. With no verified system overlay, system names safely remain in English.
 - Added the verified Latin gate: Latin is searchable/displayable only when the entry is mapped and has human source verification, a canonical-latin source, and a reproducible locator.
 - Kept medical names, explanations, source-scope prose, and attribution prose in English when no verified release entry exists.
@@ -32,6 +34,8 @@ The live in-app browser smoke check used the available 639 × 546 viewport, whic
 - English initial render and Vietnamese language switch.
 - `document.documentElement.lang` updates and language persistence after reload.
 - Vietnamese accessible names for the canvas, navigation, camera controls, search, systems, and source actions.
+- Vietnamese labels for the combobox dismiss controls and sheet close controls.
+- English `Skeleton` and `Organs` preset labels as the intentional medical fallback.
 - Vietnamese search input and English fallback results for `femur`.
 - Detail-panel fallback behavior: English medical concept name and explanation, localized generic labels, atlas reference, selected-piece count, and the explicit unavailable-verified-Vietnamese note.
 - Systems drawer and about panel rendering without visible overflow in the available viewport.
@@ -45,6 +49,7 @@ The following content remains deliberately English until M03 source-backed termi
 - `SYSTEMS` names and descriptions, and any system labels without a controlled verified overlay.
 - `Concept.name`, `Part.name`, included-structure names, hover labels, and search terms that have no verified release entry.
 - Anatomical explanations and educational prose.
+- Medically meaningful quick-preset labels such as `Skeleton` and `Organs`.
 - Source-scope and attribution prose, including the adult-male reference scope.
 - Source publication names, proper names, identifiers, and raw provenance metadata.
 
