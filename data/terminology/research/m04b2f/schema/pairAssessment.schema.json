@@ -1,0 +1,1497 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:human-atlas:m04b2f:pairAssessment:1",
+  "title": "M04B2F pairAssessment",
+  "$defs": {
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifactId",
+        "sha256",
+        "locator",
+        "assertionKind",
+        "licenseDecisionId"
+      ],
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "assertionKind": {
+          "type": "string",
+          "enum": [
+            "OFFICIAL_ONTOLOGY_SEMANTICS",
+            "SOURCE_ATTESTATION",
+            "CURATED_CROSS_ONTOLOGY_ASSERTION",
+            "UMLS_CUI_INTEGRATION",
+            "LEXICAL_INFERENCE",
+            "RESEARCH_LITERATURE",
+            "LOCAL_DETERMINISTIC_INFERENCE",
+            "HUMAN_ONTOLOGY_REVIEW"
+          ]
+        },
+        "licenseDecisionId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "check": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "PASS"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "evidenceRefs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "evidenceRefs",
+        "reasonCode"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        },
+        "reasonCode": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "endpoint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "system",
+        "id",
+        "release",
+        "edition",
+        "moduleIds",
+        "active",
+        "label",
+        "artifactId"
+      ],
+      "properties": {
+        "system": {
+          "type": "string",
+          "enum": [
+            "FMA",
+            "SNOMED_CT"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "release": {
+          "type": "string",
+          "minLength": 1
+        },
+        "edition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "moduleIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "active": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "INACTIVE",
+            "UNKNOWN"
+          ]
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "artifactId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entityKind",
+        "laterality",
+        "countability",
+        "cardinality",
+        "boundarySignature",
+        "partitionBasis",
+        "canonicalContext",
+        "evidenceRefs"
+      ],
+      "properties": {
+        "entityKind": {
+          "type": "string",
+          "enum": [
+            "ORGAN",
+            "TISSUE_PORTION",
+            "MATERIAL_REGION",
+            "IMMATERIAL_SPACE",
+            "SURFACE",
+            "LINE_OR_POINT",
+            "SYSTEM",
+            "SYSTEM_SUBDIVISION",
+            "INDIVIDUAL_STRUCTURE",
+            "AGGREGATE",
+            "FUNCTIONAL_FAMILY",
+            "OTHER",
+            "UNKNOWN"
+          ]
+        },
+        "laterality": {
+          "type": "string",
+          "enum": [
+            "RIGHT",
+            "LEFT",
+            "BILATERAL",
+            "EXPLICIT_UNSIDED",
+            "NOT_APPLICABLE",
+            "UNKNOWN"
+          ]
+        },
+        "countability": {
+          "type": "string",
+          "enum": [
+            "COUNTABLE",
+            "MASS_PORTION",
+            "UNKNOWN"
+          ]
+        },
+        "cardinality": {
+          "type": "string",
+          "enum": [
+            "SINGLE",
+            "PAIR",
+            "COLLECTION",
+            "UNKNOWN"
+          ]
+        },
+        "boundarySignature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "partitionBasis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "canonicalContext": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        }
+      }
+    },
+    "sourceRow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rowId",
+        "corpusRevision",
+        "originalLineNumber",
+        "rawLineSha256",
+        "sourceId",
+        "sourceKey",
+        "mohCode",
+        "snomedId",
+        "mohEnglishRaw",
+        "mohVietnameseRaw",
+        "sourceGroup",
+        "page",
+        "sourceUrl",
+        "sourceEdition",
+        "sourceSnomedEdition",
+        "sourceIntegrity",
+        "legacyDiscoveryHints",
+        "provenance"
+      ],
+      "properties": {
+        "rowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "corpusRevision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "originalLineNumber": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rawLineSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sourceId": {
+          "const": "NATIONAL_BODY_TERMS_2025"
+        },
+        "sourceKey": {
+          "const": "MOH2025_BODY_STRUCTURE"
+        },
+        "mohCode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "snomedId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mohEnglishRaw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mohVietnameseRaw": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceGroup": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sourceUrl": {
+          "type": "string",
+          "format": "uri"
+        },
+        "sourceEdition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sourceSnomedEdition": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceIntegrity": {
+          "$ref": "#/$defs/check"
+        },
+        "legacyDiscoveryHints": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        }
+      }
+    },
+    "bridgeAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bridgeId",
+        "fma",
+        "snomed",
+        "assertedRelation",
+        "assertionOrigin",
+        "publisherOrReviewerId",
+        "policyAdmissionId",
+        "reviewDecisionId",
+        "validFrom",
+        "supersedes",
+        "evidenceRefs",
+        "licenseDecisionId"
+      ],
+      "properties": {
+        "bridgeId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fma": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "snomed": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "assertedRelation": {
+          "type": "string",
+          "enum": [
+            "EXACT_ENTITY_EQUIVALENT",
+            "FMA_SUBCLASS_OF_SNOMED",
+            "SNOMED_SUBCLASS_OF_FMA",
+            "FMA_PROPER_PART_OF_SNOMED",
+            "SNOMED_PROPER_PART_OF_FMA",
+            "OVERLAP_NON_EQUIVALENT",
+            "DISJOINT",
+            "UNDETERMINED"
+          ]
+        },
+        "assertionOrigin": {
+          "type": "string",
+          "enum": [
+            "DIRECT_SOURCE_FMA_ID",
+            "TRUSTED_PUBLISHER",
+            "HUMAN_LOCAL_REVIEW"
+          ]
+        },
+        "publisherOrReviewerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyAdmissionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewDecisionId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "validFrom": {
+          "type": "string",
+          "minLength": 1
+        },
+        "supersedes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidenceRefs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        },
+        "licenseDecisionId": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "pairAssessment": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "localResearchEligible": {
+                "const": true
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "relationType": {
+                "const": "EXACT_ENTITY_EQUIVALENT"
+              },
+              "bridgeConfidenceClass": {
+                "enum": [
+                  "T0",
+                  "T1",
+                  "T2"
+                ]
+              },
+              "disposition": {
+                "enum": [
+                  "ELIGIBLE_EXACT_FMA_EVIDENCE",
+                  "ELIGIBLE_WITH_PINNED_BRIDGE"
+                ]
+              },
+              "blockers": {
+                "maxItems": 0
+              },
+              "lateralityRelation": {
+                "enum": [
+                  "EXACT",
+                  "NOT_APPLICABLE"
+                ]
+              },
+              "scopeChecks": {
+                "properties": {
+                  "entityKind": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "boundary": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "partition": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "cardinality": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "countability": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "granularity": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "canonicalContext": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  },
+                  "sepCompatibility": {
+                    "properties": {
+                      "status": {
+                        "const": "PASS"
+                      }
+                    }
+                  }
+                }
+              },
+              "bridgeIds": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "enum": [
+                  "ELIGIBLE_EXACT_FMA_EVIDENCE",
+                  "ELIGIBLE_WITH_PINNED_BRIDGE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "localResearchEligible": {
+                "const": true
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "localResearchEligible": {
+                "const": false
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "ELIGIBLE_EXACT_FMA_EVIDENCE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "bridgeConfidenceClass": {
+                "const": "T0"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "ELIGIBLE_WITH_PINNED_BRIDGE"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "bridgeConfidenceClass": {
+                "enum": [
+                  "T1",
+                  "T2"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pairId",
+        "rowId",
+        "atlasConceptId",
+        "fma",
+        "snomed",
+        "fmaScope",
+        "snomedScope",
+        "relationType",
+        "sepClass",
+        "sepEvidenceRefs",
+        "sepAssociationMemberIds",
+        "lateralityRelation",
+        "scopeChecks",
+        "candidateBasis",
+        "bridgeConfidenceClass",
+        "bridgeIds",
+        "disposition",
+        "blockers",
+        "ruleTrace",
+        "policyVersion",
+        "inputManifestId",
+        "localResearchEligible",
+        "exportDisposition",
+        "productionEligible",
+        "provenance"
+      ],
+      "properties": {
+        "pairId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "rowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "atlasConceptId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fma": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "snomed": {
+          "$ref": "#/$defs/endpoint"
+        },
+        "fmaScope": {
+          "$ref": "#/$defs/scope"
+        },
+        "snomedScope": {
+          "$ref": "#/$defs/scope"
+        },
+        "relationType": {
+          "type": "string",
+          "enum": [
+            "EXACT_ENTITY_EQUIVALENT",
+            "FMA_SUBCLASS_OF_SNOMED",
+            "SNOMED_SUBCLASS_OF_FMA",
+            "FMA_PROPER_PART_OF_SNOMED",
+            "SNOMED_PROPER_PART_OF_FMA",
+            "OVERLAP_NON_EQUIVALENT",
+            "DISJOINT",
+            "UNDETERMINED"
+          ]
+        },
+        "sepClass": {
+          "type": "string",
+          "enum": [
+            "S",
+            "E",
+            "P",
+            "NOT_APPLICABLE",
+            "UNKNOWN",
+            "CONFLICTING"
+          ]
+        },
+        "sepEvidenceRefs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        },
+        "sepAssociationMemberIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "lateralityRelation": {
+          "type": "string",
+          "enum": [
+            "EXACT",
+            "MISMATCH",
+            "UNDERSPECIFIED",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "scopeChecks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "entityKind",
+            "boundary",
+            "partition",
+            "cardinality",
+            "countability",
+            "granularity",
+            "canonicalContext",
+            "sepCompatibility"
+          ],
+          "properties": {
+            "entityKind": {
+              "$ref": "#/$defs/check"
+            },
+            "boundary": {
+              "$ref": "#/$defs/check"
+            },
+            "partition": {
+              "$ref": "#/$defs/check"
+            },
+            "cardinality": {
+              "$ref": "#/$defs/check"
+            },
+            "countability": {
+              "$ref": "#/$defs/check"
+            },
+            "granularity": {
+              "$ref": "#/$defs/check"
+            },
+            "canonicalContext": {
+              "$ref": "#/$defs/check"
+            },
+            "sepCompatibility": {
+              "$ref": "#/$defs/check"
+            }
+          }
+        },
+        "candidateBasis": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "bridgeConfidenceClass": {
+          "type": "string",
+          "enum": [
+            "T0",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "TX"
+          ]
+        },
+        "bridgeIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "SOURCE_ATTESTATION_REVIEW",
+            "LICENSE_BLOCKED",
+            "IDENTITY_REVIEW",
+            "LATERALITY_REVIEW",
+            "AGGREGATE_REVIEW",
+            "ONTOLOGY_SCOPE_REVIEW",
+            "STRUCTURE_ENTIRE_PART_REVIEW",
+            "ELIGIBLE_EXACT_FMA_EVIDENCE",
+            "ELIGIBLE_WITH_PINNED_BRIDGE",
+            "CORROBORATIVE_ONLY",
+            "ONTOLOGY_BRIDGE_REQUIRED",
+            "NO_SAFE_MAPPING",
+            "NO_CANDIDATE_FOUND",
+            "NO_ATLAS_COUNTERPART"
+          ]
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "ruleTrace": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "policyVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inputManifestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "localResearchEligible": {
+          "type": "boolean"
+        },
+        "exportDisposition": {
+          "type": "string",
+          "enum": [
+            "PUBLIC_CLEARED",
+            "LOCAL_ONLY",
+            "LICENSE_UNRESOLVED"
+          ]
+        },
+        "productionEligible": {
+          "const": false
+        },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        }
+      }
+    },
+    "rowDecision": {
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "enum": [
+                  "ELIGIBLE_EXACT_FMA_EVIDENCE",
+                  "ELIGIBLE_WITH_PINNED_BRIDGE"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "selectedPairId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "acceptedFmaId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "unresolvedBlockers": {
+                "maxItems": 0
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "selectedPairId": {
+                "type": "null"
+              },
+              "acceptedFmaId": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "NO_ATLAS_COUNTERPART"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "exhaustionCertificateId": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ],
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rowId",
+        "candidatePairIds",
+        "selectedPairId",
+        "acceptedFmaId",
+        "disposition",
+        "allBlockers",
+        "ruleTrace",
+        "exhaustionCertificateId",
+        "inputManifestId",
+        "policyVersion",
+        "unresolvedBlockers"
+      ],
+      "properties": {
+        "rowId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidatePairIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "selectedPairId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "acceptedFmaId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "SOURCE_ATTESTATION_REVIEW",
+            "LICENSE_BLOCKED",
+            "IDENTITY_REVIEW",
+            "LATERALITY_REVIEW",
+            "AGGREGATE_REVIEW",
+            "ONTOLOGY_SCOPE_REVIEW",
+            "STRUCTURE_ENTIRE_PART_REVIEW",
+            "ELIGIBLE_EXACT_FMA_EVIDENCE",
+            "ELIGIBLE_WITH_PINNED_BRIDGE",
+            "CORROBORATIVE_ONLY",
+            "ONTOLOGY_BRIDGE_REQUIRED",
+            "NO_SAFE_MAPPING",
+            "NO_CANDIDATE_FOUND",
+            "NO_ATLAS_COUNTERPART"
+          ]
+        },
+        "allBlockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "ruleTrace": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "exhaustionCertificateId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inputManifestId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unresolvedBlockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "runManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runId",
+        "profile",
+        "atlasSha256",
+        "mohCorpusSha256",
+        "baselineResultSha256",
+        "baselineConceptSetSha256",
+        "policyVersion",
+        "policySha256",
+        "adapterVersions",
+        "sourceArtifacts",
+        "bridgeRegistrySha256",
+        "licenseRegistrySha256",
+        "normalizationVersion",
+        "candidateGenerationVersion",
+        "ontologyReviewLedgerSha256",
+        "expectedRowCount",
+        "expectedAtlasCount",
+        "canonicalization"
+      ],
+      "properties": {
+        "runId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "profile": {
+          "type": "string",
+          "enum": [
+            "PUBLIC_OFFLINE",
+            "LICENSED_LOCAL"
+          ]
+        },
+        "atlasSha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mohCorpusSha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baselineResultSha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "baselineConceptSetSha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policySha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adapterVersions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "sourceArtifacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidenceRef"
+          }
+        },
+        "bridgeRegistrySha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "licenseRegistrySha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "normalizationVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidateGenerationVersion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ontologyReviewLedgerSha256": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expectedRowCount": {
+          "const": 1506
+        },
+        "expectedAtlasCount": {
+          "const": 3432
+        },
+        "canonicalization": {
+          "const": "UTF-8; sorted object keys; stable IDs; arrays sorted only when unordered; raw strings preserved; volatile run time excluded from decision digest"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "localResearchEligible": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "relationType": {
+            "const": "EXACT_ENTITY_EQUIVALENT"
+          },
+          "bridgeConfidenceClass": {
+            "enum": [
+              "T0",
+              "T1",
+              "T2"
+            ]
+          },
+          "disposition": {
+            "enum": [
+              "ELIGIBLE_EXACT_FMA_EVIDENCE",
+              "ELIGIBLE_WITH_PINNED_BRIDGE"
+            ]
+          },
+          "blockers": {
+            "maxItems": 0
+          },
+          "lateralityRelation": {
+            "enum": [
+              "EXACT",
+              "NOT_APPLICABLE"
+            ]
+          },
+          "scopeChecks": {
+            "properties": {
+              "entityKind": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "boundary": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "partition": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "cardinality": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "countability": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "granularity": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "canonicalContext": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              },
+              "sepCompatibility": {
+                "properties": {
+                  "status": {
+                    "const": "PASS"
+                  }
+                }
+              }
+            }
+          },
+          "bridgeIds": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "enum": [
+              "ELIGIBLE_EXACT_FMA_EVIDENCE",
+              "ELIGIBLE_WITH_PINNED_BRIDGE"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "localResearchEligible": {
+            "const": true
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "localResearchEligible": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "ELIGIBLE_EXACT_FMA_EVIDENCE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "bridgeConfidenceClass": {
+            "const": "T0"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "disposition": {
+            "const": "ELIGIBLE_WITH_PINNED_BRIDGE"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "bridgeConfidenceClass": {
+            "enum": [
+              "T1",
+              "T2"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "pairId",
+    "rowId",
+    "atlasConceptId",
+    "fma",
+    "snomed",
+    "fmaScope",
+    "snomedScope",
+    "relationType",
+    "sepClass",
+    "sepEvidenceRefs",
+    "sepAssociationMemberIds",
+    "lateralityRelation",
+    "scopeChecks",
+    "candidateBasis",
+    "bridgeConfidenceClass",
+    "bridgeIds",
+    "disposition",
+    "blockers",
+    "ruleTrace",
+    "policyVersion",
+    "inputManifestId",
+    "localResearchEligible",
+    "exportDisposition",
+    "productionEligible",
+    "provenance"
+  ],
+  "properties": {
+    "pairId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "rowId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "atlasConceptId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fma": {
+      "$ref": "#/$defs/endpoint"
+    },
+    "snomed": {
+      "$ref": "#/$defs/endpoint"
+    },
+    "fmaScope": {
+      "$ref": "#/$defs/scope"
+    },
+    "snomedScope": {
+      "$ref": "#/$defs/scope"
+    },
+    "relationType": {
+      "type": "string",
+      "enum": [
+        "EXACT_ENTITY_EQUIVALENT",
+        "FMA_SUBCLASS_OF_SNOMED",
+        "SNOMED_SUBCLASS_OF_FMA",
+        "FMA_PROPER_PART_OF_SNOMED",
+        "SNOMED_PROPER_PART_OF_FMA",
+        "OVERLAP_NON_EQUIVALENT",
+        "DISJOINT",
+        "UNDETERMINED"
+      ]
+    },
+    "sepClass": {
+      "type": "string",
+      "enum": [
+        "S",
+        "E",
+        "P",
+        "NOT_APPLICABLE",
+        "UNKNOWN",
+        "CONFLICTING"
+      ]
+    },
+    "sepEvidenceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidenceRef"
+      }
+    },
+    "sepAssociationMemberIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "lateralityRelation": {
+      "type": "string",
+      "enum": [
+        "EXACT",
+        "MISMATCH",
+        "UNDERSPECIFIED",
+        "UNKNOWN",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "scopeChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "entityKind",
+        "boundary",
+        "partition",
+        "cardinality",
+        "countability",
+        "granularity",
+        "canonicalContext",
+        "sepCompatibility"
+      ],
+      "properties": {
+        "entityKind": {
+          "$ref": "#/$defs/check"
+        },
+        "boundary": {
+          "$ref": "#/$defs/check"
+        },
+        "partition": {
+          "$ref": "#/$defs/check"
+        },
+        "cardinality": {
+          "$ref": "#/$defs/check"
+        },
+        "countability": {
+          "$ref": "#/$defs/check"
+        },
+        "granularity": {
+          "$ref": "#/$defs/check"
+        },
+        "canonicalContext": {
+          "$ref": "#/$defs/check"
+        },
+        "sepCompatibility": {
+          "$ref": "#/$defs/check"
+        }
+      }
+    },
+    "candidateBasis": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "bridgeConfidenceClass": {
+      "type": "string",
+      "enum": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "TX"
+      ]
+    },
+    "bridgeIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "disposition": {
+      "type": "string",
+      "enum": [
+        "SOURCE_ATTESTATION_REVIEW",
+        "LICENSE_BLOCKED",
+        "IDENTITY_REVIEW",
+        "LATERALITY_REVIEW",
+        "AGGREGATE_REVIEW",
+        "ONTOLOGY_SCOPE_REVIEW",
+        "STRUCTURE_ENTIRE_PART_REVIEW",
+        "ELIGIBLE_EXACT_FMA_EVIDENCE",
+        "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "CORROBORATIVE_ONLY",
+        "ONTOLOGY_BRIDGE_REQUIRED",
+        "NO_SAFE_MAPPING",
+        "NO_CANDIDATE_FOUND",
+        "NO_ATLAS_COUNTERPART"
+      ]
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "ruleTrace": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "policyVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inputManifestId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "localResearchEligible": {
+      "type": "boolean"
+    },
+    "exportDisposition": {
+      "type": "string",
+      "enum": [
+        "PUBLIC_CLEARED",
+        "LOCAL_ONLY",
+        "LICENSE_UNRESOLVED"
+      ]
+    },
+    "productionEligible": {
+      "const": false
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidenceRef"
+      }
+    }
+  }
+}

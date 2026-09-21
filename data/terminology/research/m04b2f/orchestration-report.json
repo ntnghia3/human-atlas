@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "m04b2f-orchestration-report-1",
+  "status": "PASS_STOP_BEFORE_F4",
+  "stages": [
+    {
+      "stage": "M04B2F-0",
+      "status": "PASS",
+      "artifact": "data/terminology/research/m04b2f/M04B2F0_CONTRACT_REPORT.md"
+    },
+    {
+      "stage": "M04B2F-1",
+      "status": "PASS",
+      "artifact": "data/terminology/research/m04b2f/M04B2F1_BRIDGE_INGESTION_REPORT.md"
+    },
+    {
+      "stage": "M04B2F-2",
+      "status": "PASS",
+      "artifact": "data/terminology/research/m04b2f/M04B2F2_CLASSIFIER_REPORT.md"
+    },
+    {
+      "stage": "M04B2F-3",
+      "status": "PASS_STOP_BEFORE_F4",
+      "artifact": "data/terminology/research/m04b2f/M04B2F3_MOH_BATCH_REPORT.md"
+    },
+    {
+      "stage": "M04B2F-4",
+      "status": "NOT_EXECUTED",
+      "reason": "No actual new T0/T1/T2 eligible FMA evidence exists."
+    }
+  ],
+  "sourceInputs": {
+    "atlasConcepts": 3432,
+    "baselineEligibleConcepts": 421,
+    "mohRows": 1506,
+    "nvhAccounting": {
+      "renderedPagesDiscovered": 538,
+      "renderedPagesRetrieved": 538,
+      "blocksDiscovered": 6960,
+      "blocksParsed": 6960,
+      "candidateRows": 6960,
+      "structurallyRejectedRows": 6530,
+      "duplicatePrintedIdCount": 271,
+      "duplicatePrintedIdValueCount": 238,
+      "malformedPrintedIdCount": 0,
+      "incompletePrintedIdCount": 1,
+      "safeRowsParsed": 430,
+      "exactReconstructedSourceRowCount": 430,
+      "parserIntegrityReviewCount": 974,
+      "unmatchedSourceRecordCount": 5556,
+      "unmatchedSourceRecords": 5556,
+      "structuredRows": 6886,
+      "priorCompactRowsAudited": 556,
+      "priorCompactRowsRetainedExactly": 269,
+      "priorCompactRowsQuarantined": 287,
+      "statusCounts": {
+        "EXACT_RECONSTRUCTED_SOURCE_ROW": 430,
+        "PARSER_INTEGRITY_REVIEW": 974,
+        "UNMATCHED_SOURCE_RECORD": 5556
+      },
+      "reasonCounts": {
+        "DUPLICATE_PRINTED_ID": 509,
+        "EMBEDDED_ENTRY_REFERENCE_OR_NEIGHBOR_CONTENT": 463,
+        "INCOMPLETE_PRINTED_ID": 1,
+        "INCOMPLETE_SOURCE_ENGLISH": 37,
+        "INCOMPLETE_SOURCE_VIETNAMESE": 62,
+        "MULTIPLE_ENTRY_COUNTERS": 432,
+        "SOURCE_SPAN_CROSSED_SECTION_OR_PAGE_HEADING": 488,
+        "UNMATCHED_SOURCE_RECORD": 5936,
+        "UNRESOLVED_ENGLISH_RESIDUE_IN_VIETNAMESE": 2
+      },
+      "firstStructuredEntryId": "A01.1.00.001",
+      "lastStructuredEntryId": "A16.0.03.005",
+      "coverageByAcodePrefix": {
+        "A01": 8,
+        "A02": 55,
+        "A03": 4,
+        "A04": 105,
+        "A05": 22,
+        "A06": 27,
+        "A08": 1,
+        "A09": 3,
+        "A10": 1,
+        "A12": 135,
+        "A13": 2,
+        "A14": 46,
+        "A15": 19,
+        "A16": 2
+      },
+      "candidateCoverageByAcodePrefix": {
+        "A01": 251,
+        "A02": 953,
+        "A03": 275,
+        "A04": 653,
+        "A05": 439,
+        "A06": 238,
+        "A07": 26,
+        "A08": 101,
+        "A09": 258,
+        "A10": 84,
+        "A11": 5,
+        "A12": 1146,
+        "A13": 187,
+        "A14": 1819,
+        "A15": 467,
+        "A16": 58
+      },
+      "coverageStatus": "PARTIAL_PUBLIC_TEXT_ACCESS",
+      "parserNote": "All accessible rendered code blocks were visited. A-code boundaries, continuation digits, English fragments, and Vietnamese fragments were reconstructed from the rendered source before exact atlas matching. Prefix-only, incomplete, adjacent, duplicate, and unresolved rows remain quarantined or unmatched.",
+      "renderedLinesRetrieved": 18185,
+      "printedPageLabelsObserved": 269,
+      "rejectedByNoAtlasIdentity": 5556,
+      "rejectedByNoVietnameseBoundary": 62,
+      "structuredRowsRetained": 430,
+      "matchedConceptCount": 400,
+      "firstRetainedEntryId": "A01.1.00.001",
+      "lastRetainedEntryId": "A16.0.03.005"
+    }
+  },
+  "trustedBridgeRegistryCount": 0,
+  "mohDispositionAccounting": {
+    "IDENTITY_REVIEW": 1506
+  },
+  "tierCounts": {
+    "T0": 0,
+    "T1": 0,
+    "T2": 0,
+    "T3": 0,
+    "T4": 0,
+    "T5": 0,
+    "T6": 1506,
+    "TX": 0
+  },
+  "eligibleT0T1T2Counts": {
+    "T0": 0,
+    "T1": 0,
+    "T2": 0,
+    "total": 0
+  },
+  "coverage": {
+    "baseline": 421,
+    "final": 421,
+    "new": 0
+  },
+  "groupedReviewQueueCounts": {
+    "bySnomedId": 1506,
+    "bySepScopeSignature": 1,
+    "byBlockerCombination": 1,
+    "byOntologyFamily": 11,
+    "byCandidateFma": 848,
+    "byRelationCandidate": 1
+  },
+  "unavailableLicensedInputBlockers": [
+    "NO_AUTHORIZED_FMA_EXPORT",
+    "NO_AUTHORIZED_SNOMED_RF2",
+    "NO_AUTHORIZED_UMLS_RELEASE",
+    "NO_ADMITTED_EXACT_BRIDGE"
+  ],
+  "productionSafety": {
+    "data/terminology/entries.json": "b21a8741b3522644bf021470a27fa843464b10eb99d10bca9b05441b5351d28a",
+    "data/terminology/reviewers.json": "3015971a9083a4be10471597c79d7cf1f382a0255bccba7d6be679185930dbd2",
+    "data/terminology/release.json": "ad805ff4153e735d3bd3167a421d8c388f4a0b5b797f2eb04b2f30ead9d6ad21",
+    "data/terminology/sources.json": "6c4a6195b285cee1a5325d8ac45fb479851f2ad8d933085c97e8bfd4e26cef73",
+    "public/models/atlas.json": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+    "searchableVietnamese": 0,
+    "sourceVerified": 0,
+    "medicallyReviewed": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED"
+  },
+  "filesChangedByStage": [
+    "scripts/m04b2f-orchestrator.mjs",
+    "scripts/test-m04b2f.mjs",
+    "package.json",
+    "data/terminology/research/m04b2f/"
+  ]
+}

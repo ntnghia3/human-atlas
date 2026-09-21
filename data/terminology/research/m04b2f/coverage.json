@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "m04b2f-coverage-1",
+  "status": "PASS_STOP_BEFORE_F4",
+  "totalRows": 1506,
+  "tierCounts": {
+    "T0": 0,
+    "T1": 0,
+    "T2": 0,
+    "T3": 0,
+    "T4": 0,
+    "T5": 0,
+    "T6": 1506,
+    "TX": 0
+  },
+  "dispositionCounts": {
+    "IDENTITY_REVIEW": 1506
+  },
+  "eligibleRows": 0,
+  "eligibleUniqueFmaIds": [],
+  "eligibleUniqueFmaCount": 0,
+  "baselineEligibleFmaCount": 421,
+  "overlapWithBaseline": [],
+  "overlapWithBaselineCount": 0,
+  "newEligibleFmaIds": [],
+  "newEligibleFmaCount": 0,
+  "noCandidateRows": 0,
+  "noAtlasCounterpartRows": 0,
+  "reviewQueueCounts": {
+    "IDENTITY_REVIEW": 1506
+  },
+  "reviewPacketCount": 11,
+  "trustedBridgeRegistryCount": 0,
+  "f4Executed": false,
+  "f4StopReason": "No actual new T0/T1/T2 eligible FMA evidence exists."
+}

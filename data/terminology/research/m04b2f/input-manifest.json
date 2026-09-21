@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "m04b2f-input-manifest-1",
+  "runId": "m04b2f-orchestration-1",
+  "profile": "PUBLIC_OFFLINE",
+  "status": "NO_TRUSTED_BRIDGE_INPUT",
+  "reasonCodes": [
+    "NO_AUTHORIZED_FMA_EXPORT",
+    "NO_AUTHORIZED_SNOMED_RF2",
+    "NO_AUTHORIZED_UMLS_RELEASE",
+    "NO_ADMITTED_EXACT_BRIDGE"
+  ],
+  "policyVersion": "m04b2f-safe-bridge-1",
+  "atlas": {
+    "path": "public/models/atlas.json",
+    "sha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+    "conceptCount": 3432,
+    "idSetSha256": "f1f2484472a1e5582a142756489568c9d577d93708982db53c513c389479a8ea"
+  },
+  "baseline": {
+    "path": "data/terminology/research/m04b2e-bulk-match-results.json",
+    "sha256": "b574d51d64a598d13114812cb50e64cf329b937e5fbbf817db251e10d3f690af",
+    "eligibleCount": 421,
+    "eligibleIdSetSha256": "2954a0d3b8656319df45d0200e67c0ca99e1fe665876175a93f77fb0c5c1904a"
+  },
+  "moh": {
+    "path": "data/terminology/research/corpora/m04b2e2r-moh2025-body-structure.jsonl",
+    "sha256": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820",
+    "rowCount": 1506,
+    "sourceId": "NATIONAL_BODY_TERMS_2025",
+    "sourceKey": "MOH2025_BODY_STRUCTURE"
+  },
+  "nvhResearchAccounting": {
+    "renderedPagesDiscovered": 538,
+    "renderedPagesRetrieved": 538,
+    "blocksDiscovered": 6960,
+    "blocksParsed": 6960,
+    "candidateRows": 6960,
+    "structurallyRejectedRows": 6530,
+    "duplicatePrintedIdCount": 271,
+    "duplicatePrintedIdValueCount": 238,
+    "malformedPrintedIdCount": 0,
+    "incompletePrintedIdCount": 1,
+    "safeRowsParsed": 430,
+    "exactReconstructedSourceRowCount": 430,
+    "parserIntegrityReviewCount": 974,
+    "unmatchedSourceRecordCount": 5556,
+    "unmatchedSourceRecords": 5556,
+    "structuredRows": 6886,
+    "priorCompactRowsAudited": 556,
+    "priorCompactRowsRetainedExactly": 269,
+    "priorCompactRowsQuarantined": 287,
+    "statusCounts": {
+      "EXACT_RECONSTRUCTED_SOURCE_ROW": 430,
+      "PARSER_INTEGRITY_REVIEW": 974,
+      "UNMATCHED_SOURCE_RECORD": 5556
+    },
+    "reasonCounts": {
+      "DUPLICATE_PRINTED_ID": 509,
+      "EMBEDDED_ENTRY_REFERENCE_OR_NEIGHBOR_CONTENT": 463,
+      "INCOMPLETE_PRINTED_ID": 1,
+      "INCOMPLETE_SOURCE_ENGLISH": 37,
+      "INCOMPLETE_SOURCE_VIETNAMESE": 62,
+      "MULTIPLE_ENTRY_COUNTERS": 432,
+      "SOURCE_SPAN_CROSSED_SECTION_OR_PAGE_HEADING": 488,
+      "UNMATCHED_SOURCE_RECORD": 5936,
+      "UNRESOLVED_ENGLISH_RESIDUE_IN_VIETNAMESE": 2
+    },
+    "firstStructuredEntryId": "A01.1.00.001",
+    "lastStructuredEntryId": "A16.0.03.005",
+    "coverageByAcodePrefix": {
+      "A01": 8,
+      "A02": 55,
+      "A03": 4,
+      "A04": 105,
+      "A05": 22,
+      "A06": 27,
+      "A08": 1,
+      "A09": 3,
+      "A10": 1,
+      "A12": 135,
+      "A13": 2,
+      "A14": 46,
+      "A15": 19,
+      "A16": 2
+    },
+    "candidateCoverageByAcodePrefix": {
+      "A01": 251,
+      "A02": 953,
+      "A03": 275,
+      "A04": 653,
+      "A05": 439,
+      "A06": 238,
+      "A07": 26,
+      "A08": 101,
+      "A09": 258,
+      "A10": 84,
+      "A11": 5,
+      "A12": 1146,
+      "A13": 187,
+      "A14": 1819,
+      "A15": 467,
+      "A16": 58
+    },
+    "coverageStatus": "PARTIAL_PUBLIC_TEXT_ACCESS",
+    "parserNote": "All accessible rendered code blocks were visited. A-code boundaries, continuation digits, English fragments, and Vietnamese fragments were reconstructed from the rendered source before exact atlas matching. Prefix-only, incomplete, adjacent, duplicate, and unresolved rows remain quarantined or unmatched.",
+    "renderedLinesRetrieved": 18185,
+    "printedPageLabelsObserved": 269,
+    "rejectedByNoAtlasIdentity": 5556,
+    "rejectedByNoVietnameseBoundary": 62,
+    "structuredRowsRetained": 430,
+    "matchedConceptCount": 400,
+    "firstRetainedEntryId": "A01.1.00.001",
+    "lastRetainedEntryId": "A16.0.03.005"
+  },
+  "productionHashes": {
+    "data/terminology/entries.json": "b21a8741b3522644bf021470a27fa843464b10eb99d10bca9b05441b5351d28a",
+    "data/terminology/reviewers.json": "3015971a9083a4be10471597c79d7cf1f382a0255bccba7d6be679185930dbd2",
+    "data/terminology/release.json": "ad805ff4153e735d3bd3167a421d8c388f4a0b5b797f2eb04b2f30ead9d6ad21",
+    "data/terminology/sources.json": "6c4a6195b285cee1a5325d8ac45fb479851f2ad8d933085c97e8bfd4e26cef73",
+    "public/models/atlas.json": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee"
+  },
+  "gitBaseline": {
+    "branch": "main",
+    "currentHead": "06f73cc80cbcc12b30b5bb682eed703ec45de925",
+    "planningInspectedHead": "7ac5d50666625a3c9327933d7f082525d4cf4d74",
+    "headStatus": "LEGITIMATE_CURRENT_HEAD_REVIEWED"
+  },
+  "baselineHashDelta": {
+    "public/models/atlas.json": {
+      "expected": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+      "current": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+      "status": "MATCH"
+    },
+    "data/terminology/entries.json": {
+      "expected": "b21a8741b3522644bf021470a27fa843464b10eb99d10bca9b05441b5351d28a",
+      "current": "b21a8741b3522644bf021470a27fa843464b10eb99d10bca9b05441b5351d28a",
+      "status": "MATCH"
+    },
+    "data/terminology/reviewers.json": {
+      "expected": "3015971a9083a4be10471597c79d7cf1f382a0255bccba7d6be679185930dbd2",
+      "current": "3015971a9083a4be10471597c79d7cf1f382a0255bccba7d6be679185930dbd2",
+      "status": "MATCH"
+    },
+    "data/terminology/release.json": {
+      "expected": "ad805ff4153e735d3bd3167a421d8c388f4a0b5b797f2eb04b2f30ead9d6ad21",
+      "current": "ad805ff4153e735d3bd3167a421d8c388f4a0b5b797f2eb04b2f30ead9d6ad21",
+      "status": "MATCH"
+    },
+    "data/terminology/sources.json": {
+      "expected": "6c4a6195b285cee1a5325d8ac45fb479851f2ad8d933085c97e8bfd4e26cef73",
+      "current": "6c4a6195b285cee1a5325d8ac45fb479851f2ad8d933085c97e8bfd4e26cef73",
+      "status": "MATCH"
+    },
+    "data/terminology/research/corpora/m04b2e2r-moh2025-body-structure.jsonl": {
+      "expected": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820",
+      "current": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820",
+      "status": "MATCH"
+    },
+    "data/terminology/research/m04b2e-bulk-match-results.json": {
+      "expected": "b574d51d64a598d13114812cb50e64cf329b937e5fbbf817db251e10d3f690af",
+      "current": "b574d51d64a598d13114812cb50e64cf329b937e5fbbf817db251e10d3f690af",
+      "status": "MATCH"
+    }
+  },
+  "sourceRegistryPath": "data/terminology/research/m04b2f/source-registry.json",
+  "licenseRegistryPath": "data/terminology/research/m04b2f/license-registry.json",
+  "trustedBridgeRegistryPath": "data/terminology/research/m04b2f/bridge-assertions.jsonl"
+}

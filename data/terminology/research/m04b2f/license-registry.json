@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "m04b2f-license-registry-1",
+  "profile": "PUBLIC_OFFLINE",
+  "records": [
+    {
+      "artifactId": "M04B2F_MOH_CORPUS",
+      "useDecision": "ALLOWED_REUSED_EXISTING_CORPUS",
+      "exportDecision": "PUBLIC_CLEARED",
+      "dependency": null,
+      "evidence": "Existing research corpus and repository policy; no new ontology distribution."
+    },
+    {
+      "artifactId": "M04B2F_FMA_EXPORT",
+      "useDecision": "UNAVAILABLE",
+      "exportDecision": "BLOCKED",
+      "dependency": "FMA_2019_OFFICIAL",
+      "evidence": "No authorized export supplied."
+    },
+    {
+      "artifactId": "M04B2F_SNOMED_RF2",
+      "useDecision": "UNAVAILABLE",
+      "exportDecision": "BLOCKED",
+      "dependency": "SNOMED_CT_RF2",
+      "evidence": "No authorized RF2 supplied."
+    },
+    {
+      "artifactId": "M04B2F_UMLS_RELEASE",
+      "useDecision": "UNAVAILABLE",
+      "exportDecision": "BLOCKED",
+      "dependency": "UMLS_RELEASE_UNAVAILABLE",
+      "evidence": "No authorized UMLS release supplied."
+    },
+    {
+      "artifactId": "M04B2F_TRUSTED_BRIDGE",
+      "useDecision": "EMPTY",
+      "exportDecision": "PUBLIC_CLEARED",
+      "dependency": null,
+      "evidence": "Registry intentionally empty; no restricted crosswalk emitted."
+    }
+  ]
+}

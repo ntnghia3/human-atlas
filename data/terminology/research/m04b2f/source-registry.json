@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "m04b2f-source-registry-1",
+  "profile": "PUBLIC_OFFLINE",
+  "sourceKeyMapping": {
+    "sourceId": "NATIONAL_BODY_TERMS_2025",
+    "sourceKey": "MOH2025_BODY_STRUCTURE",
+    "relationship": "corpus sourceId to M04B2E manifest/public-acquisition sourceKey",
+    "exactCorpusPath": "data/terminology/research/corpora/m04b2e2r-moh2025-body-structure.jsonl",
+    "sourceRevision": "VI-BODY-TERMS-2025-SIGNED",
+    "retainedRows": 1506
+  },
+  "inputs": [
+    {
+      "sourceId": "NATIONAL_BODY_TERMS_2025",
+      "sourceKey": "MOH2025_BODY_STRUCTURE",
+      "kind": "MOH_COMPACT_CORPUS",
+      "availability": "AVAILABLE_REUSED_PUBLIC_RESEARCH_CORPUS",
+      "exportDecision": "PUBLIC_CLEARED",
+      "sha256": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820"
+    },
+    {
+      "sourceId": "FMA_2019_OFFICIAL",
+      "sourceKey": "FMA_2019_OFFICIAL",
+      "kind": "FMA_ONTOLOGY",
+      "availability": "UNAVAILABLE_PUBLIC_PROFILE",
+      "reason": "NO_AUTHORIZED_FMA_EXPORT_IN_M04B2F_CACHE",
+      "exportDecision": "BLOCKED"
+    },
+    {
+      "sourceId": "SNOMED_CT_RF2",
+      "sourceKey": "SNOMED_CT_RF2",
+      "kind": "SNOMED_RF2",
+      "availability": "UNAVAILABLE_PUBLIC_PROFILE",
+      "reason": "NO_AUTHORIZED_SNOMED_RF2_IN_M04B2F_CACHE",
+      "exportDecision": "BLOCKED"
+    },
+    {
+      "sourceId": "UMLS_RELEASE_UNAVAILABLE",
+      "sourceKey": "UMLS_RELEASE_UNAVAILABLE",
+      "kind": "UMLS_RELEASE",
+      "availability": "UNAVAILABLE_PUBLIC_PROFILE",
+      "reason": "NO_AUTHORIZED_UMLS_RELEASE_IN_M04B2F_CACHE",
+      "exportDecision": "BLOCKED"
+    },
+    {
+      "sourceId": "FMA_SNOMED_TRUSTED_BRIDGE",
+      "sourceKey": "FMA_SNOMED_TRUSTED_BRIDGE",
+      "kind": "EXACT_BRIDGE",
+      "availability": "EMPTY",
+      "reason": "NO_ADMITTED_EXACT_BRIDGE_ARTIFACT",
+      "exportDecision": "PUBLIC_CLEARED"
+    }
+  ],
+  "localCachePath": ".local/terminology-source-cache/m04b2f/",
+  "localInputsDetected": false
+}

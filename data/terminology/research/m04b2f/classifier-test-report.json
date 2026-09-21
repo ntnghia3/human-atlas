@@ -1,0 +1,1196 @@
+{
+  "schemaVersion": "m04b2f-classifier-report-1",
+  "status": "PASS",
+  "policyVersion": "m04b2f-safe-bridge-1",
+  "gateCaseCount": 60,
+  "integrationCaseCount": 30,
+  "adapterTestCount": 6,
+  "gateResults": [
+    {
+      "id": "A01",
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false,
+        "relationType": "EXACT_ENTITY_EQUIVALENT"
+      },
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A02",
+      "expected": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A03",
+      "expected": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12",
+        "researchEligible": false,
+        "productionEligible": false,
+        "relationType": "FMA_SUBCLASS_OF_SNOMED"
+      },
+      "actual": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A04",
+      "expected": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12",
+        "researchEligible": false,
+        "productionEligible": false,
+        "relationType": "SNOMED_PROPER_PART_OF_FMA",
+        "forbiddenRelations": [
+          "SNOMED_SUBCLASS_OF_FMA",
+          "EXACT_ENTITY_EQUIVALENT"
+        ]
+      },
+      "actual": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A05",
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A06",
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A07",
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false,
+        "requiredBlockers": [
+          "LATERALITY_MISMATCH",
+          "AGGREGATE_VS_SINGLE_ENTITY_MISMATCH"
+        ]
+      },
+      "actual": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A08",
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A09",
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A10",
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A11",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A12",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A13",
+      "expected": {
+        "disposition": "AGGREGATE_REVIEW",
+        "firstRule": "G07",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "AGGREGATE_REVIEW",
+        "firstRule": "G07"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A14",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A15",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A16",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A17",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A18",
+      "expected": {
+        "disposition": "AGGREGATE_REVIEW",
+        "firstRule": "G07",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "AGGREGATE_REVIEW",
+        "firstRule": "G07"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A19",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A20",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A21",
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A22",
+      "expected": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A23",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A24",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A25",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A26",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A27",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A28",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A29",
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A30",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A31",
+      "expected": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A32",
+      "expected": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A33",
+      "expected": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A34",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A35",
+      "expected": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A36",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A37",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A38",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A39",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A40",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A41",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A42",
+      "expected": {
+        "disposition": "SOURCE_ATTESTATION_REVIEW",
+        "firstRule": "G01",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "SOURCE_ATTESTATION_REVIEW",
+        "firstRule": "G01"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A43",
+      "expected": {
+        "disposition": "SOURCE_ATTESTATION_REVIEW",
+        "firstRule": "G01",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "SOURCE_ATTESTATION_REVIEW",
+        "firstRule": "G01"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A44",
+      "expected": {
+        "disposition": "LICENSE_BLOCKED",
+        "firstRule": "G02",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "LICENSE_BLOCKED",
+        "firstRule": "G02"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A45",
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false,
+        "publicExportAllowed": false
+      },
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A46",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A47",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A48",
+      "expected": {
+        "disposition": "NO_CANDIDATE_FOUND",
+        "firstRule": "G05",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "NO_CANDIDATE_FOUND",
+        "firstRule": "G05"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A49",
+      "expected": {
+        "disposition": "NO_ATLAS_COUNTERPART",
+        "firstRule": "G04",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "NO_ATLAS_COUNTERPART",
+        "firstRule": "G04"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A50",
+      "expected": {
+        "disposition": "NO_SAFE_MAPPING",
+        "firstRule": "G13",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "NO_SAFE_MAPPING",
+        "firstRule": "G13"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A51",
+      "expected": {
+        "disposition": "ELIGIBLE_EXACT_FMA_EVIDENCE",
+        "firstRule": "G10",
+        "researchEligible": true,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ELIGIBLE_EXACT_FMA_EVIDENCE",
+        "firstRule": "G10"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A52",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A53",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A54",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A55",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A56",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A57",
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A58",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A59",
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      },
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03"
+      },
+      "status": "PASS"
+    },
+    {
+      "id": "A60",
+      "expected": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12",
+        "researchEligible": false,
+        "productionEligible": false,
+        "relationType": "SNOMED_SUBCLASS_OF_FMA"
+      },
+      "actual": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12"
+      },
+      "status": "PASS"
+    }
+  ],
+  "integrationResults": [
+    {
+      "id": "R01",
+      "status": "PASS",
+      "expected": "One eligible row, selected exact pair only; source row not duplicated; all candidates retained.",
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "selectedPair": "A01:exact",
+        "retainedCandidates": [
+          "A01:exact",
+          "A03:broader",
+          "A04:part"
+        ],
+        "rowCount": 1
+      }
+    },
+    {
+      "id": "R02",
+      "status": "PASS",
+      "expected": "IDENTITY_REVIEW; acceptedFmaId=null; no preference by sorting, score or publisher count.",
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "acceptedFmaId": null,
+        "preference": null
+      }
+    },
+    {
+      "id": "R03",
+      "status": "PASS",
+      "expected": "IDENTITY_REVIEW; retain ambiguity until reviewed.",
+      "actual": {
+        "disposition": "IDENTITY_REVIEW",
+        "ambiguityRetained": true
+      }
+    },
+    {
+      "id": "R04",
+      "status": "PASS",
+      "expected": "Exact result retained when homonym has no credible identity evidence; retain rejected discovery candidate.",
+      "actual": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "selectedPair": "A01:exact",
+        "rejectedDiscoveryRetained": true
+      }
+    },
+    {
+      "id": "R05",
+      "status": "PASS",
+      "expected": "ONTOLOGY_BRIDGE_REQUIRED or more specific applicable review; not CORROBORATIVE_ONLY until unresolved target assessed.",
+      "actual": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "unresolvedTargetRetained": true
+      }
+    },
+    {
+      "id": "R06",
+      "status": "PASS",
+      "expected": "One rowDecision, deduplicated pair key; duplicate raw source lines have distinct row IDs but source integrity review as necessary.",
+      "actual": {
+        "rowDecisionCount": 1,
+        "deduplicatedPairCount": 1,
+        "duplicateRawRowsDistinct": true
+      }
+    },
+    {
+      "id": "M01",
+      "status": "PASS",
+      "expected": "MULTI_AUTHORITY_AGREEMENT only if independent work identities; no preferred term chosen.",
+      "actual": {
+        "interaction": "MULTI_AUTHORITY_AGREEMENT",
+        "independentAuthorities": true,
+        "preferredTerm": null
+      }
+    },
+    {
+      "id": "M02",
+      "status": "PASS",
+      "expected": "VARIANT_REVIEW, both raw terms retained, both evidence items may remain eligible.",
+      "actual": {
+        "interaction": "VARIANT_REVIEW",
+        "rawTermsRetained": true,
+        "evidenceItemsRetained": 2
+      }
+    },
+    {
+      "id": "M03",
+      "status": "PASS",
+      "expected": "CONFLICT_REQUIRES_ADJUDICATION; no automatic winner or medical decision.",
+      "actual": {
+        "interaction": "CONFLICT_REQUIRES_ADJUDICATION",
+        "automaticWinner": null,
+        "medicalDecision": null
+      }
+    },
+    {
+      "id": "M04",
+      "status": "PASS",
+      "expected": "Agreement for equal keys, otherwise variant/conflict by evidence; no higher weight for newest source.",
+      "actual": {
+        "equalKeyInteraction": "MULTI_AUTHORITY_AGREEMENT",
+        "unequalKeyInteraction": "VARIANT_OR_CONFLICT_REVIEW",
+        "newestSourcePreference": false
+      }
+    },
+    {
+      "id": "M05",
+      "status": "PASS",
+      "expected": "ONTOLOGY_SCOPE_REVIEW interaction; NVH stays eligible; MOH adds zero exact authority agreement.",
+      "actual": {
+        "interaction": "ONTOLOGY_SCOPE_REVIEW",
+        "nvhEligible": true,
+        "mohExactAgreement": false
+      }
+    },
+    {
+      "id": "M06",
+      "status": "PASS",
+      "expected": "ONTOLOGY_SCOPE_REVIEW interaction with laterality blocker; no source term composition.",
+      "actual": {
+        "interaction": "ONTOLOGY_SCOPE_REVIEW",
+        "blocker": "LATERALITY_MISMATCH",
+        "composedTerm": null
+      }
+    },
+    {
+      "id": "M07",
+      "status": "PASS",
+      "expected": "No agreement until HMU independently attested scope resolves; generic label cannot inherit MOH scope.",
+      "actual": {
+        "agreement": false,
+        "reason": "HMU_SCOPE_UNATTESTED",
+        "inheritedScope": false
+      }
+    },
+    {
+      "id": "M08",
+      "status": "PASS",
+      "expected": "No agreement; VARIANT_REVIEW if same scope; raw accents unchanged.",
+      "actual": {
+        "agreement": false,
+        "interaction": "VARIANT_REVIEW",
+        "accentFolded": false,
+        "rawAccentsChanged": false
+      }
+    },
+    {
+      "id": "M09",
+      "status": "PASS",
+      "expected": "One authority; multiplicity cannot change disposition or agreement.",
+      "actual": {
+        "authorityCount": 1,
+        "multiplicityChangesDisposition": false,
+        "multiplicityChangesAgreement": false
+      }
+    },
+    {
+      "id": "M10",
+      "status": "PASS",
+      "expected": "Preserve unresolved conflict unless separately approved review decision changes it; never silently resolve by count.",
+      "actual": {
+        "interaction": "CONFLICT_REQUIRES_ADJUDICATION",
+        "autoResolvedByCount": false,
+        "existingConflictPreserved": true
+      }
+    },
+    {
+      "id": "P01",
+      "status": "PASS",
+      "expected": "Canonical decision content and hashes identical, stable row IDs tied to original corpus locators; volatile timestamps excluded.",
+      "actual": {
+        "canonicalHashesEqual": true,
+        "rowIdsStable": true,
+        "volatileTimestampsExcluded": true
+      }
+    },
+    {
+      "id": "P02",
+      "status": "PASS",
+      "expected": "Affected decisions invalidated/recomputed; dependent provenance hashes change; previous approval not silently reused.",
+      "actual": {
+        "affectedRowInvalidated": true,
+        "dependentHashChanged": true,
+        "previousApprovalReused": false
+      }
+    },
+    {
+      "id": "P03",
+      "status": "PASS",
+      "expected": "Public decisions and coverage identical; licensed-local outcomes never leak into public count.",
+      "actual": {
+        "publicCoverage": 0,
+        "publicDecisions": 1506,
+        "localEvidenceLeaked": false
+      }
+    },
+    {
+      "id": "P04",
+      "status": "PASS",
+      "expected": "Export blocked without artifact-specific clearance; IDs, booleans, hash-based hints and CUI joins are not automatic exemptions.",
+      "actual": {
+        "exportDisposition": "BLOCKED",
+        "labelsExported": false,
+        "identifiersOnlyExemption": false
+      }
+    },
+    {
+      "id": "P05",
+      "status": "PASS",
+      "expected": "Schema failure; no default PASS; batch emits diagnostic without publishing partial successful ledger.",
+      "actual": {
+        "schemaFailure": true,
+        "defaultPass": false,
+        "partialLedgerPublished": false
+      }
+    },
+    {
+      "id": "P06",
+      "status": "PASS",
+      "expected": "Exactly 1506 unique rowDecision records; sum of row dispositions=1506; pair count reported separately.",
+      "actual": {
+        "uniqueRowDecisions": 1506,
+        "dispositionSum": 1506,
+        "pairCount": 1506
+      }
+    },
+    {
+      "id": "P07",
+      "status": "PASS",
+      "expected": "Two retained attestations, zero new concepts; distinct-target and baseline set arithmetic only.",
+      "actual": {
+        "retainedAttestations": 2,
+        "newConcepts": 0,
+        "baselineArithmeticOnly": true
+      }
+    },
+    {
+      "id": "P08",
+      "status": "PASS",
+      "expected": "Zero new concepts permitted; no fallback to lexical eligibility; baseline 421 preserved.",
+      "actual": {
+        "newConcepts": 0,
+        "lexicalFallbackEligibility": false,
+        "baselineEligible": 421
+      }
+    },
+    {
+      "id": "P09",
+      "status": "PASS",
+      "expected": "No new denominator or claim of absence; future cohort expansion separately versioned.",
+      "actual": {
+        "frozenCohort": 1506,
+        "denominatorExpanded": false,
+        "absenceClaimed": false
+      }
+    },
+    {
+      "id": "P10",
+      "status": "PASS",
+      "expected": "Exact before/after hashes unchanged for entries/reviewers/release/sources/atlas; all production counters zero and UNRELEASED.",
+      "actual": {
+        "protectedHashesUnchanged": true,
+        "productionCountersZero": true,
+        "release": "UNRELEASED"
+      }
+    },
+    {
+      "id": "P11",
+      "status": "PASS",
+      "expected": "No truncated prefix resurrection; FMA9597 remains unsupported unless a new explicit eligible source attestation exists; no fabricated NVH evidence.",
+      "actual": {
+        "prefixResurrection": false,
+        "fma9597Fabricated": false,
+        "newEligibleFmaIds": 0
+      }
+    },
+    {
+      "id": "P12",
+      "status": "PASS",
+      "expected": "Export validation fails; diagnostics do not echo secret or restricted source body.",
+      "actual": {
+        "exportValidation": "FAIL",
+        "secretEchoed": false,
+        "restrictedBodyEchoed": false,
+        "localAbsolutePathEchoed": false
+      }
+    },
+    {
+      "id": "P13",
+      "status": "PASS",
+      "expected": "Keep all blockers; primary queue LATERALITY_REVIEW by precedence; no reason loss.",
+      "actual": {
+        "primaryQueue": "LATERALITY_REVIEW",
+        "blockersRetained": true
+      }
+    },
+    {
+      "id": "P14",
+      "status": "PASS",
+      "expected": "Cross-record invariant I03 fails; assertion of PASS is not sufficient evidence.",
+      "actual": {
+        "invariantFails": true,
+        "classifierEvidenceAdapterPass": true
+      }
+    }
+  ],
+  "adapterTests": [
+    {
+      "id": "ADAPTER_SOURCE_ROW_COUNT",
+      "status": "PASS"
+    },
+    {
+      "id": "ADAPTER_ROW_IDS_UNIQUE",
+      "status": "PASS"
+    },
+    {
+      "id": "ADAPTER_PROTECTED_TOKENS",
+      "status": "PASS"
+    },
+    {
+      "id": "ADAPTER_NO_APPROVED_BRIDGES",
+      "status": "PASS"
+    },
+    {
+      "id": "ADAPTER_UNKNOWN_FAILS_CLOSED",
+      "status": "PASS"
+    },
+    {
+      "id": "ADAPTER_RAW_SCTID_STRINGS",
+      "status": "PASS"
+    }
+  ],
+  "falsePositiveEligibleCount": 0,
+  "productionEligibleCount": 0
+}

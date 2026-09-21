@@ -1,0 +1,39 @@
+{
+  "runId": "m04b2f-orchestration-1",
+  "profile": "PUBLIC_OFFLINE",
+  "atlasSha256": "c359f4bcd2cba90b7411d66d5e9fc04dc81294d46cd5c1e8b212c824f2e5bbee",
+  "mohCorpusSha256": "e33a10b61e59040a84e8eaa5b928b69596120ed697162c176158881e52bff820",
+  "baselineResultSha256": "b574d51d64a598d13114812cb50e64cf329b937e5fbbf817db251e10d3f690af",
+  "baselineConceptSetSha256": "2954a0d3b8656319df45d0200e67c0ca99e1fe665876175a93f77fb0c5c1904a",
+  "policyVersion": "m04b2f-safe-bridge-1",
+  "policySha256": "3151e870c62a516e0dc3bc0a7e83ac323817b511f33a1aedebdd38a036a471f6",
+  "adapterVersions": [
+    "m04b2f-source-row-adapter-1",
+    "m04b2f-endpoint-adapter-1",
+    "m04b2f-classifier-1"
+  ],
+  "sourceArtifacts": [
+    {
+      "artifactId": "M04B2F_SOURCE_MANIFEST",
+      "sha256": "b968fe01cde1f54cf75e57f06c476438741262e78fc783094957e824c1e8d2fa",
+      "locator": "data/terminology/research/m04b2e-source-manifest.json",
+      "assertionKind": "SOURCE_ATTESTATION",
+      "licenseDecisionId": "M04B2F_PUBLIC_PROFILE"
+    },
+    {
+      "artifactId": "M04B2F_RELATION_MODEL",
+      "sha256": "129bca518cffaef374198e0c156d689fe606bc2ebae45f2444a6410b34f06b8d",
+      "locator": "docs/en-vi/research/M04B2F/M04B2F_BRIDGE_RELATION_MODEL.json",
+      "assertionKind": "LOCAL_DETERMINISTIC_INFERENCE",
+      "licenseDecisionId": "M04B2F_PUBLIC_PROFILE"
+    }
+  ],
+  "bridgeRegistrySha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+  "licenseRegistrySha256": "3bb1c035f56677dc1a5dffd156befc810fa41c49e106d97567993c9bd37f3211",
+  "normalizationVersion": "PRESERVE_RAW_NO_TRANSLATION-1",
+  "candidateGenerationVersion": "M04B2F_LEGACY_HINTS_ONLY-1",
+  "ontologyReviewLedgerSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "expectedRowCount": 1506,
+  "expectedAtlasCount": 3432,
+  "canonicalization": "UTF-8; sorted object keys; stable IDs; arrays sorted only when unordered; raw strings preserved; volatile run time excluded from decision digest"
+}
