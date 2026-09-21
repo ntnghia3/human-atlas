@@ -16,7 +16,8 @@
     "test:m03c": "node scripts/test-m03c-integration.mjs",
     "terminology:build-index": "node scripts/build-terminology-index.mjs",
     "terminology:bulk-match": "node scripts/bulk-match-terminology.mjs",
-    "test:m04a": "node scripts/test-m04a.mjs"
+    "test:m04a": "node scripts/test-m04a.mjs",
+    "test:m04b1": "node scripts/test-m04b1.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

@@ -36,4 +36,6 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+/.local-sources/
+tmp/pdfs/
 *.tsbuildinfo

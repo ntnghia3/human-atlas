@@ -9,31 +9,38 @@
       "identityVerified": true,
       "authorityTier": "authoritative",
       "authorityScope": ["Latin anatomical nomenclature", "official English equivalents", "TA hierarchy and terminology"],
-      "accessStatus": "METADATA_ONLY",
-      "locatorCapability": "INSUFFICIENT",
-      "fullTextAvailableForReview": false,
-      "contentInspected": false,
+      "accessStatus": "FULL_ACCESS",
+      "locatorCapability": "STABLE_ENTRY",
+      "fullTextAvailableForReview": true,
+      "contentInspected": true,
       "verificationEvidence": [
+        "https://libraries.dal.ca/Fipat/ta2.html",
+        "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-1.pdf",
+        "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-2.pdf",
+        "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-3.pdf",
+        "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-4.pdf",
+        "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-5.pdf",
+        "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Errata.pdf",
         "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
         "https://fipat.library.dal.ca/TA2/",
         "https://ifaa.net/2022/08/12/report-of-the-federative-international-programme-on-anatomical-terminologies-fipat/"
       ],
       "limitations": [
-        "Official metadata identifies the 2019 second edition, but the TA2 content was not inspected in this milestone.",
-        "Not authority for Vietnamese wording; exact term locators remain unavailable until legitimate full-text access is arranged."
+        "This record is authoritative for the inspected Latin/English TA2 nomenclature content only; it is not authority for Vietnamese wording.",
+        "The repository stores extracted individual terms and provenance, not the source PDFs."
       ],
       "capabilities": {"anatomicalIdentity": true, "canonicalLatin": true, "vietnamesePreferred": false, "secondaryCorroboration": false, "machineCandidateDiscovery": false},
-      "audit": {"status": "VERIFIED", "verifiedAt": "2026-09-21", "verifiedBy": "M03C1_SOURCE_RECONCILIATION", "notes": "FIPAT/IFAA TA2 identity retained from M03B; no claim or review status is implied."},
+      "audit": {"status": "VERIFIED", "verifiedAt": "2026-09-21", "verifiedBy": "M04B1_TA2_BULK_EXTRACTION", "notes": "Official 2.07 part PDFs and errata were downloaded, hashed, parsed, and inspected; this does not verify any Atlas-to-TA2 mapping or production terminology claim."},
       "authors": ["Federative International Programme on Anatomical Terminologies"],
       "institution": "FIPAT / IFAA",
-      "edition": "Second edition",
+      "edition": "Second edition 2.07",
       "publicationYear": 2019,
       "publisher": "FIPAT / IFAA (online)",
       "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
       "accessedAt": "2026-09-21",
       "language": "Latin; English",
-      "version": "TA2 2019 online; IFAA General Assembly approval recorded in 2020",
-      "licenseNote": "Reuse and licensing terms for the online nomenclature were not established from the inspected metadata pages; no content was copied."
+      "version": "TA2 2.07 online; IFAA General Assembly approval recorded in 2020",
+      "licenseNote": "The publication is CC BY-ND 4.0; individual terminology terms are in the public domain. Source PDFs remain local-only and are not redistributed by this repository."
     },
     {
       "id": "FMA_UW",

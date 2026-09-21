@@ -1,5 +1,5 @@
 import {access} from 'node:fs/promises';
-import {dirname, join, resolve} from 'node:path';
+import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {
@@ -11,7 +11,8 @@ import {
 } from './m04a-bulk-evidence.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const DEFAULT_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
+const DEFAULT_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'corpora', 'fipat-ta2-2019.jsonl');
+const LEGACY_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
 const DEFAULT_OUTPUT = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-index.json');
 const DEFAULT_SOURCES = join(ROOT, 'data', 'terminology', 'sources.json');
 
@@ -39,14 +40,18 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       console.log('Usage: node scripts/build-terminology-index.mjs [--corpus path] [--output path] [--sources path]');
       process.exit(0);
     }
-    const corpusPaths = args.corpus.length ? args.corpus.map(path => resolvePath(ROOT, path)) : (await exists(DEFAULT_CORPUS) ? [DEFAULT_CORPUS] : []);
+    const corpusPaths = args.corpus.length
+      ? args.corpus.map(path => resolvePath(ROOT, path))
+      : (await exists(DEFAULT_CORPUS) ? [DEFAULT_CORPUS] : (await exists(LEGACY_CORPUS) ? [LEGACY_CORPUS] : []));
     const sourcesPath = resolvePath(ROOT, args.sources);
     const outputPath = resolvePath(ROOT, args.output);
     const [corpus, sourcesDocument] = await Promise.all([
       readCorpusFiles(corpusPaths),
       exists(sourcesPath) ? readJson(sourcesPath) : Promise.resolve(undefined),
     ]);
-    const inputFileLabels = args.corpus.length ? args.corpus : (corpus.files.length ? ['data/terminology/research/bulk-source-corpus.jsonl'] : []);
+    const inputFileLabels = args.corpus.length
+      ? args.corpus
+      : (corpus.files.length ? [relative(ROOT, corpus.files[0]).replace(/\\/g, '/')] : []);
     const index = buildSourceIndex({records: corpus.records, inputFiles: corpus.files, inputFileLabels, sourceCatalogDocument: sourcesDocument});
     await writeJson(outputPath, index);
     console.log(`M04A source index: PASS`);

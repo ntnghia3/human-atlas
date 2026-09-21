@@ -1,5 +1,5 @@
 import {access} from 'node:fs/promises';
-import {dirname, join, resolve} from 'node:path';
+import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {
@@ -17,7 +17,8 @@ const DEFAULT_ATLAS = join(ROOT, 'public', 'models', 'atlas.json');
 const DEFAULT_SOURCES = join(ROOT, 'data', 'terminology', 'sources.json');
 const DEFAULT_ENTRIES = join(ROOT, 'data', 'terminology', 'entries.json');
 const DEFAULT_INDEX = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-index.json');
-const DEFAULT_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
+const DEFAULT_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'corpora', 'fipat-ta2-2019.jsonl');
+const LEGACY_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
 const DEFAULT_OUTPUT = join(ROOT, 'data', 'terminology', 'research', 'bulk-match-results.json');
 
 function parseArgs(argv) {
@@ -64,8 +65,10 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     } else if (await exists(indexPath)) {
       index = await readJson(indexPath);
     } else {
-      const defaultCorpus = await exists(DEFAULT_CORPUS) ? await readCorpusFiles([DEFAULT_CORPUS]) : {records: [], files: []};
-      index = buildSourceIndex({records: defaultCorpus.records, inputFiles: defaultCorpus.files, inputFileLabels: defaultCorpus.files.length ? ['data/terminology/research/bulk-source-corpus.jsonl'] : [], sourceCatalogDocument: sourcesDocument});
+      const defaultCorpusPath = await exists(DEFAULT_CORPUS) ? DEFAULT_CORPUS : (await exists(LEGACY_CORPUS) ? LEGACY_CORPUS : null);
+      const defaultCorpus = defaultCorpusPath ? await readCorpusFiles([defaultCorpusPath]) : {records: [], files: []};
+      const inputFileLabels = defaultCorpusPath ? [relative(ROOT, defaultCorpusPath).replace(/\\/g, '/')] : [];
+      index = buildSourceIndex({records: defaultCorpus.records, inputFiles: defaultCorpus.files, inputFileLabels, sourceCatalogDocument: sourcesDocument});
     }
     const results = matchAtlasConcepts({
       atlas,
