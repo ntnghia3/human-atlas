@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "M04B2D-batch1-source-gaps-1",
+  "milestone": "M04B2D-1",
+  "batchId": "M04B2D-0.1-FIRST-01-LARYNGEAL-LIGAMENTS",
+  "startingCommit": "1a00ecf7de9b7dbcb0bcffcdbbf4d20cf2fa6b7c",
+  "status": "RESEARCH_ONLY_NOT_RELEASE",
+  "sourceAccessPolicy": "SUPPLIED_REPOSITORY_MATERIAL_ONLY_NO_BROWSE",
+  "sourceGaps": [
+    {
+      "conceptId": "FMA55135",
+      "atlasEnglishName": "thyrohyoid ligament",
+      "identityStatus": "IDENTITY_INSUFFICIENT",
+      "gapStatus": "IDENTITY_BLOCKED",
+      "exactVietnameseAttestationCount": 0,
+      "candidateConsensusStatus": "IDENTITY_BLOCKED",
+      "preferredTerm": null,
+      "agreedTerm": null,
+      "requiredAction": "Pin exact external English/Latin identity before direct Vietnamese concept mapping.",
+      "reason": "The supplied indexed evidence has no exact English or Latin source match for this target; related ligament evidence cannot be promoted."
+    },
+    {
+      "conceptId": "FMA55138",
+      "atlasEnglishName": "median thyrohyoid ligament",
+      "identityStatus": "IDENTITY_PINNED",
+      "gapStatus": "SOURCE_MATERIAL_REQUIRED",
+      "exactVietnameseAttestationCount": 0,
+      "candidateConsensusStatus": "SOURCE_MATERIAL_REQUIRED",
+      "preferredTerm": null,
+      "agreedTerm": null,
+      "requiredAction": "Supply an exact Vietnamese authority attestation bound to a registered source revision and locator.",
+      "reason": "TA2 identity is pinned at entry 1652, but no supplied Vietnamese authority material contains the exact target term."
+    },
+    {
+      "conceptId": "FMA55227",
+      "atlasEnglishName": "hyo-epiglottic ligament",
+      "identityStatus": "IDENTITY_PINNED",
+      "gapStatus": "SOURCE_MATERIAL_REQUIRED",
+      "exactVietnameseAttestationCount": 0,
+      "candidateConsensusStatus": "SOURCE_MATERIAL_REQUIRED",
+      "preferredTerm": null,
+      "agreedTerm": null,
+      "requiredAction": "Supply an exact Vietnamese authority attestation bound to a registered source revision and locator.",
+      "reason": "TA2 identity is pinned at entry 1656, but no supplied Vietnamese authority material contains the exact target term."
+    },
+    {
+      "conceptId": "FMA55230",
+      "atlasEnglishName": "thyro-epiglottic ligament",
+      "identityStatus": "IDENTITY_PINNED",
+      "gapStatus": "SOURCE_MATERIAL_REQUIRED",
+      "exactVietnameseAttestationCount": 0,
+      "candidateConsensusStatus": "SOURCE_MATERIAL_REQUIRED",
+      "preferredTerm": null,
+      "agreedTerm": null,
+      "requiredAction": "Supply an exact Vietnamese authority attestation bound to a registered source revision and locator.",
+      "reason": "TA2 identity is pinned at entry 1655, but no supplied Vietnamese authority material contains the exact target term."
+    },
+    {
+      "conceptId": "FMA55233",
+      "atlasEnglishName": "cricothyroid ligament",
+      "identityStatus": "IDENTITY_INSUFFICIENT",
+      "gapStatus": "IDENTITY_BLOCKED",
+      "exactVietnameseAttestationCount": 0,
+      "candidateConsensusStatus": "IDENTITY_BLOCKED",
+      "preferredTerm": null,
+      "agreedTerm": null,
+      "requiredAction": "Pin exact external English/Latin identity before direct Vietnamese concept mapping.",
+      "reason": "The supplied indexed evidence has no exact English or Latin source match for this target; related ligament evidence cannot be promoted."
+    }
+  ],
+  "counts": {
+    "targetConceptCount": 5,
+    "sourceMaterialRequiredCount": 3,
+    "identityBlockedCount": 2,
+    "exactVietnameseAttestationCount": 0,
+    "candidateCount": 0
+  },
+  "resolutionRules": {
+    "relatedTermsAreNotEvidence": true,
+    "preferredTermForConflict": null,
+    "preferredTermForSourceGap": null,
+    "preferredTermForIdentityBlocked": null,
+    "majorityVoteUsed": false,
+    "newestSourceRuleUsed": false,
+    "translationOrMechanicalSynthesisUsed": false
+  }
+}

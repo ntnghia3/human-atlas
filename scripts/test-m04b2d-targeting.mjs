@@ -1009,6 +1009,46 @@ function gitOutput(...args) {
   return execFileSync('git', args, {cwd: ROOT, encoding: 'utf8'}).trim();
 }
 
+const GIT_SHA_PATTERN = /^[0-9a-f]{40}$/i;
+
+function assertBaselineMetadata(plan, reportText, currentHead) {
+  const baseline = plan?.baseline?.commit;
+  assert(
+    typeof baseline === 'string' && GIT_SHA_PATTERN.test(baseline),
+    'plan baseline.commit must be a valid 40-character git SHA',
+  );
+
+  let resolvedBaseline;
+  try {
+    resolvedBaseline = gitOutput('rev-parse', '--verify', `${baseline}^{commit}`);
+  } catch {
+    assert(false, 'plan baseline.commit must exist in git');
+  }
+  assert(
+    resolvedBaseline.toLowerCase() === baseline.toLowerCase(),
+    'plan baseline.commit must resolve exactly to its recorded git commit',
+  );
+
+  const reportBaseline = reportText.match(
+    /^Baseline: branch main, commit ([0-9a-f]{40})\.$/im,
+  );
+  assert(reportBaseline, 'targeting report must contain a valid baseline commit');
+  assert(
+    reportBaseline[1].toLowerCase() === baseline.toLowerCase(),
+    'JSON plan and Markdown report must agree on baseline.commit',
+  );
+
+  try {
+    execFileSync(
+      'git',
+      ['merge-base', '--is-ancestor', baseline, currentHead],
+      {cwd: ROOT, stdio: 'ignore'},
+    );
+  } catch {
+    assert(false, 'plan baseline.commit must be an ancestor of current HEAD');
+  }
+}
+
 async function assertProductionUnchanged() {
   for (const relativePath of PRODUCTION_PATHS) {
     const current = await readText(join(ROOT, relativePath));
@@ -1168,13 +1208,14 @@ async function main() {
   const branch = gitOutput('branch', '--show-current');
   const head = gitOutput('rev-parse', 'HEAD');
   assert(branch === 'main', 'repository must remain on main');
-  assert(head === BASELINE_COMMIT, 'repository HEAD must remain at the M04B2D-0 baseline');
   const plan = await buildPlan();
   if (writeRequested) await writeArtifacts(plan);
   assert(await exists(PLAN_PATH), 'target plan is missing; run with --write once to create it');
   assert(await exists(REPORT_PATH), 'targeting report is missing; run with --write once to create it');
   const savedPlan = await readJson(PLAN_PATH);
   assert(JSON.stringify(savedPlan) === JSON.stringify(plan), 'saved target plan differs from deterministic rebuild');
+  const reportText = await readText(REPORT_PATH);
+  assertBaselineMetadata(savedPlan, reportText, head);
   await assertPlan(savedPlan);
   console.log('M04B2D targeting: PASS');
   console.log('Concepts: ' + savedPlan.summary.totalConcepts + '/' + EXPECTED_CONCEPT_COUNT);

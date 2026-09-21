@@ -1,0 +1,342 @@
+{
+  "schemaVersion": "M04B2D-batch1-evidence-1",
+  "milestone": "M04B2D-1",
+  "batchId": "M04B2D-0.1-FIRST-01-LARYNGEAL-LIGAMENTS",
+  "startingCommit": "1a00ecf7de9b7dbcb0bcffcdbbf4d20cf2fa6b7c",
+  "status": "RESEARCH_ONLY_NOT_RELEASE",
+  "sourceAccessPolicy": "SUPPLIED_REPOSITORY_MATERIAL_ONLY_NO_BROWSE",
+  "sourceInputs": {
+    "targetPlan": "data/terminology/research/m04b2d-targets.json",
+    "coverageReport": "docs/en-vi/M04B2D_COVERAGE_TARGETING_REPORT.md",
+    "bulkSourceIndex": "data/terminology/research/bulk-source-index.json",
+    "bulkMatchResults": "data/terminology/research/bulk-match-results.json",
+    "sourceCatalog": "data/terminology/sources.json",
+    "identityCorpus": "data/terminology/research/corpora/fipat-ta2-2019.jsonl",
+    "vietnameseCorpus": "data/terminology/research/corpora/m04b2d-laryngeal-ligaments.jsonl"
+  },
+  "sourceCatalogRevision": "m04a-source-93b641cb",
+  "identityGate": {
+    "allowedStatuses": [
+      "IDENTITY_PINNED",
+      "IDENTITY_SUPPORTED_BUT_NOT_PINNED",
+      "IDENTITY_INSUFFICIENT"
+    ],
+    "directMappingRequires": "IDENTITY_PINNED",
+    "atlasEnglishNameEqualityIsExternalProof": false,
+    "relatedTermsAreTargetEvidence": false
+  },
+  "sourceMaterialInspected": [
+    {
+      "sourceId": "NVH2008",
+      "sourceRevision": "NVH-2008-312P",
+      "sourceEdition": "2008",
+      "authorityInstitution": "Nhà xuất bản Y học; Nguyễn Văn Huy (chủ biên), Chu Văn Tuệ Bình",
+      "authoritySourceIdentity": "Thuật ngữ giải phẫu Anh - Việt, 2008, 312 pages",
+      "authorityTier": "authoritative",
+      "accessStatus": "PARTIAL_ACCESS",
+      "locatorCapability": "TERM_ID",
+      "contentInspected": true,
+      "materialPaths": [
+        "data/terminology/research/corpora/nvh2008-public-research-seed.jsonl",
+        "docs/en-vi/research/M04B2A/M04B2_NVH2008_PUBLIC_RESEARCH_SEED.jsonl",
+        "docs/en-vi/research/M04B2A/M04B2_PUBLIC_RESEARCH_PACK.json"
+      ],
+      "accessCopy": {
+        "isAuthority": false,
+        "relation": "access-copy",
+        "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+        "notes": "Public inspection path only; bibliographic authority remains the identified 2008 work."
+      },
+      "exactTargetAttestationsFound": 0
+    },
+    {
+      "sourceId": "HMU2022",
+      "sourceRevision": "HMU-2022-ISBN-9786046658351",
+      "sourceEdition": "2022",
+      "authorityInstitution": "Trường Đại học Y Hà Nội, Bộ môn Giải phẫu",
+      "authoritySourceIdentity": "Giải phẫu người: dùng cho sinh viên hệ bác sĩ, 2022, ISBN 9786046658351",
+      "authorityTier": "authoritative",
+      "accessStatus": "PARTIAL_ACCESS",
+      "locatorCapability": "PAGE",
+      "contentInspected": true,
+      "materialPaths": [
+        "data/terminology/research/corpora/m04b2c-vi-authority.jsonl",
+        "docs/en-vi/research/M04B2C/M04B2C_VI_AUTHORITY_CORPUS.jsonl",
+        "docs/en-vi/research/M04B2A/M04B2_PUBLIC_RESEARCH_PACK.json"
+      ],
+      "accessCopy": {
+        "isAuthority": false,
+        "relation": "access-copy",
+        "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+        "notes": "Public inspection path only; the library-identified 2022 book is the bibliographic authority."
+      },
+      "exactTargetAttestationsFound": 0
+    },
+    {
+      "sourceId": "UMP2023_T2",
+      "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+      "sourceEdition": "Tập 2, 2023",
+      "authorityInstitution": "Đại học Y Dược Thành phố Hồ Chí Minh, Bộ môn Giải phẫu học",
+      "authoritySourceIdentity": "Giải phẫu học: Chương trình Y đa khoa đổi mới, Tập 2, 2023, 437 pages",
+      "authorityTier": "authoritative",
+      "accessStatus": "PARTIAL_ACCESS",
+      "locatorCapability": "PAGE",
+      "contentInspected": true,
+      "materialPaths": [
+        "data/terminology/research/corpora/m04b2c-vi-authority.jsonl",
+        "docs/en-vi/research/M04B2C/M04B2C_VI_AUTHORITY_CORPUS.jsonl",
+        "data/terminology/research/bulk-source-index.json"
+      ],
+      "accessCopy": {
+        "isAuthority": false,
+        "relation": "access-copy",
+        "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+        "notes": "Public inspection path only; the National Library/UMP-identified 2023 Tập 2 is the bibliographic authority."
+      },
+      "exactTargetAttestationsFound": 0
+    }
+  ],
+  "conceptCount": 5,
+  "concepts": [
+    {
+      "conceptId": "FMA55135",
+      "atlasEnglishName": "thyrohyoid ligament",
+      "anatomicalCategory": "Ligament",
+      "laterality": "unsided",
+      "identityStatus": "IDENTITY_INSUFFICIENT",
+      "identityAssessment": "No exact English or Latin match for this FMA concept exists in the supplied indexed TA2/FIPAT evidence. The atlas label and related thyrohyoid records do not independently pin external identity.",
+      "externalIdentityEvidence": [],
+      "evidenceStatus": "IDENTITY_BLOCKED",
+      "evidence": [],
+      "candidateConsensus": {
+        "status": "IDENTITY_BLOCKED",
+        "preferredTerm": null,
+        "agreedTerm": null,
+        "variants": [],
+        "conflicts": []
+      },
+      "notes": "Do not use the supplied lateral thyrohyoid ligament evidence or Vietnamese component wording to synthesize this target."
+    },
+    {
+      "conceptId": "FMA55138",
+      "atlasEnglishName": "median thyrohyoid ligament",
+      "anatomicalCategory": "Ligament",
+      "laterality": "unsided",
+      "identityStatus": "IDENTITY_PINNED",
+      "identityAssessment": "Exact English and Latin TA2 evidence is present in the indexed source corpus.",
+      "externalIdentityEvidence": [
+        {
+          "conceptId": "FMA55138",
+          "atlasEnglishName": "median thyrohyoid ligament",
+          "sourceId": "FIPAT_TA2",
+          "sourceRevision": "TA2-2019-online",
+          "sourceEdition": "Second edition 2.07",
+          "sourceTermRaw": "Ligamentum thyreohyoideum medianum",
+          "english": {
+            "preferred": "Median thyrohyoid ligament"
+          },
+          "latin": {
+            "preferred": "Ligamentum thyreohyoideum medianum",
+            "aliases": [
+              "Ligamentum thyrohyoideum medianum"
+            ]
+          },
+          "locator": {
+            "page": 40,
+            "entryId": "1652",
+            "section": "TA2 Part II",
+            "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-2.pdf",
+            "chapter": "Caput III: JUNCTURAE Chapter 3: JOINTS"
+          },
+          "locatorQuality": "STABLE_ENTRY",
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "authorityInstitution": "FIPAT / IFAA",
+          "authoritySourceIdentity": "Terminologia Anatomica, Second Edition, TA2 2.07 online",
+          "accessCopy": {
+            "isAccessCopy": false,
+            "accessCopyOf": null,
+            "relation": "authority-source-access"
+          },
+          "identityRelation": "EXACT_ENGLISH_LATIN_TA2_MATCH",
+          "notes": "Identity evidence only; FIPAT_TA2 is not authority for Vietnamese wording."
+        }
+      ],
+      "evidenceStatus": "SOURCE_MATERIAL_REQUIRED",
+      "evidence": [],
+      "candidateConsensus": {
+        "status": "SOURCE_MATERIAL_REQUIRED",
+        "preferredTerm": null,
+        "agreedTerm": null,
+        "variants": [],
+        "conflicts": []
+      },
+      "notes": "Identity is pinned, but no supplied NVH2008, HMU2022, or UMP2023_T2 material attests the exact Vietnamese target term."
+    },
+    {
+      "conceptId": "FMA55227",
+      "atlasEnglishName": "hyo-epiglottic ligament",
+      "anatomicalCategory": "Ligament",
+      "laterality": "unsided",
+      "identityStatus": "IDENTITY_PINNED",
+      "identityAssessment": "Exact English and Latin TA2 evidence is present in the indexed source corpus.",
+      "externalIdentityEvidence": [
+        {
+          "conceptId": "FMA55227",
+          "atlasEnglishName": "hyo-epiglottic ligament",
+          "sourceId": "FIPAT_TA2",
+          "sourceRevision": "TA2-2019-online",
+          "sourceEdition": "Second edition 2.07",
+          "sourceTermRaw": "Ligamentum hyoepiglotticum",
+          "english": {
+            "preferred": "Hyo-epiglottic ligament",
+            "aliases": [
+              "Hyoepiglottic ligament"
+            ]
+          },
+          "latin": {
+            "preferred": "Ligamentum hyoepiglotticum"
+          },
+          "locator": {
+            "page": 40,
+            "entryId": "1656",
+            "section": "TA2 Part II",
+            "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-2.pdf",
+            "chapter": "Caput III: JUNCTURAE Chapter 3: JOINTS"
+          },
+          "locatorQuality": "STABLE_ENTRY",
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "authorityInstitution": "FIPAT / IFAA",
+          "authoritySourceIdentity": "Terminologia Anatomica, Second Edition, TA2 2.07 online",
+          "accessCopy": {
+            "isAccessCopy": false,
+            "accessCopyOf": null,
+            "relation": "authority-source-access"
+          },
+          "identityRelation": "EXACT_ENGLISH_LATIN_TA2_MATCH",
+          "notes": "Identity evidence only; FIPAT_TA2 is not authority for Vietnamese wording."
+        }
+      ],
+      "evidenceStatus": "SOURCE_MATERIAL_REQUIRED",
+      "evidence": [],
+      "candidateConsensus": {
+        "status": "SOURCE_MATERIAL_REQUIRED",
+        "preferredTerm": null,
+        "agreedTerm": null,
+        "variants": [],
+        "conflicts": []
+      },
+      "notes": "Identity is pinned, but no supplied NVH2008, HMU2022, or UMP2023_T2 material attests the exact Vietnamese target term."
+    },
+    {
+      "conceptId": "FMA55230",
+      "atlasEnglishName": "thyro-epiglottic ligament",
+      "anatomicalCategory": "Ligament",
+      "laterality": "unsided",
+      "identityStatus": "IDENTITY_PINNED",
+      "identityAssessment": "Exact English and Latin TA2 evidence is present in the indexed source corpus.",
+      "externalIdentityEvidence": [
+        {
+          "conceptId": "FMA55230",
+          "atlasEnglishName": "thyro-epiglottic ligament",
+          "sourceId": "FIPAT_TA2",
+          "sourceRevision": "TA2-2019-online",
+          "sourceEdition": "Second edition 2.07",
+          "sourceTermRaw": "Ligamentum thyreoepiglotticum",
+          "english": {
+            "preferred": "Thyro-epiglottic ligament",
+            "aliases": [
+              "Thyroepiglottic ligament"
+            ]
+          },
+          "latin": {
+            "preferred": "Ligamentum thyreoepiglotticum",
+            "aliases": [
+              "Ligamentum thyroepiglotticum"
+            ]
+          },
+          "locator": {
+            "page": 40,
+            "entryId": "1655",
+            "section": "TA2 Part II",
+            "url": "https://cdn.dal.ca/content/dam/dalhousie/pdf/library/FIPAT/TA2/FIPAT-TA2-Part-2.pdf",
+            "chapter": "Caput III: JUNCTURAE Chapter 3: JOINTS"
+          },
+          "locatorQuality": "STABLE_ENTRY",
+          "anatomicalCategory": "Ligament",
+          "laterality": "unsided",
+          "authorityInstitution": "FIPAT / IFAA",
+          "authoritySourceIdentity": "Terminologia Anatomica, Second Edition, TA2 2.07 online",
+          "accessCopy": {
+            "isAccessCopy": false,
+            "accessCopyOf": null,
+            "relation": "authority-source-access"
+          },
+          "identityRelation": "EXACT_ENGLISH_LATIN_TA2_MATCH",
+          "notes": "Identity evidence only; FIPAT_TA2 is not authority for Vietnamese wording."
+        }
+      ],
+      "evidenceStatus": "SOURCE_MATERIAL_REQUIRED",
+      "evidence": [],
+      "candidateConsensus": {
+        "status": "SOURCE_MATERIAL_REQUIRED",
+        "preferredTerm": null,
+        "agreedTerm": null,
+        "variants": [],
+        "conflicts": []
+      },
+      "notes": "Identity is pinned, but no supplied NVH2008, HMU2022, or UMP2023_T2 material attests the exact Vietnamese target term."
+    },
+    {
+      "conceptId": "FMA55233",
+      "atlasEnglishName": "cricothyroid ligament",
+      "anatomicalCategory": "Ligament",
+      "laterality": "unsided",
+      "identityStatus": "IDENTITY_INSUFFICIENT",
+      "identityAssessment": "No exact English or Latin match for this FMA concept exists in the supplied indexed TA2/FIPAT evidence. The atlas label and related cricothyroid records do not independently pin external identity.",
+      "externalIdentityEvidence": [],
+      "evidenceStatus": "IDENTITY_BLOCKED",
+      "evidence": [],
+      "candidateConsensus": {
+        "status": "IDENTITY_BLOCKED",
+        "preferredTerm": null,
+        "agreedTerm": null,
+        "variants": [],
+        "conflicts": []
+      },
+      "notes": "Do not use the supplied median cricothyroid ligament evidence or Vietnamese component wording to synthesize this target."
+    }
+  ],
+  "evidenceCoverage": {
+    "before": {
+      "source": "data/terminology/research/bulk-match-results.json",
+      "targetConceptCount": 5,
+      "conceptsWithExactVietnameseEvidence": 0,
+      "exactVietnameseEvidenceRecordCount": 0,
+      "identityPinnedConceptCount": 3
+    },
+    "after": {
+      "source": "M04B2D Batch 1 artifacts",
+      "targetConceptCount": 5,
+      "conceptsWithExactVietnameseEvidence": 0,
+      "exactVietnameseEvidenceRecordCount": 0,
+      "identityPinnedConceptCount": 3,
+      "identityBlockedConceptCount": 2
+    }
+  },
+  "releaseState": {
+    "sourceVerified": 0,
+    "medicalReviewed": 0,
+    "releaseEligible": 0,
+    "searchableVietnamese": 0,
+    "release": "UNRELEASED"
+  },
+  "productionIntegration": {
+    "entriesModified": false,
+    "reviewersModified": false,
+    "releaseModified": false,
+    "preferredTermSelected": false,
+    "searchableVietnameseCreated": false
+  }
+}
