@@ -6,6 +6,7 @@ import {
   PRODUCTION_TERMINOLOGY_RELEASE,
   PRODUCTION_TERMINOLOGY_REVIEWERS,
   PRODUCTION_TERMINOLOGY_SOURCES,
+  RESEARCH_LOCALIZATION_CATALOG,
 } from './terminology-data.ts';
 
 export const TERMINOLOGY_SCHEMA_VERSION = 2;
@@ -309,11 +310,44 @@ export interface TerminologyReleaseManifest {
   contentHash?: string;
 }
 
+export const LOCALIZATION_EVIDENCE_STATUSES = ['VERIFIED', 'PROVISIONAL_SOURCED', 'PROVISIONAL_TRANSLATED', 'NO_TRANSLATION_AVAILABLE'] as const;
+export type LocalizationEvidenceStatus = (typeof LOCALIZATION_EVIDENCE_STATUSES)[number];
+export const LOCALIZATION_TRANSLATION_METHODS = ['DIRECT_SOURCE', 'MULTI_AUTHORITY', 'CONTROLLED_DERIVED', 'SOURCE_CANDIDATE', 'GENERATED_TRANSLATION'] as const;
+export type LocalizationTranslationMethod = (typeof LOCALIZATION_TRANSLATION_METHODS)[number];
+export interface TerminologyLocalizationProvenance {
+  sourceId: string;
+  sourceRevision?: string | null;
+  sourceEdition?: string | null;
+  locator?: TerminologyProvenanceLocator | null;
+}
+export interface TerminologyLocalizationRecord {
+  conceptId: string;
+  english: string;
+  vietnamese: string;
+  evidenceStatus: LocalizationEvidenceStatus;
+  translationMethod: LocalizationTranslationMethod;
+  sourceRefs: readonly string[];
+  componentEvidence: readonly Record<string, unknown>[];
+  compositionRuleId: string | null;
+  blockers: readonly string[];
+  variants: readonly string[];
+  verified: boolean;
+  provenance?: readonly TerminologyLocalizationProvenance[];
+  generatedFromVerifiedLexicon?: boolean;
+  generationMethod?: string;
+  ruleOrReasoningSummary?: string;
+  qualityFindings?: readonly string[];
+  sourceDisposition?: string;
+  selectionRule?: string | null;
+}
+export type TerminologyLocalizationCatalog = Readonly<Record<string, TerminologyLocalizationRecord>>;
+
 export const TERMINOLOGY_OVERLAY: TerminologyOverlay = PRODUCTION_TERMINOLOGY_OVERLAY;
 export const TERMINOLOGY_SOURCES: TerminologySourceCatalog = PRODUCTION_TERMINOLOGY_SOURCES;
 export const TERMINOLOGY_REVIEWERS: TerminologyReviewerCatalog = PRODUCTION_TERMINOLOGY_REVIEWERS;
 export const TERMINOLOGY_RELEASE: TerminologyReleaseManifest = PRODUCTION_TERMINOLOGY_RELEASE;
 export const SYSTEM_TERMINOLOGY_OVERLAY: SystemTerminologyOverlay = Object.freeze({});
+export const LOCALIZATION_CATALOG: TerminologyLocalizationCatalog = RESEARCH_LOCALIZATION_CATALOG;
 
 const capabilityProperties: Readonly<Record<TerminologySourceCapability, keyof TerminologySourceCapabilities>> = {
   'anatomical-identity': 'anatomicalIdentity',
@@ -597,13 +631,52 @@ export function resolveSystemName(
   return system.name;
 }
 
+export function resolveConceptLocalization(
+  concept: Pick<Concept, 'id' | 'name'>,
+  localizationCatalog: TerminologyLocalizationCatalog = LOCALIZATION_CATALOG,
+  overlay: TerminologyOverlay = TERMINOLOGY_OVERLAY,
+  sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
+  reviewers: TerminologyReviewerCatalog = TERMINOLOGY_REVIEWERS,
+): TerminologyLocalizationRecord | undefined {
+  const productionEntry = overlay[concept.id];
+  if (productionEntry && hasVerifiedVietnamese(productionEntry, sourceCatalog, reviewers)) {
+    return {
+      conceptId: concept.id,
+      english: concept.name,
+      vietnamese: productionEntry.vietnamese!.preferred!.trim(),
+      evidenceStatus: 'VERIFIED',
+      translationMethod: 'DIRECT_SOURCE',
+      sourceRefs: productionEntry.claims.filter(claim => claim.type === 'vietnamese-preferred').map(claim => claim.id),
+      componentEvidence: [],
+      compositionRuleId: null,
+      blockers: [],
+      variants: [],
+      verified: true,
+      provenance: productionEntry.claims.filter(claim => claim.type === 'vietnamese-preferred').map(claim => ({sourceId: claim.sourceId, sourceRevision: claim.sourceRevision, locator: claim.locator})),
+    };
+  }
+  const record = localizationCatalog[concept.id];
+  if (!record || record.english !== concept.name || !record.vietnamese.trim()) return undefined;
+  return record;
+}
+
+export const evidenceStatusLabelKey: Readonly<Record<LocalizationEvidenceStatus, 'evidence.verified' | 'evidence.provisionalSourced' | 'evidence.provisionalTranslated' | 'evidence.noTranslation'>> = {
+  VERIFIED: 'evidence.verified',
+  PROVISIONAL_SOURCED: 'evidence.provisionalSourced',
+  PROVISIONAL_TRANSLATED: 'evidence.provisionalTranslated',
+  NO_TRANSLATION_AVAILABLE: 'evidence.noTranslation',
+};
+
 export function resolveConceptName(
   concept: Pick<Concept, 'id' | 'name'>,
   language: Language,
   overlay: TerminologyOverlay = TERMINOLOGY_OVERLAY,
   sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
   reviewers: TerminologyReviewerCatalog = TERMINOLOGY_REVIEWERS,
+  localizationCatalog: TerminologyLocalizationCatalog = LOCALIZATION_CATALOG,
 ): string {
+  const localized = resolveConceptLocalization(concept, localizationCatalog, overlay, sourceCatalog, reviewers);
+  if (language === 'vi' && localized && localized.evidenceStatus !== 'NO_TRANSLATION_AVAILABLE') return localized.vietnamese.trim();
   const entry = overlay[concept.id];
   if (language === 'vi' && hasVerifiedVietnamese(entry, sourceCatalog, reviewers)) return entry.vietnamese!.preferred!.trim();
   return concept.name;
@@ -623,8 +696,11 @@ export function terminologySearchTerms(
   entry: TerminologyEntry | undefined,
   sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
   reviewers: TerminologyReviewerCatalog = TERMINOLOGY_REVIEWERS,
+  localizationCatalog: TerminologyLocalizationCatalog = LOCALIZATION_CATALOG,
 ): readonly string[] {
   const terms = uniqueNonempty([concept.name, concept.id]);
+  const localized = resolveConceptLocalization(concept, localizationCatalog);
+  if (localized && localized.evidenceStatus !== 'NO_TRANSLATION_AVAILABLE') terms.push(localized.vietnamese);
   if (!entry) return terms;
   terms.push(...approvedAliasTerms(entry, 'english-alias', entry.english?.aliases ?? [], sourceCatalog));
   terms.push(...entry.atlas?.meshIds.filter(meshId => concept.elements.includes(meshId) && approvedClaim(entry, 'atlas-identity', meshId, sourceCatalog)) ?? []);
@@ -650,10 +726,11 @@ export function matchesTerminologyQuery(
   overlay: TerminologyOverlay = TERMINOLOGY_OVERLAY,
   sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
   reviewers: TerminologyReviewerCatalog = TERMINOLOGY_REVIEWERS,
+  localizationCatalog: TerminologyLocalizationCatalog = LOCALIZATION_CATALOG,
 ): boolean {
   const normalizedQuery = normalizeSearchText(query);
   if (!normalizedQuery) return false;
-  return terminologySearchTerms(concept, overlay[concept.id], sourceCatalog, reviewers).some(term =>
+  return terminologySearchTerms(concept, overlay[concept.id], sourceCatalog, reviewers, localizationCatalog).some(term =>
     normalizeSearchText(term).includes(normalizedQuery),
   );
 }

@@ -27,7 +27,11 @@
     "terminology:m04b2f": "node scripts/m04b2f-orchestrator.mjs",
     "test:m04b2f": "node scripts/test-m04b2f.mjs",
     "terminology:m04b2g": "node scripts/m04b2g-closure.mjs",
-    "test:m04b2g": "node scripts/test-m04b2g.mjs"
+    "test:m04b2g": "node scripts/test-m04b2g.mjs",
+    "terminology:m04b2h": "node scripts/m04b2h-expand.mjs",
+    "test:m04b2h": "node scripts/test-m04b2h.mjs",
+    "terminology:m04b2i": "node scripts/m04b2i-localization.mjs",
+    "test:m04b2i": "node scripts/test-m04b2i.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

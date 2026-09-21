@@ -11,6 +11,8 @@ import {
   matchesTerminologyQuery,
   resolveSystemName,
   resolveConceptName,
+  resolveConceptLocalization,
+  LOCALIZATION_CATALOG,
 } from '../app/terminology.ts';
 import {SYSTEMS} from '../app/anatomy.ts';
 
@@ -40,6 +42,12 @@ assert.equal(getMessage('en', 'controls.search'), 'Find a structure');
 assert.equal(getMessage('vi', 'controls.search'), 'Tìm cấu trúc');
 assert.equal(translate('en', 'loading.progress', {progress: 50, count: 12}), '50% · Loading 12 pieces');
 assert.equal(Object.keys(TERMINOLOGY_OVERLAY).length, 0);
+assert.equal(Object.keys(LOCALIZATION_CATALOG).length, 3432);
+const localizedConcept = {id: 'FMA3710', name: 'vascular tree', elements: []};
+assert.equal(resolveConceptLocalization(localizedConcept)?.evidenceStatus, 'PROVISIONAL_TRANSLATED');
+assert.notEqual(resolveConceptName(localizedConcept, 'vi'), localizedConcept.name);
+assert.equal(matchesTerminologyQuery(localizedConcept, resolveConceptName(localizedConcept, 'vi')), true);
+assert.equal(resolveConceptName(localizedConcept, 'en'), localizedConcept.name);
 assert.ok(Object.values(TERMINOLOGY_SOURCES).every(source => source.identityVerified === true));
 const intentionallyEnglishUiKeys = new Set(['language.english', 'language.vietnamese', 'controls.skeleton', 'controls.organs']);
 for (const key of MESSAGE_KEYS) {

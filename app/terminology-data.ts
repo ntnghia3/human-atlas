@@ -2,6 +2,7 @@ import entriesDocument from '../data/terminology/entries.json' with {type: 'json
 import releaseDocument from '../data/terminology/release.json' with {type: 'json'};
 import reviewersDocument from '../data/terminology/reviewers.json' with {type: 'json'};
 import sourcesDocument from '../data/terminology/sources.json' with {type: 'json'};
+import localizationDocument from '../data/terminology/research/m04b2i/localization-catalog.json' with {type: 'json'};
 import type {
   TerminologyEntry,
   TerminologyOverlay,
@@ -10,6 +11,8 @@ import type {
   TerminologyReviewerRecord,
   TerminologySourceCatalog,
   TerminologySourceRecord,
+  TerminologyLocalizationCatalog,
+  TerminologyLocalizationRecord,
 } from './terminology';
 
 interface SourceRegistryDocument {
@@ -27,10 +30,14 @@ interface ReviewerRegistryDocument {
   schemaVersion: number;
   reviewers: unknown[];
 }
+interface LocalizationRegistryDocument {
+  records: unknown[];
+}
 
 const sourceRecords = (sourcesDocument as SourceRegistryDocument).sources;
 const entryRecords = (entriesDocument as EntryRegistryDocument).entries;
 const reviewerRecords = (reviewersDocument as ReviewerRegistryDocument).reviewers;
+const localizationRecords = (localizationDocument as LocalizationRegistryDocument).records;
 const releaseIsActive = (releaseDocument as {releaseStatus?: unknown}).releaseStatus === 'RELEASED';
 
 const sourceCatalog = Object.fromEntries(
@@ -66,3 +73,11 @@ export const PRODUCTION_TERMINOLOGY_SOURCES = Object.freeze(sourceCatalog) as Te
 export const PRODUCTION_TERMINOLOGY_OVERLAY = Object.freeze(terminologyOverlay) as TerminologyOverlay;
 export const PRODUCTION_TERMINOLOGY_REVIEWERS = Object.freeze(reviewerCatalog) as TerminologyReviewerCatalog;
 export const PRODUCTION_TERMINOLOGY_RELEASE = Object.freeze(releaseDocument) as TerminologyReleaseManifest;
+const localizationByConcept = Object.fromEntries(
+  (Array.isArray(localizationRecords) ? localizationRecords : [])
+    .filter((record): record is TerminologyLocalizationRecord =>
+      Boolean(record && typeof record === 'object' && typeof (record as {conceptId?: unknown}).conceptId === 'string'),
+    )
+    .map(record => [record.conceptId, record]),
+);
+export const RESEARCH_LOCALIZATION_CATALOG = Object.freeze(localizationByConcept) as TerminologyLocalizationCatalog;

@@ -1,0 +1,65 @@
+{
+  "schemaVersion": "M04B2I-COVERAGE-SUMMARY-1",
+  "milestone": "M04B2I",
+  "totalConcepts": 3432,
+  "processedConcepts": 3432,
+  "unclassifiedConcepts": 0,
+  "primaryUiLocalizationClass": {
+    "VERIFIED": 841,
+    "PROVISIONAL_SOURCED": 86,
+    "PROVISIONAL_TRANSLATED": 2505,
+    "NO_TRANSLATION_AVAILABLE": 0
+  },
+  "verified": 841,
+  "provisionalSourced": 86,
+  "provisionalTranslated": 2505,
+  "noTranslationAvailable": 0,
+  "vietnameseUiCoverage": 3432,
+  "vietnameseUiCoveragePercentage": 100,
+  "translationMethods": {
+    "DIRECT_SOURCE": 395,
+    "MULTI_AUTHORITY": 14,
+    "CONTROLLED_DERIVED": 432,
+    "SOURCE_CANDIDATE": 86,
+    "GENERATED_TRANSLATION": 2505
+  },
+  "generatedByComponentComposition": 30,
+  "generatedByBestEffortTranslation": 2475,
+  "sourceConflicts": 7,
+  "sourceVariants": 2,
+  "englishOnlyFallback": 0,
+  "quality": {
+    "generatedRecords": 2505,
+    "flaggedRecords": 271,
+    "findings": {
+      "MALFORMED_VIETNAMESE_WORD_ORDER": 270,
+      "DUPLICATED_ANATOMICAL_HEAD": 3
+    },
+    "checks": [
+      "UNTRANSLATED_ENGLISH_RESIDUE",
+      "MISSING_LATERALITY",
+      "DUPLICATED_ANATOMICAL_HEAD",
+      "REVERSED_LEFT_RIGHT",
+      "REVERSED_SUPERIOR_INFERIOR",
+      "REVERSED_ANTERIOR_POSTERIOR",
+      "MALFORMED_VIETNAMESE_WORD_ORDER",
+      "ENGLISH_VIETNAMESE_MIXTURE",
+      "INCONSISTENT_COMPONENT_TRANSLATION",
+      "SUSPICIOUS_LEXICON_INCONSISTENCY"
+    ]
+  },
+  "productionSafety": {
+    "searchableVietnamese": 0,
+    "sourceVerified": 0,
+    "medicallyReviewed": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED"
+  },
+  "policy": {
+    "historicalM04B2GAndM04B2HImmutable": true,
+    "generatedSourceRefs": [],
+    "generatedVerified": false,
+    "conflictSelectionRule": "DETERMINISTIC_SOURCE_COUNT_LENGTH_INPUT_ORDER",
+    "releasePromotion": false
+  }
+}
