@@ -17,7 +17,25 @@ const meshA = conceptA.elements[0];
 const meshB = conceptB.elements[0];
 
 function source({id, className, capabilities, revision = 'TEST_ONLY_SOURCE_REV_1'}) {
-  return {id, class: className, title: `${id} TEST_ONLY fixture`, revision, capabilities, audit: {status: 'VERIFIED', verifiedAt: '2026-01-01', verifiedBy: 'TEST_ONLY_SOURCE_REVIEWER'}};
+  const authorityTier = className === 'machine-generated' ? 'discovery-only' : className === 'secondary-reference' ? 'corroborative' : 'authoritative';
+  const locatorCapability = className === 'international-nomenclature' ? 'STABLE_ENTRY' : 'PAGE';
+  return {
+    id,
+    class: className,
+    title: `${id} TEST_ONLY fixture`,
+    revision,
+    identityVerified: true,
+    authorityTier,
+    authorityScope: ['TEST_ONLY fixture scope'],
+    accessStatus: 'FULL_ACCESS',
+    locatorCapability,
+    fullTextAvailableForReview: true,
+    contentInspected: true,
+    verificationEvidence: ['git:TEST_ONLY_FIXTURE'],
+    limitations: ['Synthetic fixture; never production evidence'],
+    capabilities,
+    audit: {status: 'VERIFIED', verifiedAt: '2026-01-01', verifiedBy: 'TEST_ONLY_SOURCE_REVIEWER'},
+  };
 }
 const internationalSource = source({id: 'TEST_ONLY_NOMENCLATURE', className: 'international-nomenclature', capabilities: {anatomicalIdentity: true, canonicalLatin: true, vietnamesePreferred: false, secondaryCorroboration: false, machineCandidateDiscovery: false}});
 const vietnameseSource = source({id: 'TEST_ONLY_VI', className: 'vietnamese-authoritative', capabilities: {anatomicalIdentity: false, canonicalLatin: false, vietnamesePreferred: true, secondaryCorroboration: false, machineCandidateDiscovery: false}});
@@ -33,7 +51,7 @@ const reviewers = [
 function documents(entries, sourceRecords = sources, reviewerRecords = reviewers) {
   return {
     atlas,
-    sourcesDocument: {schemaVersion: 2, sources: sourceRecords},
+    sourcesDocument: {schemaVersion: 3, sources: sourceRecords},
     entriesDocument: {schemaVersion: 2, entries},
     reviewersDocument: {schemaVersion: 1, reviewers: reviewerRecords},
     releaseDocument: {schemaVersion: 1, releaseStatus: 'UNRELEASED', atlasVersion: atlas.version, atlasRevision: 'UNRELEASED', registryRevision: 'UNRELEASED', sourceCatalogRevision: 'UNRELEASED', reviewersRevision: 'UNRELEASED', policyVersion: 'M02B', entryRevisions: {}},
@@ -111,6 +129,26 @@ assert.equal(hasFinding(validateTerminologyData(documents([wrongMembership])), '
 const noEvidence = baseEntry(conceptA);
 noEvidence.claims = [{...claim('TEST_ONLY_BAD_CLAIM', 'vietnamese-preferred', 'TEST_ONLY_VI_TERM', vietnameseSource.id, vietnameseSource.revision, {url: 'https://example.invalid/generic'}), evidenceDisposition: 'SUPPORTED', reviewState: 'VERIFIED'}];
 assert.equal(hasFinding(validateTerminologyData(documents([noEvidence])), 'unreproducible-claim'), true);
+
+const metadataOnlySource = {...vietnameseSource, accessStatus: 'METADATA_ONLY', fullTextAvailableForReview: false, contentInspected: false};
+const metadataOnlyEntry = verifiedEntry();
+const metadataOnlyResult = validateTerminologyData(documents([metadataOnlyEntry], [internationalSource, metadataOnlySource, secondarySource, machineSource]));
+assert.equal(hasFinding(metadataOnlyResult, 'source-evidence-unusable'), true, 'metadata-only sources cannot support verified term claims');
+assert.equal(hasVerifiedVietnamese(metadataOnlyEntry, metadataOnlyResult.sourceCatalog, metadataOnlyResult.reviewerCatalog), false);
+
+const insufficientLocatorSource = {...vietnameseSource, locatorCapability: 'INSUFFICIENT'};
+const insufficientLocatorEntry = verifiedEntry();
+const insufficientLocatorResult = validateTerminologyData(documents([insufficientLocatorEntry], [internationalSource, insufficientLocatorSource, secondarySource, machineSource]));
+assert.equal(hasFinding(insufficientLocatorResult, 'source-evidence-unusable'), true, 'insufficient locator capability cannot support verified term claims');
+assert.equal(hasVerifiedVietnamese(insufficientLocatorEntry, insufficientLocatorResult.sourceCatalog, insufficientLocatorResult.reviewerCatalog), false);
+
+const internationalVietnameseClaim = baseEntry(conceptA);
+internationalVietnameseClaim.claims = [{...claim('TEST_ONLY_INVALID_VI_SOURCE', 'vietnamese-preferred', 'TEST_ONLY_VI_TERM', internationalSource.id, internationalSource.revision, {entryId: 'TEST_ONLY_VI_ENTRY'}), evidenceDisposition: 'SUPPORTED', reviewState: 'VERIFIED'}];
+assert.equal(hasFinding(validateTerminologyData(documents([internationalVietnameseClaim])), 'vietnamese-claim-source-authority'), true, 'international nomenclature cannot establish Vietnamese wording');
+
+const discoveryOnlyClaim = baseEntry(conceptA);
+discoveryOnlyClaim.claims = [{...claim('TEST_ONLY_DISCOVERY_CLAIM', 'vietnamese-preferred', 'TEST_ONLY_DISCOVERY_TERM', machineSource.id, machineSource.revision, {page: 1}), evidenceDisposition: 'SUPPORTED', reviewState: 'VERIFIED'}];
+assert.equal(hasFinding(validateTerminologyData(documents([discoveryOnlyClaim])), 'source-evidence-unusable'), true, 'discovery-only sources cannot support release evidence');
 
 const aliasWithoutApproval = baseEntry(conceptA);
 aliasWithoutApproval.english.aliases = ['TEST_ONLY_UNAPPROVED_ALIAS'];
@@ -215,4 +253,4 @@ assert.equal(coverage.totalAtlasConcepts, atlas.concepts.length);
 assert.equal(coverage.unresolvedOrUnmappedConcepts, atlas.concepts.length);
 assert.equal(coverage.releaseEligibleEntries, 0);
 
-console.log('M02B synthetic governance tests passed: opaque IDs, plural mappings, claim evidence, mesh membership, reviewer authorization, stale approvals, conflicts, search gates, collisions, and coverage.');
+console.log('Synthetic terminology governance tests passed: opaque IDs, plural mappings, claim evidence, mesh membership, reviewer authorization, stale approvals, conflicts, search gates, collisions, and coverage.');

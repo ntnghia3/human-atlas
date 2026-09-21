@@ -40,7 +40,7 @@ app/terminology.ts defines the separate overlay contract:
 - source revisions, conflict adjudication, reviewer registry records, and revision-bound audits are release dependencies;
 - English, Latin, and Vietnamese fields retain preferred and alias distinctions; ASCII forms remain matching-only.
 
-TERMINOLOGY_OVERLAY, TERMINOLOGY_SOURCES, TERMINOLOGY_REVIEWERS, and the release manifest are loaded from the static M02B JSON registry. The production documents are intentionally empty today, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
+TERMINOLOGY_OVERLAY, TERMINOLOGY_SOURCES, TERMINOLOGY_REVIEWERS, and the release manifest are loaded from the static terminology registry. M03B source records describe real bibliographic identities but do not populate the overlay; production entries remain empty, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
 
 resolveConceptName takes a Concept, language, overlay, and source catalog. English always returns Concept.name. Vietnamese returns a preferred term only after the release gate. The overlay can enrich a concept but cannot rewrite its original English name or its identity.
 

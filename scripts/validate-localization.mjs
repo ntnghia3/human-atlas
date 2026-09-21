@@ -40,7 +40,7 @@ assert.equal(getMessage('en', 'controls.search'), 'Find a structure');
 assert.equal(getMessage('vi', 'controls.search'), 'Tìm cấu trúc');
 assert.equal(translate('en', 'loading.progress', {progress: 50, count: 12}), '50% · Loading 12 pieces');
 assert.equal(Object.keys(TERMINOLOGY_OVERLAY).length, 0);
-assert.equal(Object.keys(TERMINOLOGY_SOURCES).length, 0);
+assert.ok(Object.values(TERMINOLOGY_SOURCES).every(source => source.identityVerified === true));
 const intentionallyEnglishUiKeys = new Set(['language.english', 'language.vietnamese', 'controls.skeleton', 'controls.organs']);
 for (const key of MESSAGE_KEYS) {
   assert.notEqual(translate('vi', key), key);
@@ -57,8 +57,8 @@ assert.equal(resolveConceptName(concept, 'vi', TERMINOLOGY_OVERLAY), concept.nam
 assert.equal(matchesTerminologyQuery(concept, 'internal carotid', TERMINOLOGY_OVERLAY), true);
 
 const sourceBase = {
-  TEST_ONLY_NOMENCLATURE: {id: 'TEST_ONLY_NOMENCLATURE', class: 'international-nomenclature', title: 'TEST_ONLY nomenclature fixture', revision: 'TEST_ONLY_REV_1', capabilities: {anatomicalIdentity: true, canonicalLatin: true, vietnamesePreferred: false, secondaryCorroboration: false, machineCandidateDiscovery: false}, audit: {status: 'VERIFIED', verifiedAt: '2026-01-01', verifiedBy: 'TEST_ONLY_SOURCE_REVIEWER'}},
-  TEST_ONLY_VI: {id: 'TEST_ONLY_VI', class: 'vietnamese-authoritative', title: 'TEST_ONLY Vietnamese fixture', revision: 'TEST_ONLY_REV_1', capabilities: {anatomicalIdentity: false, canonicalLatin: false, vietnamesePreferred: true, secondaryCorroboration: false, machineCandidateDiscovery: false}, audit: {status: 'VERIFIED', verifiedAt: '2026-01-01', verifiedBy: 'TEST_ONLY_SOURCE_REVIEWER'}},
+  TEST_ONLY_NOMENCLATURE: {id: 'TEST_ONLY_NOMENCLATURE', class: 'international-nomenclature', title: 'TEST_ONLY nomenclature fixture', revision: 'TEST_ONLY_REV_1', identityVerified: true, authorityTier: 'authoritative', authorityScope: ['TEST_ONLY identity'], accessStatus: 'FULL_ACCESS', locatorCapability: 'STABLE_ENTRY', fullTextAvailableForReview: true, contentInspected: true, verificationEvidence: ['TEST_ONLY'], limitations: ['TEST_ONLY'], capabilities: {anatomicalIdentity: true, canonicalLatin: true, vietnamesePreferred: false, secondaryCorroboration: false, machineCandidateDiscovery: false}, audit: {status: 'VERIFIED', verifiedAt: '2026-01-01', verifiedBy: 'TEST_ONLY_SOURCE_REVIEWER'}},
+  TEST_ONLY_VI: {id: 'TEST_ONLY_VI', class: 'vietnamese-authoritative', title: 'TEST_ONLY Vietnamese fixture', revision: 'TEST_ONLY_REV_1', identityVerified: true, authorityTier: 'authoritative', authorityScope: ['TEST_ONLY Vietnamese'], accessStatus: 'FULL_ACCESS', locatorCapability: 'PAGE', fullTextAvailableForReview: true, contentInspected: true, verificationEvidence: ['TEST_ONLY'], limitations: ['TEST_ONLY'], capabilities: {anatomicalIdentity: false, canonicalLatin: false, vietnamesePreferred: true, secondaryCorroboration: false, machineCandidateDiscovery: false}, audit: {status: 'VERIFIED', verifiedAt: '2026-01-01', verifiedBy: 'TEST_ONLY_SOURCE_REVIEWER'}},
 };
 const reviewers = {TEST_ONLY_MEDICAL_REVIEWER: {id: 'TEST_ONLY_MEDICAL_REVIEWER', displayName: 'TEST_ONLY medical reviewer', role: 'medical reviewer', qualifications: ['TEST_ONLY'], authorizationScope: ['*'], status: 'ACTIVE'}, TEST_ONLY_SOURCE_REVIEWER: {id: 'TEST_ONLY_SOURCE_REVIEWER', displayName: 'TEST_ONLY source reviewer', role: 'source verifier', qualifications: ['TEST_ONLY'], authorizationScope: ['*'], status: 'ACTIVE'}};
 const claim = (id, type, target, sourceId, locator) => ({id, type, target, sourceId, sourceRevision: 'TEST_ONLY_REV_1', locator, evidenceDisposition: 'SUPPORTED', reviewState: 'VERIFIED'});

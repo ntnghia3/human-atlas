@@ -9,15 +9,27 @@ The project must explain the evidence for every production assertion without cop
 | Source class | Intended use | Authority boundary |
 | --- | --- | --- |
 | `international-nomenclature` | Anatomical identity, FMA/TA2/nomenclature evidence, and canonical Latin. | Identity or Latin only where the cited claim and locator support it. |
+| `atlas-dataset` | Atlas identity, packaged mesh membership, and source/model metadata. | Does not establish FMA, TA2, Latin, or Vietnamese equivalence by itself. |
 | `vietnamese-authoritative` | Vietnamese medical or anatomical wording. | Vietnamese preferred claims only where the cited passage supports them. |
 | `secondary-reference` | Corroboration and review context. | Never sufficient alone for a preferred production term. |
 | `machine-generated` | Candidate discovery. | Never identity, terminology, medical, or release authority. |
 
 Capabilities are explicit: `anatomical-identity`, `canonical-latin`, `vietnamese-preferred`, `secondary-corroboration`, and `machine-candidate-discovery`. Each source record includes a stable `revision`, an audit status, and verifier metadata. Non-machine sources cannot advertise machine discovery; machine sources can advertise only candidate discovery.
 
+Registration and evidence use are separate. `identityVerified` confirms the
+bibliographic or dataset identity and pinned edition/revision; it does not mean
+that the contents were inspected. `authorityScope` states which claims the
+source may inform. `authorityTier` is `authoritative`, `corroborative`,
+`discovery-only`, or `rejected`. `accessStatus` records whether the project has
+legitimate review access, and `locatorCapability` records the strongest
+reproducible locator available. `METADATA_ONLY` and `UNAVAILABLE` sources, or
+sources with `INSUFFICIENT` locators, remain registry evidence only and cannot
+support a claim. `fullTextAvailableForReview` and `contentInspected` must both
+be true before a supported or verified claim can use a source.
+
 ## Claim evidence
 
-Every claim records `sourceId`, the exact `sourceRevision`, and a structured locator. Supported locators are page, chapter, section, table, entry ID, URL, and nomenclature ID. A generic URL alone is not an exact locator for a release claim. The validator requires the cited source revision to match the source catalog and rejects missing or unverifiable sources.
+Every claim records `sourceId`, the exact `sourceRevision`, and a structured locator. Supported locators are page, plate, chapter, section, table, entry ID, URL, and nomenclature ID. A generic URL alone is not an exact locator for a release claim, and a locator must match the source's declared capability. The validator requires the cited source revision to match the source catalog and rejects missing, metadata-only, uninspected, or otherwise unusable evidence.
 
 Claim evidence dispositions (`CANDIDATE`, `SUPPORTED`, `REJECTED`, `SUPERSEDED`) and claim review states (`PENDING`, `VERIFIED`, `REJECTED`) are independent. Machine candidate history remains visible as origin metadata but can never satisfy a supported claim.
 
@@ -26,6 +38,17 @@ Claim evidence dispositions (`CANDIDATE`, `SUPPORTED`, `REJECTED`, `SUPERSEDED`)
 Conflicts are explicit entry records. They support identity disagreement, granularity disagreement, contextual difference, edition/version difference, and competing preferred terminology. A conflict records affected claim IDs, status, decision, rationale, permitted aliases or ambiguity scope, reviewer, resolution date, and entry revision.
 
 No conflict is resolved automatically by majority, recency, source count, or lexical similarity. An unresolved substantive conflict blocks release. An adjudicated conflict must be current and recorded by an active authorized medical reviewer.
+
+Vietnamese sources are compared per claim and context. The review records
+source scope, concept identity, edition, term context, specialist usage, and
+related-family consistency before an authorized medical reviewer adjudicates a
+conflict. University anatomy sources and recognized medical-publisher editions
+may be authoritative when their identity and exact passage are verifiable;
+secondary clinical sources may corroborate but do not automatically override
+anatomy nomenclature sources. Retail pages, blogs, scraped or unauthorized
+copies, student uploads, machine translation, Wikipedia, general-health sites,
+and AI output are discovery aids or rejected evidence, never authoritative
+Vietnamese terminology.
 
 ## Review and release
 
@@ -43,4 +66,7 @@ Source verification and medical review are separate audits. Medical review requi
 6. Let the derived release gate decide eligibility; never edit a release flag to bypass dependencies.
 7. Keep unresolved, rejected, obsolete, and confirmed-no-equivalent dispositions explicit.
 
-The current production source and entry registries are empty. No real Vietnamese source records or terminology were added in M02B.
+The source catalog may be populated during a source-lock milestone, while the
+production entry registry remains empty until claim-level work begins. A source
+revision change invalidates dependent claims and approvals through the existing
+revision checks; it cannot be hidden by retaining a stale audit status.

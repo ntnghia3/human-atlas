@@ -38,6 +38,6 @@ Normalized collisions among released forms block release unless an authorized me
 
 ## Release and migration
 
-The static registry uses schema version 2 in `data/terminology/entries.json` and `sources.json`, with a separate reviewer registry and `data/terminology/release.json` manifest. A released manifest binds atlas version/revision, registry, source and reviewer revisions, policy version, content hash, and every released entry revision. The current manifest is `UNRELEASED` and the production entries and sources remain empty.
+The static registry uses schema version 2 in `data/terminology/entries.json` and schema version 3 in `data/terminology/sources.json`, with a separate reviewer registry and `data/terminology/release.json` manifest. A released manifest binds atlas version/revision, registry, source and reviewer revisions, policy version, content hash, and every released entry revision. The current manifest is `UNRELEASED`; the source catalog contains only M03B identity records, while production entries remain empty.
 
-No real Vietnamese terminology, FMA/TA2 mapping, Latin, source bibliography, or pilot entry is part of M02B.
+M02B contained no real Vietnamese terminology, FMA/TA2 mapping, Latin, source bibliography, or pilot entry. M03B may register bibliographic source identities without making any of those claims.

@@ -165,7 +165,10 @@ for (const record of records) if (record.edgeCaseTags?.includes('SHARED_MEMBERSH
 
 if (!isObject(entries) || !Array.isArray(entries.entries) || entries.entries.length !== 0) add(errors, 'Production terminology entries must remain empty during M03A');
 if (!isObject(release) || release.releaseStatus !== 'UNRELEASED') add(errors, 'Production release manifest must remain UNRELEASED during M03A');
-if (!isObject(sources) || !Array.isArray(sources.sources) || sources.sources.length !== 0) add(errors, 'Production source catalog must remain empty during M03A');
+// M03A froze the pilot before source lock. M03B may add source identities, but
+// this regression must still prove that no entries, reviewers, or release data
+// were populated and that the frozen concept set remains unchanged.
+if (!isObject(sources) || !Array.isArray(sources.sources)) add(errors, 'Production source catalog must remain a valid source-only document');
 if (!isObject(reviewers) || !Array.isArray(reviewers.reviewers) || reviewers.reviewers.length !== 0) add(errors, 'Production reviewer registry must remain empty during M03A');
 
 if (errors.length > 0) {
@@ -177,5 +180,5 @@ if (errors.length > 0) {
   console.log(`Concepts: ${records.length}; categories: ${Object.entries(categoryCounts).map(([key, value]) => `${key}=${value}`).join(', ')}`);
   console.log(`Edge tags: ${Object.entries(tagCounts).sort(([a], [b]) => a.localeCompare(b)).map(([key, value]) => `${key}=${value}`).join(', ')}`);
   console.log(`Ontology investigation concepts: ${ontologyRiskIds.size}; shared-membership candidates: ${sharedMembershipIds.size}`);
-  console.log('Production entries: 0; sources: 0; reviewers: 0; releaseStatus: UNRELEASED; FMA/TA2 mappings: none asserted');
+  console.log(`Production entries: 0; source records: ${sources.sources.length}; reviewers: 0; releaseStatus: UNRELEASED; FMA/TA2 mappings: none asserted`);
 }

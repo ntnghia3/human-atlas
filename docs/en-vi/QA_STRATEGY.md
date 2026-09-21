@@ -26,7 +26,7 @@ The validator blocks:
 - unknown or wrongly attributed mesh membership;
 - FMA-like IDs used without independent claims;
 - invalid mapping cardinality, relation, disposition, namespace evidence, or source revision;
-- missing claim evidence, generic-only locators, source revision mismatch, machine-only authority, and unsupported claims;
+- missing claim evidence, generic-only or capability-mismatched locators, source revision mismatch, metadata-only/uninspected sources, machine-only authority, and unsupported claims;
 - missing or stale audit revisions, unregistered/inactive/unauthorized reviewers, automated medical review, and incomplete current decisions;
 - open source conflicts and invalid adjudication;
 - stale release manifests and released entries not bound to current revisions;
@@ -34,6 +34,12 @@ The validator blocks:
 - invalid ASCII display/search fields, broken aliases, fallback failures, and changed atlas/mesh IDs.
 
 Semantic direction and category heuristics remain review prompts. They may flag likely inversions or artery/vein, nerve/ligament, and branch/trunk mistakes, but they never auto-correct or declare anatomical correctness.
+
+Source-lock checks also fail closed when a source is metadata-only, unavailable,
+uninspected, discovery-only, rejected, or lacks a locator capable of reproducing
+the cited claim. Vietnamese claims require an authoritative Vietnamese source;
+international nomenclature and atlas metadata cannot establish Vietnamese
+wording. A source revision change makes dependent evidence stale.
 
 ## Search and resolver gates
 

@@ -14,8 +14,12 @@ import {normalizeSearchText} from '../app/search-normalization.ts';
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, '..');
 const SCHEMA_VERSION = 2;
-const VALID_SOURCE_CLASSES = new Set(['international-nomenclature', 'vietnamese-authoritative', 'secondary-reference', 'machine-generated']);
+const SOURCE_SCHEMA_VERSION = 3;
+const VALID_SOURCE_CLASSES = new Set(['international-nomenclature', 'atlas-dataset', 'vietnamese-authoritative', 'secondary-reference', 'machine-generated']);
 const VALID_SOURCE_STATUSES = new Set(['UNVERIFIED', 'VERIFIED']);
+const VALID_SOURCE_AUTHORITY_TIERS = new Set(['authoritative', 'corroborative', 'discovery-only', 'rejected']);
+const VALID_SOURCE_ACCESS_STATUSES = new Set(['FULL_ACCESS', 'PARTIAL_ACCESS', 'METADATA_ONLY', 'UNAVAILABLE']);
+const VALID_SOURCE_LOCATOR_CAPABILITIES = new Set(['PAGE', 'PLATE', 'CHAPTER_SECTION', 'TERM_ID', 'STABLE_ENTRY', 'INSUFFICIENT']);
 const VALID_MAPPING_STATUSES = new Set(['UNMAPPED', 'MAPPED', 'REJECTED']);
 const VALID_MAPPING_DISPOSITIONS = new Set(['NOT_INVESTIGATED', 'UNRESOLVED', 'CONFIRMED_NO_EQUIVALENT']);
 const VALID_MAPPING_RELATIONS = new Set(['exact', 'equivalent', 'target-broader', 'target-narrower', 'overlapping', 'related', 'composite', 'collective', 'obsolete-replaced']);
@@ -28,7 +32,7 @@ const VALID_EVIDENCE_DISPOSITIONS = new Set(['CANDIDATE', 'SUPPORTED', 'REJECTED
 const VALID_CLAIM_REVIEW_STATES = new Set(['PENDING', 'VERIFIED', 'REJECTED']);
 const VALID_CONFLICT_TYPES = new Set(['identity-disagreement', 'granularity-disagreement', 'contextual-difference', 'edition-version-difference', 'competing-preferred-terminology']);
 const VALID_CONFLICT_STATUSES = new Set(['OPEN', 'ADJUDICATED', 'REJECTED']);
-const VALID_LOCATOR_KEYS = new Set(['page', 'chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId']);
+const VALID_LOCATOR_KEYS = new Set(['page', 'plate', 'chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId']);
 const VALID_SOURCE_CAPABILITY_KEYS = new Set(['anatomicalIdentity', 'canonicalLatin', 'vietnamesePreferred', 'secondaryCorroboration', 'machineCandidateDiscovery']);
 const PLACEHOLDER_PATTERN = /^(?:TODO|TBD|UNKNOWN|PLACEHOLDER|N\/A|NA)$/i;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}(?:[T ]\d{2}:\d{2}(?::\d{2}(?::\d{2}(?:\.\d{1,3})?)?)?(?:Z|[+-]\d{2}:?\d{2})?)?$/;
@@ -86,6 +90,15 @@ function validateSources(records, result) {
     if (!VALID_SOURCE_CLASSES.has(source.class)) addError(result, 'invalid-source-class', 'Source class is invalid', `${path}.class`);
     if (!nonemptyString(source.title) || hasPlaceholder(source.title)) addError(result, 'invalid-source-title', 'Source title is required and cannot be a placeholder', `${path}.title`);
     if (!nonemptyString(source.revision) || hasPlaceholder(source.revision)) addError(result, 'invalid-source-revision', 'Source revision is required and cannot be a placeholder', `${path}.revision`);
+    if (typeof source.identityVerified !== 'boolean') addError(result, 'invalid-source-identity-verification', 'identityVerified must be boolean', `${path}.identityVerified`);
+    if (!VALID_SOURCE_AUTHORITY_TIERS.has(source.authorityTier)) addError(result, 'invalid-source-authority-tier', 'authorityTier is invalid', `${path}.authorityTier`);
+    validateStringArray(source.authorityScope, `${path}.authorityScope`, result, {allowEmpty: false});
+    if (!VALID_SOURCE_ACCESS_STATUSES.has(source.accessStatus)) addError(result, 'invalid-source-access-status', 'accessStatus is invalid', `${path}.accessStatus`);
+    if (!VALID_SOURCE_LOCATOR_CAPABILITIES.has(source.locatorCapability)) addError(result, 'invalid-source-locator-capability', 'locatorCapability is invalid', `${path}.locatorCapability`);
+    if (typeof source.fullTextAvailableForReview !== 'boolean') addError(result, 'invalid-source-full-text-flag', 'fullTextAvailableForReview must be boolean', `${path}.fullTextAvailableForReview`);
+    if (typeof source.contentInspected !== 'boolean') addError(result, 'invalid-source-content-inspection', 'contentInspected must be boolean', `${path}.contentInspected`);
+    validateStringArray(source.verificationEvidence, `${path}.verificationEvidence`, result, {allowEmpty: false});
+    validateStringArray(source.limitations, `${path}.limitations`, result, {allowEmpty: false});
     if (!isObject(source.capabilities)) addError(result, 'missing-source-capabilities', 'Source capabilities are required', `${path}.capabilities`);
     else {
       for (const key of VALID_SOURCE_CAPABILITY_KEYS) if (typeof source.capabilities[key] !== 'boolean') addError(result, 'invalid-source-capability', `${key} must be boolean`, `${path}.capabilities.${key}`);
@@ -93,10 +106,21 @@ function validateSources(records, result) {
     }
     if (!isObject(source.audit) || !VALID_SOURCE_STATUSES.has(source.audit.status)) addError(result, 'invalid-source-audit', 'Source audit status is invalid', `${path}.audit`);
     if (source.audit?.status === 'VERIFIED' && (!isValidDate(source.audit.verifiedAt) || !nonemptyString(source.audit.verifiedBy))) addError(result, 'verified-source-missing-audit', 'VERIFIED sources require verifiedAt and verifiedBy', `${path}.audit`);
+    if (source.audit?.status === 'VERIFIED' && source.identityVerified !== true) addError(result, 'verified-source-identity-mismatch', 'A VERIFIED source audit requires identityVerified=true', `${path}.identityVerified`);
+    if (source.identityVerified === true && source.audit?.status !== 'VERIFIED') addError(result, 'identity-without-verified-audit', 'identityVerified=true requires a VERIFIED source audit', `${path}.audit`);
+    if (source.accessStatus === 'METADATA_ONLY' || source.accessStatus === 'UNAVAILABLE') {
+      if (source.fullTextAvailableForReview === true) addError(result, 'access-status-full-text-conflict', 'Metadata-only or unavailable sources cannot advertise full text availability', `${path}.fullTextAvailableForReview`);
+      if (source.contentInspected === true) addError(result, 'access-status-inspection-conflict', 'Metadata-only or unavailable sources cannot claim content inspection', `${path}.contentInspected`);
+    }
+    if (source.locatorCapability === 'INSUFFICIENT' && source.fullTextAvailableForReview === true) addWarning(result, 'full-text-with-insufficient-locator', 'Full text is available but no reproducible claim locator capability is recorded', `${path}.locatorCapability`);
     if (source.class === 'machine-generated' && (source.capabilities?.machineCandidateDiscovery !== true || source.capabilities?.anatomicalIdentity || source.capabilities?.canonicalLatin || source.capabilities?.vietnamesePreferred || source.capabilities?.secondaryCorroboration)) addError(result, 'source-capability-conflict', 'Machine sources can advertise only machine candidate discovery', path);
     if (source.class === 'vietnamese-authoritative' && source.capabilities?.vietnamesePreferred !== true) addError(result, 'source-capability-conflict', 'Vietnamese authoritative sources require vietnamesePreferred', path);
+    if (source.class === 'atlas-dataset' && source.capabilities?.anatomicalIdentity !== true) addError(result, 'source-capability-conflict', 'Atlas datasets require anatomicalIdentity', path);
     if (source.class === 'secondary-reference' && source.capabilities?.secondaryCorroboration !== true) addError(result, 'source-capability-conflict', 'Secondary sources require secondaryCorroboration', path);
     if (source.capabilities?.machineCandidateDiscovery && source.class !== 'machine-generated') addError(result, 'source-capability-conflict', 'Only machine-generated sources may advertise machine discovery', path);
+    if (source.class === 'machine-generated' && source.authorityTier !== 'discovery-only') addError(result, 'machine-source-authority-conflict', 'Machine-generated sources must be discovery-only', `${path}.authorityTier`);
+    if (source.class === 'vietnamese-authoritative' && source.authorityTier !== 'authoritative') addError(result, 'vietnamese-source-authority-conflict', 'Vietnamese authoritative sources must declare authoritative tier', `${path}.authorityTier`);
+    if (source.authorityTier === 'rejected' && source.audit?.status === 'VERIFIED') addError(result, 'rejected-source-verified', 'Rejected sources cannot have a VERIFIED source audit', path);
     if (nonemptyString(source.url) && !isValidUrl(source.url)) addError(result, 'invalid-source-url', 'Source URL must be http(s)', `${path}.url`);
     if (nonemptyString(source.id)) sourceCatalog[source.id] = source;
   });
@@ -123,7 +147,7 @@ function validateReviewers(records, result) {
 }
 
 function hasExactLocator(locator) {
-  return Boolean(locator && ((Number.isInteger(locator.page) && locator.page > 0) || ['chapter', 'section', 'table', 'entryId', 'nomenclatureId'].some(key => nonemptyString(locator[key]))));
+  return Boolean(locator && ((Number.isInteger(locator.page) && locator.page > 0) || ['plate', 'chapter', 'section', 'table', 'entryId', 'nomenclatureId'].some(key => nonemptyString(locator[key]))));
 }
 function claimCapability(type) {
   if (['atlas-identity', 'atlas-fma-mapping', 'atlas-ta2-mapping'].includes(type)) return 'anatomical-identity';
@@ -132,11 +156,38 @@ function claimCapability(type) {
   if (type === 'secondary-corroboration') return 'secondary-corroboration';
   return undefined;
 }
+
+function sourceLocatorSupportsClaim(source, locator) {
+  if (!source || !isObject(locator)) return false;
+  switch (source.locatorCapability) {
+    case 'PAGE': return Number.isInteger(locator.page) && locator.page > 0;
+    case 'PLATE': return nonemptyString(locator.plate) || nonemptyString(locator.table);
+    case 'CHAPTER_SECTION': return nonemptyString(locator.chapter) || nonemptyString(locator.section);
+    case 'TERM_ID':
+    case 'STABLE_ENTRY': return nonemptyString(locator.entryId) || nonemptyString(locator.nomenclatureId);
+    case 'INSUFFICIENT':
+    default: return false;
+  }
+}
+
+function sourceEvidenceUsable(source, claim) {
+  return Boolean(
+    source &&
+      source.identityVerified === true &&
+      source.authorityTier !== 'discovery-only' &&
+      source.authorityTier !== 'rejected' &&
+      !['METADATA_ONLY', 'UNAVAILABLE'].includes(source.accessStatus) &&
+      source.fullTextAvailableForReview === true &&
+      source.contentInspected === true &&
+      source.locatorCapability !== 'INSUFFICIENT' &&
+      sourceLocatorSupportsClaim(source, claim.locator),
+  );
+}
 function validateLocator(locator, path, result, {exact = false} = {}) {
   if (!isObject(locator)) { addError(result, 'invalid-claim-locator', 'Claim locator must be an object', path); return; }
   for (const key of Object.keys(locator)) if (!VALID_LOCATOR_KEYS.has(key)) addError(result, 'unknown-claim-locator-field', `${key} is not supported`, `${path}.${key}`);
   if (locator.page !== undefined && (!Number.isInteger(locator.page) || locator.page <= 0)) addError(result, 'invalid-claim-page', 'Locator page must be a positive integer', `${path}.page`);
-  for (const key of ['chapter', 'section', 'table', 'entryId', 'nomenclatureId']) if (locator[key] !== undefined && !nonemptyString(locator[key])) addError(result, 'invalid-claim-locator-field', `${key} must be non-empty`, `${path}.${key}`);
+  for (const key of ['plate', 'chapter', 'section', 'table', 'entryId', 'nomenclatureId']) if (locator[key] !== undefined && !nonemptyString(locator[key])) addError(result, 'invalid-claim-locator-field', `${key} must be non-empty`, `${path}.${key}`);
   if (locator.url !== undefined && !isValidUrl(locator.url)) addError(result, 'invalid-claim-url', 'Locator URL must be http(s)', `${path}.url`);
   if (exact && !hasExactLocator(locator)) addError(result, 'unreproducible-claim', 'A claim requires an exact page, section, entry, table, or nomenclature locator; a generic URL is insufficient', path);
 }
@@ -156,6 +207,9 @@ function validateClaims(entry, entryPath, sourceCatalog, result) {
     if (sourceCatalog[claim.sourceId] && claim.sourceRevision !== sourceCatalog[claim.sourceId].revision) addError(result, 'claim-source-revision-mismatch', 'Claim sourceRevision must match the source catalog revision', `${path}.sourceRevision`);
     const requiredCapability = claimCapability(claim.type);
     if (requiredCapability && sourceCatalog[claim.sourceId] && !sourceSupportsCapability(sourceCatalog[claim.sourceId], requiredCapability)) addError(result, 'claim-capability-mismatch', `Claim type ${claim.type} requires source capability ${requiredCapability}`, `${path}.sourceId`);
+    if ((claim.evidenceDisposition === 'SUPPORTED' || claim.reviewState === 'VERIFIED') && sourceCatalog[claim.sourceId] && !sourceEvidenceUsable(sourceCatalog[claim.sourceId], claim)) addError(result, 'source-evidence-unusable', 'Supported or verified claims require inspected non-metadata source access and a matching locator capability', `${path}.sourceId`);
+    if (claim.type.startsWith('vietnamese-') && sourceCatalog[claim.sourceId] && (sourceCatalog[claim.sourceId].class !== 'vietnamese-authoritative' || sourceCatalog[claim.sourceId].authorityTier !== 'authoritative')) addError(result, 'vietnamese-claim-source-authority', 'Vietnamese term claims require an authoritative Vietnamese source', `${path}.sourceId`);
+    if ((claim.type === 'canonical-latin' || claim.type === 'latin-alias') && sourceCatalog[claim.sourceId] && sourceCatalog[claim.sourceId].class !== 'international-nomenclature') addError(result, 'latin-claim-source-authority', 'Latin claims require an international nomenclature source', `${path}.sourceId`);
     validateLocator(claim.locator, `${path}.locator`, result, {exact: claim.evidenceDisposition === 'SUPPORTED' || claim.reviewState === 'VERIFIED'});
     if (!VALID_EVIDENCE_DISPOSITIONS.has(claim.evidenceDisposition)) addError(result, 'invalid-evidence-disposition', 'Claim evidenceDisposition is invalid', `${path}.evidenceDisposition`);
     if (!VALID_CLAIM_REVIEW_STATES.has(claim.reviewState)) addError(result, 'invalid-claim-review-state', 'Claim reviewState is invalid', `${path}.reviewState`);
@@ -438,7 +492,7 @@ function validateReleaseManifest(manifest, atlas, entries, sourcesDocument, entr
 
 export function validateTerminologyData({atlas, sourcesDocument, entriesDocument, reviewersDocument = {schemaVersion: 1, reviewers: []}, releaseDocument = {schemaVersion: 1, releaseStatus: 'UNRELEASED', atlasVersion: atlas?.version ?? '', atlasRevision: 'UNRELEASED', registryRevision: 'UNRELEASED', sourceCatalogRevision: 'UNRELEASED', reviewersRevision: 'UNRELEASED', policyVersion: 'M02B', entryRevisions: {}}}) {
   const result = {errors: [], warnings: [], sourceCatalog: {}, reviewerCatalog: {}, entries: [], coverage: null, release: releaseDocument};
-  validateSchemaVersion(sourcesDocument, 'sources', SCHEMA_VERSION, result);
+  validateSchemaVersion(sourcesDocument, 'sources', SOURCE_SCHEMA_VERSION, result);
   validateSchemaVersion(entriesDocument, 'entries', SCHEMA_VERSION, result);
   validateSchemaVersion(reviewersDocument, 'reviewers', 1, result);
   const sourceRecords = getArray(sourcesDocument, 'sources', result);
@@ -469,7 +523,7 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
   const status = result.errors.length ? 'FAIL' : 'PASS';
   if (process.argv.includes('--json')) console.log(JSON.stringify({status, errors: result.errors, warnings: result.warnings, coverage: result.coverage}, null, 2));
   else {
-    console.log(`M02B terminology validation: ${status}`);
+    console.log(`Terminology validation: ${status}`);
     console.log(`Sources: ${Object.keys(result.sourceCatalog).length}; reviewers: ${Object.keys(result.reviewerCatalog).length}; registry entries: ${c.terminologyEntries}`);
     console.log(`Candidates: ${c.vietnameseCandidateEntries}; searchable: ${c.searchableTerminologyEntries}; source-verified: ${c.sourceVerifiedEntries}; medically reviewed: ${c.medicallyReviewedEntries}; release eligible: ${c.releaseEligibleEntries}`);
     console.log(`Mapping investigated: ${c.mappingInvestigatedEntries}; unresolved: ${c.mappingUnresolvedEntries}; confirmed no equivalent: ${c.confirmedNoExternalEquivalentEntries}; source gaps: ${c.sourceGapEntries}; stale approvals: ${c.staleApprovalEntries}; conflicts awaiting adjudication: ${c.conflictsAwaitingAdjudication}`);

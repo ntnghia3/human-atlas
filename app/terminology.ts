@@ -26,6 +26,7 @@ export type ReviewStatus = Exclude<TerminologyStatus, 'MAPPED'>;
 
 export type TerminologySourceClass =
   | 'international-nomenclature'
+  | 'atlas-dataset'
   | 'vietnamese-authoritative'
   | 'secondary-reference'
   | 'machine-generated';
@@ -36,6 +37,10 @@ export type TerminologySourceCapability =
   | 'vietnamese-preferred'
   | 'secondary-corroboration'
   | 'machine-candidate-discovery';
+
+export type TerminologySourceAuthorityTier = 'authoritative' | 'corroborative' | 'discovery-only' | 'rejected';
+export type TerminologySourceAccessStatus = 'FULL_ACCESS' | 'PARTIAL_ACCESS' | 'METADATA_ONLY' | 'UNAVAILABLE';
+export type TerminologySourceLocatorCapability = 'PAGE' | 'PLATE' | 'CHAPTER_SECTION' | 'TERM_ID' | 'STABLE_ENTRY' | 'INSUFFICIENT';
 
 export interface TerminologySourceCapabilities {
   anatomicalIdentity: boolean;
@@ -59,14 +64,24 @@ export interface TerminologySourceRecord {
   class: TerminologySourceClass;
   title: string;
   revision: string;
+  identityVerified: boolean;
+  authorityTier: TerminologySourceAuthorityTier;
+  authorityScope: readonly string[];
+  accessStatus: TerminologySourceAccessStatus;
+  locatorCapability: TerminologySourceLocatorCapability;
+  fullTextAvailableForReview: boolean;
+  contentInspected: boolean;
+  verificationEvidence: readonly string[];
+  limitations: readonly string[];
   capabilities: TerminologySourceCapabilities;
   audit: TerminologySourceAudit;
   authors?: readonly string[];
   institution?: string;
   edition?: string;
-  publicationYear?: number;
+  publicationYear?: number | null;
   publisher?: string;
-  isbn?: string;
+  isbn?: string | null;
+  doi?: string;
   url?: string;
   accessedAt?: string;
   language?: string;
@@ -118,6 +133,7 @@ export interface TerminologyAtlasMembership {
 
 export interface TerminologyProvenanceLocator {
   page?: number;
+  plate?: string;
   chapter?: string;
   section?: string;
   table?: string;
@@ -317,12 +333,25 @@ function hasExactLocator(locator: TerminologyProvenanceLocator | undefined): boo
   return Boolean(
     locator &&
       ((typeof locator.page === 'number' && Number.isInteger(locator.page) && locator.page > 0) ||
+        hasText(locator.plate) ||
         hasText(locator.chapter) ||
         hasText(locator.section) ||
         hasText(locator.table) ||
         hasText(locator.entryId) ||
         hasText(locator.nomenclatureId)),
   );
+}
+
+function sourceLocatorSupportsClaim(source: TerminologySourceRecord, locator: TerminologyProvenanceLocator): boolean {
+  switch (source.locatorCapability) {
+    case 'PAGE': return typeof locator.page === 'number' && Number.isInteger(locator.page) && locator.page > 0;
+    case 'PLATE': return hasText(locator.plate) || hasText(locator.table);
+    case 'CHAPTER_SECTION': return hasText(locator.chapter) || hasText(locator.section);
+    case 'TERM_ID': return hasText(locator.entryId) || hasText(locator.nomenclatureId);
+    case 'STABLE_ENTRY': return hasText(locator.entryId) || hasText(locator.nomenclatureId);
+    case 'INSUFFICIENT':
+    default: return false;
+  }
 }
 
 function claimCapability(type: TerminologyClaimType): TerminologySourceCapability | undefined {
@@ -336,12 +365,26 @@ function claimCapability(type: TerminologyClaimType): TerminologySourceCapabilit
 function sourceCanSupportClaim(source: TerminologySourceRecord | undefined, claim: TerminologyClaim): boolean {
   return Boolean(
     source &&
+      source.identityVerified === true &&
+      source.authorityTier !== 'discovery-only' &&
+      source.authorityTier !== 'rejected' &&
+      source.accessStatus !== 'METADATA_ONLY' &&
+      source.accessStatus !== 'UNAVAILABLE' &&
+      source.fullTextAvailableForReview === true &&
+      source.contentInspected === true &&
       source.audit?.status === 'VERIFIED' &&
       source.class !== 'machine-generated' &&
       !sourceSupportsCapability(source, 'machine-candidate-discovery') &&
       source.revision === claim.sourceRevision &&
-      (() => { const capability = claimCapability(claim.type); return !capability || sourceSupportsCapability(source, capability); })() &&
-      hasExactLocator(claim.locator),
+      (() => {
+        const capability = claimCapability(claim.type);
+        if (capability && !sourceSupportsCapability(source, capability)) return false;
+        if (capability === 'vietnamese-preferred' && (source.class !== 'vietnamese-authoritative' || source.authorityTier !== 'authoritative')) return false;
+        if (capability === 'canonical-latin' && source.class !== 'international-nomenclature') return false;
+        return true;
+      })() &&
+      hasExactLocator(claim.locator) &&
+      sourceLocatorSupportsClaim(source, claim.locator),
   );
 }
 

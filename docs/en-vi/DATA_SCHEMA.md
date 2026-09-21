@@ -11,13 +11,26 @@
 The static registry is Git-reviewable and remains separate from geometry:
 
 ```text
-data/terminology/sources.json    { schemaVersion: 2, sources: TerminologySourceRecord[] }
+data/terminology/sources.json    { schemaVersion: 3, sources: TerminologySourceRecord[] }
 data/terminology/entries.json    { schemaVersion: 2, entries: EntryRegistryRecord[] }
 data/terminology/reviewers.json  { schemaVersion: 1, reviewers: TerminologyReviewerRecord[] }
 data/terminology/release.json    TerminologyReleaseManifest
 ```
 
-Production documents are intentionally empty in M02B.
+The source catalog may contain bibliographically verified records before any
+terminology entries exist. A source record does not assert a term, an external
+mapping, or medical review. Production terminology entries remain empty until
+claim-level evidence and human review are recorded.
+
+`TerminologySourceRecord` must distinguish identity from usability. In addition
+to the stable bibliographic fields, every record carries `identityVerified`,
+`authorityScope`, `authorityTier`, `accessStatus`, `locatorCapability`,
+`fullTextAvailableForReview`, `contentInspected`, `verificationEvidence`, and
+`limitations`. `accessStatus` is one of `FULL_ACCESS`, `PARTIAL_ACCESS`,
+`METADATA_ONLY`, or `UNAVAILABLE`; `locatorCapability` is one of `PAGE`,
+`PLATE`, `CHAPTER_SECTION`, `TERM_ID`, `STABLE_ENTRY`, or `INSUFFICIENT`.
+Metadata-only or insufficient-locator records can document source identity but
+cannot satisfy supported or verified terminology claims.
 
 ## Entry shape
 
@@ -59,6 +72,10 @@ EntryRegistryRecord {
 - External mappings are independent claims; FMA-like strings never self-verify.
 - Mapping status and review status are separate dimensions.
 - Claims with missing, machine-only, mismatched, or generic evidence cannot be supported.
+- Claims cannot be supported by metadata-only, unavailable, uninspected, or insufficient-locator sources.
+- Vietnamese claims require an authoritative Vietnamese source; international nomenclature does not establish Vietnamese wording.
+- Atlas-dataset evidence establishes atlas identity and mesh membership only; it does not establish FMA, TA2, Latin, or Vietnamese equivalence.
+- Discovery-only and rejected sources cannot satisfy supported claims or release evidence.
 - Registered active reviewers and current entry revisions are required for medical review.
 - Open conflicts block release; adjudication is current, explicit, and human-authorized.
 - Preferred fields are canonical display values; aliases and ASCII forms are search inputs only.
