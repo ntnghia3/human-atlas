@@ -1,8 +1,13 @@
 import entriesDocument from '../data/terminology/entries.json' with {type: 'json'};
+import releaseDocument from '../data/terminology/release.json' with {type: 'json'};
+import reviewersDocument from '../data/terminology/reviewers.json' with {type: 'json'};
 import sourcesDocument from '../data/terminology/sources.json' with {type: 'json'};
 import type {
   TerminologyEntry,
   TerminologyOverlay,
+  TerminologyReleaseManifest,
+  TerminologyReviewerCatalog,
+  TerminologyReviewerRecord,
   TerminologySourceCatalog,
   TerminologySourceRecord,
 } from './terminology';
@@ -11,18 +16,22 @@ interface SourceRegistryDocument {
   schemaVersion: number;
   sources: unknown[];
 }
-
 interface EntryRegistryRecord extends TerminologyEntry {
   key: string;
 }
-
 interface EntryRegistryDocument {
   schemaVersion: number;
   entries: unknown[];
 }
+interface ReviewerRegistryDocument {
+  schemaVersion: number;
+  reviewers: unknown[];
+}
 
 const sourceRecords = (sourcesDocument as SourceRegistryDocument).sources;
 const entryRecords = (entriesDocument as EntryRegistryDocument).entries;
+const reviewerRecords = (reviewersDocument as ReviewerRegistryDocument).reviewers;
+const releaseIsActive = (releaseDocument as {releaseStatus?: unknown}).releaseStatus === 'RELEASED';
 
 const sourceCatalog = Object.fromEntries(
   (Array.isArray(sourceRecords) ? sourceRecords : [])
@@ -33,7 +42,7 @@ const sourceCatalog = Object.fromEntries(
 );
 
 const terminologyOverlay = Object.fromEntries(
-  (Array.isArray(entryRecords) ? entryRecords : [])
+  (releaseIsActive && Array.isArray(entryRecords) ? entryRecords : [])
     .filter((entry): entry is EntryRegistryRecord =>
       Boolean(
         entry &&
@@ -45,9 +54,15 @@ const terminologyOverlay = Object.fromEntries(
     .map(entry => [entry.key, entry]),
 );
 
-/**
- * The static registry is the only production terminology input. The M02A
- * documents are intentionally empty today, so both maps are empty at runtime.
- */
+const reviewerCatalog = Object.fromEntries(
+  (Array.isArray(reviewerRecords) ? reviewerRecords : [])
+    .filter((reviewer): reviewer is TerminologyReviewerRecord =>
+      Boolean(reviewer && typeof reviewer === 'object' && typeof (reviewer as {id?: unknown}).id === 'string'),
+    )
+    .map(reviewer => [reviewer.id, reviewer]),
+);
+
 export const PRODUCTION_TERMINOLOGY_SOURCES = Object.freeze(sourceCatalog) as TerminologySourceCatalog;
 export const PRODUCTION_TERMINOLOGY_OVERLAY = Object.freeze(terminologyOverlay) as TerminologyOverlay;
+export const PRODUCTION_TERMINOLOGY_REVIEWERS = Object.freeze(reviewerCatalog) as TerminologyReviewerCatalog;
+export const PRODUCTION_TERMINOLOGY_RELEASE = Object.freeze(releaseDocument) as TerminologyReleaseManifest;

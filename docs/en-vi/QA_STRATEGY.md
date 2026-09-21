@@ -1,101 +1,64 @@
 # English–Vietnamese QA Strategy
 
-## Existing baseline checks
+## Regression commands
 
-The repository has no general test framework. Its validation is executable Node scripts plus the TypeScript and Vite commands:
+The release baseline remains:
 
-| Command | Coverage |
-| --- | --- |
-| npm run check | TypeScript type checking with no emit. |
-| node scripts/validate-atlas.mjs | Exact mesh/concept counts, unique mesh IDs, names, concept membership, binary bounds, finite positions, valid indices, and triangle total. |
-| node scripts/validate-interactions.mjs | Explosion layout at desktop/mobile aspect ratios, atlas tool search/inspection contracts, pointer tap/drag/multitouch/cancel behavior, and empty layout. |
-| npm run test:localization | English/Vietnamese dictionary parity, ordinary UI lookup and interpolation, built-in combobox/sheet accessibility-label wiring, persistence and storage failure fallback, document-safe language behavior contract, intentional English medical-preset fallback, empty production registry, verified release gate, and Latin/Vietnamese search fields. |
-| npm run test:terminology | TEST_ONLY fixtures for source capabilities, provenance locators, review audits, release gating, orphan and mesh references, normalized collisions, and coverage. |
-| node scripts/validate-terminology.mjs | Validates the static source/entry registry against the current atlas and prints independent coverage metrics. Add `--json` for machine-readable diagnostics. |
-| npm run build | Production Vite build and static dist output. |
+```text
+npm run check
+node scripts/validate-atlas.mjs
+node scripts/validate-interactions.mjs
+npm run test:localization
+npm run test:terminology
+node scripts/validate-terminology.mjs
+node scripts/validate-terminology.mjs --json
+npm run build
+git diff --check
+```
 
-## M02A terminology validation
+The production registry validator reads the atlas, source catalog, entry registry, reviewer registry, and release manifest together. It never generates, translates, rewrites, deletes, or auto-corrects terminology.
 
-`scripts/validate-terminology.mjs` is the dedicated registry validator. It fails on structural or release-safety errors and reports conservative review warnings separately. It checks the two JSON documents without mutating them and does not generate, translate, or auto-correct terms.
+## Blocking terminology checks
 
-Blocking checks include:
+The validator blocks:
 
-A terminology validator must check:
+- orphan entry keys, duplicate keys, and English snapshot identity drift requiring review;
+- unknown or wrongly attributed mesh membership;
+- FMA-like IDs used without independent claims;
+- invalid mapping cardinality, relation, disposition, namespace evidence, or source revision;
+- missing claim evidence, generic-only locators, source revision mismatch, machine-only authority, and unsupported claims;
+- missing or stale audit revisions, unregistered/inactive/unauthorized reviewers, automated medical review, and incomplete current decisions;
+- open source conflicts and invalid adjudication;
+- stale release manifests and released entries not bound to current revisions;
+- unapproved semantic search forms and released normalized collisions;
+- invalid ASCII display/search fields, broken aliases, fallback failures, and changed atlas/mesh IDs.
 
-- orphan concept IDs;
-- entries whose map key differs from conceptId;
-- duplicated concept mappings;
-- duplicate preferred terms where a distinct identity is expected;
-- missing provenance;
-- provenance IDs missing from the source catalog;
-- invalid mapping or review states;
-- Vietnamese VERIFIED term without an authoritative source;
-- machine-generated-only provenance;
-- unknown BodyParts3D, FMA, or TA2 identifiers;
-- broken aliases and aliases pointing to no concept;
-- duplicate aliases that resolve to competing concepts;
-- empty preferred fields;
-- ASCII search forms accidentally used as display values;
-- language fallback failures;
-- collisions introduced by normalization;
-- unexpected modification of original concept or mesh identifiers.
+Semantic direction and category heuristics remain review prompts. They may flag likely inversions or artery/vein, nerve/ligament, and branch/trunk mistakes, but they never auto-correct or declare anatomical correctness.
 
-It also checks source capability/class conflicts, verified source audit metadata, structured locator fields, FMA/TA2 locator matches, required review audits, placeholder bibliographic metadata, ASCII search-form rules, and the full Vietnamese release gate. Semantic direction/category heuristics are warnings only. Normalized alias collisions are warnings for unresolved candidates and blocking errors when both competing entries are release-eligible.
+## Search and resolver gates
 
-The validator must distinguish coverage from verification:
+`Concept.name` and `Concept.id` are always searchable. English aliases, atlas mesh identifiers, FMA/TA2 identifiers, Latin forms, Vietnamese preferred terms, aliases, search aliases, and ASCII forms enter the production search surface only when their individual claims pass the appropriate evidence gate. Draft, rejected, unresolved, stale, or machine-derived forms must not affect discovery.
 
-- Vietnamese candidate coverage = entries with any Vietnamese candidate field;
-- searchable coverage = entries with permitted additional aliases, mapped Latin, or release-eligible Vietnamese forms;
-- source-verified coverage = entries with a passed source-verification audit;
-- medically-reviewed coverage = entries with a passed non-automated medical-review audit;
-- release coverage = entries passing the complete `hasVerifiedVietnamese` gate;
-- unresolved/unmapped count = atlas concepts without a mapped, existing registry entry.
+Vietnamese display requires the current derived release gate. It checks an acceptable identity disposition, claim-level preferred evidence, current source verification, current qualified human medical review, resolved conflicts, and verified non-machine sources. A stored `VERIFIED` value is insufficient.
 
-These numbers must never be collapsed into one translation percentage.
+## Coverage and dispositions
 
-## Semantic safety heuristics
+The validator reports separate counts using the 3,432-concept atlas denominator:
 
-For mapped pairs, flag likely inconsistencies involving:
+- candidate coverage;
+- searchable coverage;
+- source-verified coverage;
+- medically-reviewed coverage;
+- release coverage;
+- mapping investigated, mapping unresolved, and confirmed no external equivalent;
+- source gaps, stale approvals, and conflicts awaiting adjudication.
 
-- left versus right; trái versus phải;
-- anterior versus posterior; trước versus sau;
-- superior versus inferior; trên versus dưới;
-- medial versus lateral; trong versus ngoài;
-- proximal versus distal; gần versus xa;
-- superficial versus deep; nông versus sâu;
-- artery versus vein; động mạch versus tĩnh mạch;
-- nerve versus ligament; thần kinh versus dây chằng;
-- branch versus trunk; nhánh versus thân.
+Meshes, aliases, English fallback, and machine candidates never count as Vietnamese release coverage. No single translation percentage is emitted.
 
-These are review prompts, not an automated translation engine. They must not auto-correct a term or declare a translation anatomically correct.
+## Synthetic governance suite
 
-## Search and fallback tests
+`npm run test:terminology` uses unmistakable `TEST_ONLY` fixtures and covers FMA-like opaque IDs, zero/multiple mappings, broader/narrower relationships, confirmed no TA2 equivalent, wrong `Concept.elements` membership, missing/generic evidence, unapproved aliases and identifiers, machine origins, unregistered and unauthorized reviewers, stale entry/alias/source revisions, current human review, open and adjudicated conflicts, released collision plus draft collision, explicit homonym handling, derived release gating, and coverage dispositions.
 
-Each release should test:
+## Human review
 
-- English name and existing source ID still resolve to the same concept;
-- a verified Vietnamese preferred term resolves to that concept;
-- a verified Vietnamese alias and no-diacritic form resolve to the same concept;
-- Latin resolves only when mapped and present;
-- draft, rejected, unmapped, and missing-source Vietnamese terms do not display or search as production terms;
-- an unknown query returns no guessed result;
-- language switching changes UI copy without changing selected IDs, visible systems, camera state, or loaded chunks.
-
-## Regression and performance
-
-The 3D regression set must retain:
-
-- exact atlas counts and IDs;
-- binary geometry and triangle count;
-- selection and detail panel behavior;
-- system toggles and presets;
-- explosion and isolation layout;
-- desktop, mobile, and landscape controls;
-- WebMCP tool names and concept IDs;
-- BodyParts3D attribution.
-
-Measure before introducing a search index or lazy-loading terminology. Terminology must remain outside the render loop and must not add language-specific geometry, picker meshes, GPU textures, or chunk requests. Language-switch smoke checks must confirm the atlas object, selected IDs, visibility, isolate/explosion state, and scene mount remain stable while UI labels update.
-
-## Manual review
-
-Before a terminology release, a qualified reviewer inspects every changed entry’s identity, source locator, preferred form, aliases, directional meaning, and neighboring structures. A passing structural validator is not a medical review.
+Before a terminology release, a qualified authorized reviewer inspects every changed identity claim, mapping relation, source locator, preferred form, aliases, scope, directional meaning, conflicts, and neighboring structures. Structural validation and automated release checks are necessary but are not medical review. Every approval is tied to the current entry revision and claim scope.

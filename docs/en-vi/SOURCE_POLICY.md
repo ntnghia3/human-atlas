@@ -2,66 +2,45 @@
 
 ## Purpose
 
-The project must be able to explain where every production Vietnamese anatomical term came from without copying copyrighted textbook content into the repository. Entries reference stable source IDs; source metadata is maintained separately.
+The project must explain the evidence for every production assertion without copying copyrighted textbook passages. Source metadata is stored separately from entries, with stable source IDs and explicit revisions. An authoritative source is not blanket evidence for every claim that cites it.
 
-No unverifiable bibliographic fact is to be invented. If a source record cannot be verified, it must not be used for a VERIFIED entry.
+## Source classes and capabilities
 
-## Source classes
-
-| Source class | Intended use | Authority |
+| Source class | Intended use | Authority boundary |
 | --- | --- | --- |
-| international-nomenclature | TA2, Terminologia Anatomica, FMA, BodyParts3D identity, and other recognized nomenclature or identity standards. | Identity and canonical naming where the mapping is verified. |
-| vietnamese-authoritative | Vietnamese medical or anatomical textbooks, university or institutional terminology, and other authoritative Vietnamese references. | Vietnamese preferred terminology, with a precise citation or locator. |
-| secondary-reference | Review articles, specialist references, or other useful corroboration. | Supporting evidence; not automatically sufficient for a preferred production term. |
-| machine-generated | AI, machine translation, language-model suggestion, or automated candidate generation. | Candidate discovery only; never equivalent to reviewed medical authority. |
+| `international-nomenclature` | Anatomical identity, FMA/TA2/nomenclature evidence, and canonical Latin. | Identity or Latin only where the cited claim and locator support it. |
+| `vietnamese-authoritative` | Vietnamese medical or anatomical wording. | Vietnamese preferred claims only where the cited passage supports them. |
+| `secondary-reference` | Corroboration and review context. | Never sufficient alone for a preferred production term. |
+| `machine-generated` | Candidate discovery. | Never identity, terminology, medical, or release authority. |
 
-## M02A registry boundary
+Capabilities are explicit: `anatomical-identity`, `canonical-latin`, `vietnamese-preferred`, `secondary-corroboration`, and `machine-candidate-discovery`. Each source record includes a stable `revision`, an audit status, and verifier metadata. Non-machine sources cannot advertise machine discovery; machine sources can advertise only candidate discovery.
 
-The authoritative registry is now stored as two static, Git-reviewable JSON documents:
+## Claim evidence
 
-- `data/terminology/sources.json` contains `{ "schemaVersion": 1, "sources": [] }` records keyed by stable `id`.
-- `data/terminology/entries.json` contains `{ "schemaVersion": 1, "entries": [] }` records with an explicit `key` that must equal `conceptId`.
+Every claim records `sourceId`, the exact `sourceRevision`, and a structured locator. Supported locators are page, chapter, section, table, entry ID, URL, and nomenclature ID. A generic URL alone is not an exact locator for a release claim. The validator requires the cited source revision to match the source catalog and rejects missing or unverifiable sources.
 
-The validator loads these files together with the current `public/models/atlas.json`, and the Vite runtime bundles the same files through `app/terminology-data.ts`. The current documents are empty, so the runtime overlay and source catalog are empty. Future records must pass the validator and release gate before they can display or search as Vietnamese medical terminology. The registry is not a UI dictionary, geometry manifest, backend database, or translation cache.
+Claim evidence dispositions (`CANDIDATE`, `SUPPORTED`, `REJECTED`, `SUPERSEDED`) and claim review states (`PENDING`, `VERIFIED`, `REJECTED`) are independent. Machine candidate history remains visible as origin metadata but can never satisfy a supported claim.
 
-Every source record requires a title, source class, explicit capability flags, and an audit object. Optional bibliographic metadata includes authors, institution, edition, publication year, publisher, ISBN, URL, access date, language, version, and license note. Placeholder metadata such as `TODO`, `TBD`, `UNKNOWN`, `PLACEHOLDER`, or `N/A` is invalid.
+## Source conflicts
 
-## Authority capabilities
+Conflicts are explicit entry records. They support identity disagreement, granularity disagreement, contextual difference, edition/version difference, and competing preferred terminology. A conflict records affected claim IDs, status, decision, rationale, permitted aliases or ambiguity scope, reviewer, resolution date, and entry revision.
 
-Capabilities are explicit and are not inferred from a source class:
+No conflict is resolved automatically by majority, recency, source count, or lexical similarity. An unresolved substantive conflict blocks release. An adjudicated conflict must be current and recorded by an active authorized medical reviewer.
 
-| Capability | Meaning | Release use |
-| --- | --- | --- |
-| anatomical-identity | Can substantiate identity against an anatomical source or nomenclature identifier. | Required for FMA/TA2 provenance locators. |
-| canonical-latin | Can substantiate canonical Latin wording. | Permits mapped Latin evidence, not Vietnamese display. |
-| vietnamese-preferred | Can substantiate a Vietnamese preferred term. | At least one such source is required for release. |
-| secondary-corroboration | Can provide supporting evidence only. | Never sufficient alone for a preferred production term. |
-| machine-candidate-discovery | May produce candidates for review. | Never medical or release authority. |
+## Review and release
 
-`machine-generated` records may advertise only `machine-candidate-discovery`. Non-machine records may not advertise machine discovery. `international-nomenclature` records provide identity and/or canonical Latin, `vietnamese-authoritative` records provide Vietnamese preferred wording, and `secondary-reference` records provide corroboration without canonical authority.
+Source verification and medical review are separate audits. Medical review requires a reviewer registry record with stable ID, role, qualifications, authorization scope, timestamp, decision, reviewed claim IDs, and the current entry revision. Automation can calculate structural and release checks but cannot issue medical review.
 
-Source audit status is `UNVERIFIED` or `VERIFIED`. A verified source must include a verification date and named verifier. An entry cannot use an unverified or machine-only source in the release gate.
-
-An entry’s provenance contains `sourceId` plus a structured locator. Supported locator fields are `page`, `chapter`, `section`, `table`, `entryId`, `url`, and `nomenclatureId`, with optional checked date and note. A release-candidate reference must contain at least one reproducible locator. A source ID that is missing from the catalog is invalid.
-
-For a Vietnamese VERIFIED entry, the release validator requires source-verification, non-automated medical-review, and release-eligibility audit records; verified non-machine provenance; a Vietnamese-preferred source capability; and matching `nomenclatureId` locators for any FMA or TA2 identifiers. International nomenclature sources can establish identity or Latin but do not, by themselves, establish Vietnamese preferred wording.
-
-## Copyright and citation boundaries
-
-The repository may store source metadata, short citations, stable URLs, page or section locators, and review notes needed to identify evidence. It must not scrape textbooks or copy large copyrighted passages.
-
-BodyParts3D attribution remains in public/ATTRIBUTION.md. The current BodyParts3D CC BY 4.0 terms and adaptation description must remain visible. The application code remains MIT-licensed. Future terminology source records must preserve any source-specific license or access restrictions.
+`data/terminology/reviewers.json` is a Git-reviewable registry and is intentionally empty in M02B. The release manifest binds the atlas, registry, source catalog, reviewer catalog, policy version, content hash, and entry revisions. A stale source, medical, conflict, or release record fails closed.
 
 ## Candidate workflow
 
-1. Establish the target concept identity from the current atlas and relevant nomenclature IDs.
-2. Record authoritative source IDs and exact locators.
-3. Enter a candidate as DRAFT or UNMAPPED, never as a production label.
-4. Compare directional, structural, and category semantics.
-5. Obtain appropriate medical review.
-6. Set VERIFIED only after provenance, source registry, mapping, and QA checks pass.
-7. Keep rejected and unresolved states explicit; do not silently delete uncertainty.
+1. Treat the atlas `Concept.id` as an opaque key and establish any external identity with a claim.
+2. Record the source revision and exact locator for each claim.
+3. Store candidates as `DRAFT`/`UNMAPPED` with candidate origin metadata.
+4. Record conflicts instead of silently selecting a preferred source.
+5. Obtain qualified human review for the current entry revision.
+6. Let the derived release gate decide eligibility; never edit a release flag to bypass dependencies.
+7. Keep unresolved, rejected, obsolete, and confirmed-no-equivalent dispositions explicit.
 
-## Upstream sources
-
-The packaged atlas is BodyParts3D 4.0 with FMA-like concept IDs and BodyParts3D element IDs. Upstream refreshes must be audited before terminology is reused. The source concept identity, source mesh identity, and terminology source identity are separate namespaces even when their values resemble one another.
+The current production source and entry registries are empty. No real Vietnamese source records or terminology were added in M02B.

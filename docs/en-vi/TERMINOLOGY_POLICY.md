@@ -2,81 +2,42 @@
 
 ## Governing rule
 
-Anatomical terminology is data, not ordinary UI copy. A Vietnamese anatomical label may not be considered production-ready because it is plausible, fluent, machine-generated, or present in a draft file.
+Anatomical terminology is evidence-backed data. A plausible, fluent, machine-generated, or merely present label is never production-ready by itself. The production overlay is keyed by the opaque `Atlas Concept.id`. An FMA-like spelling is not an FMA assertion, and names must not be used to infer equivalence.
 
-The overlay is keyed by stable anatomical concept identity. For this repository the runtime concept key is Concept.id from public/models/atlas.json. A concept may reference multiple renderable Part IDs, so terminology is stored once per concept rather than once per mesh.
+## Identity and mapping
 
-## Required entry shape
+`Concept.elements` describes packaged rendering membership. It does not prove synonymy, hierarchy, or ontology equivalence. An entry may contain zero, one, or many independently evidenced external mappings. Each mapping records its namespace, identifier, source revision, relation, disposition, evidence claim IDs, and notes.
 
-Each future entry must provide:
+Supported relations include `exact`, `equivalent`, `target-broader`, `target-narrower`, `overlapping`, `related`, `composite`, `collective`, and `obsolete-replaced`. `UNMAPPED` entries also record `NOT_INVESTIGATED`, `UNRESOLVED`, or `CONFIRMED_NO_EQUIVALENT`; no FMA or TA2 mapping is invented to fill a null.
 
-- conceptId equal to the target Atlas Concept.id;
-- sourceIds for relevant BodyParts3D element IDs with packaged-mesh or external scope and, when available, FMA and TA2 identifiers;
-- an English preferred snapshot that can be compared with Atlas.concepts;
-- optional canonical Latin and aliases;
-- optional Vietnamese preferred, aliases, search aliases, and matching-only ASCII forms;
-- provenance references to source records;
-- a mapping status;
-- a review status plus separate source-verification, medical-review, and release-eligibility audit records when needed.
+The relation between an atlas concept and a mesh is validated against that concept’s own `elements` list. A concept containing several meshes has one terminology entry, but a shared mesh or aggregate concept does not establish ontology equivalence. Composite, broader, narrower, obsolete, and source-specific relationships remain explicit and reviewable.
 
-The TypeScript contract is implemented in app/terminology.ts. The runtime imports the static M02A registry; its current production overlay is empty.
+## Claim-level contract
 
-## Status model
+Every evidence-bearing assertion is a claim with a stable ID, type, exact target, source ID, source revision, structured locator, evidence disposition, and claim review state. Claim types distinguish atlas identity, Atlas↔FMA, Atlas/FMA↔TA2, canonical Latin, each Latin alias, English aliases, Vietnamese preferred wording, each Vietnamese alias, search aliases, and secondary corroboration.
 
-The stable status vocabulary is:
+Candidate-generation history is stored separately and cannot become authority. A verified source record does not verify every claim that cites it. A generic source URL cannot substitute for an exact page, section, table, entry, or nomenclature locator when one is reasonably expected.
 
-| Status | Meaning | Displayable as Vietnamese preferred term? |
-| --- | --- | --- |
-| UNMAPPED | No verified mapping exists. | No |
-| MAPPED | Source identity mapping is established. | No by itself |
-| DRAFT | Candidate term or mapping awaiting review. | No |
-| SOURCE_VERIFIED | A source check has been completed. | No in the current release gate |
-| MEDICAL_REVIEWED | A qualified medical review has occurred. | No in the current release gate |
-| VERIFIED | Mapping, preferred term, provenance, and release checks are complete. | Yes, if all gate conditions hold |
-| REJECTED | Explicitly rejected or unsafe. | No |
+## Independent workflow dimensions
 
-MAPPED is used by the mapping object. The review object uses the workflow values appropriate to review. Unknown and unresolved entries must remain UNMAPPED or absent.
+`mapping.status` describes identity resolution (`UNMAPPED`, `MAPPED`, `REJECTED`) and `mapping.disposition` records why an external mapping is absent. `review.status` is a workflow hint (`DRAFT`, `SOURCE_VERIFIED`, `MEDICAL_REVIEWED`, `VERIFIED`, or `RELEASE_ELIGIBLE`) retained for compatibility. Effective release eligibility is derived from current mapping, claims, conflicts, source audits, reviewer audits, and revision fingerprints; a stored `VERIFIED` string is never trusted on its own.
 
-## Release resolver
+An effective Vietnamese release requires an exact/equivalent or explicitly reviewed composite/collective mapping, or a current sourced atlas identity with a confirmed absence of external equivalent; an approved Vietnamese preferred claim; current source verification; current qualified human medical review; no unresolved conflict; and current non-machine evidence. Broader, narrower, overlapping, related, and obsolete mappings do not silently release as exact terms.
 
-app/terminology.ts requires all of the following before returning Vietnamese:
+## Revision-bound review
 
-1. the exact concept key is present;
-2. mapping.status is MAPPED;
-3. review.status is VERIFIED;
-4. vietnamese.preferred is nonempty;
-5. source-verification, non-automated medical-review, and release-eligibility audits have passed;
-6. every provenance source ID resolves to a verified non-machine source record;
-7. every provenance reference has a reproducible structured locator;
-8. the provenance includes a source with the vietnamese-preferred capability;
-9. FMA and TA2 identifiers, when present, have matching anatomical-identity nomenclature locators.
+`computeTerminologyRevision` hashes all medically meaningful entry content while excluding mutable review metadata. It changes when mappings, Latin, Vietnamese forms, claims, source revisions, aliases, mesh membership, or scope changes. Every passed source, medical, and release audit records the exact entry revision and reviewed claim IDs. A mismatch is stale and fails closed. Approval and conflict records are retained rather than silently mutated.
 
-When the gate fails, the resolver returns the original English Atlas name. It does not return a draft, alias, ASCII form, or guessed fallback.
+Medical review requires a registered active reviewer ID, qualification and role metadata, authorization covering the reviewed claims, timestamp, decision, and current entry revision. `automated: false` or a free-text reviewer name is not proof of human review. Automation may calculate release checks but may never issue medical approval.
 
-The source catalog requirement is intentionally strict. An entry can be fully typed and still be non-displayable until its source records are registered and validated.
+## Preferred terms and search
 
-## Preferred terms and aliases
+Preferred is the only canonical display field. Alias, Latin, external-identifier, and Vietnamese search forms enter production search only when their individual claims pass the appropriate evidence gate. Original `Concept.name` and `Concept.id` always remain searchable. ASCII/no-diacritic forms are matching-only values and can never become display terms.
 
-Preferred is the only canonical display field. Aliases and search aliases are resolution inputs only. They must not overwrite preferred, create duplicate concepts, or be displayed as an authoritative replacement.
+Normalized collisions among released forms block release unless an authorized medical reviewer records an explicit, current ambiguity decision and its permitted scope. A draft occurrence cannot downgrade a collision between two released concepts.
 
-ASCII/no-diacritic forms exist solely to support input matching. They must not replace correct Vietnamese orthography in the preferred field or be used to manufacture a preferred field.
+## Release and migration
 
-## Semantic safety
+The static registry uses schema version 2 in `data/terminology/entries.json` and `sources.json`, with a separate reviewer registry and `data/terminology/release.json` manifest. A released manifest binds atlas version/revision, registry, source and reviewer revisions, policy version, content hash, and every released entry revision. The current manifest is `UNRELEASED` and the production entries and sources remain empty.
 
-Review must preserve distinctions such as:
-
-- left and right;
-- anterior and posterior;
-- superior and inferior;
-- medial and lateral;
-- proximal and distal;
-- superficial and deep;
-- artery and vein;
-- nerve and ligament;
-- branch and trunk.
-
-Heuristic checks may flag suspicious inversions or missing directional words, but they are not a translation engine. Anatomical context and authoritative review decide the result.
-
-## No bulk translation in Phase 0/1/M02A
-
-M02A intentionally contains no production Vietnamese anatomical terminology or bulk candidate list. Its regression fixtures use explicit `TEST_ONLY` labels and are not registry data. Future work must start with a source-backed pilot and a reviewed source registry. A machine-generated candidate may be stored only as a clearly marked draft input and can never be the sole evidence for VERIFIED.
+No real Vietnamese terminology, FMA/TA2 mapping, Latin, source bibliography, or pilot entry is part of M02B.

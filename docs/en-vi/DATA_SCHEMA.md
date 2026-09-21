@@ -1,134 +1,75 @@
 # Anatomy and Terminology Data Schema
 
-## Current atlas manifest
+## Current atlas identity
 
-The runtime loads public/models/atlas.json. The baseline manifest reports:
+`public/models/atlas.json` is the BodyParts3D 4.0 adult-male reference atlas with 2,234 parts and 3,432 concepts. `Concept.id` is an opaque stable atlas identity. Values that resemble FMA identifiers remain atlas keys until an independently evidenced mapping claim verifies an FMA identity.
 
-- version: BodyParts3D 4.0;
-- sex: male;
-- source: BodyParts3D;
-- scope: Adult male reference anatomy · 2,234 source meshes;
-- parts: 2,234;
-- concepts: 3,432;
-- chunks: 15;
-- triangles: 2,288,268.
+`Concept.elements` is the packaged rendering membership list. It may contain several mesh IDs and can include aggregate/collective coverage. It does not prove hierarchy, synonymy, or external ontology equivalence. No localization process infers parent/child relationships from names.
 
-The manifest also contains sourceTriangles, optimized, and compressed chunk metadata. These fields are consumed or validated by the existing scripts even where the narrow TypeScript Atlas interface omits them.
+## Registry documents
 
-## Current identity and relationship model
+The static registry is Git-reviewable and remains separate from geometry:
 
-| Record | Actual fields | Stable meaning |
-| --- | --- | --- |
-| Part | id, name, conceptId, system, chunk, positions, normals, indices, vertexCount, indexCount, bounds | id is a selectable BodyParts3D mesh ID such as FJ1252. conceptId points to the named concept that includes the mesh. |
-| Concept | id, name, elements | id is the named concept identity, currently FMA-like such as FMA3710. elements is a list of Part.id values and may contain more than one mesh. |
-| Chunk | url, bytes, optional gzip, optional gzipBytes | Packed binary geometry location and expected uncompressed size. |
-| System | id, name, color, description in app/anatomy.ts | Curated display grouping; system membership is on each Part. |
+```text
+data/terminology/sources.json    { schemaVersion: 2, sources: TerminologySourceRecord[] }
+data/terminology/entries.json    { schemaVersion: 2, entries: EntryRegistryRecord[] }
+data/terminology/reviewers.json  { schemaVersion: 1, reviewers: TerminologyReviewerRecord[] }
+data/terminology/release.json    TerminologyReleaseManifest
+```
 
-The current runtime has no explicit parent, child, or hierarchy edge. The source conversion pipeline has already joined concept and element relationships into Concept.elements. Do not infer a new hierarchy from names during localization.
+Production documents are intentionally empty in M02B.
 
-## Terminology registry and runtime overlay
+## Entry shape
 
-M02A separates static registry storage from the runtime overlay. The storage documents are:
+```text
+EntryRegistryRecord {
+  key: Concept.id
+  conceptId: Concept.id
+  atlas?: { meshIds: string[], scope: packaged-mesh | external }
+  english: { preferred: string, aliases: string[] }
+  latin?: { preferred?: string, aliases?: string[] }
+  vietnamese?: { preferred?: string, aliases?: string[], searchAliases?: string[], asciiSearchForms?: string[] }
+  scope?: { qualifiers?: string[], notes?: string }
+  mapping: {
+    status: UNMAPPED | MAPPED | REJECTED
+    disposition?: NOT_INVESTIGATED | UNRESOLVED | CONFIRMED_NO_EQUIVALENT
+    mappings: ExternalMapping[]
+  }
+  claims: TerminologyClaim[]
+  candidateOrigins?: CandidateOrigin[]
+  conflicts?: TerminologyConflict[]
+  review: ReviewWorkflow
+}
+```
 
-    data/terminology/sources.json
-    { "schemaVersion": 1, "sources": [TerminologySourceRecord] }
+`ExternalMapping` records `id`, namespace, identifier, source revision, relation (`exact`, `equivalent`, `target-broader`, `target-narrower`, `overlapping`, `related`, `composite`, `collective`, or `obsolete-replaced`), disposition, evidence claim IDs, and notes. Zero, one, or many mappings are valid. A missing TA2 equivalent is represented explicitly rather than fabricated.
 
-    data/terminology/entries.json
-    { "schemaVersion": 1, "entries": [{ "key": Concept.id, ...TerminologyEntry }] }
+`TerminologyClaim` records a stable claim ID, claim type, exact target/value, source ID, source revision, structured locator, evidence disposition, and claim review state. Claim types distinguish atlas identity, Atlas↔FMA and Atlas/FMA↔TA2 mappings, canonical Latin, each alias class, Vietnamese preferred wording, search aliases, and secondary corroboration. A claim is not verified merely because its source is authoritative.
 
-The implemented TypeScript shape is intentionally metadata-only:
+## Review and revision
 
-    TerminologyEntry {
-      conceptId: string
-      sourceIds: {
-        bodyParts3d?: {
-          ids: readonly string[]
-          scope: packaged-mesh | external
-        }
-        fma?: string
-        ta2?: string
-      }
-      english: {
-        preferred: string
-        aliases: readonly string[]
-      }
-      latin?: {
-        preferred?: string
-        aliases?: readonly string[]
-      }
-      vietnamese?: {
-        preferred?: string
-        aliases?: readonly string[]
-        searchAliases?: readonly string[]
-        asciiSearchForms?: readonly string[]
-      }
-      provenance: readonly TerminologyProvenance[]
-      mapping: { status: UNMAPPED | MAPPED | REJECTED, notes? }
-      review: {
-        status: UNMAPPED | DRAFT | SOURCE_VERIFIED |
-                MEDICAL_REVIEWED | VERIFIED | REJECTED
-        sourceVerification?: ReviewAudit
-        medicalReview?: ReviewAudit
-        releaseEligibility?: ReviewAudit
-        notes?
-      }
-    }
+`ReviewWorkflow.status` retains `DRAFT`, `SOURCE_VERIFIED`, `MEDICAL_REVIEWED`, `VERIFIED`, and `RELEASE_ELIGIBLE` as workflow hints. Effective release is derived. Passed audits record type, decision, reviewer ID where human review is required, timestamp, reviewed claim IDs, and `entryRevision`. The reviewer registry supplies stable identity, role, qualifications, status, and authorization scope.
 
-    TerminologySourceRecord {
-      id, class, title, capabilities, audit, optional bibliographic metadata
-    }
-
-    ReviewAudit {
-      type: source-verification | medical-review | release-eligibility
-      status: PENDING | PASSED | REJECTED
-      reviewer?, reviewedAt?, notes?, automated?
-    }
-
-    TerminologyProvenanceLocator {
-      page?, chapter?, section?, table?, entryId?, url?, nomenclatureId?
-    }
-
-TERMINOLOGY_OVERLAY is a read-only map keyed by conceptId. TERMINOLOGY_SOURCES is a separate read-only map keyed by source ID. Both are loaded from the M02A JSON registry and are currently empty. The same maps feed display, hover/member labels, UI search, and WebMCP search; release gating still blocks unverified medical terms.
-
-The English field is a source snapshot for comparison and search. It is not permission to rename the atlas concept. The resolver always preserves Atlas.concepts.name for English and as the Vietnamese fallback.
+`computeTerminologyRevision` hashes all medically meaningful entry content, excluding review records and the self-referential conflict revision field. It includes mappings, claims, source revisions, aliases, Latin/Vietnamese fields, atlas membership, and scope. Any content change makes prior approvals stale.
 
 ## Overlay invariants
 
-- Every entry key equals entry.conceptId.
-- Every entry conceptId exists in the current atlas before release.
-- Every source mesh ID in sourceIds.bodyParts3d is known or explicitly reviewed as an external source identifier.
-- If a concept maps to multiple meshes, it has one terminology entry, not one per mesh.
-- Preferred fields are distinct from aliases.
-- ASCII search forms are not canonical display values.
-- Provenance source IDs resolve in the source catalog.
-- A VERIFIED Vietnamese entry has a Vietnamese-authoritative source.
-- Machine-generated sources cannot be the only evidence for a VERIFIED entry.
-- FMA and TA2 identifiers require a mapped entry and a matching `nomenclatureId` locator from an `anatomical-identity` source.
-- A VERIFIED entry requires passed source-verification, human medical-review, and release-eligibility audits.
-- A release-eligible Vietnamese entry requires verified source records, a `vietnamese-preferred` capability, and reproducible provenance locators.
-- A rejected or unknown entry cannot be returned by the Vietnamese resolver.
+- Entry key equals `conceptId`, and the concept exists in the current atlas.
+- Atlas mesh IDs are validated against that concept’s own `elements` list; global mesh existence is insufficient.
+- External mappings are independent claims; FMA-like strings never self-verify.
+- Mapping status and review status are separate dimensions.
+- Claims with missing, machine-only, mismatched, or generic evidence cannot be supported.
+- Registered active reviewers and current entry revisions are required for medical review.
+- Open conflicts block release; adjudication is current, explicit, and human-authorized.
+- Preferred fields are canonical display values; aliases and ASCII forms are search inputs only.
+- External IDs and terminology forms enter search only through their individual approved claims.
+- Stored `VERIFIED`/`RELEASE_ELIGIBLE` strings cannot bypass the derived gate.
+- Rejected, stale, unresolved, or unapproved values do not display or search as production terminology.
 
-## Search fields
+## Release manifest
 
-The small linear matcher may search:
+A `RELEASED` manifest binds atlas version/revision, terminology registry revision, source catalog revision, reviewer catalog revision, policy version, content hash, and every released entry revision. The M02B manifest is `UNRELEASED` with no entry revisions.
 
-1. Atlas Concept.name and Concept.id;
-2. reviewed English aliases;
-3. mapped Latin preferred and aliases;
-4. source identifiers;
-5. Vietnamese preferred, aliases, search aliases, and ASCII forms only after the Vietnamese release gate.
+## Upstream comparison
 
-The matcher normalizes input for comparison but stores and displays canonical terms unchanged.
-
-## Upstream comparison schema
-
-Before accepting a new atlas manifest, compare:
-
-- concept ID set;
-- mesh ID set;
-- concept-to-mesh element sets;
-- English names;
-- source and system fields;
-- chunk references and geometry counts.
-
-Classify each concept as added, removed, renamed, remapped, or unchanged. Preserve overlay entries for unchanged IDs, review renamed or remapped IDs, and flag removed IDs as orphans. Never edit an overlay by position or array order.
+Compare concept IDs, mesh IDs, concept-to-mesh element sets, English names, source/system fields, chunk references, and geometry counts. Classify additions, removals, renames, remaps, and unchanged identities. Any source mapping, membership, or semantic change invalidates affected approvals even if the atlas ID is unchanged.

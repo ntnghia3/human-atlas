@@ -3,790 +3,478 @@ import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 import {
+  computeTerminologyRevision,
   hasVerifiedLatin,
   hasVerifiedVietnamese,
+  terminologySearchTerms,
   sourceSupportsCapability,
 } from '../app/terminology.ts';
 import {normalizeSearchText} from '../app/search-normalization.ts';
 
 const SCRIPT_DIRECTORY = dirname(fileURLToPath(import.meta.url));
 export const REPOSITORY_ROOT = resolve(SCRIPT_DIRECTORY, '..');
-const VALID_SOURCE_CLASSES = new Set([
-  'international-nomenclature',
-  'vietnamese-authoritative',
-  'secondary-reference',
-  'machine-generated',
-]);
+const SCHEMA_VERSION = 2;
+const VALID_SOURCE_CLASSES = new Set(['international-nomenclature', 'vietnamese-authoritative', 'secondary-reference', 'machine-generated']);
 const VALID_SOURCE_STATUSES = new Set(['UNVERIFIED', 'VERIFIED']);
 const VALID_MAPPING_STATUSES = new Set(['UNMAPPED', 'MAPPED', 'REJECTED']);
-const VALID_REVIEW_STATUSES = new Set([
-  'UNMAPPED',
-  'DRAFT',
-  'SOURCE_VERIFIED',
-  'MEDICAL_REVIEWED',
-  'VERIFIED',
-  'REJECTED',
-]);
+const VALID_MAPPING_DISPOSITIONS = new Set(['NOT_INVESTIGATED', 'UNRESOLVED', 'CONFIRMED_NO_EQUIVALENT']);
+const VALID_MAPPING_RELATIONS = new Set(['exact', 'equivalent', 'target-broader', 'target-narrower', 'overlapping', 'related', 'composite', 'collective', 'obsolete-replaced']);
+const VALID_MAPPING_DISPOSITION = new Set(['CANDIDATE', 'VERIFIED', 'REJECTED', 'SUPERSEDED']);
+const VALID_REVIEW_STATUSES = new Set(['UNMAPPED', 'DRAFT', 'SOURCE_VERIFIED', 'MEDICAL_REVIEWED', 'VERIFIED', 'RELEASE_ELIGIBLE', 'REJECTED']);
 const VALID_REVIEW_AUDIT_TYPES = new Set(['source-verification', 'medical-review', 'release-eligibility']);
 const VALID_REVIEW_AUDIT_STATUSES = new Set(['PENDING', 'PASSED', 'REJECTED']);
-const VALID_LOCATOR_KEYS = new Set([
-  'page',
-  'chapter',
-  'section',
-  'table',
-  'entryId',
-  'url',
-  'nomenclatureId',
-]);
-const VALID_SOURCE_CAPABILITY_KEYS = new Set([
-  'anatomicalIdentity',
-  'canonicalLatin',
-  'vietnamesePreferred',
-  'secondaryCorroboration',
-  'machineCandidateDiscovery',
-]);
+const VALID_CLAIM_TYPES = new Set(['atlas-identity', 'atlas-fma-mapping', 'atlas-ta2-mapping', 'canonical-latin', 'latin-alias', 'english-alias', 'vietnamese-preferred', 'vietnamese-alias', 'vietnamese-search-alias', 'secondary-corroboration']);
+const VALID_EVIDENCE_DISPOSITIONS = new Set(['CANDIDATE', 'SUPPORTED', 'REJECTED', 'SUPERSEDED']);
+const VALID_CLAIM_REVIEW_STATES = new Set(['PENDING', 'VERIFIED', 'REJECTED']);
+const VALID_CONFLICT_TYPES = new Set(['identity-disagreement', 'granularity-disagreement', 'contextual-difference', 'edition-version-difference', 'competing-preferred-terminology']);
+const VALID_CONFLICT_STATUSES = new Set(['OPEN', 'ADJUDICATED', 'REJECTED']);
+const VALID_LOCATOR_KEYS = new Set(['page', 'chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId']);
+const VALID_SOURCE_CAPABILITY_KEYS = new Set(['anatomicalIdentity', 'canonicalLatin', 'vietnamesePreferred', 'secondaryCorroboration', 'machineCandidateDiscovery']);
 const PLACEHOLDER_PATTERN = /^(?:TODO|TBD|UNKNOWN|PLACEHOLDER|N\/A|NA)$/i;
 const DATE_PATTERN = /^\d{4}-\d{2}-\d{2}(?:[T ]\d{2}:\d{2}(?::\d{2}(?::\d{2}(?:\.\d{1,3})?)?)?(?:Z|[+-]\d{2}:?\d{2})?)?$/;
-const SEMANTIC_PAIRS = [
-  ['left', 'right', 'trái', 'phải'],
-  ['anterior', 'posterior', 'trước', 'sau'],
-  ['superior', 'inferior', 'trên', 'dưới'],
-  ['medial', 'lateral', 'trong', 'ngoài'],
-  ['proximal', 'distal', 'gần', 'xa'],
-  ['superficial', 'deep', 'nông', 'sâu'],
-  ['artery', 'vein', 'động mạch', 'tĩnh mạch'],
-  ['nerve', 'ligament', 'thần kinh', 'dây chằng'],
-  ['branch', 'trunk', 'nhánh', 'thân'],
-];
 
-function isObject(value) {
-  return value !== null && typeof value === 'object' && !Array.isArray(value);
+function isObject(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
+function nonemptyString(value) { return typeof value === 'string' && Boolean(value.trim()); }
+function isValidDate(value) { return nonemptyString(value) && DATE_PATTERN.test(value) && Number.isFinite(Date.parse(value)); }
+function isValidUrl(value) { try { const parsed = new URL(value); return ['http:', 'https:'].includes(parsed.protocol); } catch { return false; } }
+function hasPlaceholder(value) { return typeof value === 'string' ? PLACEHOLDER_PATTERN.test(value.trim()) : Array.isArray(value) && value.some(hasPlaceholder); }
+function addFinding(bucket, code, message, path, extra = {}) { bucket.push({code, message, ...(path ? {path} : {}), ...extra}); }
+function addError(result, code, message, path, extra) { addFinding(result.errors, code, message, path, extra); }
+function addWarning(result, code, message, path, extra) { addFinding(result.warnings, code, message, path, extra); }
+
+function stableCanonical(value) {
+  if (value === null || typeof value !== 'object') return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(stableCanonical).join(',')}]`;
+  return `{${Object.keys(value).sort().map(key => `${JSON.stringify(key)}:${stableCanonical(value[key])}`).join(',')}}`;
 }
-
-function nonemptyString(value) {
-  return typeof value === 'string' && Boolean(value.trim());
+function hashText(value) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) { hash ^= value.charCodeAt(index); hash = Math.imul(hash, 16777619); }
+  return `m02b-${(hash >>> 0).toString(16).padStart(8, '0')}`;
 }
+function documentRevision(document) { return hashText(stableCanonical(document)); }
 
-function isValidDate(value) {
-  return nonemptyString(value) && DATE_PATTERN.test(value) && Number.isFinite(Date.parse(value));
+function validateSchemaVersion(document, label, expected, result) {
+  if (!isObject(document) || document.schemaVersion !== expected) addError(result, 'unsupported-schema-version', `${label} must declare schemaVersion ${expected}`, `${label}.schemaVersion`);
 }
-
-function isValidUrl(value) {
-  if (!nonemptyString(value)) return false;
-  try {
-    const parsed = new URL(value);
-    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
-  } catch {
-    return false;
-  }
-}
-
-function hasPlaceholder(value) {
-  if (typeof value === 'string') return PLACEHOLDER_PATTERN.test(value.trim());
-  if (Array.isArray(value)) return value.some(hasPlaceholder);
-  return false;
-}
-
-function addFinding(bucket, code, message, path, extra = {}) {
-  bucket.push({code, message, ...(path ? {path} : {}), ...extra});
-}
-
-function addError(result, code, message, path, extra) {
-  addFinding(result.errors, code, message, path, extra);
-}
-
-function addWarning(result, code, message, path, extra) {
-  addFinding(result.warnings, code, message, path, extra);
-}
-
 function getArray(document, key, result) {
-  if (!isObject(document) || !Array.isArray(document[key])) {
-    addError(result, 'invalid-document-shape', `${key} must be an array`, key);
-    return [];
-  }
+  if (!isObject(document) || !Array.isArray(document[key])) { addError(result, 'invalid-document-shape', `${key} must be an array`, key); return []; }
   return document[key];
 }
-
-function validateSchemaVersion(document, label, result) {
-  if (!isObject(document) || document.schemaVersion !== 1) {
-    addError(result, 'unsupported-schema-version', `${label} must declare schemaVersion 1`, `${label}.schemaVersion`);
-  }
-}
-
 function validateStringArray(value, path, result, {allowEmpty = true} = {}) {
   if (value === undefined && allowEmpty) return [];
-  if (!Array.isArray(value)) {
-    addError(result, 'invalid-string-array', `${path} must be an array of strings`, path);
-    return [];
-  }
-  const values = [];
+  if (!Array.isArray(value)) { addError(result, 'invalid-string-array', `${path} must be an array of strings`, path); return []; }
   const seen = new Set();
-  for (let index = 0; index < value.length; index += 1) {
-    const item = value[index];
-    if (!nonemptyString(item)) {
-      addError(result, 'invalid-string-array-item', `${path}[${index}] must be a non-empty string`, `${path}[${index}]`);
-      continue;
-    }
-    const trimmed = item.trim();
-    const normalized = normalizeSearchText(trimmed);
-    if (seen.has(normalized)) {
-      addError(result, 'duplicate-normalized-term', `${path} contains duplicate normalized terms`, `${path}[${index}]`);
-    }
+  value.forEach((item, index) => {
+    if (!nonemptyString(item)) { addError(result, 'invalid-string-array-item', `${path}[${index}] must be a non-empty string`, `${path}[${index}]`); return; }
+    const normalized = normalizeSearchText(item.trim());
+    if (seen.has(normalized)) addError(result, 'duplicate-normalized-term', `${path} contains duplicate normalized terms`, `${path}[${index}]`);
     seen.add(normalized);
-    values.push(trimmed);
-  }
-  return values;
+  });
+  return value.filter(nonemptyString).map(item => item.trim());
 }
 
-function validateSourceCapabilities(source, path, result) {
-  if (!isObject(source.capabilities)) {
-    addError(result, 'missing-source-capabilities', 'Source capabilities are required', `${path}.capabilities`);
-    return {};
-  }
-  for (const key of VALID_SOURCE_CAPABILITY_KEYS) {
-    if (typeof source.capabilities[key] !== 'boolean') {
-      addError(result, 'invalid-source-capability', `${key} must be boolean`, `${path}.capabilities.${key}`);
-    }
-  }
-  for (const key of Object.keys(source.capabilities)) {
-    if (!VALID_SOURCE_CAPABILITY_KEYS.has(key)) {
-      addError(result, 'unknown-source-capability', `${key} is not a supported source capability`, `${path}.capabilities.${key}`);
-    }
-  }
-  return source.capabilities;
-}
-
-function validateSourceAudit(source, path, result) {
-  if (!isObject(source.audit)) {
-    addError(result, 'missing-source-audit', 'Source audit is required', `${path}.audit`);
-    return;
-  }
-  if (!VALID_SOURCE_STATUSES.has(source.audit.status)) {
-    addError(result, 'invalid-source-audit-status', 'Source audit status is invalid', `${path}.audit.status`);
-  }
-  for (const key of ['verifiedAt', 'verifiedBy', 'notes']) {
-    if (source.audit[key] !== undefined && typeof source.audit[key] !== 'string') {
-      addError(result, 'invalid-source-audit-field', `${key} must be a string`, `${path}.audit.${key}`);
-    }
-  }
-  if (source.audit.status === 'VERIFIED') {
-    if (!isValidDate(source.audit.verifiedAt)) {
-      addError(result, 'verified-source-missing-date', 'VERIFIED sources require a valid verifiedAt date', `${path}.audit.verifiedAt`);
-    }
-    if (!nonemptyString(source.audit.verifiedBy)) {
-      addError(result, 'verified-source-missing-reviewer', 'VERIFIED sources require verifiedBy', `${path}.audit.verifiedBy`);
-    }
-  }
-}
-
-function validateSourceClassPolicy(source, capabilities, path, result) {
-  const identity = capabilities.anatomicalIdentity === true;
-  const latin = capabilities.canonicalLatin === true;
-  const vietnamese = capabilities.vietnamesePreferred === true;
-  const secondary = capabilities.secondaryCorroboration === true;
-  const machine = capabilities.machineCandidateDiscovery === true;
-  const medicalCapabilities = identity || latin || vietnamese || secondary;
-
-  if (source.class === 'machine-generated') {
-    if (!machine || medicalCapabilities) {
-      addError(
-        result,
-        'source-capability-conflict',
-        'machine-generated sources may only advertise machine-candidate-discovery',
-        path,
-      );
-    }
-    return;
-  }
-  if (machine) {
-    addError(result, 'source-capability-conflict', 'Non-machine sources cannot advertise machine discovery', path);
-  }
-  if (source.class === 'international-nomenclature' && (!identity && !latin || vietnamese)) {
-    addError(
-      result,
-      'source-capability-conflict',
-      'international-nomenclature sources require anatomical identity or canonical Latin and cannot provide Vietnamese preferred terms',
-      path,
-    );
-  }
-  if (source.class === 'vietnamese-authoritative' && !vietnamese) {
-    addError(result, 'source-capability-conflict', 'vietnamese-authoritative sources require vietnamesePreferred', path);
-  }
-  if (source.class === 'secondary-reference' && (!secondary || identity || latin || vietnamese)) {
-    addError(
-      result,
-      'source-capability-conflict',
-      'secondary-reference sources require secondaryCorroboration and cannot be canonical authorities',
-      path,
-    );
-  }
-}
-
-function validateSources(sourceRecords, result) {
+function validateSources(records, result) {
   const sourceCatalog = {};
-  const seenIds = new Set();
-  sourceRecords.forEach((source, index) => {
+  const seen = new Set();
+  records.forEach((source, index) => {
     const path = `sources[${index}]`;
-    if (!isObject(source)) {
-      addError(result, 'invalid-source-record', 'Source record must be an object', path);
-      return;
+    if (!isObject(source)) { addError(result, 'invalid-source', 'Source record must be an object', path); return; }
+    if (!nonemptyString(source.id)) addError(result, 'invalid-source-id', 'Source id is required', `${path}.id`);
+    if (seen.has(source.id)) addError(result, 'duplicate-source-id', `Duplicate source id: ${source.id}`, `${path}.id`);
+    seen.add(source.id);
+    if (!VALID_SOURCE_CLASSES.has(source.class)) addError(result, 'invalid-source-class', 'Source class is invalid', `${path}.class`);
+    if (!nonemptyString(source.title) || hasPlaceholder(source.title)) addError(result, 'invalid-source-title', 'Source title is required and cannot be a placeholder', `${path}.title`);
+    if (!nonemptyString(source.revision) || hasPlaceholder(source.revision)) addError(result, 'invalid-source-revision', 'Source revision is required and cannot be a placeholder', `${path}.revision`);
+    if (!isObject(source.capabilities)) addError(result, 'missing-source-capabilities', 'Source capabilities are required', `${path}.capabilities`);
+    else {
+      for (const key of VALID_SOURCE_CAPABILITY_KEYS) if (typeof source.capabilities[key] !== 'boolean') addError(result, 'invalid-source-capability', `${key} must be boolean`, `${path}.capabilities.${key}`);
+      for (const key of Object.keys(source.capabilities)) if (!VALID_SOURCE_CAPABILITY_KEYS.has(key)) addError(result, 'unknown-source-capability', `${key} is not supported`, `${path}.capabilities.${key}`);
     }
-    if (!nonemptyString(source.id)) {
-      addError(result, 'invalid-source-id', 'Source id must be a non-empty string', `${path}.id`);
-    } else if (seenIds.has(source.id)) {
-      addError(result, 'duplicate-source-id', `Duplicate source id: ${source.id}`, `${path}.id`);
-    } else {
-      seenIds.add(source.id);
-    }
-    if (!nonemptyString(source.title)) {
-      addError(result, 'missing-source-title', 'Source title is required', `${path}.title`);
-    }
-    if (!VALID_SOURCE_CLASSES.has(source.class)) {
-      addError(result, 'invalid-source-class', 'Source class is invalid', `${path}.class`);
-    }
-    const capabilities = validateSourceCapabilities(source, path, result);
-    validateSourceAudit(source, path, result);
-    validateSourceClassPolicy(source, capabilities, path, result);
-
-    if (source.authors !== undefined) validateStringArray(source.authors, `${path}.authors`, result);
-    for (const key of ['institution', 'edition', 'publisher', 'isbn', 'language', 'version', 'licenseNote']) {
-      if (source[key] !== undefined && typeof source[key] !== 'string') {
-        addError(result, 'invalid-source-field', `${key} must be a string`, `${path}.${key}`);
-      }
-    }
-    if (source.publicationYear !== undefined &&
-        (!Number.isInteger(source.publicationYear) || source.publicationYear < 1400 || source.publicationYear > 2200)) {
-      addError(result, 'invalid-publication-year', 'publicationYear must be a plausible integer year', `${path}.publicationYear`);
-    }
-    for (const key of ['url']) {
-      if (source[key] !== undefined && !isValidUrl(source[key])) {
-        addError(result, 'invalid-source-url', `${key} must be an http(s) URL`, `${path}.${key}`);
-      }
-    }
-    for (const key of ['accessedAt']) {
-      if (source[key] !== undefined && !isValidDate(source[key])) {
-        addError(result, 'invalid-source-date', `${key} must be a valid date`, `${path}.${key}`);
-      }
-    }
-    for (const [key, value] of Object.entries(source)) {
-      if (hasPlaceholder(value)) {
-        addError(result, 'placeholder-source-metadata', `${key} contains placeholder metadata`, `${path}.${key}`);
-      }
-    }
-
-    if (nonemptyString(source.id) && !sourceCatalog[source.id]) sourceCatalog[source.id] = source;
+    if (!isObject(source.audit) || !VALID_SOURCE_STATUSES.has(source.audit.status)) addError(result, 'invalid-source-audit', 'Source audit status is invalid', `${path}.audit`);
+    if (source.audit?.status === 'VERIFIED' && (!isValidDate(source.audit.verifiedAt) || !nonemptyString(source.audit.verifiedBy))) addError(result, 'verified-source-missing-audit', 'VERIFIED sources require verifiedAt and verifiedBy', `${path}.audit`);
+    if (source.class === 'machine-generated' && (source.capabilities?.machineCandidateDiscovery !== true || source.capabilities?.anatomicalIdentity || source.capabilities?.canonicalLatin || source.capabilities?.vietnamesePreferred || source.capabilities?.secondaryCorroboration)) addError(result, 'source-capability-conflict', 'Machine sources can advertise only machine candidate discovery', path);
+    if (source.class === 'vietnamese-authoritative' && source.capabilities?.vietnamesePreferred !== true) addError(result, 'source-capability-conflict', 'Vietnamese authoritative sources require vietnamesePreferred', path);
+    if (source.class === 'secondary-reference' && source.capabilities?.secondaryCorroboration !== true) addError(result, 'source-capability-conflict', 'Secondary sources require secondaryCorroboration', path);
+    if (source.capabilities?.machineCandidateDiscovery && source.class !== 'machine-generated') addError(result, 'source-capability-conflict', 'Only machine-generated sources may advertise machine discovery', path);
+    if (nonemptyString(source.url) && !isValidUrl(source.url)) addError(result, 'invalid-source-url', 'Source URL must be http(s)', `${path}.url`);
+    if (nonemptyString(source.id)) sourceCatalog[source.id] = source;
   });
   return sourceCatalog;
 }
 
-function validateLocator(locator, path, result) {
-  if (locator === undefined) return false;
-  if (!isObject(locator)) {
-    addError(result, 'invalid-provenance-locator', 'Provenance locator must be an object', path);
-    return false;
-  }
-  for (const key of Object.keys(locator)) {
-    if (!VALID_LOCATOR_KEYS.has(key)) {
-      addError(result, 'unknown-provenance-locator-field', `${key} is not a supported locator field`, `${path}.${key}`);
-    }
-  }
-  if (locator.page !== undefined && (!Number.isInteger(locator.page) || locator.page <= 0)) {
-    addError(result, 'invalid-provenance-page', 'Locator page must be a positive integer', `${path}.page`);
-  }
-  for (const key of ['chapter', 'section', 'table', 'entryId', 'nomenclatureId']) {
-    if (locator[key] !== undefined && !nonemptyString(locator[key])) {
-      addError(result, 'invalid-provenance-locator-field', `${key} must be a non-empty string`, `${path}.${key}`);
-    }
-  }
-  if (locator.url !== undefined && !isValidUrl(locator.url)) {
-    addError(result, 'invalid-provenance-url', 'Locator url must be an http(s) URL', `${path}.url`);
-  }
-  return Boolean(
-    (Number.isInteger(locator.page) && locator.page > 0) ||
-      ['chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId'].some(key => nonemptyString(locator[key])),
-  );
-}
-
-function hasReproducibleLocator(locator) {
-  return Boolean(
-    isObject(locator) &&
-      ((Number.isInteger(locator.page) && locator.page > 0) ||
-        ['chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId'].some(key => nonemptyString(locator[key]))),
-  );
-}
-
-function validateProvenance(entry, entryPath, sourceCatalog, result, requiresProvenance) {
-  if (!Array.isArray(entry.provenance)) {
-    addError(result, 'invalid-provenance', 'provenance must be an array', `${entryPath}.provenance`);
-    return;
-  }
-  if (requiresProvenance && entry.provenance.length === 0) {
-    addError(result, 'missing-provenance', 'Mapped or release-candidate entries require provenance', `${entryPath}.provenance`);
-  }
-  entry.provenance.forEach((reference, index) => {
-    const path = `${entryPath}.provenance[${index}]`;
-    if (!isObject(reference)) {
-      addError(result, 'invalid-provenance-reference', 'Provenance reference must be an object', path);
-      return;
-    }
-    if (!nonemptyString(reference.sourceId)) {
-      addError(result, 'invalid-provenance-source-id', 'Provenance sourceId is required', `${path}.sourceId`);
-    } else if (!sourceCatalog[reference.sourceId]) {
-      addError(result, 'unresolved-provenance-source', `Unknown provenance source: ${reference.sourceId}`, `${path}.sourceId`);
-    }
-    const hasLocator = validateLocator(reference.locator, `${path}.locator`, result);
-    if (requiresProvenance && !hasLocator) {
-      addError(result, 'unreproducible-provenance', 'Release-candidate provenance requires a structured locator', `${path}.locator`);
-    }
-    if (reference.checkedAt !== undefined && !isValidDate(reference.checkedAt)) {
-      addError(result, 'invalid-provenance-date', 'checkedAt must be a valid date', `${path}.checkedAt`);
-    }
-    if (reference.note !== undefined && typeof reference.note !== 'string') {
-      addError(result, 'invalid-provenance-note', 'note must be a string', `${path}.note`);
-    }
-  });
-}
-
-function validateAudit(audit, expectedType, path, result) {
-  if (audit === undefined) return;
-  if (!isObject(audit)) {
-    addError(result, 'invalid-review-audit', 'Review audit must be an object', path);
-    return;
-  }
-  if (!VALID_REVIEW_AUDIT_TYPES.has(audit.type) || audit.type !== expectedType) {
-    addError(result, 'invalid-review-audit-type', `Audit type must be ${expectedType}`, `${path}.type`);
-  }
-  if (!VALID_REVIEW_AUDIT_STATUSES.has(audit.status)) {
-    addError(result, 'invalid-review-audit-status', 'Review audit status is invalid', `${path}.status`);
-  }
-  for (const key of ['reviewer', 'reviewedAt', 'notes']) {
-    if (audit[key] !== undefined && typeof audit[key] !== 'string') {
-      addError(result, 'invalid-review-audit-field', `${key} must be a string`, `${path}.${key}`);
-    }
-  }
-  if (audit.automated !== undefined && typeof audit.automated !== 'boolean') {
-    addError(result, 'invalid-review-audit-field', 'automated must be boolean', `${path}.automated`);
-  }
-  if (audit.status === 'PASSED') {
-    if (!isValidDate(audit.reviewedAt)) {
-      addError(result, 'passed-audit-missing-date', 'PASSED audits require reviewedAt', `${path}.reviewedAt`);
-    }
-    if (expectedType === 'medical-review' && (!nonemptyString(audit.reviewer) || audit.automated === true)) {
-      addError(result, 'medical-review-requires-human', 'PASSED medical review requires a named non-automated reviewer', path);
-    }
-    if (expectedType !== 'release-eligibility' && !nonemptyString(audit.reviewer)) {
-      addError(result, 'passed-audit-missing-reviewer', 'PASSED source and medical audits require a reviewer', `${path}.reviewer`);
-    }
-    if (expectedType === 'release-eligibility' && audit.automated !== true && !nonemptyString(audit.reviewer)) {
-      addError(result, 'passed-audit-missing-reviewer', 'Non-automated release audits require a reviewer', `${path}.reviewer`);
-    }
-  }
-}
-
-function validateReview(entry, entryPath, result) {
-  if (!isObject(entry.review)) {
-    addError(result, 'invalid-review', 'review must be an object', `${entryPath}.review`);
-    return;
-  }
-  if (!VALID_REVIEW_STATUSES.has(entry.review.status)) {
-    addError(result, 'invalid-review-status', 'review.status is invalid', `${entryPath}.review.status`);
-  }
-  validateAudit(entry.review.sourceVerification, 'source-verification', `${entryPath}.review.sourceVerification`, result);
-  validateAudit(entry.review.medicalReview, 'medical-review', `${entryPath}.review.medicalReview`, result);
-  validateAudit(entry.review.releaseEligibility, 'release-eligibility', `${entryPath}.review.releaseEligibility`, result);
-  if (entry.review.status === 'VERIFIED') {
-    for (const key of ['sourceVerification', 'medicalReview', 'releaseEligibility']) {
-      if (!isObject(entry.review[key])) {
-        addError(result, 'missing-review-audit', `VERIFIED entries require ${key} audit`, `${entryPath}.review.${key}`);
-      }
-    }
-  }
-  if (entry.review.notes !== undefined && typeof entry.review.notes !== 'string') {
-    addError(result, 'invalid-review-notes', 'review.notes must be a string', `${entryPath}.review.notes`);
-  }
-}
-
-function validateVietnamese(entry, entryPath, result) {
-  const vietnamese = entry.vietnamese;
-  if (vietnamese === undefined) return;
-  if (!isObject(vietnamese)) {
-    addError(result, 'invalid-vietnamese-record', 'vietnamese must be an object', `${entryPath}.vietnamese`);
-    return;
-  }
-  const allTerms = [];
-  for (const key of ['preferred', 'aliases', 'searchAliases']) {
-    if (key === 'preferred') {
-      if (vietnamese.preferred !== undefined && !nonemptyString(vietnamese.preferred)) {
-        addError(result, 'invalid-vietnamese-preferred', 'vietnamese.preferred must be a non-empty string', `${entryPath}.vietnamese.preferred`);
-      }
-      if (nonemptyString(vietnamese.preferred)) allTerms.push(vietnamese.preferred.trim());
-      continue;
-    }
-    if (vietnamese[key] !== undefined) {
-      const values = validateStringArray(vietnamese[key], `${entryPath}.vietnamese.${key}`, result);
-      allTerms.push(...values);
-    }
-  }
+function validateReviewers(records, result) {
+  const reviewerCatalog = {};
   const seen = new Set();
-  for (const term of allTerms) {
-    const normalized = normalizeSearchText(term);
-    if (!normalized) continue;
-    if (seen.has(normalized)) {
-      addError(result, 'duplicate-normalized-vietnamese-term', 'Vietnamese forms collide after normalization within one entry', `${entryPath}.vietnamese`);
-    }
-    seen.add(normalized);
-  }
-  if (Array.isArray(vietnamese.asciiSearchForms)) {
-    const expected = new Set(
-      [vietnamese.preferred, ...(vietnamese.aliases ?? []), ...(vietnamese.searchAliases ?? [])]
-        .filter(nonemptyString)
-        .map(normalizeSearchText),
-    );
-    for (const [index, form] of vietnamese.asciiSearchForms.entries()) {
-      if (!/^[\x00-\x7F]*$/.test(form)) {
-        addError(result, 'non-ascii-search-form', 'asciiSearchForms must contain ASCII only', `${entryPath}.vietnamese.asciiSearchForms[${index}]`);
-      }
-      if (nonemptyString(vietnamese.preferred) && form === vietnamese.preferred.trim()) {
-        addError(result, 'ascii-display-term', 'ASCII search forms must not replace the canonical display term', `${entryPath}.vietnamese.asciiSearchForms[${index}]`);
-      }
-      if (!expected.has(form)) {
-        addError(result, 'invalid-ascii-search-form', 'asciiSearchForms must equal the normalized form of a Vietnamese term', `${entryPath}.vietnamese.asciiSearchForms[${index}]`);
-      }
-    }
-  }
-}
-
-function validateLatin(entry, entryPath, sourceCatalog, result) {
-  if (entry.latin === undefined) return;
-  if (!isObject(entry.latin)) {
-    addError(result, 'invalid-latin-record', 'latin must be an object', `${entryPath}.latin`);
-    return;
-  }
-  if (entry.mapping?.status !== 'MAPPED') {
-    addError(result, 'latin-requires-mapped-entry', 'Latin fields require mapping.status MAPPED', `${entryPath}.latin`);
-  }
-  if (entry.latin.preferred !== undefined && !nonemptyString(entry.latin.preferred)) {
-    addError(result, 'invalid-latin-preferred', 'latin.preferred must be a non-empty string', `${entryPath}.latin.preferred`);
-  }
-  validateStringArray(entry.latin.aliases, `${entryPath}.latin.aliases`, result);
-  const hasCanonicalSource = Array.isArray(entry.provenance) && entry.provenance.some(reference => {
-    const source = sourceCatalog[reference.sourceId];
-    return (
-      sourceSupportsCapability(source, 'canonical-latin') &&
-      source?.audit?.status === 'VERIFIED' &&
-      isValidDate(source.audit.verifiedAt) &&
-      nonemptyString(source.audit.verifiedBy) &&
-      hasReproducibleLocator(reference.locator)
-    );
+  records.forEach((reviewer, index) => {
+    const path = `reviewers[${index}]`;
+    if (!isObject(reviewer)) { addError(result, 'invalid-reviewer', 'Reviewer record must be an object', path); return; }
+    if (!nonemptyString(reviewer.id)) addError(result, 'invalid-reviewer-id', 'Reviewer id is required', `${path}.id`);
+    if (seen.has(reviewer.id)) addError(result, 'duplicate-reviewer-id', `Duplicate reviewer id: ${reviewer.id}`, `${path}.id`);
+    seen.add(reviewer.id);
+    if (!nonemptyString(reviewer.displayName) || !nonemptyString(reviewer.role)) addError(result, 'invalid-reviewer-identity', 'Reviewer displayName and role are required', path);
+    validateStringArray(reviewer.qualifications, `${path}.qualifications`, result, {allowEmpty: false});
+    validateStringArray(reviewer.authorizationScope, `${path}.authorizationScope`, result, {allowEmpty: false});
+    if (!['ACTIVE', 'INACTIVE'].includes(reviewer.status)) addError(result, 'invalid-reviewer-status', 'Reviewer status is invalid', `${path}.status`);
+    if (nonemptyString(reviewer.evidenceRef) && !isValidUrl(reviewer.evidenceRef) && !reviewer.evidenceRef.startsWith('git:')) addError(result, 'invalid-reviewer-evidence', 'Reviewer evidenceRef must be an http(s) URL or git reference', `${path}.evidenceRef`);
+    if (nonemptyString(reviewer.id)) reviewerCatalog[reviewer.id] = reviewer;
   });
-  if ((nonemptyString(entry.latin.preferred) || (Array.isArray(entry.latin.aliases) && entry.latin.aliases.length > 0)) && !hasCanonicalSource) {
-    addError(result, 'latin-source-mismatch', 'Latin fields require a verified canonical-latin source with a reproducible locator', `${entryPath}.latin`);
-  }
+  return reviewerCatalog;
 }
 
-function validateSourceIds(entry, entryPath, atlasPartIds, result) {
-  if (!isObject(entry.sourceIds)) {
-    addError(result, 'invalid-source-ids', 'sourceIds must be an object', `${entryPath}.sourceIds`);
-    return;
-  }
-  const bodyParts = entry.sourceIds.bodyParts3d;
-  if (bodyParts !== undefined) {
-    if (!isObject(bodyParts) || !Array.isArray(bodyParts.ids) || !['packaged-mesh', 'external'].includes(bodyParts.scope)) {
-      addError(result, 'invalid-bodyparts3d-reference', 'bodyParts3d requires ids and scope packaged-mesh or external', `${entryPath}.sourceIds.bodyParts3d`);
-    } else {
-      bodyParts.ids.forEach((id, index) => {
-        if (!nonemptyString(id)) {
-          addError(result, 'invalid-bodyparts3d-id', 'bodyParts3d ids must be non-empty strings', `${entryPath}.sourceIds.bodyParts3d.ids[${index}]`);
-        } else if (bodyParts.scope === 'packaged-mesh' && !atlasPartIds.has(id)) {
-          addError(result, 'unknown-packaged-mesh-id', `Unknown packaged mesh id: ${id}`, `${entryPath}.sourceIds.bodyParts3d.ids[${index}]`);
-        }
-      });
-    }
-  }
-  for (const key of ['fma', 'ta2']) {
-    if (entry.sourceIds[key] !== undefined && !nonemptyString(entry.sourceIds[key])) {
-      addError(result, 'invalid-nomenclature-id', `${key} must be a non-empty string`, `${entryPath}.sourceIds.${key}`);
-    }
-  }
+function hasExactLocator(locator) {
+  return Boolean(locator && ((Number.isInteger(locator.page) && locator.page > 0) || ['chapter', 'section', 'table', 'entryId', 'nomenclatureId'].some(key => nonemptyString(locator[key]))));
+}
+function claimCapability(type) {
+  if (['atlas-identity', 'atlas-fma-mapping', 'atlas-ta2-mapping'].includes(type)) return 'anatomical-identity';
+  if (['canonical-latin', 'latin-alias'].includes(type)) return 'canonical-latin';
+  if (['vietnamese-preferred', 'vietnamese-alias', 'vietnamese-search-alias'].includes(type)) return 'vietnamese-preferred';
+  if (type === 'secondary-corroboration') return 'secondary-corroboration';
+  return undefined;
+}
+function validateLocator(locator, path, result, {exact = false} = {}) {
+  if (!isObject(locator)) { addError(result, 'invalid-claim-locator', 'Claim locator must be an object', path); return; }
+  for (const key of Object.keys(locator)) if (!VALID_LOCATOR_KEYS.has(key)) addError(result, 'unknown-claim-locator-field', `${key} is not supported`, `${path}.${key}`);
+  if (locator.page !== undefined && (!Number.isInteger(locator.page) || locator.page <= 0)) addError(result, 'invalid-claim-page', 'Locator page must be a positive integer', `${path}.page`);
+  for (const key of ['chapter', 'section', 'table', 'entryId', 'nomenclatureId']) if (locator[key] !== undefined && !nonemptyString(locator[key])) addError(result, 'invalid-claim-locator-field', `${key} must be non-empty`, `${path}.${key}`);
+  if (locator.url !== undefined && !isValidUrl(locator.url)) addError(result, 'invalid-claim-url', 'Locator URL must be http(s)', `${path}.url`);
+  if (exact && !hasExactLocator(locator)) addError(result, 'unreproducible-claim', 'A claim requires an exact page, section, entry, table, or nomenclature locator; a generic URL is insufficient', path);
 }
 
-function validateExternalIdentifierProvenance(entry, entryPath, sourceCatalog, result) {
-  for (const key of ['fma', 'ta2']) {
-    const identifier = entry.sourceIds?.[key];
-    if (!identifier) continue;
-    if (entry.mapping?.status !== 'MAPPED') {
-      addError(result, 'nomenclature-requires-mapped-entry', `${key} requires mapping.status MAPPED`, `${entryPath}.sourceIds.${key}`);
-    }
-    const match = Array.isArray(entry.provenance) && entry.provenance.some(reference => {
-      const source = sourceCatalog[reference.sourceId];
-      return sourceSupportsCapability(source, 'anatomical-identity') && reference.locator?.nomenclatureId === identifier;
+function validateClaims(entry, entryPath, sourceCatalog, result) {
+  if (!Array.isArray(entry.claims)) { addError(result, 'invalid-claims', 'claims must be an array', `${entryPath}.claims`); return new Map(); }
+  const claims = new Map();
+  entry.claims.forEach((claim, index) => {
+    const path = `${entryPath}.claims[${index}]`;
+    if (!isObject(claim)) { addError(result, 'invalid-claim', 'Claim must be an object', path); return; }
+    if (!nonemptyString(claim.id)) addError(result, 'invalid-claim-id', 'Claim id is required', `${path}.id`);
+    if (claims.has(claim.id)) addError(result, 'duplicate-claim-id', `Duplicate claim id: ${claim.id}`, `${path}.id`);
+    if (!VALID_CLAIM_TYPES.has(claim.type)) addError(result, 'invalid-claim-type', 'Claim type is invalid', `${path}.type`);
+    if (!nonemptyString(claim.target)) addError(result, 'invalid-claim-target', 'Claim target is required', `${path}.target`);
+    if (!nonemptyString(claim.sourceId) || !sourceCatalog[claim.sourceId]) addError(result, 'unresolved-claim-source', 'Claim sourceId must resolve in the source catalog', `${path}.sourceId`);
+    if (!nonemptyString(claim.sourceRevision)) addError(result, 'invalid-claim-source-revision', 'Claim sourceRevision is required', `${path}.sourceRevision`);
+    if (sourceCatalog[claim.sourceId] && claim.sourceRevision !== sourceCatalog[claim.sourceId].revision) addError(result, 'claim-source-revision-mismatch', 'Claim sourceRevision must match the source catalog revision', `${path}.sourceRevision`);
+    const requiredCapability = claimCapability(claim.type);
+    if (requiredCapability && sourceCatalog[claim.sourceId] && !sourceSupportsCapability(sourceCatalog[claim.sourceId], requiredCapability)) addError(result, 'claim-capability-mismatch', `Claim type ${claim.type} requires source capability ${requiredCapability}`, `${path}.sourceId`);
+    validateLocator(claim.locator, `${path}.locator`, result, {exact: claim.evidenceDisposition === 'SUPPORTED' || claim.reviewState === 'VERIFIED'});
+    if (!VALID_EVIDENCE_DISPOSITIONS.has(claim.evidenceDisposition)) addError(result, 'invalid-evidence-disposition', 'Claim evidenceDisposition is invalid', `${path}.evidenceDisposition`);
+    if (!VALID_CLAIM_REVIEW_STATES.has(claim.reviewState)) addError(result, 'invalid-claim-review-state', 'Claim reviewState is invalid', `${path}.reviewState`);
+    if (claim.reviewState === 'VERIFIED' && claim.evidenceDisposition !== 'SUPPORTED') addError(result, 'verified-claim-without-support', 'VERIFIED claims require SUPPORTED evidence', path);
+    if (sourceCatalog[claim.sourceId]?.class === 'machine-generated' && claim.reviewState === 'VERIFIED') addError(result, 'machine-claim-authority', 'Machine candidate evidence cannot be a VERIFIED claim', path);
+    if (nonemptyString(claim.id)) claims.set(claim.id, claim);
+  });
+  return claims;
+}
+
+function validateAtlasMembership(entry, entryPath, concept, atlas, result) {
+  if (entry.atlas === undefined) return;
+  if (!isObject(entry.atlas)) { addError(result, 'invalid-atlas-membership', 'atlas membership must be an object', `${entryPath}.atlas`); return; }
+  const ids = validateStringArray(entry.atlas.meshIds, `${entryPath}.atlas.meshIds`, result, {allowEmpty: false});
+  if (!['packaged-mesh', 'external'].includes(entry.atlas.scope)) addError(result, 'invalid-atlas-membership-scope', 'atlas scope is invalid', `${entryPath}.atlas.scope`);
+  const partMap = new Map((Array.isArray(atlas?.parts) ? atlas.parts : []).filter(isObject).map(part => [part.id, part]));
+  if (entry.atlas.scope === 'packaged-mesh') ids.forEach(meshId => {
+    const part = partMap.get(meshId);
+    if (!part) addError(result, 'unknown-packaged-mesh-id', `Unknown packaged mesh id: ${meshId}`, `${entryPath}.atlas.meshIds`);
+    else if (!Array.isArray(concept?.elements) || !concept.elements.includes(meshId)) addError(result, 'mesh-membership-mismatch', `Mesh ${meshId} is not a member of this specific Atlas Concept`, `${entryPath}.atlas.meshIds`);
+  });
+}
+
+function validateMappings(entry, entryPath, claims, result) {
+  if (!isObject(entry.mapping)) { addError(result, 'invalid-mapping', 'mapping is required', `${entryPath}.mapping`); return; }
+  if (!VALID_MAPPING_STATUSES.has(entry.mapping.status)) addError(result, 'invalid-mapping-status', 'mapping.status is invalid', `${entryPath}.mapping.status`);
+  if (entry.mapping.disposition !== undefined && !VALID_MAPPING_DISPOSITIONS.has(entry.mapping.disposition)) addError(result, 'invalid-mapping-disposition', 'mapping.disposition is invalid', `${entryPath}.mapping.disposition`);
+  if (!Array.isArray(entry.mapping.mappings)) addError(result, 'invalid-external-mappings', 'mapping.mappings must be an array', `${entryPath}.mapping.mappings`);
+  const mappingIds = new Set();
+  (Array.isArray(entry.mapping.mappings) ? entry.mapping.mappings : []).forEach((mapping, index) => {
+    const path = `${entryPath}.mapping.mappings[${index}]`;
+    if (!isObject(mapping)) { addError(result, 'invalid-external-mapping', 'External mapping must be an object', path); return; }
+    for (const key of ['id', 'namespace', 'identifier', 'sourceRevision']) if (!nonemptyString(mapping[key])) addError(result, 'invalid-external-mapping-field', `${key} is required`, `${path}.${key}`);
+    if (mappingIds.has(mapping.id)) addError(result, 'duplicate-external-mapping-id', `Duplicate mapping id: ${mapping.id}`, `${path}.id`);
+    mappingIds.add(mapping.id);
+    if (!VALID_MAPPING_RELATIONS.has(mapping.relation)) addError(result, 'invalid-mapping-relation', 'External mapping relation is invalid', `${path}.relation`);
+    if (!VALID_MAPPING_DISPOSITION.has(mapping.disposition)) addError(result, 'invalid-external-mapping-disposition', 'External mapping disposition is invalid', `${path}.disposition`);
+    if (!Array.isArray(mapping.evidenceClaimIds)) addError(result, 'invalid-mapping-evidence', 'evidenceClaimIds must be an array', `${path}.evidenceClaimIds`);
+    (Array.isArray(mapping.evidenceClaimIds) ? mapping.evidenceClaimIds : []).forEach(claimId => {
+      const claim = claims.get(claimId);
+      if (!claim) addError(result, 'missing-mapping-claim', `Mapping evidence claim does not exist: ${claimId}`, `${path}.evidenceClaimIds`);
+      else if (claim.target !== mapping.identifier || claim.sourceRevision !== mapping.sourceRevision) addError(result, 'mapping-claim-target-mismatch', 'Mapping evidence must target the exact identifier and revision', `${path}.evidenceClaimIds`);
+      else if (['FMA', 'TA2'].includes(mapping.namespace.toUpperCase()) && claim.locator?.nomenclatureId !== mapping.identifier) addError(result, 'mapping-nomenclature-locator-mismatch', 'FMA/TA2 mapping evidence requires a matching nomenclatureId locator', `${path}.evidenceClaimIds`);
+      else if (mapping.namespace.toUpperCase() === 'FMA' && claim.type !== 'atlas-fma-mapping') addError(result, 'mapping-claim-type-mismatch', 'FMA mapping requires atlas-fma-mapping evidence', `${path}.evidenceClaimIds`);
+      else if (mapping.namespace.toUpperCase() === 'TA2' && claim.type !== 'atlas-ta2-mapping') addError(result, 'mapping-claim-type-mismatch', 'TA2 mapping requires atlas-ta2-mapping evidence', `${path}.evidenceClaimIds`);
     });
-    if (!match) {
-      addError(
-        result,
-        'nomenclature-locator-mismatch',
-        `${key} requires provenance with anatomical-identity capability and locator.nomenclatureId ${identifier}`,
-        `${entryPath}.provenance`,
-      );
-    }
+    if (mapping.disposition === 'VERIFIED' && (!Array.isArray(mapping.evidenceClaimIds) || mapping.evidenceClaimIds.length === 0)) addError(result, 'verified-mapping-without-evidence', 'A VERIFIED external mapping requires claim evidence', path);
+  });
+  const mappings = Array.isArray(entry.mapping.mappings) ? entry.mapping.mappings : [];
+  if (entry.mapping.status === 'MAPPED' && mappings.length === 0) addError(result, 'mapped-without-external-mapping', 'MAPPED requires one or more external mappings', `${entryPath}.mapping`);
+  if (entry.mapping.status !== 'MAPPED' && mappings.some(mapping => mapping.disposition === 'VERIFIED')) addError(result, 'verified-mapping-with-unmapped-status', 'A non-MAPPED entry cannot contain a VERIFIED external mapping', `${entryPath}.mapping`);
+  if (entry.mapping.status === 'UNMAPPED' && !VALID_MAPPING_DISPOSITIONS.has(entry.mapping.disposition)) addError(result, 'unmapped-without-disposition', 'UNMAPPED entries must state not investigated, unresolved, or confirmed no equivalent', `${entryPath}.mapping.disposition`);
+}
+
+function validateTermFields(entry, entryPath, concept, result) {
+  if (!isObject(entry.english) || !nonemptyString(entry.english.preferred)) addError(result, 'invalid-english-field', 'english.preferred is required', `${entryPath}.english`);
+  else if (concept && entry.english.preferred !== concept.name) addWarning(result, 'english-snapshot-mismatch', 'English snapshot differs from the current atlas name', `${entryPath}.english.preferred`);
+  validateStringArray(entry.english?.aliases, `${entryPath}.english.aliases`, result);
+  for (const [group, field] of [['latin', 'aliases'], ['vietnamese', 'aliases'], ['vietnamese', 'searchAliases'], ['vietnamese', 'asciiSearchForms']]) {
+    if (entry[group] !== undefined) validateStringArray(entry[group]?.[field], `${entryPath}.${group}.${field}`, result);
+  }
+  if (entry.vietnamese?.asciiSearchForms) entry.vietnamese.asciiSearchForms.forEach((term, index) => {
+    if (normalizeSearchText(term) !== term.trim().toLowerCase()) addError(result, 'invalid-ascii-search-form', 'ASCII search forms must be matching-only no-diacritic forms', `${entryPath}.vietnamese.asciiSearchForms[${index}]`);
+  });
+  if (entry.scope !== undefined && (!isObject(entry.scope) || (entry.scope.qualifiers !== undefined && !Array.isArray(entry.scope.qualifiers)))) addError(result, 'invalid-scope', 'scope.qualifiers must be an array when present', `${entryPath}.scope`);
+  const claimTypes = [
+    ['english', 'aliases', 'english-alias'],
+    ['latin', 'aliases', 'latin-alias'],
+    ['vietnamese', 'aliases', 'vietnamese-alias'],
+    ['vietnamese', 'searchAliases', 'vietnamese-search-alias'],
+    ['vietnamese', 'asciiSearchForms', 'vietnamese-search-alias'],
+  ];
+  for (const [group, field, claimType] of claimTypes) {
+    for (const term of entry[group]?.[field] ?? []) if (!(entry.claims ?? []).some(claim => claim.type === claimType && claim.target === term)) addWarning(result, 'unapproved-search-form', `${group}.${field} has no matching approved claim and cannot enter production search`, `${entryPath}.${group}.${field}`);
   }
 }
 
-function entryHasVietnameseCandidate(entry) {
-  return isObject(entry.vietnamese) &&
-    ['preferred', 'aliases', 'searchAliases', 'asciiSearchForms'].some(key => {
-      const value = entry.vietnamese[key];
-      return nonemptyString(value) || (Array.isArray(value) && value.length > 0);
-    });
+function validateCandidateOrigins(entry, entryPath, sourceCatalog, result) {
+  if (entry.candidateOrigins === undefined) return;
+  if (!Array.isArray(entry.candidateOrigins)) { addError(result, 'invalid-candidate-origins', 'candidateOrigins must be an array', `${entryPath}.candidateOrigins`); return; }
+  const ids = new Set();
+  entry.candidateOrigins.forEach((origin, index) => {
+    const path = `${entryPath}.candidateOrigins[${index}]`;
+    if (!isObject(origin) || !nonemptyString(origin.id) || ids.has(origin.id)) addError(result, 'invalid-candidate-origin', 'Candidate origin id must be unique and non-empty', `${path}.id`);
+    ids.add(origin.id);
+    if (!['human', 'machine'].includes(origin.method)) addError(result, 'invalid-candidate-origin-method', 'Candidate origin method must be human or machine', `${path}.method`);
+    if (!isValidDate(origin.createdAt)) addError(result, 'invalid-candidate-origin-date', 'Candidate origin createdAt must be a valid date', `${path}.createdAt`);
+    if (origin.sourceId !== undefined && !sourceCatalog[origin.sourceId]) addError(result, 'unresolved-candidate-origin-source', 'Candidate origin sourceId must resolve in the source catalog', `${path}.sourceId`);
+  });
 }
 
-function validateEntries(entryRecords, atlas, sourceCatalog, result) {
-  const conceptMap = new Map(
-    Array.isArray(atlas?.concepts)
-      ? atlas.concepts.filter(isObject).filter(concept => nonemptyString(concept.id)).map(concept => [concept.id, concept])
-      : [],
-  );
-  const atlasPartIds = new Set(
-    Array.isArray(atlas?.parts)
-      ? atlas.parts.filter(isObject).map(part => part.id).filter(nonemptyString)
-      : [],
-  );
-  const seenKeys = new Set();
+function validateAudit(audit, expectedType, entryPath, entry, claims, reviewers, result) {
+  if (audit === undefined) return;
+  const path = `${entryPath}.review.${expectedType}`;
+  if (!isObject(audit)) { addError(result, 'invalid-review-audit', 'Review audit must be an object', path); return; }
+  if (audit.type !== expectedType || !VALID_REVIEW_AUDIT_TYPES.has(audit.type)) addError(result, 'invalid-review-audit-type', `Audit type must be ${expectedType}`, `${path}.type`);
+  if (!VALID_REVIEW_AUDIT_STATUSES.has(audit.status)) addError(result, 'invalid-review-audit-status', 'Review audit status is invalid', `${path}.status`);
+  if (audit.reviewedAt !== undefined && !isValidDate(audit.reviewedAt)) addError(result, 'invalid-review-audit-date', 'reviewedAt must be a valid date', `${path}.reviewedAt`);
+  if (audit.entryRevision !== undefined && !nonemptyString(audit.entryRevision)) addError(result, 'invalid-review-entry-revision', 'entryRevision must be non-empty', `${path}.entryRevision`);
+  if (audit.claimIds !== undefined) validateStringArray(audit.claimIds, `${path}.claimIds`, result);
+  for (const claimId of audit.claimIds ?? []) if (!claims.has(claimId)) addError(result, 'review-unknown-claim', `Review references unknown claim: ${claimId}`, `${path}.claimIds`);
+  if (audit.automated !== undefined && typeof audit.automated !== 'boolean') addError(result, 'invalid-review-automation', 'automated must be boolean', `${path}.automated`);
+  if (audit.status === 'PASSED') {
+    if (!isValidDate(audit.reviewedAt) || audit.decision !== 'APPROVE') addError(result, 'passed-audit-incomplete', 'PASSED audits require reviewedAt and decision APPROVE', path);
+    if (!Array.isArray(audit.claimIds) || audit.claimIds.length === 0) addError(result, 'passed-audit-missing-claims', 'PASSED audits require a non-empty reviewed claim scope', `${path}.claimIds`);
+    if (audit.entryRevision !== computeTerminologyRevision(entry)) addError(result, 'stale-approval', 'Approval does not match the current entry revision', `${path}.entryRevision`);
+    if (expectedType !== 'release-eligibility') {
+      if (!nonemptyString(audit.reviewerId)) addError(result, 'missing-reviewer-id', 'Source and medical audits require reviewerId', `${path}.reviewerId`);
+      else if (!reviewers[audit.reviewerId]) addError(result, 'unregistered-reviewer', 'Reviewer is not registered', `${path}.reviewerId`);
+      else if (reviewers[audit.reviewerId].status !== 'ACTIVE') addError(result, 'inactive-reviewer', 'Reviewer is not active', `${path}.reviewerId`);
+      else if (!reviewers[audit.reviewerId].authorizationScope.includes('*') && !(audit.claimIds ?? []).every(claimId => reviewers[audit.reviewerId].authorizationScope.includes(claimId))) addError(result, 'unauthorized-reviewer', 'Reviewer authorization scope does not cover the reviewed claims', `${path}.reviewerId`);
+    }
+    if (expectedType === 'medical-review' && (audit.automated === true || !nonemptyString(audit.reviewerId))) addError(result, 'medical-review-requires-human', 'Medical review requires a registered named human reviewer', path);
+  }
+}
+
+function validateReview(entry, entryPath, claims, reviewers, result) {
+  if (!isObject(entry.review)) { addError(result, 'invalid-review', 'review is required', `${entryPath}.review`); return; }
+  if (!VALID_REVIEW_STATUSES.has(entry.review.status)) addError(result, 'invalid-review-status', 'review.status is invalid', `${entryPath}.review.status`);
+  validateAudit(entry.review.sourceVerification, 'source-verification', entryPath, entry, claims, reviewers, result);
+  validateAudit(entry.review.medicalReview, 'medical-review', entryPath, entry, claims, reviewers, result);
+  validateAudit(entry.review.releaseEligibility, 'release-eligibility', entryPath, entry, claims, reviewers, result);
+  if (entry.review.status === 'VERIFIED' || entry.review.status === 'RELEASE_ELIGIBLE') {
+    if (!entry.review.sourceVerification || !entry.review.medicalReview) addError(result, 'missing-review-audit', 'Release-like stored states require source and medical audits', `${entryPath}.review`);
+  }
+}
+
+function validateConflicts(entry, entryPath, claims, reviewers, result) {
+  if (entry.conflicts === undefined) return;
+  if (!Array.isArray(entry.conflicts)) { addError(result, 'invalid-conflicts', 'conflicts must be an array', `${entryPath}.conflicts`); return; }
+  const ids = new Set();
+  entry.conflicts.forEach((conflict, index) => {
+    const path = `${entryPath}.conflicts[${index}]`;
+    if (!isObject(conflict)) { addError(result, 'invalid-conflict', 'Conflict must be an object', path); return; }
+    if (!nonemptyString(conflict.id) || ids.has(conflict.id)) addError(result, 'invalid-conflict-id', 'Conflict id must be unique and non-empty', `${path}.id`);
+    ids.add(conflict.id);
+    if (!VALID_CONFLICT_TYPES.has(conflict.type)) addError(result, 'invalid-conflict-type', 'Conflict type is invalid', `${path}.type`);
+    if (!VALID_CONFLICT_STATUSES.has(conflict.status)) addError(result, 'invalid-conflict-status', 'Conflict status is invalid', `${path}.status`);
+    validateStringArray(conflict.claimIds, `${path}.claimIds`, result, {allowEmpty: false});
+    for (const claimId of conflict.claimIds ?? []) if (!claims.has(claimId)) addError(result, 'conflict-unknown-claim', `Conflict references unknown claim: ${claimId}`, `${path}.claimIds`);
+    if (conflict.status === 'OPEN') addWarning(result, 'conflict-awaiting-adjudication', 'Open authoritative-source conflict blocks release', path);
+    if (conflict.status === 'ADJUDICATED') {
+      if (!nonemptyString(conflict.decision) || !nonemptyString(conflict.rationale) || !nonemptyString(conflict.reviewerId) || !isValidDate(conflict.resolvedAt) || conflict.entryRevision !== computeTerminologyRevision(entry)) addError(result, 'invalid-conflict-adjudication', 'Adjudicated conflicts require current revision, rationale, decision, reviewer, and date', path);
+      if (!reviewers[conflict.reviewerId] || reviewers[conflict.reviewerId].status !== 'ACTIVE') addError(result, 'unregistered-conflict-reviewer', 'Conflict adjudicator must be an active registered reviewer', `${path}.reviewerId`);
+    }
+    if (conflict.ambiguityAllowed !== undefined && typeof conflict.ambiguityAllowed !== 'boolean') addError(result, 'invalid-conflict-ambiguity', 'ambiguityAllowed must be boolean', `${path}.ambiguityAllowed`);
+  });
+}
+
+function validateEntries(records, atlas, sourceCatalog, reviewers, result) {
+  const concepts = new Map((Array.isArray(atlas?.concepts) ? atlas.concepts : []).filter(isObject).map(concept => [concept.id, concept]));
   const entries = [];
-  const vietnameseTerms = new Map();
-
-  entryRecords.forEach((record, index) => {
-    const entryPath = `entries[${index}]`;
-    if (!isObject(record)) {
-      addError(result, 'invalid-entry-record', 'Terminology entry must be an object', entryPath);
-      return;
-    }
-    if (!nonemptyString(record.key)) {
-      addError(result, 'missing-entry-key', 'Each registry entry requires a stable key', `${entryPath}.key`);
-    } else if (seenKeys.has(record.key)) {
-      addError(result, 'duplicate-entry-key', `Duplicate terminology map key: ${record.key}`, `${entryPath}.key`);
-    } else {
-      seenKeys.add(record.key);
-    }
-    if (!nonemptyString(record.conceptId)) {
-      addError(result, 'missing-entry-concept-id', 'conceptId is required', `${entryPath}.conceptId`);
-    }
-    if (nonemptyString(record.key) && nonemptyString(record.conceptId) && record.key !== record.conceptId) {
-      addError(result, 'entry-key-concept-mismatch', 'Entry key must equal conceptId', `${entryPath}.key`);
-    }
-    if (nonemptyString(record.conceptId) && !conceptMap.has(record.conceptId)) {
-      addError(result, 'orphan-concept', `Terminology entry references unknown atlas concept: ${record.conceptId}`, `${entryPath}.conceptId`);
-    }
-    if (!isObject(record.english) || !nonemptyString(record.english.preferred)) {
-      addError(result, 'missing-english-snapshot', 'english.preferred is required', `${entryPath}.english.preferred`);
-    } else {
-      validateStringArray(record.english.aliases, `${entryPath}.english.aliases`, result);
-      const concept = conceptMap.get(record.conceptId);
-      if (concept && record.english.preferred.trim() !== concept.name) {
-        if (record.review?.status === 'VERIFIED') {
-          addError(result, 'english-snapshot-mismatch', 'Verified entries must snapshot the current atlas English name', `${entryPath}.english.preferred`);
-        } else {
-          addWarning(result, 'english-snapshot-mismatch', 'English snapshot differs from the current atlas name and needs review', `${entryPath}.english.preferred`);
-        }
-      }
-    }
-    if (!VALID_MAPPING_STATUSES.has(record.mapping?.status)) {
-      addError(result, 'invalid-mapping-status', 'mapping.status is invalid', `${entryPath}.mapping.status`);
-    }
-    validateReview(record, entryPath, result);
-    validateSourceIds(record, entryPath, atlasPartIds, result);
-    const requiresProvenance = record.mapping?.status === 'MAPPED' || record.review?.status === 'VERIFIED' || entryHasVietnameseCandidate(record);
-    validateProvenance(record, entryPath, sourceCatalog, result, requiresProvenance);
-    validateExternalIdentifierProvenance(record, entryPath, sourceCatalog, result);
-    validateLatin(record, entryPath, sourceCatalog, result);
-    validateVietnamese(record, entryPath, result);
-
-    if (entryHasVietnameseCandidate(record)) {
-      const terms = [
-        record.vietnamese.preferred,
-        ...(record.vietnamese.aliases ?? []),
-        ...(record.vietnamese.searchAliases ?? []),
-        ...(record.vietnamese.asciiSearchForms ?? []),
-      ].filter(nonemptyString);
-      for (const term of terms) {
-        const normalized = normalizeSearchText(term);
-        if (!normalized) continue;
-        if (!vietnameseTerms.has(normalized)) vietnameseTerms.set(normalized, []);
-        vietnameseTerms.get(normalized).push({entry: record, path: entryPath, term});
-      }
-      if (!hasVerifiedVietnamese(record, sourceCatalog)) {
-        addWarning(result, 'unreleased-search-term', 'Vietnamese candidate is not release-eligible and must not enter production search', `${entryPath}.vietnamese`);
-      }
-    }
-    const concept = conceptMap.get(record.conceptId);
-    if (concept && nonemptyString(record.english?.preferred) && nonemptyString(record.vietnamese?.preferred)) {
-      validateSemanticPair(record, entryPath, result);
-    }
-    entries.push(record);
+  const seenKeys = new Set();
+  records.forEach((entry, index) => {
+    const path = `entries[${index}]`;
+    if (!isObject(entry)) { addError(result, 'invalid-entry', 'Entry must be an object', path); return; }
+    if (!nonemptyString(entry.key) || entry.key !== entry.conceptId) addError(result, 'entry-key-mismatch', 'Registry key must equal conceptId', `${path}.key`);
+    if (seenKeys.has(entry.key)) addError(result, 'duplicate-entry-key', `Duplicate entry key: ${entry.key}`, `${path}.key`);
+    seenKeys.add(entry.key);
+    const concept = concepts.get(entry.conceptId);
+    if (!concept) addError(result, 'orphan-concept-id', `Unknown atlas concept: ${entry.conceptId}`, `${path}.conceptId`);
+    validateTermFields(entry, path, concept, result);
+    validateCandidateOrigins(entry, path, sourceCatalog, result);
+    const claims = validateClaims(entry, path, sourceCatalog, result);
+    validateAtlasMembership(entry, path, concept, atlas, result);
+    validateMappings(entry, path, claims, result);
+    validateReview(entry, path, claims, reviewers, result);
+    validateConflicts(entry, path, claims, reviewers, result);
+    for (const claim of entry.claims ?? []) if (claim.type === 'vietnamese-preferred' && entry.vietnamese?.preferred && claim.target !== entry.vietnamese.preferred) addWarning(result, 'preferred-claim-target-mismatch', 'Vietnamese preferred claim does not target the preferred field', `${path}.claims`);
+    if (entry.vietnamese && !hasVerifiedVietnamese(entry, sourceCatalog, reviewers)) addWarning(result, 'unreleased-search-term', 'Vietnamese candidate is not release-eligible and cannot enter production search', `${path}.vietnamese`);
+    if (entry.latin && !hasVerifiedLatin(entry, sourceCatalog)) addWarning(result, 'unreleased-latin', 'Latin candidate is not source-verified and cannot enter production search', `${path}.latin`);
+    entries.push(entry);
   });
-
-  for (const [normalized, occurrences] of vietnameseTerms) {
-    const conceptIds = new Set(occurrences.map(item => item.entry.conceptId));
-    if (conceptIds.size < 2) continue;
-    addWarning(
-      result,
-      'normalized-alias-collision',
-      `Vietnamese forms collide after normalization: ${normalized}`,
-      occurrences.map(item => item.path).join(', '),
-      {conceptIds: [...conceptIds]},
-    );
-    if (occurrences.every(item => hasVerifiedVietnamese(item.entry, sourceCatalog))) {
-      addError(
-        result,
-        'release-normalized-alias-collision',
-        `Release-eligible Vietnamese forms collide after normalization: ${normalized}`,
-        occurrences.map(item => item.path).join(', '),
-        {conceptIds: [...conceptIds]},
-      );
-    }
-  }
-  return {entries, conceptMap};
+  return {entries, concepts};
 }
 
-function validateSemanticPair(entry, entryPath, result) {
-  const english = normalizeSearchText(entry.english.preferred);
-  const vietnamese = normalizeSearchText(entry.vietnamese.preferred);
-  for (const [englishA, englishB, vietnameseA, vietnameseB] of SEMANTIC_PAIRS) {
-    const hasEnglishA = english.includes(normalizeSearchText(englishA));
-    const hasEnglishB = english.includes(normalizeSearchText(englishB));
-    const hasVietnameseA = vietnamese.includes(normalizeSearchText(vietnameseA));
-    const hasVietnameseB = vietnamese.includes(normalizeSearchText(vietnameseB));
-    if ((hasEnglishA && hasVietnameseB) || (hasEnglishB && hasVietnameseA)) {
-      addWarning(
-        result,
-        'semantic-direction-mismatch',
-        `Conservative semantic heuristic flagged a possible ${englishA}/${englishB} mismatch; human review is required`,
-        `${entryPath}.vietnamese.preferred`,
-      );
+function conflictAllowsAmbiguity(entry, term) {
+  return (entry.conflicts ?? []).some(conflict => conflict.status === 'ADJUDICATED' && conflict.ambiguityAllowed === true && conflict.entryRevision === computeTerminologyRevision(entry) && (conflict.permittedAliasClaimIds?.length ?? 0) > 0 && (entry.claims ?? []).some(claim => conflict.permittedAliasClaimIds.includes(claim.id) && claim.target === term));
+}
+
+function validateSearchCollisions(entries, concepts, sourceCatalog, reviewers, result) {
+  const candidateTerms = new Map();
+  const releasedTerms = new Map();
+  for (const entry of entries) {
+    const concept = concepts.get(entry.conceptId);
+    if (!concept) continue;
+    const baseline = new Set([concept.name, concept.id].map(normalizeSearchText));
+    const terms = terminologySearchTerms(concept, entry, sourceCatalog, reviewers);
+    for (const term of terms) {
+      const normalized = normalizeSearchText(term);
+      if (!normalized || baseline.has(normalized)) continue;
+      if (!candidateTerms.has(normalized)) candidateTerms.set(normalized, []);
+      candidateTerms.get(normalized).push({entry, term});
+      if (hasVerifiedVietnamese(entry, sourceCatalog, reviewers) || hasVerifiedLatin(entry, sourceCatalog)) {
+        if (!releasedTerms.has(normalized)) releasedTerms.set(normalized, []);
+        releasedTerms.get(normalized).push({entry, term});
+      }
     }
+  }
+  for (const [normalized, occurrences] of candidateTerms) {
+    const ids = new Set(occurrences.map(item => item.entry.conceptId));
+    if (ids.size > 1) addWarning(result, 'normalized-alias-collision', `Terminology forms collide after normalization: ${normalized}`, undefined, {conceptIds: [...ids]});
+  }
+  for (const [normalized, occurrences] of releasedTerms) {
+    const ids = new Set(occurrences.map(item => item.entry.conceptId));
+    if (ids.size > 1 && !occurrences.every(item => conflictAllowsAmbiguity(item.entry, item.term))) addError(result, 'release-normalized-alias-collision', `Released terminology forms collide after normalization: ${normalized}`, undefined, {conceptIds: [...ids]});
   }
 }
 
-function auditPassed(audit, type, requireHuman = false) {
-  return Boolean(
-    audit?.type === type &&
-      audit.status === 'PASSED' &&
-      isValidDate(audit.reviewedAt) &&
-      (!requireHuman || (nonemptyString(audit.reviewer) && audit.automated !== true)),
-  );
+function auditPassed(audit, type, entry, reviewers, requireHuman) {
+  if (!audit || audit.type !== type || audit.status !== 'PASSED' || audit.decision !== 'APPROVE' || !isValidDate(audit.reviewedAt) || audit.entryRevision !== computeTerminologyRevision(entry)) return false;
+  if (!requireHuman) return true;
+  const reviewer = reviewers[audit.reviewerId];
+  return Boolean(reviewer && reviewer.status === 'ACTIVE' && audit.automated !== true && (reviewer.authorizationScope.includes('*') || (audit.claimIds ?? []).every(id => reviewer.authorizationScope.includes(id))));
 }
 
-export function computeCoverage(atlas, entries, sourceCatalog) {
-  const totalConcepts = Array.isArray(atlas?.concepts) ? atlas.concepts.length : 0;
-  const conceptIds = new Set(
-    Array.isArray(atlas?.concepts)
-      ? atlas.concepts.filter(isObject).map(concept => concept.id).filter(nonemptyString)
-      : [],
-  );
-  const mappedConceptIds = new Set(
-    entries.filter(entry => entry?.mapping?.status === 'MAPPED' && conceptIds.has(entry.conceptId)).map(entry => entry.conceptId),
-  );
-  const candidateEntries = entries.filter(entryHasVietnameseCandidate);
-  const sourceVerifiedEntries = entries.filter(entry => auditPassed(entry.review?.sourceVerification, 'source-verification', true));
-  const medicallyReviewedEntries = entries.filter(entry => auditPassed(entry.review?.medicalReview, 'medical-review', true));
-  const releaseEntries = entries.filter(entry => hasVerifiedVietnamese(entry, sourceCatalog));
+export function computeCoverage(atlas, entries, sourceCatalog, reviewers = {}) {
+  const concepts = Array.isArray(atlas?.concepts) ? atlas.concepts.filter(isObject) : [];
+  const conceptIds = new Set(concepts.map(concept => concept.id));
+  const candidateEntries = entries.filter(entry => Boolean(entry.vietnamese || entry.latin || entry.claims?.length || entry.mapping?.mappings?.length));
+  const sourceVerifiedEntries = entries.filter(entry => auditPassed(entry.review?.sourceVerification, 'source-verification', entry, reviewers, true));
+  const medicallyReviewedEntries = entries.filter(entry => auditPassed(entry.review?.medicalReview, 'medical-review', entry, reviewers, true));
+  const releaseEntries = entries.filter(entry => hasVerifiedVietnamese(entry, sourceCatalog, reviewers));
   const searchableEntries = entries.filter(entry => {
-    const englishAliases = Array.isArray(entry.english?.aliases) && entry.english.aliases.some(nonemptyString);
-    const latinTerms = hasVerifiedLatin(entry, sourceCatalog);
-    return englishAliases || latinTerms || hasVerifiedVietnamese(entry, sourceCatalog);
+    const concept = concepts.find(item => item.id === entry.conceptId);
+    if (!concept) return false;
+    return terminologySearchTerms(concept, entry, sourceCatalog, reviewers).some(term => ![concept.name, concept.id].includes(term));
   });
-  const percentage = count => totalConcepts === 0 ? 0 : Number(((count / totalConcepts) * 100).toFixed(2));
+  const mappedIds = new Set(entries.filter(entry => entry.mapping?.status === 'MAPPED' && conceptIds.has(entry.conceptId)).map(entry => entry.conceptId));
+  const mappingInvestigated = entries.filter(entry => entry.mapping?.status !== 'UNMAPPED' || entry.mapping?.disposition !== 'NOT_INVESTIGATED');
+  const mappingUnresolved = entries.filter(entry => entry.mapping?.disposition === 'UNRESOLVED');
+  const noEquivalent = entries.filter(entry => entry.mapping?.disposition === 'CONFIRMED_NO_EQUIVALENT');
+  const sourceGaps = entries.filter(entry => (entry.claims ?? []).some(claim => !sourceCatalog[claim.sourceId] || sourceCatalog[claim.sourceId].audit?.status !== 'VERIFIED'));
+  const staleApprovals = entries.filter(entry => [entry.review?.sourceVerification, entry.review?.medicalReview, entry.review?.releaseEligibility].some(audit => audit?.status === 'PASSED' && audit.entryRevision !== computeTerminologyRevision(entry)));
+  const conflicts = entries.filter(entry => (entry.conflicts ?? []).some(conflict => conflict.status === 'OPEN'));
+  const total = concepts.length;
+  const percentage = count => total === 0 ? 0 : Number(((count / total) * 100).toFixed(2));
   return {
-    totalAtlasConcepts: totalConcepts,
+    totalAtlasConcepts: total,
     terminologyEntries: entries.length,
     vietnameseCandidateEntries: candidateEntries.length,
     searchableTerminologyEntries: searchableEntries.length,
     sourceVerifiedEntries: sourceVerifiedEntries.length,
     medicallyReviewedEntries: medicallyReviewedEntries.length,
     releaseEligibleEntries: releaseEntries.length,
-    unresolvedOrUnmappedConcepts: Math.max(totalConcepts - mappedConceptIds.size, 0),
+    unresolvedOrUnmappedConcepts: Math.max(total - mappedIds.size, 0),
+    mappingInvestigatedEntries: mappingInvestigated.length,
+    mappingUnresolvedEntries: mappingUnresolved.length,
+    confirmedNoExternalEquivalentEntries: noEquivalent.length,
+    sourceGapEntries: sourceGaps.length,
+    staleApprovalEntries: staleApprovals.length,
+    conflictsAwaitingAdjudication: conflicts.length,
     percentages: {
-      vietnameseCandidate: percentage(candidateEntries.length),
-      searchable: percentage(searchableEntries.length),
-      sourceVerified: percentage(sourceVerifiedEntries.length),
-      medicallyReviewed: percentage(medicallyReviewedEntries.length),
-      releaseEligible: percentage(releaseEntries.length),
-      resolvedMapped: percentage(mappedConceptIds.size),
+      vietnameseCandidate: percentage(candidateEntries.length), searchable: percentage(searchableEntries.length), sourceVerified: percentage(sourceVerifiedEntries.length), medicallyReviewed: percentage(medicallyReviewedEntries.length), releaseEligible: percentage(releaseEntries.length), resolvedMapped: percentage(mappedIds.size),
     },
   };
 }
 
-export function validateTerminologyData({atlas, sourcesDocument, entriesDocument}) {
-  const result = {
-    errors: [],
-    warnings: [],
-    sourceCatalog: {},
-    entries: [],
-    coverage: null,
-  };
-  validateSchemaVersion(sourcesDocument, 'sources', result);
-  validateSchemaVersion(entriesDocument, 'entries', result);
+function validateReleaseManifest(manifest, atlas, entries, sourcesDocument, entriesDocument, reviewersDocument, result) {
+  if (!isObject(manifest) || manifest.schemaVersion !== 1) { addError(result, 'invalid-release-manifest', 'release manifest must declare schemaVersion 1', 'release'); return; }
+  if (!['UNRELEASED', 'RELEASED'].includes(manifest.releaseStatus)) addError(result, 'invalid-release-status', 'releaseStatus is invalid', 'release.releaseStatus');
+  for (const key of ['atlasVersion', 'atlasRevision', 'registryRevision', 'sourceCatalogRevision', 'reviewersRevision', 'policyVersion']) if (!nonemptyString(manifest[key])) addError(result, 'invalid-release-identity', `${key} is required`, `release.${key}`);
+  if (manifest.releaseStatus === 'RELEASED') {
+    if (!nonemptyString(manifest.contentHash)) addError(result, 'released-missing-content-hash', 'Released manifests require contentHash', 'release.contentHash');
+    if (!isObject(manifest.entryRevisions)) addError(result, 'released-missing-entry-revisions', 'Released manifests require entryRevisions', 'release.entryRevisions');
+    else entries.forEach(entry => { const released = hasVerifiedVietnamese(entry, result.sourceCatalog, result.reviewerCatalog) || hasVerifiedLatin(entry, result.sourceCatalog, result.reviewerCatalog); if (released && manifest.entryRevisions[entry.conceptId] !== computeTerminologyRevision(entry)) addError(result, 'release-entry-revision-mismatch', 'Released entry revision is not bound in the manifest', `release.entryRevisions.${entry.conceptId}`); });
+    if (manifest.atlasVersion !== atlas?.version) addError(result, 'release-atlas-version-mismatch', 'Release atlasVersion does not match the current atlas', 'release.atlasVersion');
+    const atlasRevision = documentRevision({version: atlas?.version, concepts: atlas?.concepts, parts: Array.isArray(atlas?.parts) ? atlas.parts.map(part => ({id: part.id, conceptId: part.conceptId, name: part.name})) : []});
+    const registryRevision = documentRevision(entriesDocument);
+    const sourceCatalogRevision = documentRevision(sourcesDocument);
+    const reviewersRevision = documentRevision(reviewersDocument);
+    if (manifest.atlasRevision !== atlasRevision) addError(result, 'release-atlas-revision-mismatch', 'Release atlasRevision does not match the current atlas identity snapshot', 'release.atlasRevision');
+    if (manifest.registryRevision !== registryRevision) addError(result, 'release-registry-revision-mismatch', 'Release registryRevision does not match entries.json', 'release.registryRevision');
+    if (manifest.sourceCatalogRevision !== sourceCatalogRevision) addError(result, 'release-source-revision-mismatch', 'Release sourceCatalogRevision does not match sources.json', 'release.sourceCatalogRevision');
+    if (manifest.reviewersRevision !== reviewersRevision) addError(result, 'release-reviewer-revision-mismatch', 'Release reviewersRevision does not match reviewers.json', 'release.reviewersRevision');
+    const expectedContentHash = documentRevision({atlasRevision, registryRevision, sourceCatalogRevision, reviewersRevision, policyVersion: manifest.policyVersion, entryRevisions: manifest.entryRevisions});
+    if (manifest.contentHash !== expectedContentHash) addError(result, 'release-content-hash-mismatch', 'Release contentHash does not match the bound release identity', 'release.contentHash');
+  }
+}
+
+export function validateTerminologyData({atlas, sourcesDocument, entriesDocument, reviewersDocument = {schemaVersion: 1, reviewers: []}, releaseDocument = {schemaVersion: 1, releaseStatus: 'UNRELEASED', atlasVersion: atlas?.version ?? '', atlasRevision: 'UNRELEASED', registryRevision: 'UNRELEASED', sourceCatalogRevision: 'UNRELEASED', reviewersRevision: 'UNRELEASED', policyVersion: 'M02B', entryRevisions: {}}}) {
+  const result = {errors: [], warnings: [], sourceCatalog: {}, reviewerCatalog: {}, entries: [], coverage: null, release: releaseDocument};
+  validateSchemaVersion(sourcesDocument, 'sources', SCHEMA_VERSION, result);
+  validateSchemaVersion(entriesDocument, 'entries', SCHEMA_VERSION, result);
+  validateSchemaVersion(reviewersDocument, 'reviewers', 1, result);
   const sourceRecords = getArray(sourcesDocument, 'sources', result);
   const entryRecords = getArray(entriesDocument, 'entries', result);
+  const reviewerRecords = getArray(reviewersDocument, 'reviewers', result);
   result.sourceCatalog = validateSources(sourceRecords, result);
-  const validated = validateEntries(entryRecords, atlas, result.sourceCatalog, result);
+  result.reviewerCatalog = validateReviewers(reviewerRecords, result);
+  const validated = validateEntries(entryRecords, atlas, result.sourceCatalog, result.reviewerCatalog, result);
   result.entries = validated.entries;
-  result.coverage = computeCoverage(atlas, result.entries, result.sourceCatalog);
+  result.coverage = computeCoverage(atlas, result.entries, result.sourceCatalog, result.reviewerCatalog);
+  validateSearchCollisions(result.entries, validated.concepts, result.sourceCatalog, result.reviewerCatalog, result);
+  validateReleaseManifest(releaseDocument, atlas, result.entries, sourcesDocument, entriesDocument, reviewersDocument, {...result, sourceCatalog: result.sourceCatalog, reviewerCatalog: result.reviewerCatalog});
   return result;
 }
 
-export async function loadProductionData({root = REPOSITORY_ROOT} = {}) {
-  const readJson = async filePath => JSON.parse(await readFile(filePath, 'utf8'));
-  const [atlas, sourcesDocument, entriesDocument] = await Promise.all([
-    readJson(join(root, 'public', 'models', 'atlas.json')),
-    readJson(join(root, 'data', 'terminology', 'sources.json')),
-    readJson(join(root, 'data', 'terminology', 'entries.json')),
-  ]);
-  return {atlas, sourcesDocument, entriesDocument};
-}
-
-function printHumanSummary(result) {
-  const status = result.errors.length === 0 ? 'PASS' : 'FAIL';
-  const c = result.coverage;
-  console.log(`M02A terminology validation: ${status}`);
-  console.log(`Sources: ${Object.keys(result.sourceCatalog).length}; registry entries: ${c.terminologyEntries}`);
-  console.log(`Atlas concepts: ${c.totalAtlasConcepts}; unresolved/unmapped: ${c.unresolvedOrUnmappedConcepts}`);
-  console.log(`Vietnamese candidates: ${c.vietnameseCandidateEntries} (${c.percentages.vietnameseCandidate}%)`);
-  console.log(`Searchable terminology entries: ${c.searchableTerminologyEntries} (${c.percentages.searchable}%)`);
-  console.log(`Source-verified: ${c.sourceVerifiedEntries} (${c.percentages.sourceVerified}%)`);
-  console.log(`Medically reviewed: ${c.medicallyReviewedEntries} (${c.percentages.medicallyReviewed}%)`);
-  console.log(`Release eligible: ${c.releaseEligibleEntries} (${c.percentages.releaseEligible}%)`);
-  if (result.errors.length > 0) {
-    console.log(`Errors (${result.errors.length}):`);
-    result.errors.forEach(item => console.log(`- ${item.code}: ${item.message}${item.path ? ` [${item.path}]` : ''}`));
-  }
-  if (result.warnings.length > 0) {
-    console.log(`Warnings (${result.warnings.length}):`);
-    result.warnings.forEach(item => console.log(`- ${item.code}: ${item.message}${item.path ? ` [${item.path}]` : ''}`));
-  }
-}
-
-export async function main(argv = process.argv.slice(2)) {
-  const data = await loadProductionData();
-  const result = validateTerminologyData(data);
-  if (argv.includes('--json')) {
-    console.log(JSON.stringify({
-      status: result.errors.length === 0 ? 'PASS' : 'FAIL',
-      errors: result.errors,
-      warnings: result.warnings,
-      coverage: result.coverage,
-    }, null, 2));
-  } else {
-    printHumanSummary(result);
-  }
-  return result;
-}
+async function readJson(path) { return JSON.parse(await readFile(path, 'utf8')); }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  main().then(result => {
-    process.exitCode = result.errors.length === 0 ? 0 : 1;
-  }).catch(error => {
-    console.error(error);
-    process.exitCode = 1;
-  });
+  const [atlas, sourcesDocument, entriesDocument, reviewersDocument, releaseDocument] = await Promise.all([
+    readJson(join(REPOSITORY_ROOT, 'public', 'models', 'atlas.json')),
+    readJson(join(REPOSITORY_ROOT, 'data', 'terminology', 'sources.json')),
+    readJson(join(REPOSITORY_ROOT, 'data', 'terminology', 'entries.json')),
+    readJson(join(REPOSITORY_ROOT, 'data', 'terminology', 'reviewers.json')),
+    readJson(join(REPOSITORY_ROOT, 'data', 'terminology', 'release.json')),
+  ]);
+  const result = validateTerminologyData({atlas, sourcesDocument, entriesDocument, reviewersDocument, releaseDocument});
+  const c = result.coverage;
+  const status = result.errors.length ? 'FAIL' : 'PASS';
+  if (process.argv.includes('--json')) console.log(JSON.stringify({status, errors: result.errors, warnings: result.warnings, coverage: result.coverage}, null, 2));
+  else {
+    console.log(`M02B terminology validation: ${status}`);
+    console.log(`Sources: ${Object.keys(result.sourceCatalog).length}; reviewers: ${Object.keys(result.reviewerCatalog).length}; registry entries: ${c.terminologyEntries}`);
+    console.log(`Candidates: ${c.vietnameseCandidateEntries}; searchable: ${c.searchableTerminologyEntries}; source-verified: ${c.sourceVerifiedEntries}; medically reviewed: ${c.medicallyReviewedEntries}; release eligible: ${c.releaseEligibleEntries}`);
+    console.log(`Mapping investigated: ${c.mappingInvestigatedEntries}; unresolved: ${c.mappingUnresolvedEntries}; confirmed no equivalent: ${c.confirmedNoExternalEquivalentEntries}; source gaps: ${c.sourceGapEntries}; stale approvals: ${c.staleApprovalEntries}; conflicts awaiting adjudication: ${c.conflictsAwaitingAdjudication}`);
+    if (result.warnings.length) console.log(`Warnings: ${result.warnings.length}`);
+    if (result.errors.length) console.error(`Errors: ${result.errors.length}`);
+  }
+  if (result.errors.length) process.exitCode = 1;
 }

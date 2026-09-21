@@ -38,7 +38,22 @@ Exit gate: PASS when the empty production registry validates, synthetic invalid 
 - verified that language state is outside the atlas/geometry effect and that the empty terminology registry is a first-class production state;
 - added deployment-readiness documentation without deploying or changing Vercel architecture.
 
-The next execution task after this milestone is deployment validation/review. M03 terminology research and pilot work remain deferred.
+The next execution task after this milestone was governance hardening. M03 terminology research and pilot work remain deferred.
+
+## Milestone 2B: terminology governance and ontology hardening (completed)
+
+- treated `Atlas Concept.id` as an opaque identity and removed the single FMA/TA2 identifier assumption;
+- added plural external mappings with relation, disposition, source revision, and claim evidence;
+- separated atlas mesh membership from ontology equivalence and validated membership against each concept’s `elements`;
+- replaced entry-wide provenance authority with claim-level evidence for identity, mappings, Latin, aliases, Vietnamese preferred wording, and search forms;
+- added explicit source-conflict records and human adjudication requirements;
+- added a reviewer registry with authorization scope and current revision-bound source/medical/release audits;
+- added deterministic entry fingerprints and a reproducible release manifest;
+- gated every terminology-derived search form and fixed released-subset normalized collision handling;
+- added mapping/source-gap/stale/conflict disposition metrics and synthetic `TEST_ONLY` governance fixtures;
+- kept production sources, reviewers, entries, and released terminology empty.
+
+Exit gate: all regression commands and the strengthened terminology suite pass; the production validator reports 3,432 unresolved/unmapped concepts and zero release-eligible entries. Stop after M02B; do not begin the pilot in this milestone.
 
 ## Milestone 3: reviewed terminology pilot (deferred; not started)
 

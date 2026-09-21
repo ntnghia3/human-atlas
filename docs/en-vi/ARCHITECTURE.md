@@ -33,19 +33,18 @@ The dictionary is not a terminology database. It must not acquire entries of the
 
 app/terminology.ts defines the separate overlay contract:
 
-- TerminologyEntry.conceptId is the stable runtime concept key;
-- sourceIds can carry BodyParts3D element IDs, FMA, and TA2 identifiers;
-- english stores the source-name snapshot and aliases;
-- latin stores mapped canonical Latin and aliases;
-- vietnamese stores preferred, aliases, search aliases, and matching-only ASCII forms;
-- provenance stores stable source references and structured page/section/entry/URL/nomenclature locators validated by the M02A registry checker;
-- mapping and review carry explicit statuses.
+- TerminologyEntry.conceptId is an opaque stable atlas key;
+- atlas membership is separate from ontology equivalence and is checked against the specific Concept.elements list;
+- mapping.mappings supports zero, one, or many independently evidenced FMA/TA2 relationships with relation and disposition;
+- claims attach exact evidence to identity, mappings, Latin, each alias, Vietnamese preferred wording, search aliases, and corroboration;
+- source revisions, conflict adjudication, reviewer registry records, and revision-bound audits are release dependencies;
+- English, Latin, and Vietnamese fields retain preferred and alias distinctions; ASCII forms remain matching-only.
 
-TERMINOLOGY_OVERLAY and TERMINOLOGY_SOURCES are loaded from the static M02A JSON registry. The production documents are intentionally empty today, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
+TERMINOLOGY_OVERLAY, TERMINOLOGY_SOURCES, TERMINOLOGY_REVIEWERS, and the release manifest are loaded from the static M02B JSON registry. The production documents are intentionally empty today, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
 
 resolveConceptName takes a Concept, language, overlay, and source catalog. English always returns Concept.name. Vietnamese returns a preferred term only after the release gate. The overlay can enrich a concept but cannot rewrite its original English name or its identity.
 
-The source catalog is separate from entries so source details are not repeated in every term. Future data should load a reviewed catalog and entries together, or validate them together before release.
+The source and reviewer catalogs are separate from entries so authority metadata is not repeated in every term. Future data must load and validate the catalogs, entries, and release manifest together before release.
 
 ## Current data model
 
@@ -54,11 +53,11 @@ The actual manifest has version, parts, chunks, triangles, concepts, sourceTrian
 | Runtime record | Current fields | Meaning |
 | --- | --- | --- |
 | Part | id, name, conceptId, system, chunk, positions, normals, indices, vertexCount, indexCount, bounds | One selectable BodyParts3D mesh and its packed binary ranges. |
-| Concept | id, name, elements | One named FMA concept and the mesh IDs that render it. |
+| Concept | id, name, elements | One opaque atlas concept key and the mesh IDs packaged for that concept; this is not an automatic FMA assertion. |
 | Atlas | version, sex, source, scope, parts, concepts, chunks, triangles | The manifest and its geometry references. |
 | System | id, name, color, description | The application’s curated display grouping and explanatory text. |
 
-There is no parent pointer in the runtime Concept type. Concept-to-mesh membership is represented by Concept.elements. The current concept IDs are FMA-like values such as FMA3710, while mesh IDs are BodyParts3D element values such as FJ1252.
+There is no parent pointer in the runtime Concept type. Concept-to-mesh membership is represented by Concept.elements. Current IDs may resemble FMA values, but external ontology identity is always a separately sourced relationship. Mesh membership does not prove synonymy, hierarchy, or equivalence.
 
 ## Search architecture
 
@@ -66,13 +65,13 @@ The existing UI search is a useMemo over all concepts, limited to 80 results. It
 
 The normalizer in app/search-normalization.ts performs Unicode decomposition, removes combining marks, maps đ/Đ to d, folds case, collapses whitespace, and trims. It is used only for matching. It must never produce a stored or displayed canonical Vietnamese term.
 
-The optional WebMCP find_anatomy tool in app/agent-tools.ts uses the same matcher, runtime overlay, source catalog, release gate, and result limit as the visible application. Its stable tool name, input shape, and concept IDs remain unchanged.
+The optional WebMCP find_anatomy tool in app/agent-tools.ts uses the same matcher, runtime overlay, source catalog, reviewer catalog, claim gates, and result limit as the visible application. Its stable tool name, input shape, and concept IDs remain unchanged.
 
 ## Model lifecycle and performance
 
 The language state is in page.tsx, while the geometry-loading effect in scene.tsx depends on atlas only. Localized canvas accessibility text and resolver callbacks are held in refs so a language switch re-renders labels without reloading the manifest or binary chunks, disposing/recreating WebGL objects, changing picker meshes, or duplicating geometry.
 
-Terminology data is small metadata bundled from the JSON registry and separate from the 33 MB compressed geometry path. It is not consulted by the render loop, GPU textures, picking, explosion layout, or camera fitting. Search remains a scan until measurement justifies indexing.
+Terminology data is small metadata bundled from the JSON registry and separate from the 33 MB compressed geometry path. It is not consulted by the render loop, GPU textures, picking, explosion layout, or camera fitting. Search remains a scan until measurement justifies indexing. Every overlay-derived form is claim-gated; released normalized collisions block unless explicit current ambiguity adjudication permits them.
 
 ## Upstream compatibility
 
@@ -82,9 +81,13 @@ An upstream update is compared by stable concept IDs and mesh IDs:
 - removed concept or mesh;
 - changed English name;
 - changed source mapping;
-- unchanged identity.
+- unchanged identity, with approvals retained only when all relevant content and source revisions remain unchanged.
 
-The upstream atlas is regenerated independently. The terminology overlay is then validated against the new concept set. Entries for removed IDs become orphan findings; renamed English names become review findings; unchanged IDs retain their reviewed overlay entries. No upstream synchronization step writes Vietnamese data into atlas.json.
+The upstream atlas is regenerated independently. The terminology overlay is then validated against the new concept set. Entries for removed IDs become orphan findings; renamed English names, changed concept-to-mesh membership, and remapped identifiers invalidate dependent approvals; unchanged IDs retain an overlay only after revision and manifest checks pass. No upstream synchronization step writes Vietnamese data into atlas.json.
+
+## M02B governance boundary
+
+`computeTerminologyRevision` deterministically fingerprints medically meaningful entry content while excluding mutable review metadata. Source, medical, and release audits point to the current revision and reviewed claims. Medical approval requires an active registered reviewer with authorization scope; automation never supplies it. `release.json` binds atlas, registry, source, reviewer, policy, content hash, and released entry revisions. The current manifest and production registries are empty/unreleased.
 
 ## Deployment
 
