@@ -27,6 +27,16 @@ sources with `INSUFFICIENT` locators, remain registry evidence only and cannot
 support a claim. `fullTextAvailableForReview` and `contentInspected` must both
 be true before a supported or verified claim can use a source.
 
+### Authority records and access copies
+
+An authority record identifies the book, edition, publisher, dataset, or
+nomenclature source that owns the claim. Its optional `accessCopy` relation
+records where the project inspected an available copy; that URL does not
+change the authority identity. A separate `accessCopyOf` record is always
+`discovery-only` and is not allowed to support a preferred Vietnamese claim,
+even when the mirror is searchable. Edition matching and exact locators remain
+required before a candidate can become source-verified.
+
 ## Claim evidence
 
 Every claim records `sourceId`, the exact `sourceRevision`, and a structured locator. Supported locators are page, plate, chapter, section, table, entry ID, URL, and nomenclature ID. A generic URL alone is not an exact locator for a release claim, and a locator must match the source's declared capability. The validator requires the cited source revision to match the source catalog and rejects missing, metadata-only, uninspected, or otherwise unusable evidence.
@@ -54,7 +64,7 @@ Vietnamese terminology.
 
 Source verification and medical review are separate audits. Medical review requires a reviewer registry record with stable ID, role, qualifications, authorization scope, timestamp, decision, reviewed claim IDs, and the current entry revision. Automation can calculate structural and release checks but cannot issue medical review.
 
-`data/terminology/reviewers.json` is a Git-reviewable registry and is intentionally empty in M02B. The release manifest binds the atlas, registry, source catalog, reviewer catalog, policy version, content hash, and entry revisions. A stale source, medical, conflict, or release record fails closed.
+`data/terminology/reviewers.json` is a Git-reviewable registry and remains intentionally empty in M03C1. The release manifest binds the atlas, registry, source catalog, reviewer catalog, policy version, content hash, and entry revisions. A stale source, medical, conflict, or release record fails closed.
 
 ## Candidate workflow
 
@@ -66,7 +76,9 @@ Source verification and medical review are separate audits. Medical review requi
 6. Let the derived release gate decide eligibility; never edit a release flag to bypass dependencies.
 7. Keep unresolved, rejected, obsolete, and confirmed-no-equivalent dispositions explicit.
 
-The source catalog may be populated during a source-lock milestone, while the
-production entry registry remains empty until claim-level work begins. A source
-revision change invalidates dependent claims and approvals through the existing
-revision checks; it cannot be hidden by retaining a stale audit status.
+The source catalog may be populated during a source-lock milestone. M03C1
+records the frozen 50-concept research queue as `DRAFT`/`UNMAPPED` with
+`CANDIDATE`/`PENDING` claims, while the release overlay and release manifest
+remain empty/unreleased. A source revision change invalidates dependent claims
+and approvals through the existing revision checks; it cannot be hidden by
+retaining a stale audit status.

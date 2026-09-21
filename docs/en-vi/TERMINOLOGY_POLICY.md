@@ -18,6 +18,18 @@ Every evidence-bearing assertion is a claim with a stable ID, type, exact target
 
 Candidate-generation history is stored separately and cannot become authority. A verified source record does not verify every claim that cites it. A generic source URL cannot substitute for an exact page, section, table, entry, or nomenclature locator when one is reasonably expected.
 
+## M03C1 research boundary
+
+M03C1 integrates exactly the frozen 50-concept pilot into a non-production
+research queue. Each record is assigned one of six disposition buckets and
+retains unresolved identity, scope, laterality, alias, or conflict blockers.
+Consensus wording and locator-pinned terms are still `CANDIDATE`/`PENDING`;
+they are not `SOURCE_VERIFIED`, `MEDICAL_REVIEWED`, `VERIFIED`, or
+`RELEASE_ELIGIBLE`. Research disposition text and candidate aliases are not
+added to the production search surface. No conflict is resolved by source
+count or majority vote, and no Vietnamese preferred field is exposed while a
+conflict remains open.
+
 ## Independent workflow dimensions
 
 `mapping.status` describes identity resolution (`UNMAPPED`, `MAPPED`, `REJECTED`) and `mapping.disposition` records why an external mapping is absent. `review.status` is a workflow hint (`DRAFT`, `SOURCE_VERIFIED`, `MEDICAL_REVIEWED`, `VERIFIED`, or `RELEASE_ELIGIBLE`) retained for compatibility. Effective release eligibility is derived from current mapping, claims, conflicts, source audits, reviewer audits, and revision fingerprints; a stored `VERIFIED` string is never trusted on its own.
@@ -38,6 +50,6 @@ Normalized collisions among released forms block release unless an authorized me
 
 ## Release and migration
 
-The static registry uses schema version 2 in `data/terminology/entries.json` and schema version 3 in `data/terminology/sources.json`, with a separate reviewer registry and `data/terminology/release.json` manifest. A released manifest binds atlas version/revision, registry, source and reviewer revisions, policy version, content hash, and every released entry revision. The current manifest is `UNRELEASED`; the source catalog contains only M03B identity records, while production entries remain empty.
+The static registry uses schema version 2 in `data/terminology/entries.json` and schema version 3 in `data/terminology/sources.json`, with a separate reviewer registry and `data/terminology/release.json` manifest. A released manifest binds atlas version/revision, registry, source and reviewer revisions, policy version, content hash, and every released entry revision. The current manifest is `UNRELEASED`; M03C1 contains only non-release research records for the frozen 50, while the production overlay/search surface remains empty.
 
-M02B contained no real Vietnamese terminology, FMA/TA2 mapping, Latin, source bibliography, or pilot entry. M03B may register bibliographic source identities without making any of those claims.
+M02B contained no real Vietnamese terminology, FMA/TA2 mapping, Latin, source bibliography, or pilot entry. M03B registered source identities; M03C1 adds bounded candidate evidence and explicit disposition buckets without making any release claim.

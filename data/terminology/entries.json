@@ -1,4 +1,501 @@
 {
   "schemaVersion": 2,
-  "entries": []
+  "entries": [
+    {
+      "key": "FMA16586",
+      "conceptId": "FMA16586",
+      "english": {"preferred": "right hip bone", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA16586-HMU-HIP", "type": "vietnamese-preferred", "target": "xương chậu", "sourceId": "HMU2022", "sourceRevision": "HMU-2022-ISBN-9786046658351", "locator": {"section": "hip bone passage", "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Generic hip-bone wording; laterality is not independently pinned."},
+        {"id": "M03C-FMA16586-UMP-HIP", "type": "vietnamese-preferred", "target": "xương hông", "sourceId": "UMP2023_T2", "sourceRevision": "UMP-2023-PROGRAM-T2-437P", "locator": {"section": "lower-limb hip-bone passage", "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Generic hip-bone wording; laterality is not independently pinned."}
+      ],
+      "conflicts": [{"id": "M03C-CONFLICT-HIP-RIGHT", "type": "competing-preferred-terminology", "claimIds": ["M03C-FMA16586-HMU-HIP", "M03C-FMA16586-UMP-HIP"], "status": "OPEN"}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 1, "dispositionBucket": "CONFLICT_REQUIRES_ADJUDICATION", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": ["xương chậu phải", "xương hông phải"], "blockers": ["HMU/NVH and modern UMP use different Vietnamese base terms for hip bone.", "Laterality must be verified as part of the exact atlas/external identity."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA16587",
+      "conceptId": "FMA16587",
+      "english": {"preferred": "left hip bone", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA16587-HMU-HIP", "type": "vietnamese-preferred", "target": "xương chậu", "sourceId": "HMU2022", "sourceRevision": "HMU-2022-ISBN-9786046658351", "locator": {"section": "hip bone passage", "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Generic hip-bone wording; laterality is not independently pinned."},
+        {"id": "M03C-FMA16587-UMP-HIP", "type": "vietnamese-preferred", "target": "xương hông", "sourceId": "UMP2023_T2", "sourceRevision": "UMP-2023-PROGRAM-T2-437P", "locator": {"section": "lower-limb hip-bone passage", "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Generic hip-bone wording; laterality is not independently pinned."}
+      ],
+      "conflicts": [{"id": "M03C-CONFLICT-HIP-LEFT", "type": "competing-preferred-terminology", "claimIds": ["M03C-FMA16587-HMU-HIP", "M03C-FMA16587-UMP-HIP"], "status": "OPEN"}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 2, "dispositionBucket": "CONFLICT_REQUIRES_ADJUDICATION", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": ["xương chậu trái", "xương hông trái"], "blockers": ["HMU/NVH and modern UMP use different Vietnamese base terms for hip bone.", "Laterality must be verified as part of the exact atlas/external identity."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA24499",
+      "conceptId": "FMA24499",
+      "english": {"preferred": "navicular bone of foot", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA24499-NVH-NAVICULAR", "type": "vietnamese-preferred", "target": "xương thuyền", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "Navicular terminology entry", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA24499-NQQ-NAVICULAR", "type": "vietnamese-preferred", "target": "xương ghe", "sourceId": "UMP2023_T2", "sourceRevision": "UMP-2023-PROGRAM-T2-437P", "locator": {"section": "os naviculare / foot-bone passage", "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "conflicts": [{"id": "M03C-CONFLICT-NAVICULAR-FOOT", "type": "competing-preferred-terminology", "claimIds": ["M03C-FMA24499-NVH-NAVICULAR", "M03C-FMA24499-NQQ-NAVICULAR"], "status": "OPEN"}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 3, "dispositionBucket": "CONFLICT_REQUIRES_ADJUDICATION", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": ["xương thuyền", "xương ghe"], "blockers": ["HMU/NVH use xương thuyền for navicular bone of foot; UMP/NQQ use xương ghe and reserve xương thuyền for scaphoid."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA9613",
+      "conceptId": "FMA9613",
+      "english": {"preferred": "parietal bone", "aliases": []},
+      "vietnamese": {"preferred": "xương đỉnh", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA9613-VI-PREFERRED", "type": "vietnamese-preferred", "target": "xương đỉnh", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 30, "entryId": "A02.1.02.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page from the access path; not source-verified."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 4, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "xương đỉnh", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Pin edition-matched locators before SOURCE_VERIFIED."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA33302",
+      "conceptId": "FMA33302",
+      "english": {"preferred": "proximal carpal bone", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 5, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": "hàng gần của các xương cổ tay", "aliasCandidates": [], "blockers": ["Atlas concept is a multi-mesh grouping, not a single named bone.", "HMU and UMP row/group descriptions do not safely equal the atlas singular English label."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA33303",
+      "conceptId": "FMA33303",
+      "english": {"preferred": "distal carpal bone", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 6, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": "hàng xa của các xương cổ tay", "aliasCandidates": [], "blockers": ["Atlas concept is a multi-mesh grouping, not a single named bone.", "HMU and UMP row/group descriptions do not safely equal the atlas singular English label."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA22439",
+      "conceptId": "FMA22439",
+      "english": {"preferred": "muscle of medial compartment of thigh", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 7, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Atlas concept is a multi-mesh compartment aggregate; compartment terminology cannot be assumed equivalent to the concept."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA22472",
+      "conceptId": "FMA22472",
+      "english": {"preferred": "muscle of anterior compartment of leg", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 8, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Atlas concept is a multi-mesh compartment aggregate; compartment terminology cannot be assumed equivalent to the concept."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA19728",
+      "conceptId": "FMA19728",
+      "english": {"preferred": "superficial perineal muscle", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 9, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Atlas has four meshes; available sources describe a group/layer, not necessarily one exact generic entity."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA22427",
+      "conceptId": "FMA22427",
+      "english": {"preferred": "muscle of posterior compartment of thigh", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 10, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Atlas concept is a multi-mesh compartment aggregate; compartment terminology cannot be assumed equivalent to the concept."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA9756",
+      "conceptId": "FMA9756",
+      "english": {"preferred": "external intercostal muscle", "aliases": []},
+      "vietnamese": {"preferred": "cơ gian sườn ngoài", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA9756-VI-PREFERRED", "type": "vietnamese-preferred", "target": "cơ gian sườn ngoài", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 129, "entryId": "A04.4.01.01", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "The reproduced entry shows the plural group form 'Các cơ gian sườn ngoài'; atlas pair/scope and preferred-form normalization remain pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 11, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "cơ gian sườn ngoài", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Confirm whether atlas two-mesh representation is pair/bilateral membership before release."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA13343",
+      "conceptId": "FMA13343",
+      "english": {"preferred": "sternothyroid", "aliases": []},
+      "vietnamese": {"preferred": "cơ ức-giáp", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA13343-VI-PREFERRED", "type": "vietnamese-preferred", "target": "cơ ức-giáp", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 122, "entryId": "A04.2.04.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page from the access path; atlas multi-mesh scope remains pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 12, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "cơ ức-giáp", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Confirm atlas multi-mesh scope/pair semantics."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA51061",
+      "conceptId": "FMA51061",
+      "english": {"preferred": "calcaneal tendon", "aliases": []},
+      "vietnamese": {"preferred": "gân gót", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA51061-VI-PREFERRED", "type": "vietnamese-preferred", "target": "gân gót", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 148, "entryId": "A04.7.02.04", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page; atlas unsided two-mesh scope remains pending."},
+        {"id": "M03C-FMA51061-ALIAS-ACHILLES", "type": "vietnamese-alias", "target": "gân Achilles", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "calcaneal tendon alias candidate", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-NGIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA51061-ALIAS-ACHILLIS", "type": "vietnamese-alias", "target": "gân Achillis", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "calcaneal tendon alias candidate", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-NGIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 13, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "gân gót", "suggestedFormForReview": null, "aliasCandidates": ["gân Achilles", "gân Achillis"], "blockers": ["Atlas unsided two-mesh scope must be reconciled with pair/side-specific concepts before release.", "Achilles/Achillis remain candidate aliases only."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA264844",
+      "conceptId": "FMA264844",
+      "english": {"preferred": "left calcaneal tendon", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 14, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "gân gót trái", "aliasCandidates": ["gân Achilles trái", "gân Achillis trái"], "blockers": ["Exact left-sided external identity/laterality has not been independently verified; do not create the canonical form by string composition alone."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA54159",
+      "conceptId": "FMA54159",
+      "english": {"preferred": "tendon of right levator palpebrae superioris", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 15, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Exact tendon-specific right-sided entity was not located in Tier-A Vietnamese sources or pinned TA2/FMA evidence."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA65410",
+      "conceptId": "FMA65410",
+      "english": {"preferred": "intermediate tendon", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA65410-ALIAS-GENERIC", "type": "vietnamese-alias", "target": "gân trung gian", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "intermediate tendon terminology", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 16, "dispositionBucket": "IDENTITY_CONTEXT_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "gân trung gian cơ vai-móng", "aliasCandidates": ["gân trung gian"], "blockers": ["Pair/single-mesh scope remains unresolved.", "Exact FIPAT/FMA cross-reference entry must be pinned before SOURCE_VERIFIED."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA44249",
+      "conceptId": "FMA44249",
+      "english": {"preferred": "right long plantar ligament", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 17, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "dây chằng gan chân dài phải", "aliasCandidates": [], "blockers": ["Base term is supported, but exact side-specific external identity is not pinned."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA44250",
+      "conceptId": "FMA44250",
+      "english": {"preferred": "left long plantar ligament", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 18, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "dây chằng gan chân dài trái", "aliasCandidates": [], "blockers": ["Base term is supported, but exact side-specific external identity is not pinned."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA55139",
+      "conceptId": "FMA55139",
+      "english": {"preferred": "lateral thyrohyoid ligament", "aliases": []},
+      "vietnamese": {"preferred": "dây chằng giáp-móng bên", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA55139-VI-PREFERRED", "type": "vietnamese-preferred", "target": "dây chằng giáp-móng bên", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 199, "entryId": "A06.2.02.01", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page; pair scope remains pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 19, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "dây chằng giáp-móng bên", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["FIPAT pair scope and atlas two-mesh membership must be reconciled before release."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA55237",
+      "conceptId": "FMA55237",
+      "english": {"preferred": "median cricothyroid ligament", "aliases": []},
+      "vietnamese": {"preferred": "dây chằng nhẫn-giáp giữa", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA55237-VI-PREFERRED", "type": "vietnamese-preferred", "target": "dây chằng nhẫn-giáp giữa", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 199, "entryId": "A06.2.03.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Bare dây chằng nhẫn-giáp is not treated as equivalent; exact middle-ligament scope remains pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 20, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "dây chằng nhẫn-giáp giữa", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Pin exact TA2 entry and edition-matched Vietnamese locators.", "Bare dây chằng nhẫn-giáp is not automatically equivalent."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA3802",
+      "conceptId": "FMA3802",
+      "english": {"preferred": "trunk of right coronary artery", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 21, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Do not invent thân động mạch vành phải; Vietnamese sources do not establish the trunk entity as the right coronary artery."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA3813",
+      "conceptId": "FMA3813",
+      "english": {"preferred": "anterior ventricular branch of right coronary artery", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 22, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Eight-mesh branch aggregate cannot be collapsed into a single branch without ontology evidence."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA3951",
+      "conceptId": "FMA3951",
+      "english": {"preferred": "subclavian artery", "aliases": []},
+      "vietnamese": {"preferred": "động mạch dưới đòn", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA3951-VI-PREFERRED", "type": "vietnamese-preferred", "target": "động mạch dưới đòn", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 289, "entryId": "A12.2.08.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page; HMU/UMP exact edition corroboration remains pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 23, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "động mạch dưới đòn", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Pin exact UMP/HMU page locators before SOURCE_VERIFIED."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA10662",
+      "conceptId": "FMA10662",
+      "english": {"preferred": "inferior thyroid artery", "aliases": []},
+      "vietnamese": {"preferred": "động mạch giáp dưới", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA10662-VI-PREFERRED", "type": "vietnamese-preferred", "target": "động mạch giáp dưới", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 292, "entryId": "A12.2.08.04", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page; authoritative textbook locator remains pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 24, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "động mạch giáp dưới", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Pin authoritative textbook locator before SOURCE_VERIFIED."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA3994",
+      "conceptId": "FMA3994",
+      "english": {"preferred": "second posterior intercostal artery", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 25, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": "động mạch gian sườn sau thứ hai", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Term is attested, but atlas relation to the supreme intercostal branching pattern requires independent checking."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA4725",
+      "conceptId": "FMA4725",
+      "english": {"preferred": "subclavian vein", "aliases": []},
+      "vietnamese": {"preferred": "tĩnh mạch dưới đòn", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA4725-VI-PREFERRED", "type": "vietnamese-preferred", "target": "tĩnh mạch dưới đòn", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 332, "entryId": "A12.3.08.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page; exact locator approval remains pending."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 26, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "tĩnh mạch dưới đòn", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Pin exact locators before SOURCE_VERIFIED."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA4751",
+      "conceptId": "FMA4751",
+      "english": {"preferred": "right brachiocephalic vein", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA4751-ALIAS-CANH-TAY", "type": "vietnamese-alias", "target": "tĩnh mạch cánh tay đầu phải", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "brachiocephalic vein terminology", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA4751-ALIAS-TAY-DAU", "type": "vietnamese-alias", "target": "tĩnh mạch tay đầu phải", "sourceId": "UMP2023_SYS", "sourceRevision": "UMP-2023-SYSTEM-6E-ISBN-9786046662921", "locator": {"section": "current UMP brachiocephalic vein terminology"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 27, "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": ["tĩnh mạch cánh tay đầu phải", "tĩnh mạch tay đầu phải"], "blockers": ["HMU/NVH and modern UMP lineages use competing Vietnamese forms; exact right-side identity requires adjudication."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA8668",
+      "conceptId": "FMA8668",
+      "english": {"preferred": "superior lingular vein", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 28, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": "tĩnh mạch phân thùy lưỡi trên", "aliasCandidates": [], "blockers": ["Do not choose between tĩnh mạch lưỡi and tĩnh mạch phân thùy lưỡi without Tier-A Vietnamese evidence."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA8669",
+      "conceptId": "FMA8669",
+      "english": {"preferred": "inferior lingular vein", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 29, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": "tĩnh mạch phân thùy lưỡi dưới", "aliasCandidates": [], "blockers": ["Do not choose between tĩnh mạch lưỡi and tĩnh mạch phân thùy lưỡi without Tier-A Vietnamese evidence."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA5913",
+      "conceptId": "FMA5913",
+      "english": {"preferred": "nerve trunk", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 30, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Generic multi-mesh nerve aggregate remains unresolved; no exact Vietnamese canonical entity is established."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA52570",
+      "conceptId": "FMA52570",
+      "english": {"preferred": "branch of cranial nerve", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 31, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Twenty-six-mesh branch aggregate is broader than a single named branch; generic nerve aggregates remain unresolved."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA50875",
+      "conceptId": "FMA50875",
+      "english": {"preferred": "right optic nerve", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 32, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "thần kinh thị giác phải", "aliasCandidates": [], "blockers": ["Base term is strong, but side-specific external identity must be pinned rather than inferred by string composition."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA50878",
+      "conceptId": "FMA50878",
+      "english": {"preferred": "left optic nerve", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 33, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "thần kinh thị giác trái", "aliasCandidates": [], "blockers": ["Base term is strong, but side-specific external identity must be pinned rather than inferred by string composition."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA52672",
+      "conceptId": "FMA52672",
+      "english": {"preferred": "communicating branch of nasociliary nerve with ciliary ganglion", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA52672-ALIAS-BRANCH", "type": "vietnamese-alias", "target": "nhánh nối với hạch mi", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "nasociliary nerve and ciliary ganglion entries", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA52672-ALIAS-SENSORY-ROOT", "type": "vietnamese-alias", "target": "rễ cảm giác của hạch mi", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "ciliary ganglion terminology", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA52672-ALIAS-NASOCILIARY-ROOT", "type": "vietnamese-alias", "target": "rễ mũi-mi của hạch mi", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "nasociliary nerve terminology", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 34, "dispositionBucket": "IDENTITY_CONTEXT_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "nhánh nối của thần kinh mũi-mi với hạch mi", "aliasCandidates": ["nhánh nối với hạch mi", "rễ cảm giác của hạch mi", "rễ mũi-mi của hạch mi"], "blockers": ["Literal source wording may lose parent-nerve context as a standalone atlas label.", "Exact external mapping must be pinned."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA7196",
+      "conceptId": "FMA7196",
+      "english": {"preferred": "spleen", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA7196-ALIAS-LACH", "type": "vietnamese-alias", "target": "lách", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "spleen terminology entry", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA7196-ALIAS-TY", "type": "vietnamese-alias", "target": "tỳ", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"section": "spleen terminology entry", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 35, "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": "lách", "aliasCandidates": ["lách", "tỳ"], "blockers": ["NVH records both Tỳ and Lách; preferred form requires exact current-source review and adjudication."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA7148",
+      "conceptId": "FMA7148",
+      "english": {"preferred": "stomach", "aliases": []},
+      "vietnamese": {"preferred": "dạ dày", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA7148-VI-PREFERRED", "type": "vietnamese-preferred", "target": "dạ dày", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 176, "entryId": "A05.5.01.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 entry/page; the Vị alias remains unapproved."},
+        {"id": "M03C-FMA7148-ALIAS-VI", "type": "vietnamese-alias", "target": "vị", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 176, "entryId": "A05.5.01.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Alias candidate only; it is not placed in vietnamese.aliases or search."}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 36, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "dạ dày", "suggestedFormForReview": null, "aliasCandidates": ["vị"], "blockers": ["The Vị alias needs scope/search review before production search."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA7198",
+      "conceptId": "FMA7198",
+      "english": {"preferred": "pancreas", "aliases": []},
+      "vietnamese": {"preferred": "tụy", "aliases": [], "searchAliases": [], "asciiSearchForms": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [{"id": "M03C-FMA7198-VI-PREFERRED", "type": "vietnamese-preferred", "target": "tụy", "sourceId": "NVH2008", "sourceRevision": "NVH-2008-312P", "locator": {"page": 192, "entryId": "A05.9.01.00", "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING", "notes": "Reproducible NVH 2008 term entry/page from the access path; not source-verified."}],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 37, "dispositionBucket": "CONSENSUS_CANDIDATE", "candidateTermForReview": "tụy", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Pin exact locators before SOURCE_VERIFIED."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA7203",
+      "conceptId": "FMA7203",
+      "english": {"preferred": "kidney", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 38, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": "thận", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Unsided atlas concept contains two meshes and may aggregate left/right kidneys; confirm scope before release."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA9597",
+      "conceptId": "FMA9597",
+      "english": {"preferred": "salivary gland", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 39, "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW", "candidateTermForReview": "tuyến nước bọt", "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Four-mesh aggregate must be distinguished from a single gland or family term."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA15629",
+      "conceptId": "FMA15629",
+      "english": {"preferred": "right adrenal gland", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA15629-ALIAS-THUONG", "type": "vietnamese-alias", "target": "tuyến thượng thận phải", "sourceId": "HMU2022", "sourceRevision": "HMU-2022-ISBN-9786046658351", "locator": {"section": "adrenal-gland terminology", "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA15629-ALIAS-TREN", "type": "vietnamese-alias", "target": "tuyến trên thận phải", "sourceId": "UMP2023_T2", "sourceRevision": "UMP-2023-PROGRAM-T2-437P", "locator": {"section": "adrenal-gland terminology", "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 40, "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": ["tuyến thượng thận phải", "tuyến trên thận phải"], "blockers": ["Authoritative/current usage contains both forms; exact side-specific identity must be pinned."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA15630",
+      "conceptId": "FMA15630",
+      "english": {"preferred": "left adrenal gland", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [
+        {"id": "M03C-FMA15630-ALIAS-THUONG", "type": "vietnamese-alias", "target": "tuyến thượng thận trái", "sourceId": "HMU2022", "sourceRevision": "HMU-2022-ISBN-9786046658351", "locator": {"section": "adrenal-gland terminology", "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"},
+        {"id": "M03C-FMA15630-ALIAS-TREN", "type": "vietnamese-alias", "target": "tuyến trên thận trái", "sourceId": "UMP2023_T2", "sourceRevision": "UMP-2023-PROGRAM-T2-437P", "locator": {"section": "adrenal-gland terminology", "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM"}, "evidenceDisposition": "CANDIDATE", "reviewState": "PENDING"}
+      ],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 41, "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": ["tuyến thượng thận trái", "tuyến trên thận trái"], "blockers": ["Authoritative/current usage contains both forms; exact side-specific identity must be pinned."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA25511",
+      "conceptId": "FMA25511",
+      "english": {"preferred": "intervertebral symphysis", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 42, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": "khớp sụn-sợi gian đốt sống", "aliasCandidates": [], "blockers": ["Do not collapse several symphysis/intervertebral-joint descriptions into the composed suggested form."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA25571",
+      "conceptId": "FMA25571",
+      "english": {"preferred": "intervertebral symphysis of axis", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 43, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["No direct Tier-A Vietnamese per-level term; do not compose a vertebral-level name from a generic term."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA26086",
+      "conceptId": "FMA26086",
+      "english": {"preferred": "seventh cervical intervertebral symphysis", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 44, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["No direct Tier-A Vietnamese per-level term; do not compose a vertebral-level name from a generic term."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA26089",
+      "conceptId": "FMA26089",
+      "english": {"preferred": "first thoracic intervertebral symphysis", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 45, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["No direct Tier-A Vietnamese per-level term; do not compose a vertebral-level name from a generic term."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA79063",
+      "conceptId": "FMA79063",
+      "english": {"preferred": "deep fascial system", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 46, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Broad deep fascial system is an aggregate/system concept; no exact Vietnamese preferred entity was located."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA58775",
+      "conceptId": "FMA58775",
+      "english": {"preferred": "zone of fascia lata", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 47, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": "vùng của mạc đùi", "aliasCandidates": [], "blockers": ["Keep zone/system/investing fascia distinctions explicit; do not collapse zone of fascia lata to fascia lata."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA58418",
+      "conceptId": "FMA58418",
+      "english": {"preferred": "investing fascia of right lower limb", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 48, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["No exact Tier-A Vietnamese term; do not compose a side-specific canonical label from generic fascia vocabulary."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA58419",
+      "conceptId": "FMA58419",
+      "english": {"preferred": "investing fascia of left lower limb", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 49, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["No exact Tier-A Vietnamese term; do not compose a side-specific canonical label from generic fascia vocabulary."]},
+      "review": {"status": "DRAFT"}
+    },
+    {
+      "key": "FMA57965",
+      "conceptId": "FMA57965",
+      "english": {"preferred": "zone of investing fascia", "aliases": []},
+      "mapping": {"status": "UNMAPPED", "disposition": "UNRESOLVED", "mappings": []},
+      "claims": [],
+      "researchDisposition": {"milestone": "M03C1", "artifact": "docs/en-vi/research/M03C_RESEARCH_EVIDENCE_MATRIX.json", "row": 50, "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED", "candidateTermForReview": null, "suggestedFormForReview": null, "aliasCandidates": [], "blockers": ["Direct Vietnamese preferred term was not located; generic mạc bọc terminology is insufficient to prove equivalence."]},
+      "review": {"status": "DRAFT"}
+    }
+  ]
 }

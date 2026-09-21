@@ -25,7 +25,7 @@ app/localization.ts defines:
 
 app/page.tsx owns the language state, initializes it from storage, persists changes, and updates the document lang attribute. The switcher changes only this state. It does not change the atlas state, pass a language prop to AnatomyScene, change the atlas key, or remount the scene.
 
-All ordinary interactive UI copy is routed through semantic keys: search, panel headings, presets, hide/show/reset actions, explosion and camera controls, loading/error states, source-link labels, detail-panel labels, and related accessibility labels. Medically meaningful preset labels such as Skeleton and Organs remain English in Vietnamese mode while the production terminology registry is empty; they are not Vietnamese terminology entries. Anatomical system names and descriptions, structure explanations, source-scope prose, and attribution prose remain English unless controlled terminology or approved medical localization exists; these are explicitly deferred content surfaces.
+All ordinary interactive UI copy is routed through semantic keys: search, panel headings, presets, hide/show/reset actions, explosion and camera controls, loading/error states, source-link labels, detail-panel labels, and related accessibility labels. Medically meaningful preset labels such as Skeleton and Organs remain English in Vietnamese mode while the production terminology overlay is empty; M03C1 research candidates are not Vietnamese UI terminology entries. Anatomical system names and descriptions, structure explanations, source-scope prose, and attribution prose remain English unless controlled terminology or approved medical localization exists; these are explicitly deferred content surfaces.
 
 The dictionary is not a terminology database. It must not acquire entries of the form concept name → Vietnamese anatomical term.
 
@@ -40,7 +40,7 @@ app/terminology.ts defines the separate overlay contract:
 - source revisions, conflict adjudication, reviewer registry records, and revision-bound audits are release dependencies;
 - English, Latin, and Vietnamese fields retain preferred and alias distinctions; ASCII forms remain matching-only.
 
-TERMINOLOGY_OVERLAY, TERMINOLOGY_SOURCES, TERMINOLOGY_REVIEWERS, and the release manifest are loaded from the static terminology registry. M03B source records describe real bibliographic identities but do not populate the overlay; production entries remain empty, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
+TERMINOLOGY_OVERLAY, TERMINOLOGY_SOURCES, TERMINOLOGY_REVIEWERS, and the release manifest are loaded from the static terminology registry. M03C1 source records describe real bibliographic identities and the registry holds 50 bounded non-release research entries, but the release overlay remains empty, so no Vietnamese anatomical term is displayed or searched. Future validated entries can flow through the same data boundary without renderer changes.
 
 resolveConceptName takes a Concept, language, overlay, and source catalog. English always returns Concept.name. Vietnamese returns a preferred term only after the release gate. The overlay can enrich a concept but cannot rewrite its original English name or its identity.
 
@@ -85,9 +85,9 @@ An upstream update is compared by stable concept IDs and mesh IDs:
 
 The upstream atlas is regenerated independently. The terminology overlay is then validated against the new concept set. Entries for removed IDs become orphan findings; renamed English names, changed concept-to-mesh membership, and remapped identifiers invalidate dependent approvals; unchanged IDs retain an overlay only after revision and manifest checks pass. No upstream synchronization step writes Vietnamese data into atlas.json.
 
-## M02B governance boundary
+## Release governance boundary
 
-`computeTerminologyRevision` deterministically fingerprints medically meaningful entry content while excluding mutable review metadata. Source, medical, and release audits point to the current revision and reviewed claims. Medical approval requires an active registered reviewer with authorization scope; automation never supplies it. `release.json` binds atlas, registry, source, reviewer, policy, content hash, and released entry revisions. The current manifest and production registries are empty/unreleased.
+`computeTerminologyRevision` deterministically fingerprints medically meaningful entry content while excluding mutable review metadata. Source, medical, and release audits point to the current revision and reviewed claims. Medical approval requires an active registered reviewer with authorization scope; automation never supplies it. `release.json` binds atlas, registry, source, reviewer, policy, content hash, and released entry revisions. M03C1 keeps the release overlay/search surface empty and the manifest `UNRELEASED`; only the bounded research queue is populated.
 
 ## Deployment
 

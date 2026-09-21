@@ -32,6 +32,7 @@ const VALID_EVIDENCE_DISPOSITIONS = new Set(['CANDIDATE', 'SUPPORTED', 'REJECTED
 const VALID_CLAIM_REVIEW_STATES = new Set(['PENDING', 'VERIFIED', 'REJECTED']);
 const VALID_CONFLICT_TYPES = new Set(['identity-disagreement', 'granularity-disagreement', 'contextual-difference', 'edition-version-difference', 'competing-preferred-terminology']);
 const VALID_CONFLICT_STATUSES = new Set(['OPEN', 'ADJUDICATED', 'REJECTED']);
+const VALID_M03C_RESEARCH_BUCKETS = new Set(['CONFLICT_REQUIRES_ADJUDICATION', 'CONSENSUS_CANDIDATE', 'ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED', 'BASE_TERM_SCOPE_OR_LATERALITY_REVIEW', 'IDENTITY_CONTEXT_REVIEW', 'VARIANT_WITH_ALIAS_REVIEW']);
 const VALID_LOCATOR_KEYS = new Set(['page', 'plate', 'chapter', 'section', 'table', 'entryId', 'url', 'nomenclatureId']);
 const VALID_SOURCE_CAPABILITY_KEYS = new Set(['anatomicalIdentity', 'canonicalLatin', 'vietnamesePreferred', 'secondaryCorroboration', 'machineCandidateDiscovery']);
 const PLACEHOLDER_PATTERN = /^(?:TODO|TBD|UNKNOWN|PLACEHOLDER|N\/A|NA)$/i;
@@ -122,7 +123,23 @@ function validateSources(records, result) {
     if (source.class === 'vietnamese-authoritative' && source.authorityTier !== 'authoritative') addError(result, 'vietnamese-source-authority-conflict', 'Vietnamese authoritative sources must declare authoritative tier', `${path}.authorityTier`);
     if (source.authorityTier === 'rejected' && source.audit?.status === 'VERIFIED') addError(result, 'rejected-source-verified', 'Rejected sources cannot have a VERIFIED source audit', path);
     if (nonemptyString(source.url) && !isValidUrl(source.url)) addError(result, 'invalid-source-url', 'Source URL must be http(s)', `${path}.url`);
+    if (source.pageCount !== undefined && (!Number.isInteger(source.pageCount) || source.pageCount <= 0)) addError(result, 'invalid-source-page-count', 'pageCount must be a positive integer when present', `${path}.pageCount`);
+    if (source.accessCopy !== undefined) {
+      if (!isObject(source.accessCopy)) addError(result, 'invalid-access-copy', 'accessCopy must be an object', `${path}.accessCopy`);
+      else {
+        if (!isValidUrl(source.accessCopy.url)) addError(result, 'invalid-access-copy-url', 'accessCopy.url must be an http(s) URL', `${path}.accessCopy.url`);
+        if (source.accessCopy.relation !== 'access-copy') addError(result, 'invalid-access-copy-relation', 'accessCopy.relation must be access-copy', `${path}.accessCopy.relation`);
+        if (!nonemptyString(source.accessCopy.notes)) addError(result, 'invalid-access-copy-notes', 'accessCopy.notes is required', `${path}.accessCopy.notes`);
+      }
+    }
+    if (source.accessCopyOf !== undefined && !nonemptyString(source.accessCopyOf)) addError(result, 'invalid-access-copy-target', 'accessCopyOf must be a non-empty source id', `${path}.accessCopyOf`);
     if (nonemptyString(source.id)) sourceCatalog[source.id] = source;
+  });
+  records.forEach((source, index) => {
+    if (!isObject(source) || !nonemptyString(source.accessCopyOf)) return;
+    const path = `sources[${index}].accessCopyOf`;
+    if (source.accessCopyOf === source.id || !sourceCatalog[source.accessCopyOf]) addError(result, 'unresolved-access-copy-target', 'accessCopyOf must reference a different registered source', path);
+    if (source.authorityTier !== 'discovery-only') addError(result, 'access-copy-authority-conflict', 'An access-copy record must remain discovery-only', `${path.replace('.accessCopyOf', '.authorityTier')}`);
   });
   return sourceCatalog;
 }
@@ -301,6 +318,21 @@ function validateCandidateOrigins(entry, entryPath, sourceCatalog, result) {
   });
 }
 
+function validateResearchDisposition(entry, entryPath, result) {
+  if (entry.researchDisposition === undefined) return;
+  const path = `${entryPath}.researchDisposition`;
+  const research = entry.researchDisposition;
+  if (!isObject(research)) { addError(result, 'invalid-research-disposition', 'researchDisposition must be an object', path); return; }
+  if (research.milestone !== 'M03C1') addError(result, 'invalid-research-milestone', 'researchDisposition.milestone must be M03C1', `${path}.milestone`);
+  if (!nonemptyString(research.artifact)) addError(result, 'invalid-research-artifact', 'researchDisposition.artifact is required', `${path}.artifact`);
+  if (!Number.isInteger(research.row) || research.row <= 0) addError(result, 'invalid-research-row', 'researchDisposition.row must be a positive integer', `${path}.row`);
+  if (!VALID_M03C_RESEARCH_BUCKETS.has(research.dispositionBucket)) addError(result, 'invalid-research-bucket', 'researchDisposition.dispositionBucket is invalid', `${path}.dispositionBucket`);
+  if (research.candidateTermForReview !== undefined && research.candidateTermForReview !== null && !nonemptyString(research.candidateTermForReview)) addError(result, 'invalid-research-candidate-term', 'candidateTermForReview must be a non-empty string or null', `${path}.candidateTermForReview`);
+  if (research.suggestedFormForReview !== undefined && research.suggestedFormForReview !== null && !nonemptyString(research.suggestedFormForReview)) addError(result, 'invalid-research-suggested-form', 'suggestedFormForReview must be a non-empty string or null', `${path}.suggestedFormForReview`);
+  validateStringArray(research.aliasCandidates, `${path}.aliasCandidates`, result);
+  validateStringArray(research.blockers, `${path}.blockers`, result, {allowEmpty: false});
+}
+
 function validateAudit(audit, expectedType, entryPath, entry, claims, reviewers, result) {
   if (audit === undefined) return;
   const path = `${entryPath}.review.${expectedType}`;
@@ -350,7 +382,10 @@ function validateConflicts(entry, entryPath, claims, reviewers, result) {
     if (!VALID_CONFLICT_STATUSES.has(conflict.status)) addError(result, 'invalid-conflict-status', 'Conflict status is invalid', `${path}.status`);
     validateStringArray(conflict.claimIds, `${path}.claimIds`, result, {allowEmpty: false});
     for (const claimId of conflict.claimIds ?? []) if (!claims.has(claimId)) addError(result, 'conflict-unknown-claim', `Conflict references unknown claim: ${claimId}`, `${path}.claimIds`);
-    if (conflict.status === 'OPEN') addWarning(result, 'conflict-awaiting-adjudication', 'Open authoritative-source conflict blocks release', path);
+    if (conflict.status === 'OPEN') {
+      addWarning(result, 'conflict-awaiting-adjudication', 'Open authoritative-source conflict blocks release', path);
+      if (nonemptyString(entry.vietnamese?.preferred)) addError(result, 'open-conflict-preferred-term', 'An open conflict cannot expose a production Vietnamese preferred term', `${entryPath}.vietnamese.preferred`);
+    }
     if (conflict.status === 'ADJUDICATED') {
       if (!nonemptyString(conflict.decision) || !nonemptyString(conflict.rationale) || !nonemptyString(conflict.reviewerId) || !isValidDate(conflict.resolvedAt) || conflict.entryRevision !== computeTerminologyRevision(entry)) addError(result, 'invalid-conflict-adjudication', 'Adjudicated conflicts require current revision, rationale, decision, reviewer, and date', path);
       if (!reviewers[conflict.reviewerId] || reviewers[conflict.reviewerId].status !== 'ACTIVE') addError(result, 'unregistered-conflict-reviewer', 'Conflict adjudicator must be an active registered reviewer', `${path}.reviewerId`);
@@ -372,6 +407,7 @@ function validateEntries(records, atlas, sourceCatalog, reviewers, result) {
     const concept = concepts.get(entry.conceptId);
     if (!concept) addError(result, 'orphan-concept-id', `Unknown atlas concept: ${entry.conceptId}`, `${path}.conceptId`);
     validateTermFields(entry, path, concept, result);
+    validateResearchDisposition(entry, path, result);
     validateCandidateOrigins(entry, path, sourceCatalog, result);
     const claims = validateClaims(entry, path, sourceCatalog, result);
     validateAtlasMembership(entry, path, concept, atlas, result);

@@ -163,11 +163,32 @@ for (const [conceptId, elements] of selectedElements) {
 }
 for (const record of records) if (record.edgeCaseTags?.includes('SHARED_MEMBERSHIP_CANDIDATE') && !sharedMembershipIds.has(record.conceptId)) add(errors, `${record.conceptId} claims SHARED_MEMBERSHIP_CANDIDATE without selected-concept element overlap`);
 
-if (!isObject(entries) || !Array.isArray(entries.entries) || entries.entries.length !== 0) add(errors, 'Production terminology entries must remain empty during M03A');
+if (!isObject(entries) || !Array.isArray(entries.entries)) {
+  add(errors, 'Terminology entries must remain a valid registry document');
+} else {
+  if (entries.entries.length !== records.length) add(errors, `M03C research registry must contain exactly the frozen ${records.length} concepts; found ${entries.entries.length}`);
+  const entryIds = new Set();
+  for (const [index, entry] of entries.entries.entries()) {
+    const path = `terminology.entries[${index}]`;
+    if (!isObject(entry)) { add(errors, `${path} must be an object`); continue; }
+    if (typeof entry.conceptId !== 'string' || !selectedIds.has(entry.conceptId)) add(errors, `${path}.conceptId must belong to the frozen M03A set`);
+    if (entryIds.has(entry.conceptId)) add(errors, `${path}.conceptId is duplicated: ${entry.conceptId}`);
+    entryIds.add(entry.conceptId);
+    if (entry.researchDisposition?.milestone !== 'M03C1') add(errors, `${path}.researchDisposition.milestone must remain M03C1`);
+    if (entry.mapping?.status !== 'UNMAPPED' || entry.mapping?.disposition !== 'UNRESOLVED') add(errors, `${path}.mapping must remain UNMAPPED/UNRESOLVED during M03C1`);
+    if (entry.review?.status !== 'DRAFT') add(errors, `${path}.review.status must remain DRAFT during M03C1`);
+    if (entry.review?.medicalReview || entry.releaseEligibility) add(errors, `${path} contains a medical/release decision before review`);
+    for (const claim of entry.claims ?? []) {
+      if (claim.evidenceDisposition !== 'CANDIDATE' || claim.reviewState !== 'PENDING') add(errors, `${path} contains a non-candidate or non-pending claim`);
+    }
+  }
+  for (const selectedId of selectedIds) if (!entryIds.has(selectedId)) add(errors, `M03C research registry is missing frozen concept ${selectedId}`);
+}
 if (!isObject(release) || release.releaseStatus !== 'UNRELEASED') add(errors, 'Production release manifest must remain UNRELEASED during M03A');
-// M03A froze the pilot before source lock. M03B may add source identities, but
-// this regression must still prove that no entries, reviewers, or release data
-// were populated and that the frozen concept set remains unchanged.
+// M03A froze the pilot before source lock. M03B may add source identities and
+// M03C may add non-release research dispositions, but this regression must
+// still prove that the frozen concept set remains unchanged and no reviewer or
+// release decision has been populated.
 if (!isObject(sources) || !Array.isArray(sources.sources)) add(errors, 'Production source catalog must remain a valid source-only document');
 if (!isObject(reviewers) || !Array.isArray(reviewers.reviewers) || reviewers.reviewers.length !== 0) add(errors, 'Production reviewer registry must remain empty during M03A');
 
@@ -180,5 +201,5 @@ if (errors.length > 0) {
   console.log(`Concepts: ${records.length}; categories: ${Object.entries(categoryCounts).map(([key, value]) => `${key}=${value}`).join(', ')}`);
   console.log(`Edge tags: ${Object.entries(tagCounts).sort(([a], [b]) => a.localeCompare(b)).map(([key, value]) => `${key}=${value}`).join(', ')}`);
   console.log(`Ontology investigation concepts: ${ontologyRiskIds.size}; shared-membership candidates: ${sharedMembershipIds.size}`);
-  console.log(`Production entries: 0; source records: ${sources.sources.length}; reviewers: 0; releaseStatus: UNRELEASED; FMA/TA2 mappings: none asserted`);
+  console.log(`M03C research entries: ${entries.entries.length}; source records: ${sources.sources.length}; reviewers: 0; releaseStatus: UNRELEASED; FMA/TA2 mappings: none asserted`);
 }

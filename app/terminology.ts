@@ -59,6 +59,12 @@ export interface TerminologySourceAudit {
   notes?: string;
 }
 
+export interface TerminologyAccessCopy {
+  url: string;
+  relation: 'access-copy';
+  notes: string;
+}
+
 export interface TerminologySourceRecord {
   id: string;
   class: TerminologySourceClass;
@@ -79,6 +85,7 @@ export interface TerminologySourceRecord {
   institution?: string;
   edition?: string;
   publicationYear?: number | null;
+  pageCount?: number;
   publisher?: string;
   isbn?: string | null;
   doi?: string;
@@ -87,6 +94,8 @@ export interface TerminologySourceRecord {
   language?: string;
   version?: string;
   licenseNote?: string;
+  accessCopy?: TerminologyAccessCopy;
+  accessCopyOf?: string;
 }
 
 export type TerminologySourceCatalog = Readonly<Record<string, TerminologySourceRecord>>;
@@ -200,6 +209,25 @@ export interface TerminologyConflict {
   entryRevision?: string;
 }
 
+export type M03CResearchDispositionBucket =
+  | 'CONFLICT_REQUIRES_ADJUDICATION'
+  | 'CONSENSUS_CANDIDATE'
+  | 'ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED'
+  | 'BASE_TERM_SCOPE_OR_LATERALITY_REVIEW'
+  | 'IDENTITY_CONTEXT_REVIEW'
+  | 'VARIANT_WITH_ALIAS_REVIEW';
+
+export interface M03CResearchDisposition {
+  milestone: 'M03C1';
+  artifact: string;
+  row: number;
+  dispositionBucket: M03CResearchDispositionBucket;
+  candidateTermForReview?: string | null;
+  suggestedFormForReview?: string | null;
+  aliasCandidates: readonly string[];
+  blockers: readonly string[];
+}
+
 export type TerminologyReviewAuditType = 'source-verification' | 'medical-review' | 'release-eligibility';
 export type TerminologyReviewAuditStatus = 'PENDING' | 'PASSED' | 'REJECTED';
 
@@ -259,6 +287,8 @@ export interface TerminologyEntry {
   claims: readonly TerminologyClaim[];
   candidateOrigins?: readonly TerminologyCandidateOrigin[];
   conflicts?: readonly TerminologyConflict[];
+  /** Non-production research queue metadata; never a release/search assertion. */
+  researchDisposition?: M03CResearchDisposition;
   review: TerminologyReview;
 }
 

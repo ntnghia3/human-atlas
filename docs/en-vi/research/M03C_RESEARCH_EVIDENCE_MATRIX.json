@@ -1,0 +1,2710 @@
+{
+  "schemaVersion": "m03c-research-handoff-1",
+  "project": "Human Atlas EN–VI",
+  "generatedDate": "2026-09-21",
+  "pilotSelectionCommit": "5652a98afa81d3f6653804075a07d9800aa490f5",
+  "startingRepoCommit": "20f9ba08b3c7e3216bf3351901b98f8d18aa320b",
+  "atlasDataset": "public/models/atlas.json",
+  "nonReleaseResearchArtifact": true,
+  "researchRules": [
+    "Atlas Concept.id is an opaque atlas identity until an external mapping is independently evidenced.",
+    "Mesh membership is not ontology equivalence.",
+    "Public mirrors/access copies may be used to inspect text, but authority belongs to the identified book/edition/source, not to the mirror host.",
+    "No majority vote resolves substantive authoritative-source conflicts.",
+    "Do not mechanically compose canonical Vietnamese labels from base term + laterality/direction.",
+    "A source-consensus candidate is not MEDICAL_REVIEWED or release-eligible.",
+    "Exact edition-matched locators must be pinned before SOURCE_VERIFIED.",
+    "No record in this artifact may satisfy production review/release gates by itself."
+  ],
+  "sources": {
+    "BP3D4": {
+      "title": "BodyParts3D 4.0",
+      "class": "atlas-source",
+      "authorityScope": [
+        "atlas concept labels",
+        "mesh membership",
+        "atlas packaging"
+      ],
+      "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+      "access": "FULL_ACCESS",
+      "notes": "Authoritative for the atlas dataset/mesh packaging, not sufficient by itself to prove current FMA or TA2 equivalence."
+    },
+    "FIPAT_TA2": {
+      "title": "Terminologia Anatomica, 2nd edition (TA2)",
+      "class": "international-nomenclature",
+      "authorityScope": [
+        "official Latin anatomical nomenclature",
+        "official English equivalents",
+        "TA2 hierarchy/term relations"
+      ],
+      "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
+      "access": "PARTIAL_ACCESS",
+      "notes": "TA2 was published online in 2019 and approved by the IFAA General Assembly. Exact term/cross-reference locators must be pinned before claim verification."
+    },
+    "FMA_UW": {
+      "title": "Foundational Model of Anatomy (University of Washington)",
+      "class": "international-ontology",
+      "authorityScope": [
+        "FMA ontology identity and relations"
+      ],
+      "url": "https://si.washington.edu/projects/fma/",
+      "access": "PARTIAL_ACCESS",
+      "notes": "Atlas Concept.id spelling must not be treated as proof of FMA identity."
+    },
+    "HMU2022": {
+      "title": "Giải phẫu người: dùng cho sinh viên hệ bác sĩ",
+      "authors": "Trường Đại học Y Hà Nội – Bộ môn Giải phẫu; Nguyễn Văn Huy (chủ biên)",
+      "publisher": "Nhà xuất bản Y học",
+      "year": 2022,
+      "isbn": "9786046658351",
+      "class": "vietnamese-authoritative",
+      "authorityScope": [
+        "Vietnamese anatomical terminology",
+        "anatomical teaching context"
+      ],
+      "officialMetadataUrl": "https://phucvu.thuvientphcm.gov.vn/Item/ItemDetail/798605",
+      "accessCopyUrl": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+      "access": "SEARCHABLE_ACCESS_COPY",
+      "notes": "Bibliographic identity is anchored to the library record; the Scribd copy is used only to inspect/search content. Exact page pinning remains required per claim."
+    },
+    "UMP2023_SYS": {
+      "title": "Giải phẫu học hệ thống",
+      "authors": "Đại học Y Dược TP.HCM – Bộ môn Giải phẫu học; Lê Văn Cường (chủ biên) và cộng sự",
+      "publisher": "Nhà xuất bản Y học",
+      "edition": "Xuất bản lần thứ 6, có sửa chữa bổ sung",
+      "year": 2023,
+      "isbn": "978-604-66-6292-1",
+      "class": "vietnamese-authoritative",
+      "authorityScope": [
+        "Vietnamese anatomical terminology",
+        "systematic anatomy teaching"
+      ],
+      "officialMetadataUrl": "https://opac.nlv.gov.vn/chi-tiet-tai-lieu/giai-phau-hoc-he-thong-202510224690518142931",
+      "access": "METADATA_CONFIRMED",
+      "notes": "Exact claim locators must be taken from an edition-matched full-text/access copy before SOURCE_VERIFIED."
+    },
+    "UMP2023_T2_ACCESS": {
+      "title": "Giải phẫu học (Chương trình Y đa khoa đổi mới), Tập 2",
+      "class": "access-copy",
+      "authorityScope": [
+        "content inspection only"
+      ],
+      "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+      "access": "SEARCHABLE_ACCESS_COPY",
+      "notes": "Use only when bibliographic identity/edition is matched to an authoritative UMP/NXB record."
+    },
+    "NQQ_T1_ACCESS": {
+      "title": "Bài giảng Giải phẫu học, Tập 1",
+      "authors": "Nguyễn Quang Quyền; Đại học Y Dược TP.HCM – Bộ môn Giải phẫu học",
+      "class": "vietnamese-authoritative-access-copy",
+      "authorityScope": [
+        "Vietnamese anatomical terminology",
+        "historical/current teaching lineage"
+      ],
+      "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+      "access": "SEARCHABLE_ACCESS_COPY",
+      "notes": "Do not infer edition from the mirror alone. Bind exact page evidence only after matching the copy to an authoritative bibliographic record."
+    },
+    "NVH2008": {
+      "title": "Thuật ngữ giải phẫu Anh - Việt / English-Vietnamese Anatomical Terminology",
+      "authors": "Nguyễn Văn Huy (chủ biên), Chu Văn Tuệ Bình",
+      "publisher": "Nhà xuất bản Y học",
+      "year": 2008,
+      "pages": 312,
+      "class": "vietnamese-authoritative-terminology",
+      "authorityScope": [
+        "English–Vietnamese anatomical terminology",
+        "preferred/alternative Vietnamese forms in the edition"
+      ],
+      "officialMetadataUrl": "https://images.xuatbanyhoc.vn/Files/2025-06-30/document-20250630170725501.pdf",
+      "secondaryCatalogUrl": "https://opac.huemed-univ.edu.vn/SharedDocuments/ViewOnlineTemp/DMBOOKNEW2003.pdf",
+      "accessCopyUrl": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+      "access": "SEARCHABLE_ACCESS_COPY",
+      "notes": "Excellent terminology cross-check source. Exact page/TA-entry locator must be pinned before claim verification."
+    },
+    "NETTER2015": {
+      "title": "Atlas Giải phẫu người",
+      "authors": "Frank H. Netter; dịch Nguyễn Quang Quyền, Phạm Đăng Diệu",
+      "publisher": "Nhà xuất bản Y học",
+      "edition": "In lần thứ 1 theo ấn bản lần thứ 6 của Elsevier, có sửa chữa bổ sung",
+      "year": 2015,
+      "isbn": "9786046613206",
+      "class": "vietnamese-authoritative-atlas",
+      "authorityScope": [
+        "Vietnamese labels in the Vietnamese Netter edition",
+        "regional visual anatomy"
+      ],
+      "officialMetadataUrl": "https://phucvu.thuvientphcm.gov.vn/Item/ItemDetail/546207",
+      "access": "METADATA_CONFIRMED",
+      "notes": "Older/mirror Netter PDFs may be used for discovery only unless edition matched. Never transfer a locator from a different edition to this record."
+    },
+    "NATIONAL_BODY_TERMS_2025": {
+      "title": "Danh mục mã dùng chung thuật ngữ lâm sàng – cấu trúc cơ thể",
+      "class": "secondary-current-standardization",
+      "authorityScope": [
+        "current Vietnamese clinical/body-structure terminology corroboration"
+      ],
+      "url": "https://syt.daknong.gov.vn/upload/2005704/20250909/03_Phu_luc_01__Danh_muc_Cau_truc_co_the__signed_6ef8a.pdf",
+      "access": "FULL_ACCESS",
+      "notes": "Useful corroboration for current usage, not a replacement for anatomy nomenclature sources."
+    }
+  },
+  "summary": {
+    "conceptsAccountedFor": 50,
+    "dispositionCounts": {
+      "CONFLICT_REQUIRES_ADJUDICATION": 3,
+      "CONSENSUS_CANDIDATE": 11,
+      "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED": 22,
+      "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW": 8,
+      "IDENTITY_CONTEXT_REVIEW": 2,
+      "VARIANT_WITH_ALIAS_REVIEW": 4
+    },
+    "sourceVerified": 0,
+    "medicalReviewed": 0,
+    "releaseEligible": 0
+  },
+  "concepts": [
+    {
+      "conceptId": "FMA16586",
+      "atlasName": "right hip bone",
+      "primaryCategory": "Bone",
+      "elements": [
+        "FJ3152"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONFLICT_REQUIRES_ADJUDICATION",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "xương chậu phải",
+        "xương hông phải"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "CONFLICT",
+      "blockers": [
+        "HMU/NVH and modern UMP use different Vietnamese base terms for hip bone.",
+        "Laterality must be verified as part of the exact atlas/external identity."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "hip bone is termed 'xương chậu'",
+          "locator": "searchable hip-bone passage; exact printed page must be pinned",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Hip/Coxal/Pelvic bone -> xương chậu",
+          "locator": "Hip bone terminology entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "hip bone is termed 'xương hông' (os coxae)",
+          "locator": "searchable lower-limb bone passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Do not resolve by majority vote. Treat xương chậu vs xương hông as a genuine authoritative-source terminology conflict."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA16587",
+      "atlasName": "left hip bone",
+      "primaryCategory": "Bone",
+      "elements": [
+        "FJ3288"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONFLICT_REQUIRES_ADJUDICATION",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "xương chậu trái",
+        "xương hông trái"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "CONFLICT",
+      "blockers": [
+        "HMU/NVH and modern UMP use different Vietnamese base terms for hip bone.",
+        "Laterality must be verified as part of the exact atlas/external identity."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "hip bone is termed 'xương chậu'",
+          "locator": "searchable hip-bone passage; exact printed page must be pinned",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Hip/Coxal/Pelvic bone -> xương chậu",
+          "locator": "Hip bone terminology entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "hip bone is termed 'xương hông' (os coxae)",
+          "locator": "searchable lower-limb bone passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Do not resolve by majority vote. Treat xương chậu vs xương hông as a genuine authoritative-source terminology conflict."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA24499",
+      "atlasName": "navicular bone of foot",
+      "primaryCategory": "Bone",
+      "elements": [
+        "FJ3307",
+        "FJ3308"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NO_CLEAN_TA2_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "CONFLICT_REQUIRES_ADJUDICATION",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "xương thuyền",
+        "xương ghe"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "CONFLICT",
+      "blockers": [
+        "HMU/NVH use xương thuyền for navicular bone of foot; UMP/NQQ use xương ghe and reserve xương thuyền for scaphoid."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "navicular bone of foot -> xương thuyền",
+          "locator": "searchable foot-bone passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Navicular -> Xương thuyền",
+          "locator": "Navicular terminology entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "os naviculare -> xương ghe; os scaphoideum -> xương thuyền",
+          "locator": "searchable lower-limb bone passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "modern UMP usage supports xương ghe for the foot navicular",
+          "locator": "searchable passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "This is a substantive nomenclature conflict, not a spelling variant."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9613",
+      "atlasName": "parietal bone",
+      "primaryCategory": "Bone",
+      "elements": [
+        "FJ3274",
+        "FJ3380"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "xương đỉnh",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Pin edition-matched locators before SOURCE_VERIFIED."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "parietal bone -> xương đỉnh",
+          "locator": "searchable skull passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Parietal bone -> Xương đỉnh",
+          "locator": "Parietal bone entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA33302",
+      "atlasName": "proximal carpal bone",
+      "primaryCategory": "Bone",
+      "elements": [
+        "FJ3268",
+        "FJ3276",
+        "FJ3278",
+        "FJ3285",
+        "FJ3374",
+        "FJ3382",
+        "FJ3383",
+        "FJ3390"
+      ],
+      "elementCount": 8,
+      "pilotEdgeCaseTags": [
+        "PROXIMAL_DISTAL",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NORMALIZATION_COLLISION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "hàng gần của các xương cổ tay",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "CONFLICT_OR_SCOPE",
+      "blockers": [
+        "Atlas concept is a multi-mesh grouping, not a single named bone.",
+        "HMU and UMP use row/group descriptions that do not safely equal the atlas singular English label."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "carpal bones are described in proximal/distal rows",
+          "locator": "searchable carpal-bone passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "traditional UMP wording describes upper/lower rows of carpal bones",
+          "locator": "searchable hand-bone passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Do not literal-translate the atlas label into a singular Vietnamese bone name."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA33303",
+      "atlasName": "distal carpal bone",
+      "primaryCategory": "Bone",
+      "elements": [
+        "FJ3257",
+        "FJ3261",
+        "FJ3283",
+        "FJ3284",
+        "FJ3361",
+        "FJ3367",
+        "FJ3388",
+        "FJ3389"
+      ],
+      "elementCount": 8,
+      "pilotEdgeCaseTags": [
+        "PROXIMAL_DISTAL",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "hàng xa của các xương cổ tay",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "CONFLICT_OR_SCOPE",
+      "blockers": [
+        "Atlas concept is a multi-mesh grouping, not a single named bone.",
+        "HMU and UMP use row/group descriptions that do not safely equal the atlas singular English label."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "carpal bones are described in proximal/distal rows",
+          "locator": "searchable carpal-bone passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "traditional UMP wording describes upper/lower rows of carpal bones",
+          "locator": "searchable hand-bone passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Do not literal-translate the atlas label into a singular Vietnamese bone name."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA22439",
+      "atlasName": "muscle of medial compartment of thigh",
+      "primaryCategory": "Muscle",
+      "elements": [
+        "FJ1401",
+        "FJ1401M",
+        "FJ1402",
+        "FJ1402M",
+        "FJ1403",
+        "FJ1403M",
+        "FJ1404",
+        "FJ1404M",
+        "FJ1421",
+        "FJ1421M",
+        "FJ1427",
+        "FJ1427M"
+      ],
+      "elementCount": 12,
+      "pilotEdgeCaseTags": [
+        "MEDIAL_LATERAL",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "MANY_TO_ONE_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "TERM_FAMILY_STRONG_SCOPE_UNRESOLVED",
+      "blockers": [
+        "Atlas concept is a multi-mesh 'muscle of compartment' aggregate; compartment terminology cannot be assumed equivalent to the concept."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Medial compartment of thigh -> ngăn cơ đùi trong; ngăn cơ khép của đùi",
+          "locator": "compartment terminology entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Keep production preferred term null until aggregate scope is adjudicated."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA22472",
+      "atlasName": "muscle of anterior compartment of leg",
+      "primaryCategory": "Muscle",
+      "elements": [
+        "FJ1406",
+        "FJ1406M",
+        "FJ1408",
+        "FJ1408M",
+        "FJ1411",
+        "FJ1411M",
+        "FJ1439",
+        "FJ1439M"
+      ],
+      "elementCount": 8,
+      "pilotEdgeCaseTags": [
+        "ANTERIOR_POSTERIOR",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "TERM_FAMILY_STRONG_SCOPE_UNRESOLVED",
+      "blockers": [
+        "Atlas concept is a multi-mesh 'muscle of compartment' aggregate; compartment terminology cannot be assumed equivalent to the concept."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Anterior compartment of leg -> ngăn cơ cẳng chân trước; ngăn cơ duỗi của cẳng chân",
+          "locator": "compartment terminology entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Keep production preferred term null until aggregate scope is adjudicated."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA19728",
+      "atlasName": "superficial perineal muscle",
+      "primaryCategory": "Muscle",
+      "elements": [
+        "FJ1450",
+        "FJ1450M",
+        "FJ2543",
+        "FJ2548"
+      ],
+      "elementCount": 4,
+      "pilotEdgeCaseTags": [
+        "SUPERFICIAL_DEEP",
+        "MULTI_MESH",
+        "MUSCLE_TENDON_DISTINCTION",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "TERM_FAMILY_STRONG_SCOPE_UNRESOLVED",
+      "blockers": [
+        "Atlas has four meshes; sources describe a superficial perineal muscle layer/group, not necessarily one exact generic entity."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "superficial perineal muscles are described as a group/layer",
+          "locator": "searchable perineum passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA22427",
+      "atlasName": "muscle of posterior compartment of thigh",
+      "primaryCategory": "Muscle",
+      "elements": [
+        "FJ1435",
+        "FJ1435M",
+        "FJ1436",
+        "FJ1436M"
+      ],
+      "elementCount": 4,
+      "pilotEdgeCaseTags": [
+        "ANTERIOR_POSTERIOR",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "SYNONYM_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "TERM_FAMILY_STRONG_SCOPE_UNRESOLVED",
+      "blockers": [
+        "Atlas concept is a multi-mesh 'muscle of compartment' aggregate; compartment terminology cannot be assumed equivalent to the concept."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Posterior compartment of thigh -> ngăn cơ đùi sau; ngăn cơ gấp của đùi",
+          "locator": "compartment terminology entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Keep production preferred term null until aggregate scope is adjudicated."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9756",
+      "atlasName": "external intercostal muscle",
+      "primaryCategory": "Muscle",
+      "elements": [
+        "FJ1451",
+        "FJ1451M"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "MUSCLE_TENDON_DISTINCTION",
+        "SYNONYM_RISK",
+        "NORMALIZATION_COLLISION_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "cơ gian sườn ngoài",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Confirm whether atlas two-mesh representation is pair/bilateral membership before release."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "external intercostal muscle -> cơ gian sườn ngoài",
+          "locator": "searchable thoracic-wall passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "External intercostal muscle -> Cơ gian sườn ngoài",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA13343",
+      "atlasName": "sternothyroid",
+      "primaryCategory": "Muscle",
+      "elements": [
+        "FJ1575",
+        "FJ1597"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "cơ ức-giáp",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Confirm atlas multi-mesh scope/pair semantics."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "sternothyroid -> cơ ức-giáp",
+          "locator": "searchable infrahyoid-muscle passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Sternothyroid -> Cơ ức-giáp",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA51061",
+      "atlasName": "calcaneal tendon",
+      "primaryCategory": "Tendon",
+      "elements": [
+        "FJ1405",
+        "FJ1405M"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "MUSCLE_TENDON_DISTINCTION",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "gân gót",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "gân Achilles",
+        "gân Achillis"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Atlas unsided two-mesh scope must be reconciled with pair/side-specific concepts before release."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Calcaneal tendon -> Gân gót",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "calcaneal/Achilles tendon is called gân gót, with Achilles/Achillis usage",
+          "locator": "searchable lower-limb passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "modern UMP uses gân gót and mentions Achilles as an alternate name",
+          "locator": "searchable lower-limb passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA264844",
+      "atlasName": "left calcaneal tendon",
+      "primaryCategory": "Tendon",
+      "elements": [
+        "FJ1405M"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "MUSCLE_TENDON_DISTINCTION",
+        "SYNONYM_RISK"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "gân gót trái",
+      "aliasCandidates": [
+        "gân Achilles trái",
+        "gân Achillis trái"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Exact left-sided external identity/laterality has not been independently verified; do not create the canonical form by string composition alone."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Calcaneal tendon base term -> Gân gót",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA54159",
+      "atlasName": "tendon of right levator palpebrae superioris",
+      "primaryCategory": "Tendon",
+      "elements": [
+        "FJ1343"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "MUSCLE_TENDON_DISTINCTION",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "Exact tendon-specific right-sided entity not located in Tier-A Vietnamese sources or pinned TA2/FMA evidence.",
+        "The well-attested muscle name cannot be reused as proof of the tendon name."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Levator palpebrae superioris muscle terminology exists, but does not by itself verify the tendon entity",
+          "locator": "related muscle entry only",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA65410",
+      "atlasName": "intermediate tendon",
+      "primaryCategory": "Tendon",
+      "elements": [
+        "FJ1581"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "NO_CLEAN_TA2_RISK",
+        "SOURCE_SPECIFIC_IDENTITY_RISK",
+        "SYNONYM_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "IDENTITY_CONTEXT_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "gân trung gian cơ vai-móng",
+      "aliasCandidates": [
+        "gân trung gian"
+      ],
+      "identityStatus": "EXTERNAL_CONTEXT_CORROBORATED_LOCATOR_PINNING_REQUIRED",
+      "sourceConsensus": "MODERATE_HIGH",
+      "blockers": [
+        "Pair/single-mesh scope remains unresolved.",
+        "Exact FIPAT/FMA cross-reference URL/entry must be pinned in repo before SOURCE_VERIFIED."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Intermediate tendon -> Gân trung gian",
+          "locator": "term entry; context is generic",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "HMU2022",
+          "claim": "omohyoid muscle is described with a gân trung gian",
+          "locator": "searchable neck-muscle passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "FIPAT_TA2",
+          "claim": "prior research indicates FMA65410 cross-references the intermediate tendon of omohyoid muscle (pair)",
+          "locator": "exact TA2 entry URL/ID must be pinned",
+          "locatorQuality": "NEEDS_PAGE_PINNING",
+          "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA44249",
+      "atlasName": "right long plantar ligament",
+      "primaryCategory": "Ligament",
+      "elements": [
+        "FJ1424"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "NERVE_LIGAMENT_DISTINCTION"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "dây chằng gan chân dài phải",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Base term is well supported; exact side-specific external identity is not yet pinned."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Long plantar ligament -> Dây chằng gan chân dài",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "HMU2022",
+          "claim": "long plantar ligament -> dây chằng gan chân dài",
+          "locator": "searchable foot-ligament passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "long plantar ligament -> dây chằng gan chân dài",
+          "locator": "searchable foot passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA44250",
+      "atlasName": "left long plantar ligament",
+      "primaryCategory": "Ligament",
+      "elements": [
+        "FJ1424M"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "NERVE_LIGAMENT_DISTINCTION"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "dây chằng gan chân dài trái",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Base term is well supported; exact side-specific external identity is not yet pinned."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Long plantar ligament -> Dây chằng gan chân dài",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "HMU2022",
+          "claim": "long plantar ligament -> dây chằng gan chân dài",
+          "locator": "searchable foot-ligament passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "long plantar ligament -> dây chằng gan chân dài",
+          "locator": "searchable foot passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA55139",
+      "atlasName": "lateral thyrohyoid ligament",
+      "primaryCategory": "Ligament",
+      "elements": [
+        "FJ2779",
+        "FJ2797"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MEDIAL_LATERAL",
+        "MULTI_MESH",
+        "NERVE_LIGAMENT_DISTINCTION",
+        "NORMALIZATION_COLLISION_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "dây chằng giáp-móng bên",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "EXTERNAL_CONTEXT_CORROBORATED_LOCATOR_PINNING_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "FIPAT pair scope and atlas two-mesh membership must be reconciled before release."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Lateral thyrohyoid ligament -> Dây chằng giáp-móng bên",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "HMU2022",
+          "claim": "lateral thyrohyoid ligament -> dây chằng giáp-móng bên",
+          "locator": "searchable larynx passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NQQ_T1_ACCESS",
+          "claim": "same Vietnamese term in laryngeal anatomy",
+          "locator": "searchable passage; exact edition/page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/409748836/Bai-Gi%E1%BA%A3ng-Gi%E1%BA%A3i-Ph%E1%BA%ABu-H%E1%BB%8Dc-T%E1%BA%ADp-1-Nguy%E1%BB%85n-Quang-Quy%E1%BB%81n",
+          "notes": ""
+        },
+        {
+          "sourceId": "FIPAT_TA2",
+          "claim": "prior research cross-referenced FMA55139 to lateral thyrohyoid ligament (pair)",
+          "locator": "pin exact TA2 entry",
+          "locatorQuality": "NEEDS_PAGE_PINNING",
+          "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA55237",
+      "atlasName": "median cricothyroid ligament",
+      "primaryCategory": "Ligament",
+      "elements": [
+        "FJ2789"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "NERVE_LIGAMENT_DISTINCTION",
+        "SOURCE_SPECIFIC_IDENTITY_RISK"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "dây chằng nhẫn-giáp giữa",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "EXTERNAL_CONTEXT_CORROBORATED_LOCATOR_PINNING_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Pin exact TA2 entry and edition-matched Vietnamese locators."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Median cricothyroid ligament -> Dây chằng nhẫn-giáp giữa",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "HMU2022",
+          "claim": "median cricothyroid ligament -> dây chằng nhẫn-giáp giữa",
+          "locator": "searchable larynx passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "FIPAT_TA2",
+          "claim": "prior research cross-referenced FMA55237 to median cricothyroid ligament",
+          "locator": "pin exact TA2 entry",
+          "locatorQuality": "NEEDS_PAGE_PINNING",
+          "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Do not automatically promote bare 'dây chằng nhẫn-giáp' as a synonym; it may be broader."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3802",
+      "atlasName": "trunk of right coronary artery",
+      "primaryCategory": "Artery",
+      "elements": [
+        "FJ2723"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "BRANCH_TRUNK",
+        "ARTERY_VEIN_DISTINCTION"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "Vietnamese sources robustly name the right coronary artery but do not establish 'trunk of right coronary artery' as the same entity.",
+        "Atlas trunk wording may be source-specific."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "right coronary artery -> động mạch vành phải",
+          "locator": "searchable heart-vessel passage; exact page pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Do not auto-create 'thân động mạch vành phải'."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3813",
+      "atlasName": "anterior ventricular branch of right coronary artery",
+      "primaryCategory": "Artery",
+      "elements": [
+        "FJ2667",
+        "FJ2668",
+        "FJ2671",
+        "FJ2672",
+        "FJ2673",
+        "FJ2674",
+        "FJ2675",
+        "FJ2677"
+      ],
+      "elementCount": 8,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "ANTERIOR_POSTERIOR",
+        "COMPOUND_DIRECTIONAL",
+        "BRANCH_TRUNK",
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "ONE_TO_MANY_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "SCOPE_UNRESOLVED",
+      "blockers": [
+        "Atlas concept spans eight meshes and may represent several anterior ventricular branches.",
+        "Vietnamese sources often use a plural family description."
+      ],
+      "evidence": [
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "right coronary artery gives anterior ventricular branches/các nhánh trước thất",
+          "locator": "searchable coronary passage; exact page pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3951",
+      "atlasName": "subclavian artery",
+      "primaryCategory": "Artery",
+      "elements": [
+        "FJ3479",
+        "FJ3579"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "động mạch dưới đòn",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Pin exact UMP/HMU page locators before SOURCE_VERIFIED."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "subclavian artery -> động mạch dưới đòn",
+          "locator": "searchable vessel passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Subclavian artery -> Động mạch dưới đòn",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_SYS",
+          "claim": "systematic-anatomy source supports the same standard term; exact full-text locator still required",
+          "locator": "metadata-bound source; page locator required",
+          "locatorQuality": "NEEDS_PAGE_PINNING",
+          "url": "https://opac.nlv.gov.vn/chi-tiet-tai-lieu/giai-phau-hoc-he-thong-202510224690518142931",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA10662",
+      "atlasName": "inferior thyroid artery",
+      "primaryCategory": "Artery",
+      "elements": [
+        "FJ2209",
+        "FJ2210"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "SUPERIOR_INFERIOR",
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "NORMALIZATION_COLLISION_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "động mạch giáp dưới",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Pin authoritative textbook locator before SOURCE_VERIFIED."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "inferior thyroid artery -> động mạch giáp dưới",
+          "locator": "searchable neck-vessel passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Inferior thyroid artery -> Động mạch giáp dưới",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "NATIONAL_BODY_TERMS_2025",
+          "claim": "current body-structure terminology uses động mạch giáp dưới",
+          "locator": "signed terminology list entry",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://syt.daknong.gov.vn/upload/2005704/20250909/03_Phu_luc_01__Danh_muc_Cau_truc_co_the__signed_6ef8a.pdf",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3994",
+      "atlasName": "second posterior intercostal artery",
+      "primaryCategory": "Artery",
+      "elements": [
+        "FJ1950",
+        "FJ1974"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "ANTERIOR_POSTERIOR",
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "SYNONYM_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": "động mạch gian sườn sau thứ hai",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_TERM_IDENTITY_REVIEW",
+      "blockers": [
+        "Term is directly attested, but the atlas concept's relation to the supreme intercostal arterial branching pattern should be independently checked."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Second posterior intercostal artery -> Động mạch gian sườn sau thứ hai",
+          "locator": "TA-coded term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "first/second posterior intercostal arteries are discussed in branching context",
+          "locator": "searchable thoracic-vessel passage; exact page pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA4725",
+      "atlasName": "subclavian vein",
+      "primaryCategory": "Vein",
+      "elements": [
+        "FJ3486",
+        "FJ3587"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "tĩnh mạch dưới đòn",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Pin exact locators before SOURCE_VERIFIED."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "subclavian vein -> tĩnh mạch dưới đòn",
+          "locator": "searchable neck/upper-limb vessel passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Subclavian vein -> Tĩnh mạch dưới đòn",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA4751",
+      "atlasName": "right brachiocephalic vein",
+      "primaryCategory": "Vein",
+      "elements": [
+        "FJ1993",
+        "FJ3583",
+        "FJ3585",
+        "FJ3587"
+      ],
+      "elementCount": 4,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH"
+      ],
+      "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "tĩnh mạch cánh tay đầu phải",
+        "tĩnh mạch tay đầu phải"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "VARIANT",
+      "blockers": [
+        "HMU/NVH lineage uses 'tĩnh mạch cánh tay đầu'; modern clinical/UMP usage also uses 'tĩnh mạch tay đầu'.",
+        "Project preferred form and exact right-side identity require adjudication."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "brachiocephalic vein usage includes tĩnh mạch cánh tay đầu",
+          "locator": "searchable venous passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NATIONAL_BODY_TERMS_2025",
+          "claim": "Brachiocephalic vein -> Tĩnh mạch tay đầu",
+          "locator": "signed body-structure terminology entry",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://syt.daknong.gov.vn/upload/2005704/20250909/03_Phu_luc_01__Danh_muc_Cau_truc_co_the__signed_6ef8a.pdf",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA8668",
+      "atlasName": "superior lingular vein",
+      "primaryCategory": "Vein",
+      "elements": [
+        "FJ2937",
+        "FJ2938"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "SUPERIOR_INFERIOR",
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "tĩnh mạch phân thùy lưỡi trên",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "INTERNATIONAL_IDENTITY_STRONG_VI_TIERA_GAP",
+      "blockers": [
+        "Direct Tier-A Vietnamese locator for the exact lingular-vein part has not been pinned.",
+        "Do not choose between 'tĩnh mạch lưỡi' and 'tĩnh mạch phân thùy lưỡi' by composition."
+      ],
+      "evidence": [
+        {
+          "sourceId": "FIPAT_TA2",
+          "claim": "lingular vein has a trên part in international nomenclature; exact TA2 entry must be pinned",
+          "locator": "exact entry locator pending",
+          "locatorQuality": "NEEDS_PAGE_PINNING",
+          "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA8669",
+      "atlasName": "inferior lingular vein",
+      "primaryCategory": "Vein",
+      "elements": [
+        "FJ2934",
+        "FJ2935"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "SUPERIOR_INFERIOR",
+        "ARTERY_VEIN_DISTINCTION",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NORMALIZATION_COLLISION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "tĩnh mạch phân thùy lưỡi dưới",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "INTERNATIONAL_IDENTITY_STRONG_VI_TIERA_GAP",
+      "blockers": [
+        "Direct Tier-A Vietnamese locator for the exact lingular-vein part has not been pinned.",
+        "Do not choose between 'tĩnh mạch lưỡi' and 'tĩnh mạch phân thùy lưỡi' by composition."
+      ],
+      "evidence": [
+        {
+          "sourceId": "FIPAT_TA2",
+          "claim": "lingular vein has a dưới part in international nomenclature; exact TA2 entry must be pinned",
+          "locator": "exact entry locator pending",
+          "locatorQuality": "NEEDS_PAGE_PINNING",
+          "url": "https://ifaa.net/committees/anatomical-terminology-fipat/fipat-ifaa-terminologies/",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA5913",
+      "atlasName": "nerve trunk",
+      "primaryCategory": "Nerve",
+      "elements": [
+        "FJ1313",
+        "FJ1364",
+        "FJ1771",
+        "FJ1772",
+        "FJ1773",
+        "FJ1818",
+        "FJ1819",
+        "FJ1820"
+      ],
+      "elementCount": 8,
+      "pilotEdgeCaseTags": [
+        "BRANCH_TRUNK",
+        "NERVE_LIGAMENT_DISTINCTION",
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "Generic multi-mesh 'nerve trunk' is an atlas aggregate; no exact Vietnamese canonical entity is established."
+      ],
+      "evidence": [
+        {
+          "sourceId": "BP3D4",
+          "claim": "atlas concept/mesh membership only",
+          "locator": "pilot/BodyParts3D dataset",
+          "locatorQuality": "ATLAS_MEMBERSHIP",
+          "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA52570",
+      "atlasName": "branch of cranial nerve",
+      "primaryCategory": "Nerve",
+      "elements": [
+        "FJ1283",
+        "FJ1290",
+        "FJ1293",
+        "FJ1296",
+        "FJ1300",
+        "FJ1310",
+        "FJ1311",
+        "FJ1312",
+        "FJ1315",
+        "FJ1318",
+        "FJ1321",
+        "FJ1325",
+        "FJ1326",
+        "FJ1333",
+        "FJ1341",
+        "FJ1344",
+        "FJ1347",
+        "FJ1351",
+        "FJ1361",
+        "FJ1362",
+        "FJ1363",
+        "FJ1366",
+        "FJ1369",
+        "FJ1372",
+        "FJ1376",
+        "FJ1377"
+      ],
+      "elementCount": 26,
+      "pilotEdgeCaseTags": [
+        "BRANCH_TRUNK",
+        "NERVE_LIGAMENT_DISTINCTION",
+        "MULTI_MESH",
+        "MANY_TO_ONE_RISK",
+        "ONTOLOGY_GRANULARITY_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "26-mesh aggregate 'branch of cranial nerve' is broader than a single named branch.",
+        "No source supports a single Vietnamese canonical anatomical entity at this atlas scope."
+      ],
+      "evidence": [
+        {
+          "sourceId": "BP3D4",
+          "claim": "BodyParts3D compound concept exists as 'branch of cranial nerve'",
+          "locator": "BodyParts3D stable-entry dataset",
+          "locatorQuality": "STABLE_ENTRY",
+          "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA50875",
+      "atlasName": "right optic nerve",
+      "primaryCategory": "Nerve",
+      "elements": [
+        "FJ1364",
+        "FJ1819"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "NERVE_LIGAMENT_DISTINCTION",
+        "MULTI_MESH"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "thần kinh thị giác phải",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Base term is authoritative; exact side-specific external identity/laterality must be pinned rather than inferred from string composition."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "optic nerve -> thần kinh thị giác",
+          "locator": "searchable visual-system passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Optic nerve [II] -> Thần kinh thị giác [II]",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA50878",
+      "atlasName": "left optic nerve",
+      "primaryCategory": "Nerve",
+      "elements": [
+        "FJ1313",
+        "FJ1772"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "NERVE_LIGAMENT_DISTINCTION",
+        "MULTI_MESH"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "thần kinh thị giác trái",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Base term is authoritative; exact side-specific external identity/laterality must be pinned rather than inferred from string composition."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "optic nerve -> thần kinh thị giác",
+          "locator": "searchable visual-system passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Optic nerve [II] -> Thần kinh thị giác [II]",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA52672",
+      "atlasName": "communicating branch of nasociliary nerve with ciliary ganglion",
+      "primaryCategory": "Nerve",
+      "elements": [
+        "FJ1311",
+        "FJ1362"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "BRANCH_TRUNK",
+        "NERVE_LIGAMENT_DISTINCTION",
+        "MULTI_MESH",
+        "NO_CLEAN_TA2_RISK",
+        "SOURCE_SPECIFIC_IDENTITY_RISK",
+        "SYNONYM_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "IDENTITY_CONTEXT_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "nhánh nối của thần kinh mũi-mi với hạch mi",
+      "aliasCandidates": [
+        "nhánh nối với hạch mi",
+        "rễ cảm giác của hạch mi",
+        "rễ mũi-mi của hạch mi"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "MODERATE_HIGH",
+      "blockers": [
+        "Source literal term 'nhánh nối với hạch mi' may lose parent-nerve context when used as a standalone atlas label.",
+        "Exact external mapping must be pinned."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Nasociliary nerve -> thần kinh mũi-mi; communicating branch with ciliary ganglion has Vietnamese terms including nhánh nối với hạch mi",
+          "locator": "term entries; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "HMU2022",
+          "claim": "nasociliary nerve gives a branch connecting with the ciliary ganglion",
+          "locator": "searchable orbital-nerve passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7196",
+      "atlasName": "spleen",
+      "primaryCategory": "Organ",
+      "elements": [
+        "FJ2561"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "lách",
+      "aliasCandidates": [
+        "lách",
+        "tỳ"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "VARIANT",
+      "blockers": [
+        "NVH records both Tỳ and Lách; current teaching often uses Lách, but project preferred form should be adjudicated and checked against HMU/Netter exact organ labels."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "Spleen -> Tỳ; Lách",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "current UMP teaching uses Lách in digestive-system context",
+          "locator": "searchable chapter/schedule terminology; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7148",
+      "atlasName": "stomach",
+      "primaryCategory": "Organ",
+      "elements": [
+        "FJ2564"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "CONTROL_EXACT_MAPPING_CANDIDATE"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "dạ dày",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "vị"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "The Sino-Vietnamese 'vị' alias needs scope/search review before production search."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "stomach -> dạ dày",
+          "locator": "searchable digestive chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Stomach -> Dạ dày; Vị",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "modern UMP chapter uses Dạ dày",
+          "locator": "searchable digestive chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7198",
+      "atlasName": "pancreas",
+      "primaryCategory": "Organ",
+      "elements": [
+        "FJ1895",
+        "FJ1896",
+        "FJ2629",
+        "FJ2630"
+      ],
+      "elementCount": 4,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "AGGREGATE_CANDIDATE",
+        "MANY_TO_ONE_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "CONSENSUS_CANDIDATE",
+      "candidateVietnamesePreferred": "tụy",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH",
+      "blockers": [
+        "Pin exact locators before SOURCE_VERIFIED."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "pancreas -> tụy",
+          "locator": "searchable digestive chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Pancreas -> Tụy",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "modern UMP chapter uses Tụy",
+          "locator": "searchable digestive chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7203",
+      "atlasName": "kidney",
+      "primaryCategory": "Organ",
+      "elements": [
+        "FJ3145",
+        "FJ3147"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "AGGREGATE_CANDIDATE",
+        "MANY_TO_ONE_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": "thận",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Atlas unsided concept contains two meshes and may aggregate left/right kidneys; confirm scope before release."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "kidney -> thận",
+          "locator": "searchable urinary-system chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Kidney -> Thận",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "modern UMP uses Thận",
+          "locator": "searchable urinary-system chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9597",
+      "atlasName": "salivary gland",
+      "primaryCategory": "Gland",
+      "elements": [
+        "FJ2765",
+        "FJ2766",
+        "FJ2767",
+        "FJ2768"
+      ],
+      "elementCount": 4,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "AGGREGATE_CANDIDATE",
+        "SYNONYM_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "BASE_TERM_SCOPE_OR_LATERALITY_REVIEW",
+      "candidateVietnamesePreferred": "tuyến nước bọt",
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "HIGH_BASE_TERM",
+      "blockers": [
+        "Atlas concept is an aggregate across four meshes; verify whether it denotes the salivary-gland family versus a single structure."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "salivary glands -> tuyến nước bọt",
+          "locator": "searchable oral/digestive chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "salivary glands -> tuyến nước bọt",
+          "locator": "searchable digestive-system chapter; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA15629",
+      "atlasName": "right adrenal gland",
+      "primaryCategory": "Gland",
+      "elements": [
+        "FJ3130"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "tuyến thượng thận phải",
+        "tuyến trên thận phải"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "VARIANT",
+      "blockers": [
+        "Authoritative/current Vietnamese usage contains both 'tuyến thượng thận' and 'tuyến trên thận'.",
+        "Exact side-specific identity must be pinned."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "adrenal/suprarenal gland usage supports tuyến thượng thận",
+          "locator": "searchable endocrine passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "UMP materials show tuyến thượng thận, while some newer UMP schedules use tuyến trên thận",
+          "locator": "edition/schedule comparison; exact locators required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Treat as a controlled variant/adjudication problem, not as two different glands."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA15630",
+      "atlasName": "left adrenal gland",
+      "primaryCategory": "Gland",
+      "elements": [
+        "FJ3129"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "VARIANT_WITH_ALIAS_REVIEW",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [
+        "tuyến thượng thận trái",
+        "tuyến trên thận trái"
+      ],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "VARIANT",
+      "blockers": [
+        "Authoritative/current Vietnamese usage contains both 'tuyến thượng thận' and 'tuyến trên thận'.",
+        "Exact side-specific identity must be pinned."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "adrenal/suprarenal gland usage supports tuyến thượng thận",
+          "locator": "searchable endocrine passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "UMP2023_T2_ACCESS",
+          "claim": "UMP materials show tuyến thượng thận, while some newer UMP schedules use tuyến trên thận",
+          "locator": "edition/schedule comparison; exact locators required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://www.scribd.com/document/950004099/Gia-i-Pha-u-Ho-c-Chu-o-ng-tri-nh-Y-%C4%91a-khoa-%C4%91o-i-mo-i-Ta-p-2-%C4%90H-Y-Du-o-c-TPHCM",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Treat as a controlled variant/adjudication problem, not as two different glands."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA25511",
+      "atlasName": "intervertebral symphysis",
+      "primaryCategory": "Joint",
+      "elements": [
+        "FJ3211"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NO_CLEAN_TA2_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "khớp sụn-sợi gian đốt sống",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "TERM_FAMILY_STRONG_SCOPE_UNRESOLVED",
+      "blockers": [
+        "Sources describe intervertebral body symphyses/symphysis-type joints in several ways; the composed suggested form is not a directly verified preferred term."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "joints between vertebral bodies are fibrocartilaginous/symphysis-type and intervertebral discs are described in that context",
+          "locator": "searchable vertebral-joint passage; exact page pin required",
+          "locatorQuality": "EXACT_SEARCHABLE_PASSAGE",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Symphysis of vertebral column -> Khớp sụn-sợi của cột sống; Intervertebral joint -> Khớp gian đốt sống",
+          "locator": "term entries; exact page/entry pin required",
+          "locatorQuality": "EXACT_TERM_ENTRY",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA25571",
+      "atlasName": "intervertebral symphysis of axis",
+      "primaryCategory": "Joint",
+      "elements": [
+        "FJ3202"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "ONTOLOGY_GRANULARITY_RISK",
+        "SOURCE_SPECIFIC_IDENTITY_RISK",
+        "SYNONYM_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "No direct Tier-A Vietnamese per-level preferred term was located.",
+        "Do not auto-compose vertebral level qualifiers onto a generic symphysis term.",
+        "Exact external ontology/granularity requires adjudication."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "general intervertebral-body joint terminology is available, but not the exact atlas level-specific entity",
+          "locator": "general vertebral-joint passage",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "generic vertebral symphysis/intervertebral-joint terms exist",
+          "locator": "generic term entries",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "axis-qualified intervertebral symphysis"
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA26086",
+      "atlasName": "seventh cervical intervertebral symphysis",
+      "primaryCategory": "Joint",
+      "elements": [
+        "FJ3221"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NORMALIZATION_COLLISION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "No direct Tier-A Vietnamese per-level preferred term was located.",
+        "Do not auto-compose vertebral level qualifiers onto a generic symphysis term.",
+        "Exact external ontology/granularity requires adjudication."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "general intervertebral-body joint terminology is available, but not the exact atlas level-specific entity",
+          "locator": "general vertebral-joint passage",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "generic vertebral symphysis/intervertebral-joint terms exist",
+          "locator": "generic term entries",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "seventh cervical intervertebral symphysis"
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA26089",
+      "atlasName": "first thoracic intervertebral symphysis",
+      "primaryCategory": "Joint",
+      "elements": [
+        "FJ3222"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NORMALIZATION_COLLISION_RISK",
+        "SYNONYM_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "No direct Tier-A Vietnamese per-level preferred term was located.",
+        "Do not auto-compose vertebral level qualifiers onto a generic symphysis term.",
+        "Exact external ontology/granularity requires adjudication."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "general intervertebral-body joint terminology is available, but not the exact atlas level-specific entity",
+          "locator": "general vertebral-joint passage",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "generic vertebral symphysis/intervertebral-joint terms exist",
+          "locator": "generic term entries",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "first thoracic intervertebral symphysis"
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA79063",
+      "atlasName": "deep fascial system",
+      "primaryCategory": "Fascia/connective tissue",
+      "elements": [
+        "FJ1423",
+        "FJ1423M",
+        "FJ1471"
+      ],
+      "elementCount": 3,
+      "pilotEdgeCaseTags": [
+        "SUPERFICIAL_DEEP",
+        "MULTI_MESH",
+        "AGGREGATE_CANDIDATE",
+        "SHARED_MEMBERSHIP_CANDIDATE",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "NO_CLEAN_TA2_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "Broad 'deep fascial system' is an aggregate/system-level concept; no exact Vietnamese authoritative preferred entity was located."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "deep fascia concepts are described, but not an exact equivalence to this atlas system-level record",
+          "locator": "fascia passages",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "deep/investing fascia vocabulary exists",
+          "locator": "related term entries",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA58775",
+      "atlasName": "zone of fascia lata",
+      "primaryCategory": "Fascia/connective tissue",
+      "elements": [
+        "FJ1423",
+        "FJ1423M"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "SOURCE_SPECIFIC_IDENTITY_RISK",
+        "NORMALIZATION_COLLISION_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": "vùng của mạc đùi",
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "SCOPE_UNRESOLVED",
+      "blockers": [
+        "'Zone of fascia lata' must not be collapsed to 'fascia lata' itself.",
+        "Direct authoritative Vietnamese preferred term for the atlas 'zone' entity was not located."
+      ],
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "claim": "fascia lata -> mạc đùi (mạc sâu)",
+          "locator": "searchable thigh-fascia passage; exact page pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "Fascia lata -> Mạc đùi",
+          "locator": "term entry; exact page/entry pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA58418",
+      "atlasName": "investing fascia of right lower limb",
+      "primaryCategory": "Fascia/connective tissue",
+      "elements": [
+        "FJ1423"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "No exact Tier-A Vietnamese preferred term for the side-specific 'investing fascia of lower limb' entity was located.",
+        "Do not compose a canonical side-specific term from generic fascia vocabulary."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "generic investing/deep fascia terminology exists",
+          "locator": "related term entries; exact page/entry pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Laterality: phải."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA58419",
+      "atlasName": "investing fascia of left lower limb",
+      "primaryCategory": "Fascia/connective tissue",
+      "elements": [
+        "FJ1423M"
+      ],
+      "elementCount": 1,
+      "pilotEdgeCaseTags": [
+        "LEFT_RIGHT"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_CONFIRMED_EXTERNAL_REVIEW_REQUIRED",
+      "sourceConsensus": "GAP",
+      "blockers": [
+        "No exact Tier-A Vietnamese preferred term for the side-specific 'investing fascia of lower limb' entity was located.",
+        "Do not compose a canonical side-specific term from generic fascia vocabulary."
+      ],
+      "evidence": [
+        {
+          "sourceId": "NVH2008",
+          "claim": "generic investing/deep fascia terminology exists",
+          "locator": "related term entries; exact page/entry pin required",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [
+        "Laterality: trái."
+      ],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA57965",
+      "atlasName": "zone of investing fascia",
+      "primaryCategory": "Fascia/connective tissue",
+      "elements": [
+        "FJ1423",
+        "FJ1423M"
+      ],
+      "elementCount": 2,
+      "pilotEdgeCaseTags": [
+        "MULTI_MESH",
+        "AGGREGATE_CANDIDATE",
+        "SHARED_MEMBERSHIP_CANDIDATE",
+        "ONTOLOGY_GRANULARITY_RISK",
+        "VIETNAMESE_VARIATION_RISK"
+      ],
+      "dispositionBucket": "ONTOLOGY_OR_SOURCE_SCOPE_UNRESOLVED",
+      "candidateVietnamesePreferred": null,
+      "suggestedFormForReview": null,
+      "aliasCandidates": [],
+      "identityStatus": "ATLAS_STABLE_ENTRY_EXTERNAL_LOCATOR_PINNING_REQUIRED",
+      "sourceConsensus": "INTERNATIONAL_IDENTITY_STRONG_VI_GAP",
+      "blockers": [
+        "Direct Vietnamese preferred term for 'zone of investing fascia' was not located.",
+        "Generic mạc bọc terminology is insufficient to prove equivalence."
+      ],
+      "evidence": [
+        {
+          "sourceId": "BP3D4",
+          "claim": "BodyParts3D contains the exact atlas concept 'zone of investing fascia'",
+          "locator": "stable atlas dataset",
+          "locatorQuality": "STABLE_ENTRY",
+          "url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+          "notes": ""
+        },
+        {
+          "sourceId": "NVH2008",
+          "claim": "generic investing fascia terms exist, but not enough to establish this zone concept",
+          "locator": "related term entries",
+          "locatorQuality": "RELATED_NOT_SUFFICIENT",
+          "url": "https://www.scribd.com/document/689063262/TU-%C4%90IE-N-GIA-I-PHA-U",
+          "notes": ""
+        }
+      ],
+      "notes": [],
+      "humanMedicalReviewRequired": true,
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    }
+  ]
+}

@@ -12,7 +12,8 @@
     "check": "tsc --noEmit",
     "test:localization": "node scripts/validate-localization.mjs",
     "test:terminology": "node scripts/test-terminology.mjs",
-    "test:m03a": "node scripts/validate-m03a-pilot.mjs"
+    "test:m03a": "node scripts/validate-m03a-pilot.mjs",
+    "test:m03c": "node scripts/test-m03c-integration.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

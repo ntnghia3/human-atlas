@@ -18,9 +18,10 @@ data/terminology/release.json    TerminologyReleaseManifest
 ```
 
 The source catalog may contain bibliographically verified records before any
-terminology entries exist. A source record does not assert a term, an external
-mapping, or medical review. Production terminology entries remain empty until
-claim-level evidence and human review are recorded.
+terminology claims exist. A source record does not assert a term, an external
+mapping, or medical review. M03C1 may record non-production research queue
+entries, but the release overlay remains empty until claim-level evidence and
+qualified human review are recorded.
 
 `TerminologySourceRecord` must distinguish identity from usability. In addition
 to the stable bibliographic fields, every record carries `identityVerified`,
@@ -30,7 +31,10 @@ to the stable bibliographic fields, every record carries `identityVerified`,
 `METADATA_ONLY`, or `UNAVAILABLE`; `locatorCapability` is one of `PAGE`,
 `PLATE`, `CHAPTER_SECTION`, `TERM_ID`, `STABLE_ENTRY`, or `INSUFFICIENT`.
 Metadata-only or insufficient-locator records can document source identity but
-cannot satisfy supported or verified terminology claims.
+cannot satisfy supported or verified terminology claims. `pageCount` is
+optional bibliographic metadata. `accessCopy` records an inspection URL that
+is not the authority URL; a separate `accessCopyOf` source record must remain
+`discovery-only` and cannot support a Vietnamese claim.
 
 ## Entry shape
 
@@ -51,9 +55,15 @@ EntryRegistryRecord {
   claims: TerminologyClaim[]
   candidateOrigins?: CandidateOrigin[]
   conflicts?: TerminologyConflict[]
+  researchDisposition?: M03CResearchDisposition
   review: ReviewWorkflow
 }
 ```
+
+`researchDisposition` is an M03C1 non-production queue record. Its milestone,
+matrix row, disposition bucket, candidate/suggested wording, aliases under
+review, and blockers organize research only; they never populate production
+search or satisfy source verification, medical review, or release eligibility.
 
 `ExternalMapping` records `id`, namespace, identifier, source revision, relation (`exact`, `equivalent`, `target-broader`, `target-narrower`, `overlapping`, `related`, `composite`, `collective`, or `obsolete-replaced`), disposition, evidence claim IDs, and notes. Zero, one, or many mappings are valid. A missing TA2 equivalent is represented explicitly rather than fabricated.
 
@@ -76,8 +86,10 @@ EntryRegistryRecord {
 - Vietnamese claims require an authoritative Vietnamese source; international nomenclature does not establish Vietnamese wording.
 - Atlas-dataset evidence establishes atlas identity and mesh membership only; it does not establish FMA, TA2, Latin, or Vietnamese equivalence.
 - Discovery-only and rejected sources cannot satisfy supported claims or release evidence.
+- A public mirror/access copy is inspection support only; the identified edition/source remains the authority.
 - Registered active reviewers and current entry revisions are required for medical review.
 - Open conflicts block release; adjudication is current, explicit, and human-authorized.
+- An open conflict cannot expose a production Vietnamese preferred term.
 - Preferred fields are canonical display values; aliases and ASCII forms are search inputs only.
 - External IDs and terminology forms enter search only through their individual approved claims.
 - Stored `VERIFIED`/`RELEASE_ELIGIBLE` strings cannot bypass the derived gate.
