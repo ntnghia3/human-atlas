@@ -1,0 +1,2065 @@
+{
+  "schemaVersion": "m04b2f-adversarial-spec-1",
+  "status": "PROPOSED_TEST_DATA_ONLY_NOT_EXECUTED_CLASSIFIER",
+  "fixturePolicy": "Gate inputs are fully specified synthetic preconditions, not real medical mappings. No Vietnamese term is generated. Endpoint IDs are not assigned to schematic examples. A later test suite must exercise raw evidence adapters to derive these facts, not only feed booleans to a reducer.",
+  "gateCases": [
+    {
+      "id": "A01",
+      "title": "Whole right kidney and Entire right kidney with admitted exact map",
+      "fixtureFacts": [
+        "Synthetic pinned endpoints both denote the same complete right organ",
+        "Human-admitted publisher asserts exact pair; all scope witnesses present"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false,
+        "relationType": "EXACT_ENTITY_EQUIVALENT"
+      }
+    },
+    {
+      "id": "A02",
+      "title": "Same labels as A01 but no bridge",
+      "fixtureFacts": [
+        "Only English wording and compatible context exist; no equivalence assertion"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T4",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A03",
+      "title": "Whole organ versus Structure",
+      "fixtureFacts": [
+        "Approved E bridge and typed E is_a S proof",
+        "Actual MOH row references S; all nonexact assessments complete"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "NONEXACT_SUPPORTED",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12",
+        "researchEligible": false,
+        "productionEligible": false,
+        "relationType": "FMA_SUBCLASS_OF_SNOMED"
+      }
+    },
+    {
+      "id": "A04",
+      "title": "Generic organ Part versus whole organ",
+      "fixtureFacts": [
+        "Positive typed proper-part proof; no subtype proof",
+        "MOH row binds P"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "NONEXACT_SUPPORTED",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12",
+        "researchEligible": false,
+        "productionEligible": false,
+        "relationType": "SNOMED_PROPER_PART_OF_FMA",
+        "forbiddenRelations": [
+          "SNOMED_SUBCLASS_OF_FMA",
+          "EXACT_ENTITY_EQUIVALENT"
+        ]
+      }
+    },
+    {
+      "id": "A05",
+      "title": "Right versus unsided",
+      "fixtureFacts": [
+        "FMA explicit right; source target is genuinely unspecified side"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "FAIL",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A06",
+      "title": "Left versus unsided",
+      "fixtureFacts": [
+        "FMA explicit left; source target genuinely unspecified side"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "FAIL",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A07",
+      "title": "Bilateral pair versus right individual",
+      "fixtureFacts": [
+        "Side and cardinality both incompatible"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "FAIL",
+        "cardinality": "FAIL",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false,
+        "requiredBlockers": [
+          "LATERALITY_MISMATCH",
+          "AGGREGATE_VS_SINGLE_ENTITY_MISMATCH"
+        ]
+      }
+    },
+    {
+      "id": "A08",
+      "title": "Right versus left despite trusted map",
+      "fixtureFacts": [
+        "Admitted publisher pair has opposite-side endpoints"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "FAIL",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A09",
+      "title": "Both labels omit side and no ontology side evidence",
+      "fixtureFacts": [
+        "Legacy parser says unsided but positive unsided scope absent"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "UNKNOWN",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "LATERALITY_REVIEW",
+        "firstRule": "G06",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A10",
+      "title": "Nonlateralizable cavity with proved N/A",
+      "fixtureFacts": [
+        "Primary evidence establishes nonlateralizable identity and non-SEP immaterial space",
+        "All required extent checks and explicit bridge approved"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A11",
+      "title": "Artery versus branch",
+      "fixtureFacts": [
+        "Equal lexical core; branch boundary differs; no complete nonexact proof"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A12",
+      "title": "Vein versus tributary",
+      "fixtureFacts": [
+        "Tributary relationship must not be read as subclass"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A13",
+      "title": "Muscle versus muscle group",
+      "fixtureFacts": [
+        "One whole muscle versus a collection"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "FAIL",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "AGGREGATE_REVIEW",
+        "firstRule": "G07",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A14",
+      "title": "Bone organ versus bone tissue",
+      "fixtureFacts": [
+        "Countable organ versus mass tissue; same word bone"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A15",
+      "title": "Whole gland versus lobe",
+      "fixtureFacts": [
+        "Named suborgan partition cannot stand for whole"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A16",
+      "title": "Surface region versus material 3D body region",
+      "fixtureFacts": [
+        "Names agree; dimensionality and materiality differ"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A17",
+      "title": "System versus subdivision",
+      "fixtureFacts": [
+        "Identical term core does not erase division"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A18",
+      "title": "Aggregate versus individual ligament",
+      "fixtureFacts": [
+        "Pair/set of ligaments versus single band"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "FAIL",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "AGGREGATE_REVIEW",
+        "firstRule": "G07",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A19",
+      "title": "Functional muscle family versus named muscle",
+      "fixtureFacts": [
+        "Generic extensor family and particular anatomical muscle share lexical terms"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A20",
+      "title": "Homonymous anatomical labels",
+      "fixtureFacts": [
+        "Identical name refers to structures in different anatomical locations"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "UNRESOLVED",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "UNKNOWN",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T4",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A21",
+      "title": "Historical synonym on active pinned endpoint",
+      "fixtureFacts": [
+        "Synonym explicitly source-attested; exact bridge T2 independently human-approved"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T2",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A22",
+      "title": "Historical synonym without identity approval",
+      "fixtureFacts": [
+        "Current endpoint and synonym verified, normalized lexical match only"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T5",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A23",
+      "title": "Same English words with different partition",
+      "fixtureFacts": [
+        "Constitutional partition versus regional partition"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A24",
+      "title": "E tissue portion mistaken for entire organ",
+      "fixtureFacts": [
+        "E class represents tissue portion; FMA target is a whole organ"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A25",
+      "title": "Cavity versus cavity contents",
+      "fixtureFacts": [
+        "Space versus collection of contained organs"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A26",
+      "title": "Cavity versus its wall",
+      "fixtureFacts": [
+        "Immaterial space versus material wall"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A27",
+      "title": "Vessel tree versus trunk",
+      "fixtureFacts": [
+        "Same arterial name but different branches included in extent"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A28",
+      "title": "Named segment versus whole nerve",
+      "fixtureFacts": [
+        "Segment endpoints narrower than full nerve"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A29",
+      "title": "Entire named part can be an exact entity",
+      "fixtureFacts": [
+        "FMA chamber is part of organ but a complete named chamber",
+        "Bridge is to Entire chamber, not generic organ Part"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A30",
+      "title": "Periorgan S descendant is not proof of strict parthood",
+      "fixtureFacts": [
+        "An is_a path under S exists; no approved relation to the FMA whole",
+        "Cannot promote is_a-under-S into part_of"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "UNKNOWN",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T6",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A31",
+      "title": "Missing E partner",
+      "fixtureFacts": [
+        "Only S endpoint exists in acquired refsets; whole counterpart unproved"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "UNKNOWN",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T6",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A32",
+      "title": "Semantic tag does not imply S",
+      "fixtureFacts": [
+        "Term ends in body structure but SEP class not otherwise established"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "UNKNOWN",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T6",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A33",
+      "title": "FSN and association refset disagree",
+      "fixtureFacts": [
+        "Pinned active FSN pattern and refset partner role conflict"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "FAIL",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW",
+        "firstRule": "G09",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A34",
+      "title": "MOH Structure row with correct FMA-to-Entire bridge",
+      "fixtureFacts": [
+        "Bridge references E SCTID; source row references a different S SCTID"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "FAIL",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A35",
+      "title": "Shared CUI plus otherwise complete checks",
+      "fixtureFacts": [
+        "Exact source identities share one CUI; all structural compatibility checks pass",
+        "No direct exact assertion"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T3",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED",
+        "firstRule": "G14",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A36",
+      "title": "CUI groups multiple SEP roles",
+      "fixtureFacts": [
+        "CUI candidates include incompatible S/E interpretations"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "UNRESOLVED",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T3",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A37",
+      "title": "Suppressed UMLS atom",
+      "fixtureFacts": [
+        "Only suppressed atom is available; active identity unresolved"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "UNKNOWN",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "TX",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A38",
+      "title": "Inactive SCTID with multiple historical replacements",
+      "fixtureFacts": [
+        "Replacements include split or POSSIBLY_EQUIVALENT_TO; no reviewed version bridge"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "FAIL",
+        "version": "PASS",
+        "ambiguity": "UNRESOLVED",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A39",
+      "title": "Same SCTID but unpinned edition",
+      "fixtureFacts": [
+        "Cannot establish source interpretation under a fixed edition"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "UNKNOWN",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A40",
+      "title": "Description identifier misread as concept identifier",
+      "fixtureFacts": [
+        "SCUI/CODE adapter validation fails; SCTID partition denotes description"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "FAIL",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A41",
+      "title": "Long numeric SCTID rounded during parsing",
+      "fixtureFacts": [
+        "Original numeric string differs from resolved string"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "FAIL",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A42",
+      "title": "Source code and raw English disagree",
+      "fixtureFacts": [
+        "MOH code resolves to different scope than complete printed row wording"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "FAIL",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "SOURCE_ATTESTATION_REVIEW",
+        "firstRule": "G01",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A43",
+      "title": "Truncated Vietnamese or adjacent-entry leakage",
+      "fixtureFacts": [
+        "Source row crosses boundary or missing fragment"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "FAIL",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "SOURCE_ATTESTATION_REVIEW",
+        "firstRule": "G01",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A44",
+      "title": "Exact bridge license use unresolved",
+      "fixtureFacts": [
+        "Endpoint semantics resolved but use permission for required evidence absent"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "UNKNOWN",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "LICENSE_BLOCKED",
+        "firstRule": "G02",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A45",
+      "title": "Licensed-local eligibility with export blocked",
+      "fixtureFacts": [
+        "Authorized local exact proof; no redistribution clearance"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "LOCAL_ONLY"
+      },
+      "expected": {
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE",
+        "firstRule": "G11",
+        "researchEligible": true,
+        "productionEligible": false,
+        "publicExportAllowed": false
+      }
+    },
+    {
+      "id": "A46",
+      "title": "Two conflicting admitted bridges",
+      "fixtureFacts": [
+        "Two trusted sources disagree on endpoint or equivalence"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "CONFLICTING",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A47",
+      "title": "Circular lexical anchor validation",
+      "fixtureFacts": [
+        "Candidate A validates B and B validates A; neither independently approved"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "FAIL",
+        "relation": "UNDETERMINED",
+        "tier": "T4",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A48",
+      "title": "No candidates does not establish no counterpart",
+      "fixtureFacts": [
+        "Source identity valid; all discovery queries exhausted without reviewed semantic absence certificate"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "TX",
+        "candidateCount": 0,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "NO_CANDIDATE_FOUND",
+        "firstRule": "G05",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A49",
+      "title": "Reviewed absence in this atlas only",
+      "fixtureFacts": [
+        "Reviewer verifies no equivalent target in pinned 3432-ID universe"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "TX",
+        "candidateCount": 0,
+        "counterpartExhaustion": "APPROVED",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "NO_ATLAS_COUNTERPART",
+        "firstRule": "G04",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A50",
+      "title": "All candidates positively incompatible",
+      "fixtureFacts": [
+        "Complete assessment establishes DISJOINT relation and no viable alternative"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "INCOMPATIBLE",
+        "tier": "TX",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "NO_SAFE_MAPPING",
+        "firstRule": "G13",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A51",
+      "title": "Explicit FMA identity in source",
+      "fixtureFacts": [
+        "Synthetic source explicitly binds the same attestation to FMA ID; all checks verified"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T0",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ELIGIBLE_EXACT_FMA_EVIDENCE",
+        "firstRule": "G10",
+        "researchEligible": true,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A52",
+      "title": "Legacy suffix-stripped alias",
+      "fixtureFacts": [
+        "Historical alias matches FMA name; actual source remains Structure; no scope/SEP proof"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "UNKNOWN",
+        "sep": "UNKNOWN",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T6",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A53",
+      "title": "Broad common ancestor",
+      "fixtureFacts": [
+        "Both candidates are anatomical structures but extent proof absent"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "UNKNOWN",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T4",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A54",
+      "title": "Fetal/pathological/postoperative versus canonical adult",
+      "fixtureFacts": [
+        "Concept carries excluded canonical-context qualifier"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A55",
+      "title": "Located-in versus part-of",
+      "fixtureFacts": [
+        "Nerve passes through region; containment of whole nerve is not established"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "UNKNOWN",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T6",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A56",
+      "title": "Model says exact but tissue countability unknown",
+      "fixtureFacts": [
+        "All other checks pass; no tissue portion/whole interpretation witness"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "UNKNOWN",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A57",
+      "title": "Prefix match to numbered vertebral level",
+      "fixtureFacts": [
+        "T10-T11 differs from T10-T1; normalization cannot repair printed level"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "FAIL",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "UNDETERMINED",
+        "tier": "T5",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "ONTOLOGY_SCOPE_REVIEW",
+        "firstRule": "G08",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A58",
+      "title": "Ontology active but atlas FMA binding conflicts",
+      "fixtureFacts": [
+        "BodyParts concept name/identity contradicts pinned FMA export; mesh audit not performed"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "FAIL",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A59",
+      "title": "Trusted exact bridge after release dependency changes",
+      "fixtureFacts": [
+        "Same pair IDs but scope-defining relationship revision changed; review not replayed"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "FAIL",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "EXACT",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "IDENTITY_REVIEW",
+        "firstRule": "G03",
+        "researchEligible": false,
+        "productionEligible": false
+      }
+    },
+    {
+      "id": "A60",
+      "title": "Positive subclass narrower class with exact side",
+      "fixtureFacts": [
+        "S is a genuine subclass of generic F; both sides are classes of whole entities",
+        "Typed subclass proof, all relation-specific checks complete"
+      ],
+      "gateInput": {
+        "sourceIntegrity": "PASS",
+        "licenseUse": "PASS",
+        "identity": "PASS",
+        "version": "PASS",
+        "ambiguity": "NONE",
+        "laterality": "PASS",
+        "cardinality": "PASS",
+        "scope": "PASS",
+        "sep": "PASS",
+        "attestationEndpoint": "PASS",
+        "provenance": "PASS",
+        "relation": "NONEXACT_SUPPORTED",
+        "tier": "T1",
+        "candidateCount": 1,
+        "counterpartExhaustion": "ABSENT",
+        "exportClearance": "PUBLIC_CLEARED"
+      },
+      "expected": {
+        "disposition": "CORROBORATIVE_ONLY",
+        "firstRule": "G12",
+        "researchEligible": false,
+        "productionEligible": false,
+        "relationType": "SNOMED_SUBCLASS_OF_FMA"
+      }
+    }
+  ],
+  "integrationAndMetamorphicCases": [
+    {
+      "id": "R01",
+      "scenario": "One valid exact target plus rejected broader and Part candidates",
+      "expected": "One eligible row, selected exact pair only; source row not duplicated; all candidates retained."
+    },
+    {
+      "id": "R02",
+      "scenario": "Two viable FMA targets from admitted assertions",
+      "expected": "IDENTITY_REVIEW; acceptedFmaId=null; no preference by sorting, score or publisher count."
+    },
+    {
+      "id": "R03",
+      "scenario": "One exact target plus credible unresolved T3 target with different FMA ID",
+      "expected": "IDENTITY_REVIEW; retain ambiguity until reviewed."
+    },
+    {
+      "id": "R04",
+      "scenario": "One exact target plus unsupported T6 homonym",
+      "expected": "Exact result retained when homonym has no credible identity evidence; retain rejected discovery candidate."
+    },
+    {
+      "id": "R05",
+      "scenario": "Nonexact proved target plus viable unresolved exact T3 target",
+      "expected": "ONTOLOGY_BRIDGE_REQUIRED or more specific applicable review; not CORROBORATIVE_ONLY until unresolved target assessed."
+    },
+    {
+      "id": "R06",
+      "scenario": "Same row repeated in candidate generation",
+      "expected": "One rowDecision, deduplicated pair key; duplicate raw source lines have distinct row IDs but source integrity review as necessary."
+    },
+    {
+      "id": "M01",
+      "scenario": "NVH and exact MOH, same scope and same Vietnamese key",
+      "expected": "MULTI_AUTHORITY_AGREEMENT only if independent work identities; no preferred term chosen."
+    },
+    {
+      "id": "M02",
+      "scenario": "NVH and exact MOH, different words, no semantic contradiction evidence",
+      "expected": "VARIANT_REVIEW, both raw terms retained, both evidence items may remain eligible."
+    },
+    {
+      "id": "M03",
+      "scenario": "Exact identity and explicitly incompatible denotation",
+      "expected": "CONFLICT_REQUIRES_ADJUDICATION; no automatic winner or medical decision."
+    },
+    {
+      "id": "M04",
+      "scenario": "Exact MOH plus HMU explicit same-identity source attestation",
+      "expected": "Agreement for equal keys, otherwise variant/conflict by evidence; no higher weight for newest source."
+    },
+    {
+      "id": "M05",
+      "scenario": "NVH exact and MOH broader S",
+      "expected": "ONTOLOGY_SCOPE_REVIEW interaction; NVH stays eligible; MOH adds zero exact authority agreement."
+    },
+    {
+      "id": "M06",
+      "scenario": "MOH side-specific and NVH unsided",
+      "expected": "ONTOLOGY_SCOPE_REVIEW interaction with laterality blocker; no source term composition."
+    },
+    {
+      "id": "M07",
+      "scenario": "HMU generic and MOH Entire",
+      "expected": "No agreement until HMU independently attested scope resolves; generic label cannot inherit MOH scope."
+    },
+    {
+      "id": "M08",
+      "scenario": "Distinct Vietnamese raw strings collide only after accent removal",
+      "expected": "No agreement; VARIANT_REVIEW if same scope; raw accents unchanged."
+    },
+    {
+      "id": "M09",
+      "scenario": "Two mirrors of same source and one repeated row",
+      "expected": "One authority; multiplicity cannot change disposition or agreement."
+    },
+    {
+      "id": "M10",
+      "scenario": "New evidence arrives for one of nine existing conflicts",
+      "expected": "Preserve unresolved conflict unless separately approved review decision changes it; never silently resolve by count."
+    },
+    {
+      "id": "P01",
+      "scenario": "Run twice; shuffle rows and candidate order",
+      "expected": "Canonical decision content and hashes identical, stable row IDs tied to original corpus locators; volatile timestamps excluded."
+    },
+    {
+      "id": "P02",
+      "scenario": "Change one raw row byte, source hash, module, rule, review or licensed source version",
+      "expected": "Affected decisions invalidated/recomputed; dependent provenance hashes change; previous approval not silently reused."
+    },
+    {
+      "id": "P03",
+      "scenario": "Remove licensed verifier from public profile",
+      "expected": "Public decisions and coverage identical; licensed-local outcomes never leak into public count."
+    },
+    {
+      "id": "P04",
+      "scenario": "Attempt to export labels removed from restricted pair crosswalk",
+      "expected": "Export blocked without artifact-specific clearance; IDs, booleans, hash-based hints and CUI joins are not automatic exemptions."
+    },
+    {
+      "id": "P05",
+      "scenario": "Missing required gate field or unknown enum",
+      "expected": "Schema failure; no default PASS; batch emits diagnostic without publishing partial successful ledger."
+    },
+    {
+      "id": "P06",
+      "scenario": "Every row has one or many candidates including zero-candidate rows",
+      "expected": "Exactly 1506 unique rowDecision records; sum of row dispositions=1506; pair count reported separately."
+    },
+    {
+      "id": "P07",
+      "scenario": "Two eligible rows map to same existing baseline FMA ID",
+      "expected": "Two retained attestations, zero new concepts; distinct-target and baseline set arithmetic only."
+    },
+    {
+      "id": "P08",
+      "scenario": "All candidate bridges absent",
+      "expected": "Zero new concepts permitted; no fallback to lexical eligibility; baseline 421 preserved."
+    },
+    {
+      "id": "P09",
+      "scenario": "Full corpus contains 34381 rows outside frozen compact cohort",
+      "expected": "No new denominator or claim of absence; future cohort expansion separately versioned."
+    },
+    {
+      "id": "P10",
+      "scenario": "Production side effects during future bridge run",
+      "expected": "Exact before/after hashes unchanged for entries/reviewers/release/sources/atlas; all production counters zero and UNRELEASED."
+    },
+    {
+      "id": "P11",
+      "scenario": "NVH prefix sentinels FMA3951/FMA4725/FMA10662 and gap FMA9597",
+      "expected": "No truncated prefix resurrection; FMA9597 remains unsupported unless a new explicit eligible source attestation exists; no fabricated NVH evidence."
+    },
+    {
+      "id": "P12",
+      "scenario": "Public output includes protected credentials, RF2/RRF body or local absolute path",
+      "expected": "Export validation fails; diagnostics do not echo secret or restricted source body."
+    },
+    {
+      "id": "P13",
+      "scenario": "One candidate fails side, aggregate and SEP checks simultaneously",
+      "expected": "Keep all blockers; primary queue LATERALITY_REVIEW by precedence; no reason loss."
+    },
+    {
+      "id": "P14",
+      "scenario": "Every scope comparison marked PASS without evidenceRefs",
+      "expected": "Cross-record invariant I03 fails; assertion of PASS is not sufficient evidence."
+    }
+  ],
+  "acceptance": {
+    "negativeFalsePositiveTolerance": 0,
+    "requiredPositiveControls": [
+      "A01",
+      "A10",
+      "A21",
+      "A29",
+      "A45",
+      "A51"
+    ],
+    "requireAdapterLevelFixtures": true,
+    "requireLicensedInputsForPublicTests": false,
+    "requireMedicalReviewNow": false,
+    "coverageMinimumGain": null
+  },
+  "requiredAdapterTests": [
+    "RF2 snapshot active/inactive effectiveTime and module dependency selection",
+    "Association reference set role direction and missing partner",
+    "Current FSN vs historical synonym versus MOH raw label",
+    "Source-specific UMLS CODE/SCUI/SAUI resolution and SUPPRESS handling",
+    "Typed is_a versus constitutional_part_of/regional_part_of/member_of/located_in",
+    "SCTID preserved as a string with check digit and partition validation",
+    "Direct source ID versus legacy alias/hint provenance",
+    "Approval and license dependency closure"
+  ]
+}

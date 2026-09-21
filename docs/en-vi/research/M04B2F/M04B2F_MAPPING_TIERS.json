@@ -1,0 +1,790 @@
+{
+  "schemaVersion": "m04b2f-mapping-tiers-proposal-1",
+  "status": "PROPOSED_RESEARCH_ARCHITECTURE_ONLY",
+  "policyVersion": "m04b2f-safe-bridge-1",
+  "confidenceIsProbability": false,
+  "initialTrustedBridgeRegistry": [],
+  "tiers": [
+    {
+      "id": "T0",
+      "name": "DIRECT_SOURCE_FMA_ID",
+      "requiredEvidence": [
+        "Original source explicitly binds FMA ID to this exact bilingual attestation",
+        "Endpoint scope proof and source identity-policy admission"
+      ],
+      "tierSpecificDisqualifiers": [
+        "FMA ID only inferred from English or notes",
+        "Source does not explicitly assert FMA identity"
+      ],
+      "canBecomeEligible": true,
+      "reviewOnly": false,
+      "ontologyReview": "Prior source identity-policy admission; pair review on exceptions",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "All common exact gates PASS; actual MOH SCTID equals assertion endpoint; no blockers"
+    },
+    {
+      "id": "T1",
+      "name": "TRUSTED_EXPLICIT_BRIDGE",
+      "requiredEvidence": [
+        "Publisher admitted in a versioned registry",
+        "Explicit exact pair predicate and intended mapping purpose",
+        "Pinned releases, endpoint checks and usable license"
+      ],
+      "tierSpecificDisqualifiers": [
+        "Unqualified xref/skos:closeMatch or unspecified mapping predicate",
+        "BioPortal/UMLS hosting mistaken for map authorship",
+        "Publisher/edition not admitted"
+      ],
+      "canBecomeEligible": true,
+      "reviewOnly": false,
+      "ontologyReview": "Map admission review required; per-row review only on veto/conflict",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "All common exact gates PASS; actual MOH SCTID equals assertion endpoint; no blockers"
+    },
+    {
+      "id": "T2",
+      "name": "REVIEWED_LOCAL_BRIDGE",
+      "requiredEvidence": [
+        "Named human ontology reviewer and approval ID for exact pair/version",
+        "Primary endpoint evidence and explicit scope findings",
+        "Immutable decision with license dependencies"
+      ],
+      "tierSpecificDisqualifiers": [
+        "Machine-generated reviewer or approval",
+        "Family-wide approval without enumerated pairs",
+        "Unreviewed version migration"
+      ],
+      "canBecomeEligible": true,
+      "reviewOnly": false,
+      "ontologyReview": "Already completed for each pair; replay invalidates on dependency changes",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "All common exact gates PASS; actual MOH SCTID equals assertion endpoint; no blockers"
+    },
+    {
+      "id": "T3",
+      "name": "SHARED_CUI_VALIDATED_CONTEXT",
+      "requiredEvidence": [
+        "Same pinned CUI for exact source concept IDs",
+        "SAB/VSAB/AUI/SCUI/CODE/TTY/SUPPRESS retained locally",
+        "Independent endpoint and scope checks"
+      ],
+      "tierSpecificDisqualifiers": [
+        "CUI only inferred by string",
+        "Suppressed/ambiguous source identity",
+        "CUI conflates S/E/P or side distinctions"
+      ],
+      "canBecomeEligible": false,
+      "reviewOnly": true,
+      "ontologyReview": "Required before promotion to T2",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "Never eligible in this tier; human approval creates a new T2 assertion, not a tier-score upgrade"
+    },
+    {
+      "id": "T4",
+      "name": "EXACT_LEXICAL_STRUCTURAL",
+      "requiredEvidence": [
+        "Exact raw English or source-attested synonym equality",
+        "Pinned endpoint facts with compatible structural context",
+        "Independent already-approved anchors if used"
+      ],
+      "tierSpecificDisqualifiers": [
+        "Top ancestor only",
+        "Circular anchor support",
+        "Homonym or unknown extent"
+      ],
+      "canBecomeEligible": false,
+      "reviewOnly": true,
+      "ontologyReview": "Required before promotion to T2",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "Never eligible in this tier; human approval creates a new T2 assertion, not a tier-score upgrade"
+    },
+    {
+      "id": "T5",
+      "name": "NORMALIZED_SYNONYM_STRUCTURAL",
+      "requiredEvidence": [
+        "Source-attested synonym equality after allowed normalization",
+        "All structural checks required by T4",
+        "Raw wording and transform trace retained"
+      ],
+      "tierSpecificDisqualifiers": [
+        "Qualifier stripping",
+        "Plural/singular conflation",
+        "Invented synonym or accent-folded Vietnamese"
+      ],
+      "canBecomeEligible": false,
+      "reviewOnly": true,
+      "ontologyReview": "Required before promotion to T2",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "Never eligible in this tier; human approval creates a new T2 assertion, not a tier-score upgrade"
+    },
+    {
+      "id": "T6",
+      "name": "LEXICAL_ONLY",
+      "requiredEvidence": [
+        "Raw lexical resemblance or legacy discovery hint with provenance"
+      ],
+      "tierSpecificDisqualifiers": [
+        "Cannot supply positive identity proof"
+      ],
+      "canBecomeEligible": false,
+      "reviewOnly": true,
+      "ontologyReview": "Required if candidate is pursued",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "Never eligible in this tier; human approval creates a new T2 assertion, not a tier-score upgrade"
+    },
+    {
+      "id": "TX",
+      "name": "UNRESOLVED_OR_REJECTED",
+      "requiredEvidence": [
+        "Typed unresolved/rejection reasons"
+      ],
+      "tierSpecificDisqualifiers": [
+        "Missing/contradictory/invalid evidence"
+      ],
+      "canBecomeEligible": false,
+      "reviewOnly": true,
+      "ontologyReview": "Only if repairable; no automatic rescue",
+      "medicalTerminologyReview": "Not performed now; required before any later production terminology use",
+      "eligibilityCondition": "Never eligible in this tier; human approval creates a new T2 assertion, not a tier-score upgrade"
+    }
+  ],
+  "globalExactDisqualifiers": [
+    "Unpinned release/edition/module dependencies",
+    "Unresolved or inactive endpoint without approved historical version bridge",
+    "Raw attestation incomplete or code-label contradiction",
+    "Any scope check FAIL or UNKNOWN",
+    "Unresolved credible alternative target",
+    "Conflicting approved assertions",
+    "Missing direct exact assertion",
+    "Actual source SCTID differs from bridge SCTID",
+    "Provenance cycle or unsupported PASS",
+    "Unauthorized use of evidence"
+  ],
+  "proposedDecisionTable": {
+    "status": "Declarative policy and future test contract; no evaluator implemented",
+    "evaluation": "Validate inputs first. Evaluate rules in listed order; first match selects exactly one disposition. Collect all blockers independently before choosing primary status. Missing fields are schema errors, never default PASS. eq/neq are strict equality/inequality, in is enum membership; all/any have Boolean semantics.",
+    "inputFields": {
+      "sourceIntegrity": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "licenseUse": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "identity": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "version": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "ambiguity": [
+        "NONE",
+        "UNRESOLVED",
+        "CONFLICTING"
+      ],
+      "laterality": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "cardinality": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "scope": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "sep": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "attestationEndpoint": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "provenance": [
+        "PASS",
+        "FAIL",
+        "UNKNOWN"
+      ],
+      "relation": [
+        "EXACT",
+        "NONEXACT_SUPPORTED",
+        "INCOMPATIBLE",
+        "UNDETERMINED"
+      ],
+      "tier": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "TX"
+      ],
+      "candidateCount": "integer>=0",
+      "counterpartExhaustion": [
+        "APPROVED",
+        "ABSENT"
+      ],
+      "exportClearance": [
+        "PUBLIC_CLEARED",
+        "LOCAL_ONLY",
+        "LICENSE_UNRESOLVED"
+      ]
+    },
+    "fieldSemantics": {
+      "sourceIntegrity": "Actual raw row revision, bilingual field boundaries, locator and label/code coherence.",
+      "licenseUse": "Right to use all dependency artifacts in selected profile. Export clearance is independent.",
+      "identity": "Source SCTID and candidate FMA identities resolve. For zero candidates only source identity resolution applies.",
+      "version": "Pinned source interpretation or approved historical-version bridge, selected ontology snapshots and atlas identity binding.",
+      "ambiguity": "Conflicting approved assertions or competing credible targets; never choose by majority or score.",
+      "laterality": "PASS means documented exact compatibility for exact/undetermined candidates; for supported nonexact relation it means documented complete laterality assessment consistent with that relation.",
+      "cardinality": "As above for aggregate/single/pair identity.",
+      "scope": "All entity-kind, boundary, partition, countability, granularity, canonical-context checks completed and consistent with the proposed relation. UNKNOWN on any required fact => UNKNOWN.",
+      "sep": "SEP class/membership sufficiently evidenced and consistent with proposed relation; documented NOT_APPLICABLE passes. Keyword-only never passes.",
+      "attestationEndpoint": "Actual source row SCTID equals the assessed bridge endpoint; no S-to-E evidence substitution.",
+      "provenance": "Acyclic, resolvable proof refs; admitted source/bridge dependencies and human approval attribution valid.",
+      "relation": "Proposed relation entering veto checks, not final canonical relationType. EXACT requires a direct source/approved bridge assertion; unapproved T3-T6 candidates remain UNDETERMINED even when structural checks pass. A vetoed exact proposal must not emit a final exact relation as established fact. NONEXACT_SUPPORTED requires positive typed proof; INCOMPATIBLE requires complete positive rejection evidence.",
+      "counterpartExhaustion": "APPROVED only with signed/reviewed search certificate against entire fixed atlas; no absence inferred from missing candidate generation.",
+      "exportClearance": "Does not affect local semantic decision; independently blocks public serialization unless PUBLIC_CLEARED."
+    },
+    "orderedRules": [
+      {
+        "id": "G01",
+        "when": {
+          "any": [
+            {
+              "field": "sourceIntegrity",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "SOURCE_ATTESTATION_REVIEW"
+      },
+      {
+        "id": "G02",
+        "when": {
+          "any": [
+            {
+              "field": "licenseUse",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "LICENSE_BLOCKED"
+      },
+      {
+        "id": "G03",
+        "when": {
+          "any": [
+            {
+              "field": "identity",
+              "op": "neq",
+              "value": "PASS"
+            },
+            {
+              "field": "version",
+              "op": "neq",
+              "value": "PASS"
+            },
+            {
+              "field": "ambiguity",
+              "op": "neq",
+              "value": "NONE"
+            },
+            {
+              "field": "attestationEndpoint",
+              "op": "neq",
+              "value": "PASS"
+            },
+            {
+              "field": "provenance",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "IDENTITY_REVIEW"
+      },
+      {
+        "id": "G04",
+        "when": {
+          "all": [
+            {
+              "field": "candidateCount",
+              "op": "eq",
+              "value": 0
+            },
+            {
+              "field": "counterpartExhaustion",
+              "op": "eq",
+              "value": "APPROVED"
+            }
+          ]
+        },
+        "disposition": "NO_ATLAS_COUNTERPART"
+      },
+      {
+        "id": "G05",
+        "when": {
+          "all": [
+            {
+              "field": "candidateCount",
+              "op": "eq",
+              "value": 0
+            }
+          ]
+        },
+        "disposition": "NO_CANDIDATE_FOUND"
+      },
+      {
+        "id": "G06",
+        "when": {
+          "any": [
+            {
+              "field": "laterality",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "LATERALITY_REVIEW"
+      },
+      {
+        "id": "G07",
+        "when": {
+          "any": [
+            {
+              "field": "cardinality",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "AGGREGATE_REVIEW"
+      },
+      {
+        "id": "G08",
+        "when": {
+          "any": [
+            {
+              "field": "scope",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "ONTOLOGY_SCOPE_REVIEW"
+      },
+      {
+        "id": "G09",
+        "when": {
+          "any": [
+            {
+              "field": "sep",
+              "op": "neq",
+              "value": "PASS"
+            }
+          ]
+        },
+        "disposition": "STRUCTURE_ENTIRE_PART_REVIEW"
+      },
+      {
+        "id": "G10",
+        "when": {
+          "all": [
+            {
+              "field": "sourceIntegrity",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "licenseUse",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "identity",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "version",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "laterality",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "cardinality",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "scope",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "sep",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "attestationEndpoint",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "provenance",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "ambiguity",
+              "op": "eq",
+              "value": "NONE"
+            },
+            {
+              "field": "relation",
+              "op": "eq",
+              "value": "EXACT"
+            },
+            {
+              "field": "tier",
+              "op": "eq",
+              "value": "T0"
+            }
+          ]
+        },
+        "disposition": "ELIGIBLE_EXACT_FMA_EVIDENCE"
+      },
+      {
+        "id": "G11",
+        "when": {
+          "all": [
+            {
+              "field": "sourceIntegrity",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "licenseUse",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "identity",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "version",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "laterality",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "cardinality",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "scope",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "sep",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "attestationEndpoint",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "provenance",
+              "op": "eq",
+              "value": "PASS"
+            },
+            {
+              "field": "ambiguity",
+              "op": "eq",
+              "value": "NONE"
+            },
+            {
+              "field": "relation",
+              "op": "eq",
+              "value": "EXACT"
+            },
+            {
+              "field": "tier",
+              "op": "in",
+              "value": [
+                "T1",
+                "T2"
+              ]
+            }
+          ]
+        },
+        "disposition": "ELIGIBLE_WITH_PINNED_BRIDGE"
+      },
+      {
+        "id": "G12",
+        "when": {
+          "all": [
+            {
+              "field": "relation",
+              "op": "eq",
+              "value": "NONEXACT_SUPPORTED"
+            }
+          ]
+        },
+        "disposition": "CORROBORATIVE_ONLY"
+      },
+      {
+        "id": "G13",
+        "when": {
+          "all": [
+            {
+              "field": "relation",
+              "op": "eq",
+              "value": "INCOMPATIBLE"
+            }
+          ]
+        },
+        "disposition": "NO_SAFE_MAPPING"
+      },
+      {
+        "id": "G14",
+        "when": {
+          "always": true
+        },
+        "disposition": "ONTOLOGY_BRIDGE_REQUIRED"
+      }
+    ],
+    "inputSchema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceIntegrity",
+        "licenseUse",
+        "identity",
+        "version",
+        "ambiguity",
+        "laterality",
+        "cardinality",
+        "scope",
+        "sep",
+        "attestationEndpoint",
+        "provenance",
+        "relation",
+        "tier",
+        "candidateCount",
+        "counterpartExhaustion",
+        "exportClearance"
+      ],
+      "properties": {
+        "sourceIntegrity": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "licenseUse": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "identity": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "ambiguity": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "UNRESOLVED",
+            "CONFLICTING"
+          ]
+        },
+        "laterality": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "cardinality": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "sep": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "attestationEndpoint": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "provenance": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "EXACT",
+            "NONEXACT_SUPPORTED",
+            "INCOMPATIBLE",
+            "UNDETERMINED"
+          ]
+        },
+        "tier": {
+          "type": "string",
+          "enum": [
+            "T0",
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "TX"
+          ]
+        },
+        "candidateCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "counterpartExhaustion": {
+          "type": "string",
+          "enum": [
+            "APPROVED",
+            "ABSENT"
+          ]
+        },
+        "exportClearance": {
+          "type": "string",
+          "enum": [
+            "PUBLIC_CLEARED",
+            "LOCAL_ONLY",
+            "LICENSE_UNRESOLVED"
+          ]
+        }
+      }
+    }
+  },
+  "rowReducer": {
+    "steps": [
+      "Evaluate all pairs and retain every candidate, rejected relation and blocker.",
+      "Treat valid T0/T1/T2 exact targets as authoritative contenders. Treat T3/T4 candidates as credible unresolved contenders only when endpoint/scope evidence supports a different possible exact target. T5/T6 lexical resemblance alone does not veto an otherwise fully proved exact target.",
+      "Deduplicate contenders by FMA identity, not label. More than one distinct authoritative/credible target => G03 IDENTITY_REVIEW. Conflicting T1/T2 assertions about the same pair also => G03.",
+      "If one exact contender survives without credible alternative, select it and replay G01-G14. Rejected broader/part candidates do not displace it.",
+      "If no exact contender survives, prefer unresolved credible identity candidates to completed nonexact candidates; select primary review by G01-G09 precedence across the viable candidates. T3-T6 remaining unresolved candidates => G14.",
+      "If no viable exact/undetermined candidates exist and one or more nonexact relations are proved, row => CORROBORATIVE_ONLY; do not select an acceptedFmaId.",
+      "If all existing candidates are positively rejected, row => NO_SAFE_MAPPING; if no candidates exist use G04/G05.",
+      "Emit exactly one rowDecision. selectedPairId and acceptedFmaId are set only for eligible dispositions; provenance links retain all pairs for all other dispositions."
+    ],
+    "noCandidateOverride": "For a zero-candidate row, supply identity/version/provenance PASS only when source-level identity and pinned search universe are valid; candidate-specific scope fields are ignored by G04/G05.",
+    "nonexactAssessment": "A known scope difference consistent with a positively proved nonexact relation is assessment PASS, not exact-scope equality. Raw scopeChecks still record mismatch facts; no eligible gate can accept relation NONEXACT_SUPPORTED.",
+    "blockerOrdering": "Sort reason codes lexicographically; primary queue uses ordered rules, never input order.",
+    "blockerRetention": "allBlockers retains candidate reason codes, including rejected candidates. unresolvedBlockers contains only unresolved vetoes on row selection; it must be empty for eligible rows. Rejected candidate blockers cannot erase a fully proved selected exact target."
+  },
+  "productionInvariants": {
+    "searchableVietnamese": 0,
+    "SOURCE_VERIFIED": 0,
+    "MEDICAL_REVIEWED": 0,
+    "releaseEligible": 0,
+    "release": "UNRELEASED",
+    "productionEligible": false
+  },
+  "publicExportGate": {
+    "condition": "exportClearance == PUBLIC_CLEARED for record and every transitive dependency",
+    "restrictedIdentifiersAreAutomaticallySafe": false,
+    "restrictedResultsAllowedInPublicCounts": false
+  },
+  "multiAuthority": {
+    "comparisonKey": "same FMA and compatible scope, then Vietnamese NFC + trim + layout-whitespace collapse; preserve case, accents, punctuation and word order",
+    "authorityIdentity": "bibliographic work/edition with upstream dependency lineage; copies do not create votes",
+    "primaryStatusPrecedence": [
+      "CONFLICT_REQUIRES_ADJUDICATION",
+      "ONTOLOGY_SCOPE_REVIEW",
+      "VARIANT_REVIEW",
+      "MULTI_AUTHORITY_AGREEMENT",
+      "SINGLE_AUTHORITY_EVIDENCE",
+      "NO_ELIGIBLE_EVIDENCE"
+    ],
+    "sourceCountCanEstablishIdentity": false,
+    "newestSourceWins": false,
+    "nonexactEvidenceCanCountAsAgreement": false
+  }
+}
