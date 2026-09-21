@@ -89,6 +89,35 @@ The upstream atlas is regenerated independently. The terminology overlay is then
 
 `computeTerminologyRevision` deterministically fingerprints medically meaningful entry content while excluding mutable review metadata. Source, medical, and release audits point to the current revision and reviewed claims. Medical approval requires an active registered reviewer with authorization scope; automation never supplies it. `release.json` binds atlas, registry, source, reviewer, policy, content hash, and released entry revisions. M03C1 keeps the release overlay/search surface empty and the manifest `UNRELEASED`; only the bounded research queue is populated.
 
+## M04A bulk evidence pipeline
+
+The bulk research path is local and batch-oriented:
+
+```text
+JSON/JSONL source corpus
+  → buildSourceIndex (one corpus read, deterministic indexes)
+  → atlas concepts + index + source catalog + M03C1 metadata
+  → bulk matcher (local exact/normalized identity joins, safety flags, mesh heuristics)
+  → data/terminology/research/bulk-match-results.json
+```
+
+The corpus is evidence, not a translation table. Source identity, revision,
+edition, locator, and raw wording survive indexing. Indexes cover exact and
+normalized English, Latin preferred/aliases, Vietnamese terms, source codes,
+terminology IDs, and category values. No per-concept web request is performed,
+and the matcher never turns an FMA-like `Concept.id` into a mapping claim; an
+ID can participate only when it is explicitly present in an indexed
+`terminologyIds` field.
+
+Results are research-only and use deterministic buckets for high-consensus
+candidates, variants, conflicts, ontology scope, laterality, source/identity
+gaps, and aggregate/composite review. Semantic detectors flag side,
+directional, tissue-class, branch/trunk, and aggregate inconsistencies without
+correcting them. Mesh count and overlap produce review heuristics only. The
+frozen M03C records are compared as regression metadata, while
+`entries.json`, the release manifest, reviewer registry, and runtime overlay
+remain unchanged.
+
 ## Deployment
 
 The app remains static and client-side. vercel.json continues to use framework vite, installCommand npm ci, buildCommand npm run build, and outputDirectory dist. No server, database, secret, or runtime environment variable is needed for this foundation.

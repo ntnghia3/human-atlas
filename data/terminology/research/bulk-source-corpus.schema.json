@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "human-atlas/m04a/bulk-source-corpus-record.schema.json",
+  "title": "Human Atlas bulk source evidence record",
+  "description": "One extracted evidence record. Source wording and provenance are preserved; normalized values are matching keys only.",
+  "type": "object",
+  "required": ["sourceId", "sourceRevision", "locator", "sourceTermRaw"],
+  "properties": {
+    "sourceId": {"type": "string", "minLength": 1},
+    "sourceRevision": {"type": "string", "minLength": 1},
+    "sourceEdition": {"type": "string", "minLength": 1},
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "page": {"type": "integer", "minimum": 1},
+        "plate": {"type": "string", "minLength": 1},
+        "entryId": {"type": "string", "minLength": 1},
+        "nomenclatureId": {"type": "string", "minLength": 1},
+        "chapter": {"type": "string", "minLength": 1},
+        "section": {"type": "string", "minLength": 1},
+        "table": {"type": "string", "minLength": 1},
+        "url": {"type": "string", "format": "uri"}
+      }
+    },
+    "sourceLanguage": {"type": "string", "minLength": 1},
+    "english": {"$ref": "#/$defs/termBlock"},
+    "latin": {"$ref": "#/$defs/termBlock"},
+    "vietnamese": {"$ref": "#/$defs/termBlock"},
+    "sourceTermRaw": {"type": "string", "minLength": 1},
+    "context": {"type": "string", "minLength": 1},
+    "anatomicalCategory": {"type": "string", "minLength": 1},
+    "laterality": {"type": "string", "enum": ["left", "right", "bilateral", "unsided", "unknown"]},
+    "directionalQualifiers": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "sourceCodes": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "terminologyIds": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "notes": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "termBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preferred": {"type": "string", "minLength": 1},
+        "aliases": {"type": "array", "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  },
+  "additionalProperties": false
+}

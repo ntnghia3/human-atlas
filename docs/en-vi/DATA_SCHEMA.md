@@ -69,6 +69,35 @@ search or satisfy source verification, medical review, or release eligibility.
 
 `TerminologyClaim` records a stable claim ID, claim type, exact target/value, source ID, source revision, structured locator, evidence disposition, and claim review state. Claim types distinguish atlas identity, Atlas↔FMA and Atlas/FMA↔TA2 mappings, canonical Latin, each alias class, Vietnamese preferred wording, search aliases, and secondary corroboration. A claim is not verified merely because its source is authoritative.
 
+## M04A bulk evidence artifacts
+
+M04A adds a non-production research pipeline under `data/terminology/research/`:
+
+```text
+bulk-source-corpus.schema.json      JSON/JSONL record contract
+bulk-source-corpus.jsonl            optional extracted evidence input
+bulk-source-index.json              deterministic provenance-preserving index
+bulk-match-results.json             one research result for every atlas concept
+fixtures/                           synthetic tests only; never release data
+```
+
+Each corpus record keeps `sourceId`, the exact `sourceRevision` and optional
+edition, a structured locator, the original `sourceTermRaw`, and preferred or
+alias wording in separate language blocks. Index keys are derived matching
+values only: Unicode/case/whitespace normalization and Vietnamese diacritic
+folding never replace the stored source wording. A duplicate record is
+coalesced only for index efficiency and retains a deterministic duplicate
+count.
+
+The bulk result is not an entry registry and cannot populate the production
+overlay. It stores source matches, exact and normalized English matches, Latin
+evidence, Vietnamese candidate evidence, semantic safety flags, mesh heuristics,
+deterministic research buckets, and M03C regression status. A high-consensus
+candidate is still research output; it is not `SOURCE_VERIFIED`,
+`MEDICAL_REVIEWED`, `VERIFIED`, or release eligible. Access-copy,
+discovery-only, machine-generated, stale-revision, and insufficient-locator
+evidence cannot create a high-consensus candidate.
+
 ## Review and revision
 
 `ReviewWorkflow.status` retains `DRAFT`, `SOURCE_VERIFIED`, `MEDICAL_REVIEWED`, `VERIFIED`, and `RELEASE_ELIGIBLE` as workflow hints. Effective release is derived. Passed audits record type, decision, reviewer ID where human review is required, timestamp, reviewed claim IDs, and `entryRevision`. The reviewer registry supplies stable identity, role, qualifications, status, and authorization scope.

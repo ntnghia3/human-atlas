@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "pipelineVersion": "M04A-1",
+  "normalization": {
+    "matchingOnly": true,
+    "unicode": "NFD",
+    "lowercase": true,
+    "whitespace": "collapse-trim",
+    "vietnameseDiacriticFolding": true,
+    "mapDStrokeToD": true
+  },
+  "inputFiles": [
+    "data/terminology/research/bulk-source-corpus.jsonl"
+  ],
+  "sourceCatalogRevision": "m04a-source-8da3d53c",
+  "inputRecordCount": 0,
+  "indexedRecordCount": 0,
+  "duplicateEvidenceRecordCount": 0,
+  "unresolvedSourceIds": [],
+  "sourceRevisionMismatches": [],
+  "records": [],
+  "indexes": {
+    "exactEnglish": {},
+    "normalizedEnglish": {},
+    "latinPreferred": {},
+    "latinAliases": {},
+    "vietnamese": {},
+    "sourceCodes": {},
+    "terminologyIds": {},
+    "anatomicalCategory": {}
+  },
+  "indexRevision": "m04a-index-5d869419"
+}

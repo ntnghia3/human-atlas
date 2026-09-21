@@ -37,6 +37,14 @@ change the authority identity. A separate `accessCopyOf` record is always
 even when the mirror is searchable. Edition matching and exact locators remain
 required before a candidate can become source-verified.
 
+M04A bulk evidence may record an exact-locator research candidate against the
+identified authority record when the wording was discovered through its
+documented inspection path. That can support a research bucket such as
+`HIGH_CONSENSUS_CANDIDATE`, but it does not satisfy the supported-claim gate:
+full-text review, claim-level source verification, qualified medical review,
+and release checks remain required. A separate `discovery-only` or
+`accessCopyOf` record cannot create that research candidate by itself.
+
 ## Claim evidence
 
 Every claim records `sourceId`, the exact `sourceRevision`, and a structured locator. Supported locators are page, plate, chapter, section, table, entry ID, URL, and nomenclature ID. A generic URL alone is not an exact locator for a release claim, and a locator must match the source's declared capability. The validator requires the cited source revision to match the source catalog and rejects missing, metadata-only, uninspected, or otherwise unusable evidence.
