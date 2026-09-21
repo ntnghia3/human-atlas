@@ -11,11 +11,12 @@
   },
   "inputFiles": [
     "data/terminology/research/corpora/fipat-ta2-2019.jsonl",
+    "data/terminology/research/corpora/m04b2c-vi-authority.jsonl",
     "data/terminology/research/corpora/nvh2008-public-research-seed.jsonl"
   ],
   "sourceCatalogRevision": "m04a-source-93b641cb",
-  "inputRecordCount": 7140,
-  "indexedRecordCount": 7140,
+  "inputRecordCount": 7183,
+  "indexedRecordCount": 7183,
   "duplicateEvidenceRecordCount": 0,
   "unresolvedSourceIds": [],
   "sourceRevisionMismatches": [],
@@ -17936,6 +17937,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-16ff648e",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1.2. Xương đỉnh (parietal bone)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 106
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "parietal bone",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương đỉnh",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương đỉnh (parietal bone)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9613; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-1704aafb",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -18483,6 +18511,59 @@
         "sourceTermRaw": "Hemidiaphragma sinistrum",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-17a3d15f",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Túi mật (gallbladder)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "gallbladder",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Túi mật",
+          "aliases": []
+        },
+        "sourceTermRaw": "Túi mật (gallbladder)",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA7202; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-17a80d5a",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "2.2. Thần kinh thị giác (Optic nerve)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan",
+          "page": 382
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "optic nerve",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Thần kinh thị giác",
+          "aliases": []
+        },
+        "sourceTermRaw": "Thần kinh thị giác (optic nerve)",
+        "anatomicalCategory": "Nerve",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA50863; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -20119,6 +20200,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-19b8caac",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "5. TUYẾN TIỀN LIỆT (prostate)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 555
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "prostate",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tuyến tiền liệt",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tuyến tiền liệt (prostate)",
+        "anatomicalCategory": "Gland",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9600; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-19bc2d18",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -21144,6 +21252,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-1b24f209",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1. KHÍ QUẢN (trachea)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 623
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "trachea",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Khí quản",
+          "aliases": []
+        },
+        "sourceTermRaw": "Khí quản (trachea)",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA7394; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-1b29ea74",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -21636,6 +21771,33 @@
         "sourceTermRaw": "(Bursa intratendinea olecrani)",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "fipatStatus=parenthesized; parenthesized source status is preserved; englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-1ba3ffbd",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1. XƯƠNG CHẬU (hip bone)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 63
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "hip bone",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương chậu",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương chậu (hip bone)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA16585; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -23742,6 +23904,33 @@
         "sourceTermRaw": "Intumescentia cervicalis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-1e68115f",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Cơ trên gai (supraspinatus)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 130
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "supraspinatus",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cơ trên gai",
+          "aliases": []
+        },
+        "sourceTermRaw": "Cơ trên gai (supraspinatus)",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9629; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -28164,6 +28353,32 @@
         "sourceTermRaw": "Regio frontalis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part I; Caput I: ANATOMIA GENERALIS Chapter 1: GENERAL ANATOMY",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-243cb9d0",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Tĩnh mạch cảnh trong (internal jugular vein)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "internal jugular vein",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tĩnh mạch cảnh trong",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tĩnh mạch cảnh trong (internal jugular vein)",
+        "anatomicalCategory": "Vein",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA4724; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -33680,6 +33895,32 @@
         "sourceTermRaw": "Pars anularis vaginae fibrosae digiti pedis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-2adeed83",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1.3. Động mạch cảnh trong (internal carotid artery)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "internal carotid artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch cảnh trong",
+          "aliases": []
+        },
+        "sourceTermRaw": "Động mạch cảnh trong (internal carotid artery)",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA3947; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -41454,6 +41695,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-3420ba9a",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Tĩnh mạch đơn (azygos vein)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "azygos vein",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tĩnh mạch đơn",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tĩnh mạch đơn (azygos vein)",
+        "anatomicalCategory": "Vein",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA4838; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-3425dfe0",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -43410,6 +43677,32 @@
         "sourceTermRaw": "Cornu sacrale",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput II: OSSA Chapter 2: BONES",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-3661fd9a",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1.4. Động mạch chủ bụng (abdominal aorta)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "abdominal aorta",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch chủ bụng",
+          "aliases": []
+        },
+        "sourceTermRaw": "Động mạch chủ bụng (abdominal aorta)",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA3789; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -45858,6 +46151,32 @@
         "sourceTermRaw": "Ramus cutaneus lateralis nervi subcostalis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-3948b3b3",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "5. TUYẾN THƯỢNG THẬN (suprarenal/adrenal gland)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "adrenal gland",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tuyến thượng thận",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tuyến thượng thận (adrenal gland)",
+        "anatomicalCategory": "Gland",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9604; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -53154,6 +53473,32 @@
         "sourceTermRaw": "Centrum semiovale",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-41fcbce4",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "gian sườn ngoài (external intercostal muscle)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "external intercostal muscle",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cơ gian sườn ngoài",
+          "aliases": []
+        },
+        "sourceTermRaw": "Cơ gian sườn ngoài (external intercostal muscle)",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9756; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -66943,6 +67288,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-53954619",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "2.1. Tĩnh mạch chủ trên (superior vena cava)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 239
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "superior vena cava",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tĩnh mạch chủ trên",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tĩnh mạch chủ trên (superior vena cava)",
+        "anatomicalCategory": "Vein",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA4720; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-53a6b352",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -67599,6 +67971,32 @@
         "sourceTermRaw": "(Cartilago sesamoidea laryngis)",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput II: OSSA Chapter 2: BONES",
         "notes": "fipatStatus=parenthesized; parenthesized source status is preserved; englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-54a6eee0",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "cơ gian sườn trong (internal intercostal muscle)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "internal intercostal muscle",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cơ gian sườn trong",
+          "aliases": []
+        },
+        "sourceTermRaw": "Cơ gian sườn trong (internal intercostal muscle)",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9757; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -68727,6 +69125,33 @@
         "sourceTermRaw": "CRANIUM",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput II: OSSA Chapter 2: BONES",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-562ceb6f",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Xương thuyền (navicular)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 77
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "navicular bone of foot",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương thuyền",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương thuyền (navicular bone of foot)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA24499; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -79049,6 +79474,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-63ffe8ef",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1.1. Động mạch cảnh chung (common carotid artery)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "common carotid artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch cảnh chung",
+          "aliases": []
+        },
+        "sourceTermRaw": "Động mạch cảnh chung (common carotid artery)",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA3939; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-640a51a1",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -86033,6 +86484,32 @@
         "sourceTermRaw": "Tunica mucosa cavitatis tympani",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XV: ORGANA SENSUUM Chapter 15: SENSE ORGANS",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-6d8af887",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1.3. Sụn nhẫn (cricoid cartilage)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "cricoid cartilage",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Sụn nhẫn",
+          "aliases": []
+        },
+        "sourceTermRaw": "Sụn nhẫn (cricoid cartilage)",
+        "anatomicalCategory": "Cartilage",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9615; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -94604,6 +95081,32 @@
         "sourceTermRaw": "Vagina interna nervi optici",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-782bd276",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "3. XƯƠNG ĐỈNH / Hai xương đỉnh (parietal bone)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "parietal bone",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương đỉnh",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương đỉnh (parietal bone)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9613; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -107390,6 +107893,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-89e162ff",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "4.2. Tuyến tiền liệt / Tuyến tiền liệt (prostate)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan",
+          "page": 96
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "prostate",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tuyến tiền liệt",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tuyến tiền liệt (prostate)",
+        "anatomicalCategory": "Gland",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9600; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-89fc49d7",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -109989,6 +110519,32 @@
         "sourceTermRaw": "Ligamentum sacrotuberale",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput III: JUNCTURAE Chapter 3: JOINTS",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-8d88ba21",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Cán ức (manubrium)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "manubrium",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cán ức",
+          "aliases": []
+        },
+        "sourceTermRaw": "Cán ức (manubrium)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA7486; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -116140,6 +116696,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-952c5d59",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "2. THẦN KINH THỊ GIÁC (optic nerve)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "optic nerve",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Thần kinh thị giác",
+          "aliases": []
+        },
+        "sourceTermRaw": "Thần kinh thị giác (optic nerve)",
+        "anatomicalCategory": "Nerve",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA50863; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-952d46f0",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -118032,6 +118614,33 @@
         "sourceTermRaw": "Venter superior musculi omohyoidei",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-9787ee00",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Mỏm mũi kiếm (xiphoid process)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 97
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "xiphoid process",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Mỏm mũi kiếm",
+          "aliases": []
+        },
+        "sourceTermRaw": "Mỏm mũi kiếm (xiphoid process)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA7488; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -123249,6 +123858,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-9dd682e1",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "1.1. Xương sên (talus)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "talus",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương sên",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương sên (talus)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9708; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-9ddc5d2f",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -123729,6 +124364,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-9eafb2f0",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "1. XƯƠNG ĐÙI (femur)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "femur",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương đùi",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương đùi (femur)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9611; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-9eb68979",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -123942,6 +124603,32 @@
         "sourceTermRaw": "Fascia visceralis colli",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-9f32fbbb",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "hạch mi (ciliary ganglion)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "ciliary ganglion",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Hạch mi",
+          "aliases": []
+        },
+        "sourceTermRaw": "Hạch mi (ciliary ganglion)",
+        "anatomicalCategory": "Nerve",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA6964; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -128065,6 +128752,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-a4cf296c",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "2.2. Phế quản chính trái (left principal/main bronchus)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 625
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "left main bronchus",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Phế quản chính trái",
+          "aliases": []
+        },
+        "sourceTermRaw": "Phế quản chính trái (left main bronchus)",
+        "anatomicalCategory": "Organ",
+        "laterality": "left",
+        "notes": "Research-only authority evidence for atlas concept FMA7396; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-a4dda5c9",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -128660,6 +129374,33 @@
         "sourceTermRaw": "Rami nervi lingualis isthmi facium",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-a59067af",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "Hạch mi (ciliary ganglion)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan",
+          "page": 318
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "ciliary ganglion",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Hạch mi",
+          "aliases": []
+        },
+        "sourceTermRaw": "Hạch mi (ciliary ganglion)",
+        "anatomicalCategory": "Nerve",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA6964; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -132641,6 +133382,32 @@
         "sourceTermRaw": "Nucleus intercalatus",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-aaf175c2",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "cơ trâm móng (stylohyoid)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "stylohyoid",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cơ trâm móng",
+          "aliases": []
+        },
+        "sourceTermRaw": "Cơ trâm móng (stylohyoid)",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9625; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -140582,6 +141349,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-b547f1a4",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "2. XƯƠNG ĐÙI (femur)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "femur",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương đùi",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương đùi (femur)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9611; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-b54c9626",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -144906,6 +145699,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-bb2084eb",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "1.3. Xương ghe / Xương ghe (navicular)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan",
+          "page": 289
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "navicular bone of foot",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương ghe",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương ghe (navicular bone of foot)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA24499; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-bb212c54",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -146571,6 +147391,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-bcf76140",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "NIỆU QUẢN (ureter)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "ureter",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Niệu quản",
+          "aliases": []
+        },
+        "sourceTermRaw": "Niệu quản (ureter)",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9704; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-bcfec895",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -146767,6 +147613,32 @@
         "sourceTermRaw": "Cellulae ethmoideae mediae",
         "context": "FIPAT Terminologia Anatomica, TA2 Part III; Caput VI: SYSTEMA RESPIRATORIUM Chapter 6: RESPIRATORY SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-bd499b80",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "Tụy (Pancreas)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "pancreas",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tụy",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tụy (pancreas)",
+        "anatomicalCategory": "Organ",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA7198; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -153646,6 +154518,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-c67ffd07",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "1. XƯƠNG HÀM TRÊN / Xương hàm trên (maxilla)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan",
+          "page": 120
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "maxilla",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương hàm trên",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương hàm trên (maxilla)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9711; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-c686f190",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -154909,6 +155808,32 @@
         "sourceTermRaw": "Processus coronoideus mandibulae",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput II: OSSA Chapter 2: BONES",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-c826a831",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Tĩnh mạch dưới đòn (subclavian vein)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "subclavian vein",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Tĩnh mạch dưới đòn",
+          "aliases": []
+        },
+        "sourceTermRaw": "Tĩnh mạch dưới đòn (subclavian vein)",
+        "anatomicalCategory": "Vein",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA4725; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -158573,6 +159498,32 @@
         "sourceTermRaw": "Pars sinistra hepatis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part III; Caput V: SYSTEMA DIGESTORIUM Chapter 5: DIGESTIVE SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-cd343be2",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Xương lá mía (vomer)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "vomer",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương lá mía",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương lá mía (vomer)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9710; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -167492,6 +168443,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-d903cc62",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Cơ trâm - móng (stylohyoid)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "stylohyoid",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Cơ trâm - móng",
+          "aliases": []
+        },
+        "sourceTermRaw": "Cơ trâm - móng (stylohyoid)",
+        "anatomicalCategory": "Muscle",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9625; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-d91033d9",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -167636,6 +168613,32 @@
         "sourceTermRaw": "Trigonum cystohepaticum",
         "context": "FIPAT Terminologia Anatomica, TA2 Part III; Caput X: CAVITAS ABDOMINOPELVICA Chapter 10: ABDOMINOPELVIC CAVITY",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-d932ab48",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Động mạch ngực trong (internal thoracic artery)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "internal thoracic artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch ngực trong",
+          "aliases": []
+        },
+        "sourceTermRaw": "Động mạch ngực trong (internal thoracic artery)",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA3960; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -170096,6 +171099,32 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-dca6e84a",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Động mạch đốt sống (vertebral artery)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "vertebral artery",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch đốt sống",
+          "aliases": []
+        },
+        "sourceTermRaw": "Động mạch đốt sống (vertebral artery)",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA3956; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-dcc195a3",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -171748,6 +172777,32 @@
         "sourceTermRaw": "Ganglia renalia",
         "context": "FIPAT Terminologia Anatomica, TA2 Part V; Caput XIV: SYSTEMA NERVOSUM Chapter 14: NERVOUS SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-ded6eb6c",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "1.1. Xương hông (hip bone)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "hip bone",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương hông",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương hông (hip bone)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA16585; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -178200,6 +179255,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-e73c436f",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "Xương sên (talus)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022",
+          "page": 75
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "talus",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương sên",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương sên (talus)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9708; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-e73f6be7",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -183417,6 +184499,32 @@
         "sourceTermRaw": "Musculus skeletalis",
         "context": "FIPAT Terminologia Anatomica, TA2 Part II; Caput IV: SYSTEMA MUSCULARE Chapter 4: MUSCULAR SYSTEM",
         "notes": "englishPreferredRule=UK English when present; US English retained as an alias when distinct"
+      },
+      "duplicateCount": 1
+    },
+    {
+      "evidenceId": "m04a-edd68e96",
+      "record": {
+        "sourceId": "HMU2022",
+        "sourceRevision": "HMU-2022-ISBN-9786046658351",
+        "sourceEdition": "2022",
+        "locator": {
+          "section": "1.1. Động mạch chủ lên (ascending aorta)",
+          "url": "https://it.scribd.com/document/989318314/Gi%E1%BA%A3i-Ph%E1%BA%ABu-Ng%C6%B0%E1%BB%9Di-YHN-2022"
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "ascending aorta",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Động mạch chủ lên",
+          "aliases": []
+        },
+        "sourceTermRaw": "Động mạch chủ lên (ascending aorta)",
+        "anatomicalCategory": "Artery",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA3736; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
       },
       "duplicateCount": 1
     },
@@ -195228,6 +196336,33 @@
       "duplicateCount": 1
     },
     {
+      "evidenceId": "m04a-fc70d13f",
+      "record": {
+        "sourceId": "UMP2023_T2",
+        "sourceRevision": "UMP-2023-PROGRAM-T2-437P",
+        "sourceEdition": "Tập 2, 2023",
+        "locator": {
+          "section": "7. XƯƠNG LÁ MÍA / Xương lá mía (vomer)",
+          "url": "https://www.scribd.com/document/922950729/giaiphauhocchuongtrinhydakhoadoimoi-tap2-ythuquan",
+          "page": 124
+        },
+        "sourceLanguage": "Vietnamese; English",
+        "english": {
+          "preferred": "vomer",
+          "aliases": []
+        },
+        "vietnamese": {
+          "preferred": "Xương lá mía",
+          "aliases": []
+        },
+        "sourceTermRaw": "Xương lá mía (vomer)",
+        "anatomicalCategory": "Bone",
+        "laterality": "unsided",
+        "notes": "Research-only authority evidence for atlas concept FMA9710; source identity is bound to data/terminology/sources.json. Public host is an inspection path, not bibliographic authority."
+      },
+      "duplicateCount": 1
+    },
+    {
       "evidenceId": "m04a-fc7ea552",
       "record": {
         "sourceId": "FIPAT_TA2",
@@ -198849,6 +199984,7 @@
         "m04a-06f28bd7"
       ],
       "abdominal aorta": [
+        "m04a-3661fd9a",
         "m04a-7780826f"
       ],
       "abdominal aortic glomera": [
@@ -199149,6 +200285,7 @@
       ],
       "adrenal gland": [
         "m04a-366a8822",
+        "m04a-3948b3b3",
         "m04a-cab4f4d3"
       ],
       "adrenal medulla": [
@@ -201095,7 +202232,8 @@
         "m04a-b569ecca"
       ],
       "ascending aorta": [
-        "m04a-ae6d6793"
+        "m04a-ae6d6793",
+        "m04a-edd68e96"
       ],
       "ascending artery": [
         "m04a-fbc92352"
@@ -201323,7 +202461,8 @@
         "m04a-e9375992"
       ],
       "azygos vein": [
-        "m04a-0e89c377"
+        "m04a-0e89c377",
+        "m04a-3420ba9a"
       ],
       "b1": [
         "m04a-c3306ff5"
@@ -202995,6 +204134,8 @@
         "m04a-52f5fcad"
       ],
       "ciliary ganglion": [
+        "m04a-9f32fbbb",
+        "m04a-a59067af",
         "m04a-a5fded14"
       ],
       "ciliary glands": [
@@ -203384,7 +204525,8 @@
         "m04a-9b186a35"
       ],
       "common carotid artery": [
-        "m04a-201913b6"
+        "m04a-201913b6",
+        "m04a-63ffe8ef"
       ],
       "common carotid plexus": [
         "m04a-cbcf5fb5"
@@ -204096,6 +205238,7 @@
         "m04a-cdb2e150"
       ],
       "cricoid cartilage": [
+        "m04a-6d8af887",
         "m04a-d4c241ec"
       ],
       "cricopharyngeal ligament": [
@@ -205954,6 +207097,9 @@
       "external intercostal membrane": [
         "m04a-ae4af090"
       ],
+      "external intercostal muscle": [
+        "m04a-41fcbce4"
+      ],
       "external intercostal muscles": [
         "m04a-79b7710a",
         "m04a-8eb068ed"
@@ -206413,6 +207559,8 @@
         "m04a-0571180e"
       ],
       "femur": [
+        "m04a-9eafb2f0",
+        "m04a-b547f1a4",
         "m04a-bb41eab4"
       ],
       "fibro-elastic membrane of larynx": [
@@ -207193,6 +208341,7 @@
         "m04a-e53c7f61"
       ],
       "gallbladder": [
+        "m04a-17a3d15f",
         "m04a-e3099c90"
       ],
       "ganglia": [
@@ -208108,8 +209257,10 @@
         "m04a-b10b1979"
       ],
       "hip bone": [
+        "m04a-1ba3ffbd",
         "m04a-27445545",
-        "m04a-d69a4e8c"
+        "m04a-d69a4e8c",
+        "m04a-ded6eb6c"
       ],
       "hip joint": [
         "m04a-fe9bdfa5"
@@ -209814,6 +210965,7 @@
         "m04a-9147ed65"
       ],
       "internal carotid artery": [
+        "m04a-2adeed83",
         "m04a-37156771"
       ],
       "internal carotid nerve": [
@@ -209843,10 +210995,14 @@
       "internal intercostal membrane": [
         "m04a-c9a49091"
       ],
+      "internal intercostal muscle": [
+        "m04a-54a6eee0"
+      ],
       "internal intercostal muscles": [
         "m04a-41cf3688"
       ],
       "internal jugular vein": [
+        "m04a-243cb9d0",
         "m04a-5ab902d0"
       ],
       "internal longitudinal layer of detrusor vesicae": [
@@ -209934,6 +211090,7 @@
         "m04a-fba7b6ac"
       ],
       "internal thoracic artery": [
+        "m04a-d932ab48",
         "m04a-e38b2a2f"
       ],
       "internal thoracic veins": [
@@ -211762,7 +212919,8 @@
         "m04a-32fa2796"
       ],
       "left main bronchus": [
-        "m04a-31499488"
+        "m04a-31499488",
+        "m04a-a4cf296c"
       ],
       "left marginal artery of heart": [
         "m04a-950ffb8a"
@@ -212927,6 +214085,9 @@
       "manubriosternal joint": [
         "m04a-3ff5da23"
       ],
+      "manubrium": [
+        "m04a-8d88ba21"
+      ],
       "manubrium of sternum": [
         "m04a-5ad0ce69"
       ],
@@ -213030,7 +214191,8 @@
         "m04a-3a579e37"
       ],
       "maxilla": [
-        "m04a-389e17ac"
+        "m04a-389e17ac",
+        "m04a-c67ffd07"
       ],
       "maxillary artery": [
         "m04a-8223dc57"
@@ -215009,6 +216171,10 @@
       "navicular articular surface": [
         "m04a-f182d1c6"
       ],
+      "navicular bone of foot": [
+        "m04a-562ceb6f",
+        "m04a-bb2084eb"
+      ],
       "navicular fossa of urethra": [
         "m04a-29a71b79"
       ],
@@ -215851,7 +217017,9 @@
         "m04a-f8a63628"
       ],
       "optic nerve": [
-        "m04a-6ee9dded"
+        "m04a-17a80d5a",
+        "m04a-6ee9dded",
+        "m04a-952c5d59"
       ],
       "optic nerve [ii]": [
         "m04a-a32a21f9"
@@ -216318,7 +217486,8 @@
       ],
       "pancreas": [
         "m04a-7207e483",
-        "m04a-79756f53"
+        "m04a-79756f53",
+        "m04a-bd499b80"
       ],
       "pancreatic branches of anterior superior pancreaticoduodenal artery": [
         "m04a-d008967b"
@@ -216612,7 +217781,9 @@
         "m04a-92e43ef4"
       ],
       "parietal bone": [
+        "m04a-16ff648e",
         "m04a-55b3f55e",
+        "m04a-782bd276",
         "m04a-c27a31cb"
       ],
       "parietal border of temporal bone": [
@@ -219218,6 +220389,8 @@
         "m04a-68cab370"
       ],
       "prostate": [
+        "m04a-19b8caac",
+        "m04a-89e162ff",
         "m04a-fcfaeda4"
       ],
       "prostate gland": [
@@ -222427,6 +223600,10 @@
       "styloglossus muscle": [
         "m04a-662c00bf"
       ],
+      "stylohyoid": [
+        "m04a-aaf175c2",
+        "m04a-d903cc62"
+      ],
       "stylohyoid branch of facial nerve": [
         "m04a-d7707c7e"
       ],
@@ -222504,6 +223681,7 @@
         "m04a-bba7f742"
       ],
       "subclavian vein": [
+        "m04a-c826a831",
         "m04a-d99f6213",
         "m04a-fcc16545"
       ],
@@ -223850,6 +225028,7 @@
         "m04a-8b5e8eac"
       ],
       "superior vena cava": [
+        "m04a-53954619",
         "m04a-8b7d79af"
       ],
       "superior vertebral notch": [
@@ -224056,6 +225235,9 @@
       ],
       "suprascapular vein": [
         "m04a-d6c60a31"
+      ],
+      "supraspinatus": [
+        "m04a-1e68115f"
       ],
       "supraspinatus fascia": [
         "m04a-f9eefaf1"
@@ -224382,7 +225564,9 @@
         "m04a-eb80bd9d"
       ],
       "talus": [
-        "m04a-bcc74bf6"
+        "m04a-9dd682e1",
+        "m04a-bcc74bf6",
+        "m04a-e73c436f"
       ],
       "tapetum": [
         "m04a-9421583f"
@@ -225195,6 +226379,7 @@
         "m04a-0a4b85f9"
       ],
       "trachea": [
+        "m04a-1b24f209",
         "m04a-3a257620"
       ],
       "tracheal bifurcation": [
@@ -226004,7 +227189,8 @@
         "m04a-677ac668"
       ],
       "ureter": [
-        "m04a-5496b48d"
+        "m04a-5496b48d",
+        "m04a-bcf76140"
       ],
       "ureteric branches of artery of ductus deferens": [
         "m04a-9188d04d"
@@ -226565,7 +227751,8 @@
         "m04a-fa23152e"
       ],
       "vertebral artery": [
-        "m04a-0541438a"
+        "m04a-0541438a",
+        "m04a-dca6e84a"
       ],
       "vertebral body": [
         "m04a-b3e9cd11"
@@ -226874,7 +228061,9 @@
         "m04a-35e15f9b"
       ],
       "vomer": [
-        "m04a-c6d146da"
+        "m04a-c6d146da",
+        "m04a-cd343be2",
+        "m04a-fc70d13f"
       ],
       "vomerine crest of choana": [
         "m04a-7eda128f"
@@ -226997,7 +228186,8 @@
         "m04a-64685b3d"
       ],
       "xiphoid process": [
-        "m04a-2f4463c2"
+        "m04a-2f4463c2",
+        "m04a-9787ee00"
       ],
       "yellow bone marrow": [
         "m04a-ee55e428"
@@ -227693,6 +228883,7 @@
         "m04a-06f28bd7"
       ],
       "abdominal aorta": [
+        "m04a-3661fd9a",
         "m04a-7780826f"
       ],
       "abdominal aortic glomera": [
@@ -227993,6 +229184,7 @@
       ],
       "adrenal gland": [
         "m04a-366a8822",
+        "m04a-3948b3b3",
         "m04a-cab4f4d3"
       ],
       "adrenal medulla": [
@@ -229939,7 +231131,8 @@
         "m04a-b569ecca"
       ],
       "ascending aorta": [
-        "m04a-ae6d6793"
+        "m04a-ae6d6793",
+        "m04a-edd68e96"
       ],
       "ascending artery": [
         "m04a-fbc92352"
@@ -230167,7 +231360,8 @@
         "m04a-e9375992"
       ],
       "azygos vein": [
-        "m04a-0e89c377"
+        "m04a-0e89c377",
+        "m04a-3420ba9a"
       ],
       "b1": [
         "m04a-c3306ff5"
@@ -231839,6 +233033,8 @@
         "m04a-52f5fcad"
       ],
       "ciliary ganglion": [
+        "m04a-9f32fbbb",
+        "m04a-a59067af",
         "m04a-a5fded14"
       ],
       "ciliary glands": [
@@ -232228,7 +233424,8 @@
         "m04a-9b186a35"
       ],
       "common carotid artery": [
-        "m04a-201913b6"
+        "m04a-201913b6",
+        "m04a-63ffe8ef"
       ],
       "common carotid plexus": [
         "m04a-cbcf5fb5"
@@ -232940,6 +234137,7 @@
         "m04a-cdb2e150"
       ],
       "cricoid cartilage": [
+        "m04a-6d8af887",
         "m04a-d4c241ec"
       ],
       "cricopharyngeal ligament": [
@@ -234798,6 +235996,9 @@
       "external intercostal membrane": [
         "m04a-ae4af090"
       ],
+      "external intercostal muscle": [
+        "m04a-41fcbce4"
+      ],
       "external intercostal muscles": [
         "m04a-79b7710a",
         "m04a-8eb068ed"
@@ -235257,6 +236458,8 @@
         "m04a-0571180e"
       ],
       "femur": [
+        "m04a-9eafb2f0",
+        "m04a-b547f1a4",
         "m04a-bb41eab4"
       ],
       "fibro-elastic membrane of larynx": [
@@ -236037,6 +237240,7 @@
         "m04a-e53c7f61"
       ],
       "gallbladder": [
+        "m04a-17a3d15f",
         "m04a-e3099c90"
       ],
       "ganglia": [
@@ -236952,8 +238156,10 @@
         "m04a-b10b1979"
       ],
       "hip bone": [
+        "m04a-1ba3ffbd",
         "m04a-27445545",
-        "m04a-d69a4e8c"
+        "m04a-d69a4e8c",
+        "m04a-ded6eb6c"
       ],
       "hip joint": [
         "m04a-fe9bdfa5"
@@ -238658,6 +239864,7 @@
         "m04a-9147ed65"
       ],
       "internal carotid artery": [
+        "m04a-2adeed83",
         "m04a-37156771"
       ],
       "internal carotid nerve": [
@@ -238687,10 +239894,14 @@
       "internal intercostal membrane": [
         "m04a-c9a49091"
       ],
+      "internal intercostal muscle": [
+        "m04a-54a6eee0"
+      ],
       "internal intercostal muscles": [
         "m04a-41cf3688"
       ],
       "internal jugular vein": [
+        "m04a-243cb9d0",
         "m04a-5ab902d0"
       ],
       "internal longitudinal layer of detrusor vesicae": [
@@ -238778,6 +239989,7 @@
         "m04a-fba7b6ac"
       ],
       "internal thoracic artery": [
+        "m04a-d932ab48",
         "m04a-e38b2a2f"
       ],
       "internal thoracic veins": [
@@ -240609,7 +241821,8 @@
         "m04a-32fa2796"
       ],
       "left main bronchus": [
-        "m04a-31499488"
+        "m04a-31499488",
+        "m04a-a4cf296c"
       ],
       "left marginal artery of heart": [
         "m04a-950ffb8a"
@@ -241774,6 +242987,9 @@
       "manubriosternal joint": [
         "m04a-3ff5da23"
       ],
+      "manubrium": [
+        "m04a-8d88ba21"
+      ],
       "manubrium of sternum": [
         "m04a-5ad0ce69"
       ],
@@ -241877,7 +243093,8 @@
         "m04a-3a579e37"
       ],
       "maxilla": [
-        "m04a-389e17ac"
+        "m04a-389e17ac",
+        "m04a-c67ffd07"
       ],
       "maxillary artery": [
         "m04a-8223dc57"
@@ -243853,6 +245070,10 @@
       "navicular articular surface": [
         "m04a-f182d1c6"
       ],
+      "navicular bone of foot": [
+        "m04a-562ceb6f",
+        "m04a-bb2084eb"
+      ],
       "navicular fossa of urethra": [
         "m04a-29a71b79"
       ],
@@ -244695,7 +245916,9 @@
         "m04a-f8a63628"
       ],
       "optic nerve": [
-        "m04a-6ee9dded"
+        "m04a-17a80d5a",
+        "m04a-6ee9dded",
+        "m04a-952c5d59"
       ],
       "optic nerve [ii]": [
         "m04a-a32a21f9"
@@ -245162,7 +246385,8 @@
       ],
       "pancreas": [
         "m04a-7207e483",
-        "m04a-79756f53"
+        "m04a-79756f53",
+        "m04a-bd499b80"
       ],
       "pancreatic branches of anterior superior pancreaticoduodenal artery": [
         "m04a-d008967b"
@@ -245456,7 +246680,9 @@
         "m04a-92e43ef4"
       ],
       "parietal bone": [
+        "m04a-16ff648e",
         "m04a-55b3f55e",
+        "m04a-782bd276",
         "m04a-c27a31cb"
       ],
       "parietal border of temporal bone": [
@@ -248062,6 +249288,8 @@
         "m04a-68cab370"
       ],
       "prostate": [
+        "m04a-19b8caac",
+        "m04a-89e162ff",
         "m04a-fcfaeda4"
       ],
       "prostate gland": [
@@ -251271,6 +252499,10 @@
       "styloglossus muscle": [
         "m04a-662c00bf"
       ],
+      "stylohyoid": [
+        "m04a-aaf175c2",
+        "m04a-d903cc62"
+      ],
       "stylohyoid branch of facial nerve": [
         "m04a-d7707c7e"
       ],
@@ -251348,6 +252580,7 @@
         "m04a-bba7f742"
       ],
       "subclavian vein": [
+        "m04a-c826a831",
         "m04a-d99f6213",
         "m04a-fcc16545"
       ],
@@ -252694,6 +253927,7 @@
         "m04a-8b5e8eac"
       ],
       "superior vena cava": [
+        "m04a-53954619",
         "m04a-8b7d79af"
       ],
       "superior vertebral notch": [
@@ -252900,6 +254134,9 @@
       ],
       "suprascapular vein": [
         "m04a-d6c60a31"
+      ],
+      "supraspinatus": [
+        "m04a-1e68115f"
       ],
       "supraspinatus fascia": [
         "m04a-f9eefaf1"
@@ -253226,7 +254463,9 @@
         "m04a-eb80bd9d"
       ],
       "talus": [
-        "m04a-bcc74bf6"
+        "m04a-9dd682e1",
+        "m04a-bcc74bf6",
+        "m04a-e73c436f"
       ],
       "tapetum": [
         "m04a-9421583f"
@@ -254039,6 +255278,7 @@
         "m04a-0a4b85f9"
       ],
       "trachea": [
+        "m04a-1b24f209",
         "m04a-3a257620"
       ],
       "tracheal bifurcation": [
@@ -254848,7 +256088,8 @@
         "m04a-677ac668"
       ],
       "ureter": [
-        "m04a-5496b48d"
+        "m04a-5496b48d",
+        "m04a-bcf76140"
       ],
       "ureteric branches of artery of ductus deferens": [
         "m04a-9188d04d"
@@ -255409,7 +256650,8 @@
         "m04a-fa23152e"
       ],
       "vertebral artery": [
-        "m04a-0541438a"
+        "m04a-0541438a",
+        "m04a-dca6e84a"
       ],
       "vertebral body": [
         "m04a-b3e9cd11"
@@ -255721,7 +256963,9 @@
         "m04a-35e15f9b"
       ],
       "vomer": [
-        "m04a-c6d146da"
+        "m04a-c6d146da",
+        "m04a-cd343be2",
+        "m04a-fc70d13f"
       ],
       "vomerine crest of choana": [
         "m04a-7eda128f"
@@ -255841,7 +257085,8 @@
         "m04a-64685b3d"
       ],
       "xiphoid process": [
-        "m04a-2f4463c2"
+        "m04a-2f4463c2",
+        "m04a-9787ee00"
       ],
       "yellow bone marrow": [
         "m04a-ee55e428"
@@ -283044,6 +284289,24 @@
       "cac co gian suon ngoai": [
         "m04a-79b7710a"
       ],
+      "can uc": [
+        "m04a-8d88ba21"
+      ],
+      "co gian suon ngoai": [
+        "m04a-41fcbce4"
+      ],
+      "co gian suon trong": [
+        "m04a-54a6eee0"
+      ],
+      "co tram - mong": [
+        "m04a-d903cc62"
+      ],
+      "co tram mong": [
+        "m04a-aaf175c2"
+      ],
+      "co tren gai": [
+        "m04a-1e68115f"
+      ],
       "co uc-giap": [
         "m04a-20469c6e"
       ],
@@ -283059,6 +284322,21 @@
       "day chang nhan-giap giua": [
         "m04a-2f8facee"
       ],
+      "dong mach canh chung": [
+        "m04a-63ffe8ef"
+      ],
+      "dong mach canh trong": [
+        "m04a-2adeed83"
+      ],
+      "dong mach chu bung": [
+        "m04a-3661fd9a"
+      ],
+      "dong mach chu len": [
+        "m04a-edd68e96"
+      ],
+      "dong mach dot song": [
+        "m04a-dca6e84a"
+      ],
       "dong mach duoi don": [
         "m04a-77856d18"
       ],
@@ -283068,11 +284346,21 @@
       "dong mach giap duoi": [
         "m04a-52063394"
       ],
+      "dong mach nguc trong": [
+        "m04a-d932ab48"
+      ],
       "gan got": [
         "m04a-ef8f908d"
       ],
       "gan trung gian": [
         "m04a-5990f770"
+      ],
+      "hach mi": [
+        "m04a-9f32fbbb",
+        "m04a-a59067af"
+      ],
+      "khi quan": [
+        "m04a-1b24f209"
       ],
       "khop sun-soi cua cot song": [
         "m04a-15f81e8e"
@@ -283082,6 +284370,9 @@
       ],
       "mac dui": [
         "m04a-c3a2c6bd"
+      ],
+      "mom mui kiem": [
+        "m04a-9787ee00"
       ],
       "ngan co cang chan truoc": [
         "m04a-8baab227"
@@ -283095,8 +284386,21 @@
       "nhanh noi cua than kinh mui-mi voi hach mi": [
         "m04a-2a1282f2"
       ],
+      "nieu quan": [
+        "m04a-bcf76140"
+      ],
+      "phe quan chinh trai": [
+        "m04a-a4cf296c"
+      ],
+      "sun nhan": [
+        "m04a-6d8af887"
+      ],
       "than": [
         "m04a-d28b8c5b"
+      ],
+      "than kinh thi giac": [
+        "m04a-17a80d5a",
+        "m04a-952c5d59"
       ],
       "than kinh thi giac [ii]": [
         "m04a-a32a21f9"
@@ -283104,25 +284408,69 @@
       "tinh mach canh tay dau": [
         "m04a-d55b28fe"
       ],
+      "tinh mach canh trong": [
+        "m04a-243cb9d0"
+      ],
+      "tinh mach chu tren": [
+        "m04a-53954619"
+      ],
+      "tinh mach don": [
+        "m04a-3420ba9a"
+      ],
       "tinh mach duoi don": [
+        "m04a-c826a831",
         "m04a-fcc16545"
       ],
+      "tui mat": [
+        "m04a-17a3d15f"
+      ],
       "tuy": [
-        "m04a-7207e483"
+        "m04a-7207e483",
+        "m04a-bd499b80"
       ],
       "tuyen thuong than": [
+        "m04a-3948b3b3",
         "m04a-cab4f4d3"
+      ],
+      "tuyen tien liet": [
+        "m04a-19b8caac",
+        "m04a-89e162ff"
       ],
       "ty": [
         "m04a-7d017b12"
       ],
       "xuong chau": [
+        "m04a-1ba3ffbd",
         "m04a-d69a4e8c"
       ],
       "xuong dinh": [
+        "m04a-16ff648e",
+        "m04a-782bd276",
         "m04a-c27a31cb"
       ],
+      "xuong dui": [
+        "m04a-9eafb2f0",
+        "m04a-b547f1a4"
+      ],
+      "xuong ghe": [
+        "m04a-bb2084eb"
+      ],
+      "xuong ham tren": [
+        "m04a-c67ffd07"
+      ],
+      "xuong hong": [
+        "m04a-ded6eb6c"
+      ],
+      "xuong la mia": [
+        "m04a-cd343be2",
+        "m04a-fc70d13f"
+      ],
+      "xuong sen": [
+        "m04a-9dd682e1",
+        "m04a-e73c436f"
+      ],
       "xuong thuyen": [
+        "m04a-562ceb6f",
         "m04a-68ca5c6e"
       ]
     },
@@ -283300,20 +284648,47 @@
     },
     "anatomicalCategory": {
       "artery": [
+        "m04a-2adeed83",
+        "m04a-3661fd9a",
         "m04a-52063394",
+        "m04a-63ffe8ef",
         "m04a-77856d18",
-        "m04a-df1cb3c5"
+        "m04a-d932ab48",
+        "m04a-dca6e84a",
+        "m04a-df1cb3c5",
+        "m04a-edd68e96"
       ],
       "bone": [
+        "m04a-16ff648e",
+        "m04a-1ba3ffbd",
+        "m04a-562ceb6f",
         "m04a-68ca5c6e",
+        "m04a-782bd276",
+        "m04a-8d88ba21",
+        "m04a-9787ee00",
+        "m04a-9dd682e1",
+        "m04a-9eafb2f0",
+        "m04a-b547f1a4",
+        "m04a-bb2084eb",
         "m04a-c27a31cb",
-        "m04a-d69a4e8c"
+        "m04a-c67ffd07",
+        "m04a-cd343be2",
+        "m04a-d69a4e8c",
+        "m04a-ded6eb6c",
+        "m04a-e73c436f",
+        "m04a-fc70d13f"
+      ],
+      "cartilage": [
+        "m04a-6d8af887"
       ],
       "fascia/connective": [
         "m04a-5b1422f3",
         "m04a-c3a2c6bd"
       ],
       "gland": [
+        "m04a-19b8caac",
+        "m04a-3948b3b3",
+        "m04a-89e162ff",
         "m04a-cab4f4d3"
       ],
       "joint": [
@@ -283325,20 +284700,34 @@
         "m04a-fc2cdd70"
       ],
       "muscle": [
+        "m04a-1e68115f",
         "m04a-20469c6e",
+        "m04a-41fcbce4",
+        "m04a-54a6eee0",
         "m04a-79b7710a",
         "m04a-8baab227",
+        "m04a-aaf175c2",
         "m04a-af1dea47",
+        "m04a-d903cc62",
         "m04a-e4751213"
       ],
       "nerve": [
+        "m04a-17a80d5a",
         "m04a-2a1282f2",
-        "m04a-a32a21f9"
+        "m04a-952c5d59",
+        "m04a-9f32fbbb",
+        "m04a-a32a21f9",
+        "m04a-a59067af"
       ],
       "organ": [
+        "m04a-17a3d15f",
+        "m04a-1b24f209",
         "m04a-37d39de5",
         "m04a-7207e483",
         "m04a-7d017b12",
+        "m04a-a4cf296c",
+        "m04a-bcf76140",
+        "m04a-bd499b80",
         "m04a-d28b8c5b"
       ],
       "tendon": [
@@ -283346,10 +284735,14 @@
         "m04a-ef8f908d"
       ],
       "vein": [
+        "m04a-243cb9d0",
+        "m04a-3420ba9a",
+        "m04a-53954619",
+        "m04a-c826a831",
         "m04a-d55b28fe",
         "m04a-fcc16545"
       ]
     }
   },
-  "indexRevision": "m04a-index-f9854623"
+  "indexRevision": "m04a-index-e04c6e87"
 }

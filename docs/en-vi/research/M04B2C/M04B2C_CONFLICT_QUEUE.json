@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "M04B2C-conflicts-1",
+  "conflicts": [
+    {
+      "conceptId": "FMA16585",
+      "atlasName": "hip bone",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương chậu",
+          "section": "1. XƯƠNG CHẬU (hip bone)",
+          "page": 63
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương hông",
+          "section": "1.1. Xương hông (hip bone)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Xương chậu",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "reason": "HMU2022 and UMP2023_T2 use different preferred Vietnamese forms for the same English atlas concept.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA24499",
+      "atlasName": "navicular bone of foot",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương thuyền",
+          "section": "Xương thuyền (navicular)",
+          "page": 77
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương ghe",
+          "section": "1.3. Xương ghe / Xương ghe (navicular)",
+          "page": 289
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Xương thuyền",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "reason": "HMU2022 and UMP2023_T2 use different preferred Vietnamese forms for the same English atlas concept.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    }
+  ]
+}

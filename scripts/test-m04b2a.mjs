@@ -74,8 +74,9 @@ check(pack.status === 'RESEARCH_ONLY_NOT_RELEASE', 'research pack must remain re
 check(pack.conceptBindings.length === 31, `research pack must contain 31 concept bindings; found ${pack.conceptBindings.length}`);
 check(pack.releaseState?.sourceVerified === 0 && pack.releaseState?.medicalReviewed === 0 && pack.releaseState?.releaseEligible === 0 && pack.releaseState?.searchableVietnamese === 0, 'research pack release state must remain zero');
 
-check(index.inputRecordCount === 7140, `combined index input count must be 7140; found ${index.inputRecordCount}`);
-check(index.indexedRecordCount === 7140, `combined index count must be 7140; found ${index.indexedRecordCount}`);
+const expectedCombinedCount = index.inputFiles.includes('data/terminology/research/corpora/m04b2c-vi-authority.jsonl') ? 7183 : 7140;
+check(index.inputRecordCount === expectedCombinedCount, `combined index input count must be ${expectedCombinedCount}; found ${index.inputRecordCount}`);
+check(index.indexedRecordCount === expectedCombinedCount, `combined index count must be ${expectedCombinedCount}; found ${index.indexedRecordCount}`);
 check(index.duplicateEvidenceRecordCount === 0, 'combined corpus must not contain duplicate evidence records');
 check(index.unresolvedSourceIds.length === 0, `combined corpus has unresolved sources: ${index.unresolvedSourceIds.join(', ')}`);
 check(index.sourceRevisionMismatches.length === 0, `combined corpus has source revision mismatches: ${index.sourceRevisionMismatches.join(', ')}`);
@@ -133,7 +134,7 @@ const pluralRecord = preservedCorpus.records.find(record => record.locator.entry
 check(pluralRecord?.english?.preferred === 'External intercostal muscles', 'NVH plural source wording must remain plural');
 check(!preservedCorpus.records.some(record => record.english?.preferred === 'External intercostal muscle'), 'NVH plural source wording must not be silently singularized');
 const pluralConcept = resultById(results, 'FMA9756');
-check(pluralConcept.sourceMatches.length === 0, 'singular atlas wording must not silently match the plural NVH source');
+check(pluralConcept.sourceMatches.filter(item => item.sourceId === 'NVH2008').length === 0, 'singular atlas wording must not silently match the plural NVH source');
 check(pluralConcept.researchAnnotations?.conceptBindings?.[0]?.candidate === 'cơ gian sườn ngoài', 'plural mismatch binding must remain research-only');
 
 check(resultById(results, 'FMA58775').researchBucket === 'AGGREGATE_OR_COMPOSITE_REVIEW', 'fascia-lata zone must remain an aggregate/scope review');

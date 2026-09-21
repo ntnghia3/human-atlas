@@ -20,9 +20,12 @@ const DEFAULT_INDEX = join(ROOT, 'data', 'terminology', 'research', 'bulk-source
 const DEFAULT_CORPORA = [
   join(ROOT, 'data', 'terminology', 'research', 'corpora', 'fipat-ta2-2019.jsonl'),
   join(ROOT, 'data', 'terminology', 'research', 'corpora', 'nvh2008-public-research-seed.jsonl'),
+  join(ROOT, 'data', 'terminology', 'research', 'corpora', 'm04b2c-vi-authority.jsonl'),
 ];
 const LEGACY_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
 const DEFAULT_RESEARCH_PACK = join(ROOT, 'docs', 'en-vi', 'research', 'M04B2A', 'M04B2_PUBLIC_RESEARCH_PACK.json');
+const DEFAULT_AUTHORITY_MATRIX = join(ROOT, 'docs', 'en-vi', 'research', 'M04B2C', 'M04B2C_EVIDENCE_MATRIX.json');
+const DEFAULT_AUTHORITY_CONFLICT_QUEUE = join(ROOT, 'docs', 'en-vi', 'research', 'M04B2C', 'M04B2C_CONFLICT_QUEUE.json');
 const DEFAULT_OUTPUT = join(ROOT, 'data', 'terminology', 'research', 'bulk-match-results.json');
 
 function parseArgs(argv) {
@@ -57,11 +60,13 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
     const entriesPath = resolvePath(ROOT, args.entries);
     const indexPath = resolvePath(ROOT, args.index);
     const outputPath = resolvePath(ROOT, args.output);
-    const [atlas, sourcesDocument, entriesDocument, researchPack] = await Promise.all([
+    const [atlas, sourcesDocument, entriesDocument, researchPack, authorityMatrix, authorityConflictQueue] = await Promise.all([
       readJson(atlasPath),
       readJson(sourcesPath),
       exists(entriesPath) ? readJson(entriesPath) : Promise.resolve({entries: []}),
       exists(DEFAULT_RESEARCH_PACK) ? readJson(DEFAULT_RESEARCH_PACK) : Promise.resolve(undefined),
+      exists(DEFAULT_AUTHORITY_MATRIX) ? readJson(DEFAULT_AUTHORITY_MATRIX) : Promise.resolve(undefined),
+      exists(DEFAULT_AUTHORITY_CONFLICT_QUEUE) ? readJson(DEFAULT_AUTHORITY_CONFLICT_QUEUE) : Promise.resolve(undefined),
     ]);
     let index;
     if (args.corpus.length) {
@@ -82,6 +87,12 @@ if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.ur
       sourceCatalog: loadSourceCatalogDocument(sourcesDocument),
       m03cEntries: entriesDocument.entries ?? [],
       researchPack,
+      authorityFirstResearch: authorityMatrix ? {
+        matrix: authorityMatrix,
+        conflictQueue: authorityConflictQueue,
+        recordCount: authorityMatrix.recordCount,
+        sourceCounts: authorityMatrix.sourceCounts,
+      } : undefined,
     });
     await writeJson(outputPath, results);
     console.log('M04A bulk matcher: PASS');

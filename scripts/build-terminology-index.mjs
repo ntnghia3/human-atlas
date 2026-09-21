@@ -14,6 +14,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_CORPORA = [
   join(ROOT, 'data', 'terminology', 'research', 'corpora', 'fipat-ta2-2019.jsonl'),
   join(ROOT, 'data', 'terminology', 'research', 'corpora', 'nvh2008-public-research-seed.jsonl'),
+  join(ROOT, 'data', 'terminology', 'research', 'corpora', 'm04b2c-vi-authority.jsonl'),
 ];
 const LEGACY_CORPUS = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-corpus.jsonl');
 const DEFAULT_OUTPUT = join(ROOT, 'data', 'terminology', 'research', 'bulk-source-index.json');

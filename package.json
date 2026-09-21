@@ -18,7 +18,8 @@
     "terminology:bulk-match": "node scripts/bulk-match-terminology.mjs",
     "test:m04a": "node scripts/test-m04a.mjs",
     "test:m04b1": "node scripts/test-m04b1.mjs",
-    "test:m04b2a": "node scripts/test-m04b2a.mjs"
+    "test:m04b2a": "node scripts/test-m04b2a.mjs",
+    "test:m04b2c": "node scripts/test-m04b2c.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

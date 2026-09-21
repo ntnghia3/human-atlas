@@ -294,10 +294,10 @@ function exactLocator(locator) {
   ));
 }
 
-function locatorSupported(source, locator) {
+function locatorSupported(source, locator, options = {}) {
   if (!source || !locator) return false;
   switch (source.locatorCapability) {
-    case 'PAGE': return Number.isInteger(locator.page) && locator.page > 0;
+    case 'PAGE': return (Number.isInteger(locator.page) && locator.page > 0) || (options.allowSectionForPage === true && nonemptyString(locator.section));
     case 'PLATE': return nonemptyString(locator.plate) || nonemptyString(locator.table);
     case 'CHAPTER_SECTION': return nonemptyString(locator.chapter) || nonemptyString(locator.section);
     case 'TERM_ID':
@@ -306,7 +306,7 @@ function locatorSupported(source, locator) {
   }
 }
 
-export function assessSourceEvidence(record, sourceCatalog = {}) {
+export function assessSourceEvidence(record, sourceCatalog = {}, options = {}) {
   const source = sourceCatalog[record.sourceId];
   const revisionMatches = Boolean(source && source.revision === record.sourceRevision);
   const authoritativeVietnamese = Boolean(
@@ -321,7 +321,7 @@ export function assessSourceEvidence(record, sourceCatalog = {}) {
     authoritativeVietnamese &&
       revisionMatches &&
       exactLocator(record.locator) &&
-      locatorSupported(source, record.locator),
+      locatorSupported(source, record.locator, options),
   );
   const sourceVerifiedClaimEligible = Boolean(
     researchEligibleVietnamese &&
@@ -346,9 +346,9 @@ export function assessSourceEvidence(record, sourceCatalog = {}) {
   };
 }
 
-function recordReference(item, matchReasons, sourceCatalog) {
+function recordReference(item, matchReasons, sourceCatalog, options = {}) {
   const record = item.record;
-  const profile = assessSourceEvidence(record, sourceCatalog);
+  const profile = assessSourceEvidence(record, sourceCatalog, options);
   return {
     evidenceId: item.evidenceId,
     duplicateCount: item.duplicateCount,
@@ -606,7 +606,7 @@ function candidateAliases(candidateEvidence) {
   return aliases;
 }
 
-function candidateConsensus(candidateEvidence, exactOrNormalizedIdentity, semanticFlags) {
+function candidateConsensus(candidateEvidence, exactOrNormalizedIdentity, semanticFlags, options = {}) {
   const preferredTerms = candidatePreferredTerms(candidateEvidence);
   const aliases = candidateAliases(candidateEvidence);
   const groups = new Map();
@@ -621,14 +621,20 @@ function candidateConsensus(candidateEvidence, exactOrNormalizedIdentity, semant
     evidenceIds: [...new Set(items.map(item => item.evidenceId))].sort(),
   }));
   const independentSourceCount = new Set(preferredTerms.map(item => item.sourceId)).size;
-  const semanticBlocker = semanticFlags.some(flag => [
+  const eligibleEvidenceIds = new Set(candidateEvidence
+    .filter(item => item.sourceProfile.researchEligibleVietnamese)
+    .map(item => item.evidenceId));
+  const semanticBlocker = semanticFlags.some(flag => {
+    if (options.authorityEvidenceOnly && flag.evidenceId && !eligibleEvidenceIds.has(flag.evidenceId)) return false;
+    return [
     'LATERALITY_MISMATCH',
     'LATERALITY_UNPINNED',
     'CATEGORY_MISMATCH',
     'BRANCH_TRUNK_MISMATCH',
     'DIRECTIONAL_QUALIFIER_MISMATCH',
     'AGGREGATE_SCOPE_MISMATCH',
-  ].includes(flag.code));
+    ].includes(flag.code);
+  });
   let status = 'NONE';
   if (groupRecords.length > 1) status = 'CONFLICT';
   else if (groupRecords.length === 1 && groupRecords[0].surfaceForms.length > 1) status = 'SURFACE_VARIANT_REVIEW';
@@ -646,7 +652,7 @@ function candidateConsensus(candidateEvidence, exactOrNormalizedIdentity, semant
   };
 }
 
-function sourceMatchForConcept(concept, index, sourceCatalog, recordsById) {
+function sourceMatchForConcept(concept, index, sourceCatalog, recordsById, options = {}) {
   const exactIds = getIndexIds(index, 'exactEnglish', normalizeExactEnglish(concept.name));
   const normalizedIds = getIndexIds(index, 'normalizedEnglish', normalizeMatchingText(concept.name)).filter(id => !exactIds.includes(id));
   const terminologyIdIds = getIndexIds(index, 'terminologyIds', normalizeMatchingText(concept.id));
@@ -667,7 +673,9 @@ function sourceMatchForConcept(concept, index, sourceCatalog, recordsById) {
     if (normalizedIds.includes(evidenceId)) reasons.push('normalizedEnglish');
     if (terminologyIdIds.includes(evidenceId)) reasons.push('terminologyId');
     if (sourceCodeIds.includes(evidenceId)) reasons.push('sourceCode');
-    const reference = recordReference(item, reasons, sourceCatalog);
+    const reference = recordReference(item, reasons, sourceCatalog, {
+      allowSectionForPage: options.authorityFirstSourceIds?.has(item.record.sourceId) === true,
+    });
     sourceMatches.push(reference);
     if (reasons.includes('exactEnglish')) exactEnglishMatches.push(reference);
     if (reasons.includes('normalizedEnglish')) normalizedEnglishMatches.push(reference);
@@ -771,12 +779,48 @@ function regressionAssessment(result, m03cEntry) {
   };
 }
 
-function buildResearchAnnotationPayload(researchPack) {
-  if (!isObject(researchPack) || !Array.isArray(researchPack.conceptBindings)) return null;
-  const conceptBindings = researchPack.conceptBindings.filter(isObject).map(clone);
+function authorityFirstMatrixDocument(authorityFirstResearch) {
+  return authorityFirstResearch?.matrix ?? authorityFirstResearch?.evidenceMatrix ?? null;
+}
+
+function authorityFirstSourceIds(authorityFirstResearch) {
+  const sourceIds = new Set(authorityFirstResearch?.sourceIds ?? []);
+  const matrix = authorityFirstMatrixDocument(authorityFirstResearch);
+  for (const concept of matrix?.concepts ?? []) {
+    for (const evidence of concept?.evidence ?? []) if (nonemptyString(evidence?.sourceId)) sourceIds.add(evidence.sourceId);
+  }
+  return sourceIds;
+}
+
+function buildAuthorityFirstAnnotationPayload(authorityFirstResearch) {
+  const matrix = authorityFirstMatrixDocument(authorityFirstResearch);
+  if (!isObject(matrix) || !Array.isArray(matrix.concepts)) return null;
+  const queue = isObject(authorityFirstResearch?.conflictQueue) ? authorityFirstResearch.conflictQueue : null;
+  const dispositionCounts = {};
+  for (const concept of matrix.concepts) {
+    const disposition = concept?.researchDisposition;
+    if (nonemptyString(disposition)) dispositionCounts[disposition] = (dispositionCounts[disposition] ?? 0) + 1;
+  }
   return {
+    schemaVersion: 'm04b2c-authority-first-annotations-1',
+    corpusArtifact: 'data/terminology/research/corpora/m04b2c-vi-authority.jsonl',
+    recordCount: authorityFirstResearch.recordCount ?? matrix.recordCount ?? null,
+    sourceCounts: clone(authorityFirstResearch.sourceCounts ?? matrix.sourceCounts ?? {}),
+    conceptCount: matrix.conceptCount ?? matrix.concepts.length,
+    dispositionCounts,
+    evidenceMatrix: clone(matrix),
+    conflictQueue: clone(queue ?? {schemaVersion: null, conflicts: []}),
+  };
+}
+
+function buildResearchAnnotationPayload(researchPack, authorityFirstResearch) {
+  const hasM04B2APack = isObject(researchPack) && Array.isArray(researchPack.conceptBindings);
+  const authorityFirst = buildAuthorityFirstAnnotationPayload(authorityFirstResearch);
+  if (!hasM04B2APack && !authorityFirst) return null;
+  const conceptBindings = hasM04B2APack ? researchPack.conceptBindings.filter(isObject).map(clone) : [];
+  const payload = {
     schemaVersion: 'm04b2a-research-annotations-1',
-    sourcePack: {
+    sourcePack: hasM04B2APack ? {
       artifact: 'docs/en-vi/research/M04B2A/M04B2_PUBLIC_RESEARCH_PACK.json',
       schemaVersion: researchPack.schemaVersion ?? null,
       generatedDate: researchPack.generatedDate ?? null,
@@ -785,11 +829,13 @@ function buildResearchAnnotationPayload(researchPack) {
       source: clone(researchPack.source ?? {}),
       corroboration: clone(researchPack.corroboration ?? {}),
       releaseState: clone(researchPack.releaseState ?? {}),
-    },
+    } : null,
     conceptBindingCount: conceptBindings.length,
     boundConceptCount: new Set(conceptBindings.map(binding => binding.conceptId).filter(nonemptyString)).size,
     conceptBindings,
   };
+  if (authorityFirst) payload.authorityFirst = authorityFirst;
+  return payload;
 }
 
 function applyResearchBindingGuard(classification, conceptBindings) {
@@ -816,11 +862,58 @@ function applyResearchBindingGuard(classification, conceptBindings) {
   };
 }
 
-export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntries = [], researchPack} = {}) {
+function authorityFirstInstitutionCount(authorityRow, sourceCatalog) {
+  const institutions = new Set();
+  for (const evidence of authorityRow?.evidence ?? []) {
+    if (!nonemptyString(evidence?.sourceId)) continue;
+    institutions.add(sourceCatalog[evidence.sourceId]?.institution ?? evidence.sourceId);
+  }
+  return institutions.size;
+}
+
+function applyAuthorityFirstConsensusGuard(consensus, authorityRow) {
+  if (authorityRow?.researchDisposition !== 'CONFLICT_REQUIRES_ADJUDICATION') return consensus;
+  if (consensus.status === 'CONFLICT') return consensus;
+  return {...consensus, status: 'CONFLICT', agreedTerm: null};
+}
+
+function applyAuthorityFirstDispositionGuard(classification, consensus, authorityRow, sourceCatalog) {
+  const disposition = authorityRow?.researchDisposition;
+  if (disposition === 'CONFLICT_REQUIRES_ADJUDICATION') {
+    return {
+      researchBucket: 'CONFLICT_REQUIRES_ADJUDICATION',
+      reasons: [...new Set([...classification.reasons, 'AUTHORITY_FIRST_CONFLICT_QUEUE_GUARD'])].sort(),
+    };
+  }
+  if (disposition === 'VARIANT_REVIEW') {
+    return {
+      researchBucket: 'VARIANT_REVIEW',
+      reasons: [...new Set([...classification.reasons, 'AUTHORITY_FIRST_MATRIX_VARIANT_GUARD'])].sort(),
+    };
+  }
+  if (
+    disposition === 'HIGH_CONSENSUS_CANDIDATE' &&
+    consensus.status === 'AGREED' &&
+    consensus.independentAuthoritativeSourceCount >= 2 &&
+    authorityFirstInstitutionCount(authorityRow, sourceCatalog) >= 2
+  ) {
+    return {
+      researchBucket: 'HIGH_CONSENSUS_CANDIDATE',
+      reasons: [...new Set([...classification.reasons, 'AUTHORITY_FIRST_HIGH_CONSENSUS_GUARD'])].sort(),
+    };
+  }
+  return classification;
+}
+
+export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntries = [], researchPack, authorityFirstResearch} = {}) {
   const relationships = makeMeshRelationships(atlas);
   const recordsById = new Map((index?.records ?? []).map(item => [item.evidenceId, item]));
   const m03cById = new Map((m03cEntries ?? []).filter(isObject).map(entry => [entry.conceptId, entry]));
-  const researchAnnotations = buildResearchAnnotationPayload(researchPack);
+  const researchAnnotations = buildResearchAnnotationPayload(researchPack, authorityFirstResearch);
+  const authorityFirstRowsByConceptId = new Map((authorityFirstMatrixDocument(authorityFirstResearch)?.concepts ?? [])
+    .filter(isObject)
+    .map(concept => [concept.conceptId, concept]));
+  const authorityFirstIds = authorityFirstSourceIds(authorityFirstResearch);
   const bindingsByConceptId = new Map();
   for (const binding of researchAnnotations?.conceptBindings ?? []) {
     if (!bindingsByConceptId.has(binding.conceptId)) bindingsByConceptId.set(binding.conceptId, []);
@@ -829,16 +922,25 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
   const concepts = relationships.concepts;
   const conceptResults = [];
   for (const concept of concepts) {
-    const match = sourceMatchForConcept(concept, index, sourceCatalog, recordsById);
+    const match = sourceMatchForConcept(concept, index, sourceCatalog, recordsById, {authorityFirstSourceIds: authorityFirstIds});
     const meshHeuristics = buildMeshHeuristics(atlas, concept, relationships);
-    const candidateConsensusValue = candidateConsensus(match.candidateEvidence, match.identityMatch, match.semanticFlags);
+    const authorityFirstRow = authorityFirstRowsByConceptId.get(concept.id);
+    const candidateConsensusValue = applyAuthorityFirstConsensusGuard(
+      candidateConsensus(match.candidateEvidence, match.identityMatch, match.semanticFlags, {authorityEvidenceOnly: Boolean(authorityFirstRow)}),
+      authorityFirstRow,
+    );
     if (m03cById.get(concept.id)?.conflicts?.some(conflict => conflict.status === 'OPEN') && candidateConsensusValue.status === 'NONE') {
       candidateConsensusValue.status = 'CONFLICT';
     }
     const conceptBindings = bindingsByConceptId.get(concept.id) ?? [];
-    const classification = applyResearchBindingGuard(
+    const classification = applyAuthorityFirstDispositionGuard(
+      applyResearchBindingGuard(
       classifyConcept({concept, match, meshHeuristics, m03cEntry: m03cById.get(concept.id)}),
       conceptBindings,
+      ),
+      candidateConsensusValue,
+      authorityFirstRow,
+      sourceCatalog,
     );
     const result = {
       conceptId: concept.id,
@@ -862,7 +964,12 @@ export function matchAtlasConcepts({atlas, index, sourceCatalog = {}, m03cEntrie
         semanticFlags: match.semanticFlags,
       }, m03cById.get(concept.id)),
     };
-    if (conceptBindings.length) result.researchAnnotations = {conceptBindings};
+    if (conceptBindings.length || authorityFirstRow) {
+      result.researchAnnotations = {
+        ...(conceptBindings.length ? {conceptBindings} : {}),
+        ...(authorityFirstRow ? {authorityFirst: clone(authorityFirstRow)} : {}),
+      };
+    }
     conceptResults.push(result);
   }
 

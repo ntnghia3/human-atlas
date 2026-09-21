@@ -1,0 +1,676 @@
+{
+  "schemaVersion": "M04B2C-research-1",
+  "startingCommit": "a63dcba6c3959aad19126889d57f4c2bdd5b1243",
+  "status": "RESEARCH_ONLY_NOT_RELEASE",
+  "method": "Authority-first: HMU2022 and UMP2023_T2 direct bilingual labels/headings; NVH2008 existing seed only as discovery/corroboration where noted.",
+  "recordCount": 43,
+  "sourceCounts": {
+    "HMU2022": 31,
+    "UMP2023_T2": 12
+  },
+  "conceptCount": 33,
+  "concepts": [
+    {
+      "conceptId": "FMA16585",
+      "atlasName": "hip bone",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương chậu",
+          "section": "1. XƯƠNG CHẬU (hip bone)",
+          "page": 63
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương hông",
+          "section": "1.1. Xương hông (hip bone)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Xương chậu",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "reason": "HMU2022 and UMP2023_T2 use different preferred Vietnamese forms for the same English atlas concept.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA24499",
+      "atlasName": "navicular bone of foot",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương thuyền",
+          "section": "Xương thuyền (navicular)",
+          "page": 77
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương ghe",
+          "section": "1.3. Xương ghe / Xương ghe (navicular)",
+          "page": 289
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Xương thuyền",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "CONFLICT_REQUIRES_ADJUDICATION",
+      "reason": "HMU2022 and UMP2023_T2 use different preferred Vietnamese forms for the same English atlas concept.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3736",
+      "atlasName": "ascending aorta",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Động mạch chủ lên",
+          "section": "1.1. Động mạch chủ lên (ascending aorta)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3789",
+      "atlasName": "abdominal aorta",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Động mạch chủ bụng",
+          "section": "1.4. Động mạch chủ bụng (abdominal aorta)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3939",
+      "atlasName": "common carotid artery",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Động mạch cảnh chung",
+          "section": "1.1. Động mạch cảnh chung (common carotid artery)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3947",
+      "atlasName": "internal carotid artery",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Động mạch cảnh trong",
+          "section": "1.3. Động mạch cảnh trong (internal carotid artery)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3956",
+      "atlasName": "vertebral artery",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Động mạch đốt sống",
+          "section": "Động mạch đốt sống (vertebral artery)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA3960",
+      "atlasName": "internal thoracic artery",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Động mạch ngực trong",
+          "section": "Động mạch ngực trong (internal thoracic artery)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA4720",
+      "atlasName": "superior vena cava",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Tĩnh mạch chủ trên",
+          "section": "2.1. Tĩnh mạch chủ trên (superior vena cava)",
+          "page": 239
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA4724",
+      "atlasName": "internal jugular vein",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Tĩnh mạch cảnh trong",
+          "section": "Tĩnh mạch cảnh trong (internal jugular vein)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA4725",
+      "atlasName": "subclavian vein",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Tĩnh mạch dưới đòn",
+          "section": "Tĩnh mạch dưới đòn (subclavian vein)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Tĩnh mạch dưới đòn",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA4838",
+      "atlasName": "azygos vein",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Tĩnh mạch đơn",
+          "section": "Tĩnh mạch đơn (azygos vein)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA50863",
+      "atlasName": "optic nerve",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Thần kinh thị giác",
+          "section": "2. THẦN KINH THỊ GIÁC (optic nerve)",
+          "page": null
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Thần kinh thị giác",
+          "section": "2.2. Thần kinh thị giác (Optic nerve)",
+          "page": 382
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA6964",
+      "atlasName": "ciliary ganglion",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Hạch mi",
+          "section": "hạch mi (ciliary ganglion)",
+          "page": null
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Hạch mi",
+          "section": "Hạch mi (ciliary ganglion)",
+          "page": 318
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7198",
+      "atlasName": "pancreas",
+      "evidence": [
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Tụy",
+          "section": "Tụy (Pancreas)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Tụy",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7202",
+      "atlasName": "gallbladder",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Túi mật",
+          "section": "Túi mật (gallbladder)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7394",
+      "atlasName": "trachea",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Khí quản",
+          "section": "1. KHÍ QUẢN (trachea)",
+          "page": 623
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7396",
+      "atlasName": "left main bronchus",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Phế quản chính trái",
+          "section": "2.2. Phế quản chính trái (left principal/main bronchus)",
+          "page": 625
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7486",
+      "atlasName": "manubrium",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Cán ức",
+          "section": "Cán ức (manubrium)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA7488",
+      "atlasName": "xiphoid process",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Mỏm mũi kiếm",
+          "section": "Mỏm mũi kiếm (xiphoid process)",
+          "page": 97
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9600",
+      "atlasName": "prostate",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Tuyến tiền liệt",
+          "section": "5. TUYẾN TIỀN LIỆT (prostate)",
+          "page": 555
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Tuyến tiền liệt",
+          "section": "4.2. Tuyến tiền liệt / Tuyến tiền liệt (prostate)",
+          "page": 96
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9604",
+      "atlasName": "adrenal gland",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Tuyến thượng thận",
+          "section": "5. TUYẾN THƯỢNG THẬN (suprarenal/adrenal gland)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Tuyến thượng thận",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9611",
+      "atlasName": "femur",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương đùi",
+          "section": "2. XƯƠNG ĐÙI (femur)",
+          "page": null
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương đùi",
+          "section": "1. XƯƠNG ĐÙI (femur)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9613",
+      "atlasName": "parietal bone",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương đỉnh",
+          "section": "1.2. Xương đỉnh (parietal bone)",
+          "page": 106
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương đỉnh",
+          "section": "3. XƯƠNG ĐỈNH / Hai xương đỉnh (parietal bone)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Xương đỉnh",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9615",
+      "atlasName": "cricoid cartilage",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Sụn nhẫn",
+          "section": "1.3. Sụn nhẫn (cricoid cartilage)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9625",
+      "atlasName": "stylohyoid",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Cơ trâm - móng",
+          "section": "Cơ trâm - móng (stylohyoid)",
+          "page": null
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Cơ trâm móng",
+          "section": "cơ trâm móng (stylohyoid)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "VARIANT_REVIEW",
+      "reason": "Multiple authoritative sources differ in surface form.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9629",
+      "atlasName": "supraspinatus",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Cơ trên gai",
+          "section": "Cơ trên gai (supraspinatus)",
+          "page": 130
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9704",
+      "atlasName": "ureter",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Niệu quản",
+          "section": "NIỆU QUẢN (ureter)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9708",
+      "atlasName": "talus",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương sên",
+          "section": "Xương sên (talus)",
+          "page": 75
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương sên",
+          "section": "1.1. Xương sên (talus)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9710",
+      "atlasName": "vomer",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Xương lá mía",
+          "section": "Xương lá mía (vomer)",
+          "page": null
+        },
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương lá mía",
+          "section": "7. XƯƠNG LÁ MÍA / Xương lá mía (vomer)",
+          "page": 124
+        }
+      ],
+      "researchDisposition": "HIGH_CONSENSUS_CANDIDATE",
+      "reason": "Two institutionally distinct authoritative Vietnamese anatomy sources use the same term; human medical review still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9711",
+      "atlasName": "maxilla",
+      "evidence": [
+        {
+          "sourceId": "UMP2023_T2",
+          "vietnamese": "Xương hàm trên",
+          "section": "1. XƯƠNG HÀM TRÊN / Xương hàm trên (maxilla)",
+          "page": 120
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9756",
+      "atlasName": "external intercostal muscle",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Cơ gian sườn ngoài",
+          "section": "gian sườn ngoài (external intercostal muscle)",
+          "page": null
+        },
+        {
+          "sourceId": "NVH2008",
+          "vietnamese": "Các cơ gian sườn ngoài",
+          "fromExistingM04B2ASeed": true
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    },
+    {
+      "conceptId": "FMA9757",
+      "atlasName": "internal intercostal muscle",
+      "evidence": [
+        {
+          "sourceId": "HMU2022",
+          "vietnamese": "Cơ gian sườn trong",
+          "section": "cơ gian sườn trong (internal intercostal muscle)",
+          "page": null
+        }
+      ],
+      "researchDisposition": "ONE_AUTHORITY_CANDIDATE",
+      "reason": "Direct bilingual terminology evidence from one authoritative Vietnamese anatomy source; corroboration still required.",
+      "sourceVerified": false,
+      "medicalReviewed": false,
+      "releaseEligible": false
+    }
+  ],
+  "releaseState": {
+    "sourceVerified": 0,
+    "medicalReviewed": 0,
+    "releaseEligible": 0,
+    "searchableVietnamese": 0
+  }
+}
