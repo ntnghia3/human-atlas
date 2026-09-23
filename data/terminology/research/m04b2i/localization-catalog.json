@@ -38,7 +38,7 @@
     {
       "conceptId": "FMA3711",
       "english": "segment of artery",
-      "vietnamese": "đoạn của Động mạch",
+      "vietnamese": "đoạn động mạch",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -266,7 +266,7 @@
     {
       "conceptId": "FMA3768",
       "english": "arch of aorta",
-      "vietnamese": "cung của động mạch chủ",
+      "vietnamese": "cung động mạch chủ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -365,7 +365,7 @@
     {
       "conceptId": "FMA3802",
       "english": "trunk of right coronary artery",
-      "vietnamese": "Thân của động mạch vành phải",
+      "vietnamese": "Thân động mạch vành phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -466,7 +466,7 @@
     {
       "conceptId": "FMA3813",
       "english": "anterior ventricular branch of right coronary artery",
-      "vietnamese": "thất nhánh của động mạch vành phải trước",
+      "vietnamese": "nhánh thất động mạch vành phải trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -529,7 +529,7 @@
     {
       "conceptId": "FMA3815",
       "english": "first anterior ventricular branch of right coronary artery",
-      "vietnamese": "thất nhánh của động mạch vành phải trước thứ nhất",
+      "vietnamese": "nhánh thất động mạch vành phải trước thứ nhất",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -598,7 +598,7 @@
     {
       "conceptId": "FMA3818",
       "english": "marginal branch of right coronary artery",
-      "vietnamese": "nhánh bờ phải của động mạch vành phải",
+      "vietnamese": "nhánh bờ phải động mạch vành phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -629,7 +629,7 @@
     {
       "conceptId": "FMA3835",
       "english": "posterior ventricular branch of right coronary artery",
-      "vietnamese": "thất nhánh của động mạch vành phải sau",
+      "vietnamese": "nhánh thất động mạch vành phải sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -692,7 +692,7 @@
     {
       "conceptId": "FMA3837",
       "english": "first posterior ventricular branch of right coronary artery",
-      "vietnamese": "thất nhánh của động mạch vành phải sau thứ nhất",
+      "vietnamese": "nhánh thất động mạch vành phải sau thứ nhất",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -761,7 +761,7 @@
     {
       "conceptId": "FMA3840",
       "english": "posterior interventricular branch of right coronary artery",
-      "vietnamese": "liên thất nhánh của động mạch vành phải sau",
+      "vietnamese": "nhánh liên thất động mạch vành phải sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1118,7 +1118,7 @@
     {
       "conceptId": "FMA3855",
       "english": "trunk of left coronary artery",
-      "vietnamese": "Thân của động mạch vành trái",
+      "vietnamese": "Thân động mạch vành trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1189,7 +1189,7 @@
     {
       "conceptId": "FMA3868",
       "english": "conus branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nón nhánh của trước liên thất nhánh của động mạch vành trái",
+      "vietnamese": "nhánh nón trước liên thất nhánh động mạch vành trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1270,7 +1270,7 @@
     {
       "conceptId": "FMA3870",
       "english": "right anterior branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nhánh của trước liên thất nhánh của động mạch vành trái trước phải",
+      "vietnamese": "nhánh trước liên thất nhánh động mạch vành trái trước phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1387,7 +1387,7 @@
     {
       "conceptId": "FMA3872",
       "english": "first right anterior branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nhánh của trước liên thất nhánh của động mạch vành trái trước phải thứ nhất",
+      "vietnamese": "nhánh trước liên thất nhánh động mạch vành trái trước phải thứ nhất",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1510,7 +1510,7 @@
     {
       "conceptId": "FMA3874",
       "english": "second right anterior branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nhánh của trước liên thất nhánh của động mạch vành trái trước phải thứ hai",
+      "vietnamese": "nhánh trước liên thất nhánh động mạch vành trái trước phải thứ hai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1633,7 +1633,7 @@
     {
       "conceptId": "FMA3876",
       "english": "third right anterior branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nhánh của trước liên thất nhánh của động mạch vành trái trước phải ba",
+      "vietnamese": "nhánh trước liên thất nhánh động mạch vành trái trước phải ba",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -1828,7 +1828,7 @@
     {
       "conceptId": "FMA3895",
       "english": "circumflex branch of left coronary artery",
-      "vietnamese": "mũ nhánh của động mạch vành trái",
+      "vietnamese": "nhánh mũ động mạch vành trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -5198,7 +5198,7 @@
     {
       "conceptId": "FMA4677",
       "english": "trunk of branch of coronary artery",
-      "vietnamese": "Thân của nhánh của động mạch vành",
+      "vietnamese": "nhánh thân động mạch vành",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -17598,7 +17598,7 @@
     {
       "conceptId": "FMA10483",
       "english": "zone of bone organ",
-      "vietnamese": "vùng của cơ quan xương",
+      "vietnamese": "vùng cơ quan xương",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -20786,7 +20786,7 @@
     {
       "conceptId": "FMA11195",
       "english": "segment of neural tree organ",
-      "vietnamese": "đoạn của thần kinh cây cơ quan",
+      "vietnamese": "đoạn thần kinh cây cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -20975,7 +20975,7 @@
     {
       "conceptId": "FMA12215",
       "english": "zone of sternum",
-      "vietnamese": "vùng của Xương ức",
+      "vietnamese": "vùng xương ức",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -21688,7 +21688,7 @@
     {
       "conceptId": "FMA13087",
       "english": "segment of aorta",
-      "vietnamese": "đoạn của động mạch chủ",
+      "vietnamese": "đoạn động mạch chủ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33293,7 +33293,7 @@
     {
       "conceptId": "FMA13912",
       "english": "ventricular branch of right coronary artery",
-      "vietnamese": "thất nhánh của động mạch vành phải",
+      "vietnamese": "nhánh thất động mạch vành phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33339,7 +33339,7 @@
     {
       "conceptId": "FMA13914",
       "english": "anterior branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nhánh của trước liên thất nhánh của động mạch vành trái trước",
+      "vietnamese": "nhánh trước liên thất nhánh động mạch vành trái trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33431,7 +33431,7 @@
     {
       "conceptId": "FMA13921",
       "english": "branch of anterior interventricular branch of left coronary artery",
-      "vietnamese": "nhánh của trước liên thất nhánh của động mạch vành trái",
+      "vietnamese": "nhánh trước liên thất nhánh động mạch vành trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33576,7 +33576,7 @@
     {
       "conceptId": "FMA14177",
       "english": "bronchial branch of arch of aorta",
-      "vietnamese": "phế quản nhánh của cung của động mạch chủ",
+      "vietnamese": "nhánh phế quản cung động mạch chủ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33672,7 +33672,7 @@
     {
       "conceptId": "FMA14293",
       "english": "tributary of internal thoracic vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch ngực trong",
+      "vietnamese": "nhánh phụ tĩnh mạch ngực trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33703,7 +33703,7 @@
     {
       "conceptId": "FMA14294",
       "english": "tributary of azygos vein",
-      "vietnamese": "nhánh đổ vào của Tĩnh mạch đơn",
+      "vietnamese": "nhánh đổ vào tĩnh mạch đơn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -33869,7 +33869,7 @@
     {
       "conceptId": "FMA14317",
       "english": "tributary of external jugular vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch cảnh ngoài",
+      "vietnamese": "nhánh phụ tĩnh mạch cảnh ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37341,7 +37341,7 @@
     {
       "conceptId": "FMA14819",
       "english": "ileal branch of inferior branch of ileocolic artery",
-      "vietnamese": "hồi tràng nhánh của dưới nhánh của Động mạch hồi-đại tràng",
+      "vietnamese": "nhánh hồi tràng dưới nhánh động mạch hồi-đại tràng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37420,7 +37420,7 @@
     {
       "conceptId": "FMA14820",
       "english": "ascending branch of inferior branch of ileocolic artery",
-      "vietnamese": "lên nhánh của dưới nhánh của Động mạch hồi-đại tràng",
+      "vietnamese": "nhánh lên dưới nhánh động mạch hồi-đại tràng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37499,7 +37499,7 @@
     {
       "conceptId": "FMA14821",
       "english": "branch of ileocolic artery",
-      "vietnamese": "nhánh của Động mạch hồi-đại tràng",
+      "vietnamese": "nhánh động mạch hồi-đại tràng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37581,7 +37581,7 @@
     {
       "conceptId": "FMA14825",
       "english": "trunk of branch of inferior mesenteric artery",
-      "vietnamese": "Thân của nhánh của động mạch mạc treo dưới",
+      "vietnamese": "nhánh thân động mạch mạc treo dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37667,7 +37667,7 @@
     {
       "conceptId": "FMA14828",
       "english": "ascending branch of left colic artery",
-      "vietnamese": "lên nhánh của Động mạch đại tràng trái",
+      "vietnamese": "nhánh lên động mạch đại tràng trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37715,7 +37715,7 @@
     {
       "conceptId": "FMA14829",
       "english": "descending branch of left colic artery",
-      "vietnamese": "xuống nhánh của Động mạch đại tràng trái",
+      "vietnamese": "nhánh xuống động mạch đại tràng trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -37870,7 +37870,7 @@
     {
       "conceptId": "FMA14837",
       "english": "subdivision of hepatic artery proper",
-      "vietnamese": "phân khu của Động mạch gan riêng",
+      "vietnamese": "phân khu động mạch gan riêng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -38227,7 +38227,7 @@
     {
       "conceptId": "FMA15387",
       "english": "tributary of splenic vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch lách",
+      "vietnamese": "nhánh phụ tĩnh mạch lách",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -38319,7 +38319,7 @@
     {
       "conceptId": "FMA15392",
       "english": "tributary of inferior mesenteric vein",
-      "vietnamese": "nhánh phụ lưu của tĩnh mạch mạc treo dưới",
+      "vietnamese": "nhánh phụ lưu tĩnh mạch mạc treo dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40469,7 +40469,7 @@
     {
       "conceptId": "FMA15791",
       "english": "tributary of right hepatic vein",
-      "vietnamese": "nhánh đổ vào của Tĩnh mạch gan phải",
+      "vietnamese": "nhánh đổ vào tĩnh mạch gan phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40511,7 +40511,7 @@
     {
       "conceptId": "FMA15793",
       "english": "tributary of middle hepatic vein",
-      "vietnamese": "nhánh đổ vào của tĩnh mạch gan giữa",
+      "vietnamese": "nhánh đổ vào tĩnh mạch gan giữa",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40551,7 +40551,7 @@
     {
       "conceptId": "FMA15794",
       "english": "tributary of left hepatic vein",
-      "vietnamese": "nhánh đổ vào của Tĩnh mạch gan trái",
+      "vietnamese": "nhánh đổ vào tĩnh mạch gan trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40593,7 +40593,7 @@
     {
       "conceptId": "FMA15796",
       "english": "posterior superior segmental tributary of right hepatic vein",
-      "vietnamese": "phân đoạn nhánh đổ vào của Tĩnh mạch gan phải trên sau",
+      "vietnamese": "nhánh đổ vào phân đoạn tĩnh mạch gan phải trên sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40677,7 +40677,7 @@
     {
       "conceptId": "FMA15797",
       "english": "posterior inferior segmental tributary of right hepatic vein",
-      "vietnamese": "phân đoạn nhánh đổ vào của Tĩnh mạch gan phải dưới sau",
+      "vietnamese": "nhánh đổ vào phân đoạn tĩnh mạch gan phải dưới sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40761,7 +40761,7 @@
     {
       "conceptId": "FMA15798",
       "english": "anterior superior segmental tributary of right hepatic vein",
-      "vietnamese": "phân đoạn nhánh đổ vào của Tĩnh mạch gan phải trên trước",
+      "vietnamese": "nhánh đổ vào phân đoạn tĩnh mạch gan phải trên trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40845,7 +40845,7 @@
     {
       "conceptId": "FMA15800",
       "english": "anterior inferior segmental tributary of middle hepatic vein",
-      "vietnamese": "phân đoạn nhánh đổ vào của tĩnh mạch gan giữa dưới trước",
+      "vietnamese": "nhánh đổ vào phân đoạn tĩnh mạch gan giữa dưới trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40927,7 +40927,7 @@
     {
       "conceptId": "FMA15801",
       "english": "medial inferior segmental tributary of middle hepatic vein",
-      "vietnamese": "giữa dưới phân đoạn nhánh đổ vào của tĩnh mạch gan giữa",
+      "vietnamese": "nhánh đổ vào giữa dưới phân đoạn tĩnh mạch gan giữa",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -40998,7 +40998,7 @@
     {
       "conceptId": "FMA15802",
       "english": "medial superior segmental tributary of left hepatic vein",
-      "vietnamese": "giữa trên phân đoạn nhánh đổ vào của Tĩnh mạch gan trái",
+      "vietnamese": "nhánh đổ vào giữa trên phân đoạn tĩnh mạch gan trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -41071,7 +41071,7 @@
     {
       "conceptId": "FMA15803",
       "english": "lateral superior segmental tributary of left hepatic vein",
-      "vietnamese": "bên trên phân đoạn nhánh đổ vào của Tĩnh mạch gan trái",
+      "vietnamese": "nhánh đổ vào bên trên phân đoạn tĩnh mạch gan trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -41144,7 +41144,7 @@
     {
       "conceptId": "FMA15804",
       "english": "lateral inferior segmental tributary of left hepatic vein",
-      "vietnamese": "bên dưới phân đoạn nhánh đổ vào của Tĩnh mạch gan trái",
+      "vietnamese": "nhánh đổ vào bên dưới phân đoạn tĩnh mạch gan trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -41913,7 +41913,7 @@
     {
       "conceptId": "FMA17541",
       "english": "tributary of hepatic vein",
-      "vietnamese": "nhánh đổ vào của tĩnh mạch gan",
+      "vietnamese": "nhánh đổ vào tĩnh mạch gan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -42537,7 +42537,7 @@
     {
       "conceptId": "FMA18889",
       "english": "tributary of internal iliac vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch chậu trong",
+      "vietnamese": "nhánh phụ tĩnh mạch chậu trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -45299,7 +45299,7 @@
     {
       "conceptId": "FMA20684",
       "english": "trunk of branch of external iliac artery",
-      "vietnamese": "Thân của nhánh của Động mạch chậu ngoài",
+      "vietnamese": "nhánh thân động mạch chậu ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -46662,7 +46662,7 @@
     {
       "conceptId": "FMA20803",
       "english": "branch of lateral circumflex femoral artery",
-      "vietnamese": "nhánh của Động mạch mũ đùi ngoài",
+      "vietnamese": "nhánh động mạch mũ đùi ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -46704,7 +46704,7 @@
     {
       "conceptId": "FMA20805",
       "english": "descending branch of lateral circumflex femoral artery",
-      "vietnamese": "xuống nhánh của Động mạch mũ đùi ngoài",
+      "vietnamese": "nhánh xuống động mạch mũ đùi ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -47554,7 +47554,7 @@
     {
       "conceptId": "FMA21240",
       "english": "tributary of internal pudendal vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch thẹn trong",
+      "vietnamese": "nhánh phụ tĩnh mạch thẹn trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -47654,7 +47654,7 @@
     {
       "conceptId": "FMA21378",
       "english": "tributary of great saphenous vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch hiển lớn",
+      "vietnamese": "nhánh phụ tĩnh mạch hiển lớn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -48184,7 +48184,7 @@
     {
       "conceptId": "FMA21520",
       "english": "branch of inferior branch of ileocolic artery",
-      "vietnamese": "nhánh của dưới nhánh của Động mạch hồi-đại tràng",
+      "vietnamese": "nhánh dưới nhánh động mạch hồi-đại tràng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -48257,7 +48257,7 @@
     {
       "conceptId": "FMA21521",
       "english": "trunk of branch of left colic artery",
-      "vietnamese": "Thân của nhánh của Động mạch đại tràng trái",
+      "vietnamese": "nhánh thân động mạch đại tràng trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -64273,7 +64273,7 @@
     {
       "conceptId": "FMA22693",
       "english": "branch of brachial artery",
-      "vietnamese": "nhánh của động mạch cánh tay",
+      "vietnamese": "nhánh động mạch cánh tay",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -67001,7 +67001,7 @@
     {
       "conceptId": "FMA22738",
       "english": "branch of radial artery",
-      "vietnamese": "nhánh của động mạch quay",
+      "vietnamese": "nhánh động mạch quay",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -68252,7 +68252,7 @@
     {
       "conceptId": "FMA22755",
       "english": "dorsal carpal branch of radial artery",
-      "vietnamese": "lưng cổ tay nhánh của động mạch quay",
+      "vietnamese": "nhánh lưng cổ tay động mạch quay",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -69349,7 +69349,7 @@
     {
       "conceptId": "FMA22772",
       "english": "dorsal carpal branch of right radial artery",
-      "vietnamese": "lưng cổ tay nhánh của động mạch quay phải",
+      "vietnamese": "nhánh lưng cổ tay động mạch quay phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -69401,7 +69401,7 @@
     {
       "conceptId": "FMA22773",
       "english": "dorsal carpal branch of left radial artery",
-      "vietnamese": "lưng cổ tay nhánh của động mạch quay trái",
+      "vietnamese": "nhánh lưng cổ tay động mạch quay trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -70225,7 +70225,7 @@
     {
       "conceptId": "FMA22799",
       "english": "branch of ulnar artery",
-      "vietnamese": "nhánh của động mạch trụ",
+      "vietnamese": "nhánh động mạch trụ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -70989,7 +70989,7 @@
     {
       "conceptId": "FMA22809",
       "english": "branch of common interosseous artery",
-      "vietnamese": "nhánh của động mạch gian cốt chung",
+      "vietnamese": "nhánh động mạch gian cốt chung",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -71617,7 +71617,7 @@
     {
       "conceptId": "FMA22820",
       "english": "dorsal carpal branch of ulnar artery",
-      "vietnamese": "nhánh mu cổ tay của động mạch trụ",
+      "vietnamese": "nhánh mu cổ tay động mạch trụ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -71648,7 +71648,7 @@
     {
       "conceptId": "FMA22821",
       "english": "right dorsal carpal branch of ulnar artery",
-      "vietnamese": "nhánh mu cổ tay của động mạch trụ phải",
+      "vietnamese": "nhánh mu cổ tay động mạch trụ phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -71701,7 +71701,7 @@
     {
       "conceptId": "FMA22822",
       "english": "left dorsal carpal branch of ulnar artery",
-      "vietnamese": "nhánh mu cổ tay của động mạch trụ trái",
+      "vietnamese": "nhánh mu cổ tay động mạch trụ trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -72248,7 +72248,7 @@
     {
       "conceptId": "FMA22842",
       "english": "branch of arterial anastomosis",
-      "vietnamese": "nhánh của động mạch miệng nối",
+      "vietnamese": "nhánh động mạch miệng nối",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -75882,7 +75882,7 @@
     {
       "conceptId": "FMA22917",
       "english": "tributary of venous anastomosis",
-      "vietnamese": "nhánh đổ vào của tĩnh mạch miệng nối",
+      "vietnamese": "nhánh đổ vào tĩnh mạch miệng nối",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -76383,7 +76383,7 @@
     {
       "conceptId": "FMA22930",
       "english": "tributary of subclavian vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch dưới đòn",
+      "vietnamese": "nhánh phụ tĩnh mạch dưới đòn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -76557,7 +76557,7 @@
     {
       "conceptId": "FMA22937",
       "english": "tributary of brachial vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch cánh tay",
+      "vietnamese": "nhánh phụ tĩnh mạch cánh tay",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -76850,7 +76850,7 @@
     {
       "conceptId": "FMA22953",
       "english": "tributary of radial vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch quay",
+      "vietnamese": "nhánh phụ tĩnh mạch quay",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -79658,7 +79658,7 @@
     {
       "conceptId": "FMA23117",
       "english": "branch of deep brachial artery",
-      "vietnamese": "nhánh của động mạch cánh tay sâu",
+      "vietnamese": "nhánh động mạch cánh tay sâu",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -84019,7 +84019,7 @@
     {
       "conceptId": "FMA24034",
       "english": "cavity of organ part",
-      "vietnamese": "khoang của cơ quan phần",
+      "vietnamese": "phần khoang cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -123843,7 +123843,7 @@
     {
       "conceptId": "FMA43901",
       "english": "subdivision of posterior tibial artery",
-      "vietnamese": "phân khu của động mạch chày sau",
+      "vietnamese": "phân khu động mạch chày sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -125905,7 +125905,7 @@
     {
       "conceptId": "FMA43940",
       "english": "branch of lateral plantar artery",
-      "vietnamese": "nhánh của Động mạch gan chân ngoài",
+      "vietnamese": "nhánh động mạch gan chân ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -125947,7 +125947,7 @@
     {
       "conceptId": "FMA43941",
       "english": "branch of medial plantar artery",
-      "vietnamese": "nhánh của Động mạch gan chân trong",
+      "vietnamese": "nhánh động mạch gan chân trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -126844,7 +126844,7 @@
     {
       "conceptId": "FMA44323",
       "english": "tributary of femoral vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch đùi",
+      "vietnamese": "nhánh phụ tĩnh mạch đùi",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -129116,7 +129116,7 @@
     {
       "conceptId": "FMA45729",
       "english": "head of organ",
-      "vietnamese": "Đầu của cơ quan",
+      "vietnamese": "Đầu cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -129182,7 +129182,7 @@
     {
       "conceptId": "FMA45734",
       "english": "body of organ",
-      "vietnamese": "thân của cơ quan",
+      "vietnamese": "thân cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -133368,7 +133368,7 @@
     {
       "conceptId": "FMA46104",
       "english": "superficial head of flexor pollicis brevis",
-      "vietnamese": "nông Đầu của Cơ gấp ngón tay cái ngắn",
+      "vietnamese": "Đầu nông cơ gấp ngón tay cái ngắn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -141051,7 +141051,7 @@
     {
       "conceptId": "FMA46601",
       "english": "zone of oblique arytenoid",
-      "vietnamese": "vùng của Cơ phễu chéo",
+      "vietnamese": "vùng cơ phễu chéo",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149288,7 +149288,7 @@
     {
       "conceptId": "FMA49065",
       "english": "trochlea of superior oblique",
-      "vietnamese": "ròng rọc của Cơ chéo trên",
+      "vietnamese": "ròng rọc cơ chéo trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149330,7 +149330,7 @@
     {
       "conceptId": "FMA49067",
       "english": "trochlea of right superior oblique",
-      "vietnamese": "ròng rọc của Cơ chéo trên phải",
+      "vietnamese": "ròng rọc cơ chéo trên phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149390,7 +149390,7 @@
     {
       "conceptId": "FMA49068",
       "english": "trochlea of left superior oblique",
-      "vietnamese": "ròng rọc của Cơ chéo trên trái",
+      "vietnamese": "ròng rọc cơ chéo trên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149614,7 +149614,7 @@
     {
       "conceptId": "FMA49143",
       "english": "check ligament of lateral rectus",
-      "vietnamese": "hãm dây chằng của Cơ thẳng ngoài",
+      "vietnamese": "hãm dây chằng cơ thẳng ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149662,7 +149662,7 @@
     {
       "conceptId": "FMA49144",
       "english": "check ligament of right lateral rectus",
-      "vietnamese": "hãm dây chằng của Cơ thẳng ngoài phải",
+      "vietnamese": "hãm dây chằng cơ thẳng ngoài phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149728,7 +149728,7 @@
     {
       "conceptId": "FMA49145",
       "english": "check ligament of left lateral rectus",
-      "vietnamese": "hãm dây chằng của Cơ thẳng ngoài trái",
+      "vietnamese": "hãm dây chằng cơ thẳng ngoài trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149794,7 +149794,7 @@
     {
       "conceptId": "FMA49146",
       "english": "check ligament of medial rectus",
-      "vietnamese": "hãm dây chằng của Cơ thẳng trong",
+      "vietnamese": "hãm dây chằng cơ thẳng trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149842,7 +149842,7 @@
     {
       "conceptId": "FMA49147",
       "english": "check ligament of right medial rectus",
-      "vietnamese": "hãm dây chằng của Cơ thẳng trong phải",
+      "vietnamese": "hãm dây chằng cơ thẳng trong phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -149908,7 +149908,7 @@
     {
       "conceptId": "FMA49148",
       "english": "check ligament of left medial rectus",
-      "vietnamese": "hãm dây chằng của Cơ thẳng trong trái",
+      "vietnamese": "hãm dây chằng cơ thẳng trong trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -150718,7 +150718,7 @@
     {
       "conceptId": "FMA50031",
       "english": "branch of anterior cerebral artery",
-      "vietnamese": "nhánh của động mạch não trước",
+      "vietnamese": "nhánh động mạch não trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -150801,7 +150801,7 @@
     {
       "conceptId": "FMA50081",
       "english": "branch of middle cerebral artery",
-      "vietnamese": "nhánh của động mạch não giữa",
+      "vietnamese": "nhánh động mạch não giữa",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151050,7 +151050,7 @@
     {
       "conceptId": "FMA50112",
       "english": "branch of anterior choroidal artery",
-      "vietnamese": "nhánh của động mạch mạch mạc trước",
+      "vietnamese": "nhánh động mạch mạch mạc trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151090,7 +151090,7 @@
     {
       "conceptId": "FMA50119",
       "english": "branch of anterior choroidal artery to posterior limb of internal capsule",
-      "vietnamese": "nhánh của động mạch mạch mạc trước đến sau chi của trong bao",
+      "vietnamese": "nhánh động mạch mạch mạc trước đến sau chi trong bao",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151177,7 +151177,7 @@
     {
       "conceptId": "FMA50146",
       "english": "branch of right anterior choroidal artery to posterior limb of right internal capsule",
-      "vietnamese": "nhánh của động mạch mạch mạc trước bên phải đến sau chi của phải trong bao",
+      "vietnamese": "nhánh động mạch mạch mạc trước bên phải đến sau chi phải trong bao",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151289,7 +151289,7 @@
     {
       "conceptId": "FMA50147",
       "english": "branch of left anterior choroidal artery to posterior limb of left internal capsule",
-      "vietnamese": "nhánh của động mạch mạch mạc trước bên trái đến sau chi của trái trong bao",
+      "vietnamese": "nhánh động mạch mạch mạc trước bên trái đến sau chi trái trong bao",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151401,7 +151401,7 @@
     {
       "conceptId": "FMA50168",
       "english": "branch of posterior communicating artery",
-      "vietnamese": "nhánh của động mạch thông sau",
+      "vietnamese": "nhánh động mạch thông sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151649,7 +151649,7 @@
     {
       "conceptId": "FMA50331",
       "english": "branch of callosomarginal artery",
-      "vietnamese": "nhánh của Động mạch bờ-trai",
+      "vietnamese": "nhánh động mạch bờ-trai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151689,7 +151689,7 @@
     {
       "conceptId": "FMA50333",
       "english": "intermediomedial branch of callosomarginal artery",
-      "vietnamese": "giữa-trong nhánh của Động mạch bờ-trai",
+      "vietnamese": "nhánh giữa-trong động mạch bờ-trai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151735,7 +151735,7 @@
     {
       "conceptId": "FMA50334",
       "english": "posteromedial branch of callosomarginal artery",
-      "vietnamese": "sau-giữa nhánh của Động mạch bờ-trai",
+      "vietnamese": "nhánh sau-giữa động mạch bờ-trai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151781,7 +151781,7 @@
     {
       "conceptId": "FMA50336",
       "english": "paracentral branch of callosomarginal artery",
-      "vietnamese": "cạnh trung tâm nhánh của Động mạch bờ-trai",
+      "vietnamese": "nhánh cạnh trung tâm động mạch bờ-trai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151855,7 +151855,7 @@
     {
       "conceptId": "FMA50338",
       "english": "branch of pericallosal artery",
-      "vietnamese": "nhánh của Động mạch quanh thể trai",
+      "vietnamese": "nhánh động mạch quanh thể trai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -151895,7 +151895,7 @@
     {
       "conceptId": "FMA50339",
       "english": "precuneal branch of pericallosal artery",
-      "vietnamese": "tiền chêm nhánh của Động mạch quanh thể trai",
+      "vietnamese": "nhánh tiền chêm động mạch quanh thể trai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -152885,7 +152885,7 @@
     {
       "conceptId": "FMA50366",
       "english": "sphenoid part of right middle cerebral artery",
-      "vietnamese": "bướm phần của động mạch não giữa phải",
+      "vietnamese": "phần bướm động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -153072,7 +153072,7 @@
     {
       "conceptId": "FMA50369",
       "english": "insular part of right middle cerebral artery",
-      "vietnamese": "đảo phần của động mạch não giữa phải",
+      "vietnamese": "phần đảo động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -153265,7 +153265,7 @@
     {
       "conceptId": "FMA50377",
       "english": "anterolateral central branch of right middle cerebral artery",
-      "vietnamese": "trước-bên trung tâm nhánh của động mạch não giữa phải",
+      "vietnamese": "nhánh trước-bên trung tâm động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -154641,7 +154641,7 @@
     {
       "conceptId": "FMA50427",
       "english": "hypothalamic branch of posterior communicating artery",
-      "vietnamese": "hạ đồi nhánh của động mạch thông sau",
+      "vietnamese": "nhánh hạ đồi động mạch thông sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -154687,7 +154687,7 @@
     {
       "conceptId": "FMA50428",
       "english": "hypothalamic branch of right posterior communicating artery",
-      "vietnamese": "hạ đồi nhánh của động mạch thông sau bên phải",
+      "vietnamese": "nhánh hạ đồi động mạch thông sau bên phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -154733,7 +154733,7 @@
     {
       "conceptId": "FMA50429",
       "english": "hypothalamic branch of left posterior communicating artery",
-      "vietnamese": "hạ đồi nhánh của động mạch thông sau bên trái",
+      "vietnamese": "nhánh hạ đồi động mạch thông sau bên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -155508,7 +155508,7 @@
     {
       "conceptId": "FMA50467",
       "english": "middle temporal branch of right middle cerebral artery",
-      "vietnamese": "giữa thái dương nhánh của động mạch não giữa phải",
+      "vietnamese": "nhánh giữa thái dương động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -155724,7 +155724,7 @@
     {
       "conceptId": "FMA50470",
       "english": "posterior temporal branch of right middle cerebral artery",
-      "vietnamese": "thái dương nhánh của động mạch não giữa phải sau",
+      "vietnamese": "nhánh thái dương động mạch não giữa phải sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -155951,7 +155951,7 @@
     {
       "conceptId": "FMA50473",
       "english": "temporo-occipital branch of right middle cerebral artery",
-      "vietnamese": "thái dương chẩm nhánh của động mạch não giữa phải",
+      "vietnamese": "nhánh thái dương chẩm động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -156158,7 +156158,7 @@
     {
       "conceptId": "FMA50476",
       "english": "branch of right middle cerebral artery to right angular gyrus",
-      "vietnamese": "nhánh của động mạch não giữa phải đến Hồi góc phải",
+      "vietnamese": "nhánh động mạch não giữa phải đến Hồi góc phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -159539,7 +159539,7 @@
     {
       "conceptId": "FMA50566",
       "english": "medial branch of right pontine artery",
-      "vietnamese": "giữa nhánh của động mạch cầu não bên phải",
+      "vietnamese": "nhánh giữa động mạch cầu não bên phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -159585,7 +159585,7 @@
     {
       "conceptId": "FMA50567",
       "english": "medial branch of left pontine artery",
-      "vietnamese": "giữa nhánh của động mạch cầu não bên trái",
+      "vietnamese": "nhánh giữa động mạch cầu não bên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -159631,7 +159631,7 @@
     {
       "conceptId": "FMA50568",
       "english": "lateral branch of right pontine artery",
-      "vietnamese": "bên nhánh của động mạch cầu não bên phải",
+      "vietnamese": "nhánh bên động mạch cầu não bên phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -159677,7 +159677,7 @@
     {
       "conceptId": "FMA50569",
       "english": "lateral branch of left pontine artery",
-      "vietnamese": "bên nhánh của động mạch cầu não bên trái",
+      "vietnamese": "nhánh bên động mạch cầu não bên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160311,7 +160311,7 @@
     {
       "conceptId": "FMA50576",
       "english": "branch of superior cerebellar artery",
-      "vietnamese": "nhánh của Động mạch tiểu não trên",
+      "vietnamese": "nhánh động mạch tiểu não trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160387,7 +160387,7 @@
     {
       "conceptId": "FMA50578",
       "english": "lateral branch of right superior cerebellar artery",
-      "vietnamese": "bên nhánh của Động mạch tiểu não trên phải",
+      "vietnamese": "nhánh bên động mạch tiểu não trên phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160453,7 +160453,7 @@
     {
       "conceptId": "FMA50579",
       "english": "lateral branch of left superior cerebellar artery",
-      "vietnamese": "bên nhánh của Động mạch tiểu não trên trái",
+      "vietnamese": "nhánh bên động mạch tiểu não trên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160519,7 +160519,7 @@
     {
       "conceptId": "FMA50580",
       "english": "medial branch of superior cerebellar artery",
-      "vietnamese": "giữa nhánh của Động mạch tiểu não trên",
+      "vietnamese": "nhánh giữa động mạch tiểu não trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160567,7 +160567,7 @@
     {
       "conceptId": "FMA50581",
       "english": "medial branch of right superior cerebellar artery",
-      "vietnamese": "giữa nhánh của Động mạch tiểu não trên phải",
+      "vietnamese": "nhánh giữa động mạch tiểu não trên phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160633,7 +160633,7 @@
     {
       "conceptId": "FMA50582",
       "english": "medial branch of left superior cerebellar artery",
-      "vietnamese": "giữa nhánh của Động mạch tiểu não trên trái",
+      "vietnamese": "nhánh giữa động mạch tiểu não trên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -160699,7 +160699,7 @@
     {
       "conceptId": "FMA50586",
       "english": "branch of posterior cerebral artery",
-      "vietnamese": "nhánh của động mạch não sau",
+      "vietnamese": "nhánh động mạch não sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161195,7 +161195,7 @@
     {
       "conceptId": "FMA50639",
       "english": "precommunicating part of right posterior cerebral artery",
-      "vietnamese": "trước thông phần của động mạch não sau phải",
+      "vietnamese": "phần trước thông động mạch não sau phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161241,7 +161241,7 @@
     {
       "conceptId": "FMA50640",
       "english": "precommunicating part of left posterior cerebral artery",
-      "vietnamese": "trước thông phần của động mạch não sau bên trái",
+      "vietnamese": "phần trước thông động mạch não sau bên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161287,7 +161287,7 @@
     {
       "conceptId": "FMA50641",
       "english": "postcommunicating part of right posterior cerebral artery",
-      "vietnamese": "sau thông phần của động mạch não sau phải",
+      "vietnamese": "phần sau thông động mạch não sau phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161333,7 +161333,7 @@
     {
       "conceptId": "FMA50642",
       "english": "postcommunicating part of left posterior cerebral artery",
-      "vietnamese": "sau thông phần của động mạch não sau bên trái",
+      "vietnamese": "phần sau thông động mạch não sau bên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161802,7 +161802,7 @@
     {
       "conceptId": "FMA50651",
       "english": "branch of medial occipital artery",
-      "vietnamese": "nhánh của động mạch chẩm trong",
+      "vietnamese": "nhánh động mạch chẩm trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161876,7 +161876,7 @@
     {
       "conceptId": "FMA50660",
       "english": "posteromedial central branch of right posterior cerebral artery",
-      "vietnamese": "sau-giữa trung tâm nhánh của động mạch não sau phải",
+      "vietnamese": "nhánh sau-giữa trung tâm động mạch não sau phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -161928,7 +161928,7 @@
     {
       "conceptId": "FMA50661",
       "english": "posteromedial central branch of left posterior cerebral artery",
-      "vietnamese": "sau-giữa trung tâm nhánh của động mạch não sau bên trái",
+      "vietnamese": "nhánh sau-giữa trung tâm động mạch não sau bên trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -163314,7 +163314,7 @@
     {
       "conceptId": "FMA50694",
       "english": "branch of medial branch of superior cerebellar artery",
-      "vietnamese": "nhánh của giữa nhánh của Động mạch tiểu não trên",
+      "vietnamese": "nhánh giữa nhánh động mạch tiểu não trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -163374,7 +163374,7 @@
     {
       "conceptId": "FMA50695",
       "english": "superior vermian branch of medial branch of superior cerebellar artery",
-      "vietnamese": "nhộng nhánh của giữa nhánh của Động mạch tiểu não trên trên",
+      "vietnamese": "nhánh nhộng giữa nhánh động mạch tiểu não trên trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -163459,7 +163459,7 @@
     {
       "conceptId": "FMA50696",
       "english": "superior vermian branch of medial branch of right superior cerebellar artery",
-      "vietnamese": "nhộng nhánh của giữa nhánh của Động mạch tiểu não trên phải trên",
+      "vietnamese": "nhánh nhộng giữa nhánh động mạch tiểu não trên phải trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -163562,7 +163562,7 @@
     {
       "conceptId": "FMA50697",
       "english": "superior vermian branch of medial branch of left superior cerebellar artery",
-      "vietnamese": "nhộng nhánh của giữa nhánh của Động mạch tiểu não trên trái trên",
+      "vietnamese": "nhánh nhộng giữa nhánh động mạch tiểu não trên trái trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -165719,7 +165719,7 @@
     {
       "conceptId": "FMA52571",
       "english": "branch of oculomotor nerve",
-      "vietnamese": "nhánh của thần kinh vận nhãn",
+      "vietnamese": "nhánh thần kinh vận nhãn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -166344,7 +166344,7 @@
     {
       "conceptId": "FMA52624",
       "english": "branch of ophthalmic nerve",
-      "vietnamese": "nhánh của thần kinh mắt",
+      "vietnamese": "nhánh thần kinh mắt",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -167551,7 +167551,7 @@
     {
       "conceptId": "FMA52641",
       "english": "branch of frontal nerve",
-      "vietnamese": "nhánh của thần kinh trán",
+      "vietnamese": "nhánh thần kinh trán",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -169343,7 +169343,7 @@
     {
       "conceptId": "FMA52671",
       "english": "branch of nasociliary nerve",
-      "vietnamese": "nhánh của thần kinh mũi mi",
+      "vietnamese": "nhánh thần kinh mũi mi",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -174034,7 +174034,7 @@
     {
       "conceptId": "FMA54158",
       "english": "tendon of levator palpebrae superioris",
-      "vietnamese": "Gân của cơ nâng mi trên",
+      "vietnamese": "Gân cơ nâng mi trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -192055,7 +192055,7 @@
     {
       "conceptId": "FMA62512",
       "english": "trunk of systemic vein",
-      "vietnamese": "Thân của tĩnh mạch hệ thống",
+      "vietnamese": "Thân tĩnh mạch hệ thống",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -192240,7 +192240,7 @@
     {
       "conceptId": "FMA63812",
       "english": "set of arteries",
-      "vietnamese": "tập hợp của động mạch",
+      "vietnamese": "tập hợp động mạch",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -192280,7 +192280,7 @@
     {
       "conceptId": "FMA63814",
       "english": "set of veins",
-      "vietnamese": "tập hợp của tĩnh mạch",
+      "vietnamese": "tập hợp tĩnh mạch",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -194653,7 +194653,7 @@
     {
       "conceptId": "FMA65198",
       "english": "superficial head of right flexor pollicis brevis",
-      "vietnamese": "nông Đầu của Cơ gấp ngón tay cái ngắn phải",
+      "vietnamese": "Đầu nông cơ gấp ngón tay cái ngắn phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -194719,7 +194719,7 @@
     {
       "conceptId": "FMA65199",
       "english": "superficial head of left flexor pollicis brevis",
-      "vietnamese": "nông Đầu của Cơ gấp ngón tay cái ngắn trái",
+      "vietnamese": "Đầu nông cơ gấp ngón tay cái ngắn trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195720,7 +195720,7 @@
     {
       "conceptId": "FMA66327",
       "english": "branch of right coronary artery",
-      "vietnamese": "nhánh của động mạch vành phải",
+      "vietnamese": "nhánh động mạch vành phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195751,7 +195751,7 @@
     {
       "conceptId": "FMA66328",
       "english": "branch of left coronary artery",
-      "vietnamese": "nhánh của động mạch vành trái",
+      "vietnamese": "nhánh động mạch vành trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195782,7 +195782,7 @@
     {
       "conceptId": "FMA66332",
       "english": "zone of artery",
-      "vietnamese": "vùng của Động mạch",
+      "vietnamese": "vùng động mạch",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195824,7 +195824,7 @@
     {
       "conceptId": "FMA66358",
       "english": "trunk of superior mesenteric artery",
-      "vietnamese": "Thân của động mạch mạc treo tràng trên",
+      "vietnamese": "Thân động mạch mạc treo tràng trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195866,7 +195866,7 @@
     {
       "conceptId": "FMA66362",
       "english": "trunk of renal artery",
-      "vietnamese": "Thân của Động mạch thận",
+      "vietnamese": "Thân động mạch thận",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195910,7 +195910,7 @@
     {
       "conceptId": "FMA66363",
       "english": "trunk of right renal artery",
-      "vietnamese": "Thân của động mạch thận phải",
+      "vietnamese": "Thân động mạch thận phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -195952,7 +195952,7 @@
     {
       "conceptId": "FMA66364",
       "english": "trunk of left renal artery",
-      "vietnamese": "Thân của động mạch thận trái",
+      "vietnamese": "Thân động mạch thận trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -196853,7 +196853,7 @@
     {
       "conceptId": "FMA67601",
       "english": "process of organ",
-      "vietnamese": "mỏm của cơ quan",
+      "vietnamese": "mỏm cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -199484,7 +199484,7 @@
     {
       "conceptId": "FMA68661",
       "english": "apical part of apical segmental artery",
-      "vietnamese": "đỉnh phần của Động mạch phân thuỳ đỉnh",
+      "vietnamese": "phần đỉnh động mạch phân đoạn đỉnh",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -199603,7 +199603,7 @@
     {
       "conceptId": "FMA68664",
       "english": "anterior part of apical segmental artery",
-      "vietnamese": "phần của Động mạch phân thuỳ đỉnh trước",
+      "vietnamese": "phần động mạch phân đoạn đỉnh trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -199744,7 +199744,7 @@
     {
       "conceptId": "FMA68667",
       "english": "subsegmental part of apical segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ đỉnh",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn đỉnh",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -199792,7 +199792,7 @@
     {
       "conceptId": "FMA68668",
       "english": "subsegmental part of posterior segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ sau",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -199841,7 +199841,7 @@
     {
       "conceptId": "FMA68669",
       "english": "apical part of posterior segmental artery",
-      "vietnamese": "đỉnh phần của Động mạch phân thuỳ sau",
+      "vietnamese": "phần đỉnh động mạch phân đoạn sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -199962,7 +199962,7 @@
     {
       "conceptId": "FMA68672",
       "english": "posterior part of posterior segmental artery",
-      "vietnamese": "phần của Động mạch phân thuỳ sau sau",
+      "vietnamese": "phần động mạch phân đoạn sau sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200105,7 +200105,7 @@
     {
       "conceptId": "FMA68675",
       "english": "subsegmental part of anterior segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ trước",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200154,7 +200154,7 @@
     {
       "conceptId": "FMA68676",
       "english": "posterior part of anterior segmental artery",
-      "vietnamese": "phần của Động mạch phân thuỳ trước sau",
+      "vietnamese": "phần động mạch phân đoạn trước sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200297,7 +200297,7 @@
     {
       "conceptId": "FMA68682",
       "english": "anterior branch of anterior segmental artery",
-      "vietnamese": "nhánh của Động mạch phân thuỳ trước trước",
+      "vietnamese": "nhánh động mạch phân đoạn trước trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200440,7 +200440,7 @@
     {
       "conceptId": "FMA68689",
       "english": "subsegmental part of lateral segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ bên",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn bên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200489,7 +200489,7 @@
     {
       "conceptId": "FMA68690",
       "english": "posterior branch of lateral segmental artery",
-      "vietnamese": "nhánh của Động mạch phân thuỳ bên sau",
+      "vietnamese": "nhánh động mạch phân đoạn bên sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200549,7 +200549,7 @@
     {
       "conceptId": "FMA68691",
       "english": "anterior branch of lateral segmental artery",
-      "vietnamese": "nhánh của Động mạch phân thuỳ bên trước",
+      "vietnamese": "nhánh động mạch phân đoạn bên trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200609,7 +200609,7 @@
     {
       "conceptId": "FMA68692",
       "english": "subsegmental part of medial segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ giữa",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn giữa",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200658,7 +200658,7 @@
     {
       "conceptId": "FMA68693",
       "english": "superior branch of medial segmental artery",
-      "vietnamese": "nhánh của Động mạch phân thuỳ giữa trên",
+      "vietnamese": "nhánh động mạch phân đoạn giữa trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200720,7 +200720,7 @@
     {
       "conceptId": "FMA68694",
       "english": "inferior branch of medial segmental artery",
-      "vietnamese": "nhánh của Động mạch phân thuỳ giữa dưới",
+      "vietnamese": "nhánh động mạch phân đoạn giữa dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200782,7 +200782,7 @@
     {
       "conceptId": "FMA68704",
       "english": "medial branch of superior segmental artery",
-      "vietnamese": "giữa nhánh của Động mạch phân thuỳ trên",
+      "vietnamese": "nhánh giữa động mạch phân đoạn trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200831,7 +200831,7 @@
     {
       "conceptId": "FMA68705",
       "english": "subsegmental part of superior segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ trên",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -200952,7 +200952,7 @@
     {
       "conceptId": "FMA68708",
       "english": "superior branch of superior segmental artery",
-      "vietnamese": "nhánh của Động mạch phân thuỳ trên trên",
+      "vietnamese": "nhánh động mạch phân đoạn trên trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -201099,7 +201099,7 @@
     {
       "conceptId": "FMA68711",
       "english": "lateral branch of superior segmental artery",
-      "vietnamese": "bên nhánh của Động mạch phân thuỳ trên",
+      "vietnamese": "nhánh bên động mạch phân đoạn trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -201220,7 +201220,7 @@
     {
       "conceptId": "FMA68720",
       "english": "subsegmental part of anterior basal segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ đáy trước",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn đáy trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -201268,7 +201268,7 @@
     {
       "conceptId": "FMA68721",
       "english": "lateral branch of anterior basal segmental artery",
-      "vietnamese": "bên nhánh của Động mạch phân thuỳ đáy trước",
+      "vietnamese": "nhánh bên động mạch phân đoạn đáy trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -201316,7 +201316,7 @@
     {
       "conceptId": "FMA68722",
       "english": "basal branch of anterior basal segmental artery",
-      "vietnamese": "đáy nhánh của Động mạch phân thuỳ đáy trước",
+      "vietnamese": "nhánh đáy động mạch phân đoạn đáy trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -201506,7 +201506,7 @@
     {
       "conceptId": "FMA68727",
       "english": "subsegmental part of lateral basal segmental artery",
-      "vietnamese": "dưới phân đoạn phần của Động mạch phân thuỳ đáy bên",
+      "vietnamese": "phân đoạn dưới phần động mạch phân đoạn đáy bên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -203703,7 +203703,7 @@
     {
       "conceptId": "FMA69418",
       "english": "trunk of branch of popliteal artery",
-      "vietnamese": "Thân của nhánh của Động mạch khoeo",
+      "vietnamese": "nhánh thân động mạch khoeo",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -203759,7 +203759,7 @@
     {
       "conceptId": "FMA69458",
       "english": "subdivision of external iliac artery",
-      "vietnamese": "phân khu của Động mạch chậu ngoài",
+      "vietnamese": "phân khu động mạch chậu ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -203845,7 +203845,7 @@
     {
       "conceptId": "FMA69476",
       "english": "subdivision of anterior tibial artery",
-      "vietnamese": "phân khu của động mạch chày trước",
+      "vietnamese": "phân khu động mạch chày trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205171,7 +205171,7 @@
     {
       "conceptId": "FMA69559",
       "english": "zone of trunk of lateral plantar artery",
-      "vietnamese": "vùng của Thân của Động mạch gan chân ngoài",
+      "vietnamese": "Thân vùng động mạch gan chân ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205302,7 +205302,7 @@
     {
       "conceptId": "FMA69796",
       "english": "subdivision of internal iliac artery",
-      "vietnamese": "phân khu của động mạch chậu trong",
+      "vietnamese": "phân khu động mạch chậu trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205342,7 +205342,7 @@
     {
       "conceptId": "FMA69803",
       "english": "subdivision of anterior division of internal iliac artery",
-      "vietnamese": "phân khu của trước ngành của động mạch chậu trong",
+      "vietnamese": "phân khu trước ngành động mạch chậu trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205463,7 +205463,7 @@
     {
       "conceptId": "FMA70247",
       "english": "subdivision of external iliac artery proper",
-      "vietnamese": "phân khu của Động mạch chậu ngoài chính",
+      "vietnamese": "phân khu động mạch chậu ngoài chính",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205598,7 +205598,7 @@
     {
       "conceptId": "FMA70251",
       "english": "subdivision of femoral artery",
-      "vietnamese": "phân khu của động mạch đùi",
+      "vietnamese": "phân khu động mạch đùi",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205638,7 +205638,7 @@
     {
       "conceptId": "FMA70345",
       "english": "subdivision of subclavian artery",
-      "vietnamese": "phân khu của Động mạch dưới đòn",
+      "vietnamese": "phân khu động mạch dưới đòn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205726,7 +205726,7 @@
     {
       "conceptId": "FMA70358",
       "english": "subdivision of internal thoracic artery",
-      "vietnamese": "phân khu của Động mạch ngực trong",
+      "vietnamese": "phân khu động mạch ngực trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205866,7 +205866,7 @@
     {
       "conceptId": "FMA70422",
       "english": "subdivision of subscapular artery",
-      "vietnamese": "phân khu của động mạch dưới vai",
+      "vietnamese": "phân khu động mạch dưới vai",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205906,7 +205906,7 @@
     {
       "conceptId": "FMA70429",
       "english": "subdivision of celiac artery",
-      "vietnamese": "phân khu của động mạch thân tạng",
+      "vietnamese": "phân khu động mạch thân tạng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205946,7 +205946,7 @@
     {
       "conceptId": "FMA70433",
       "english": "subdivision of common hepatic artery",
-      "vietnamese": "phân khu của động mạch gan chung",
+      "vietnamese": "phân khu động mạch gan chung",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -205986,7 +205986,7 @@
     {
       "conceptId": "FMA70436",
       "english": "subdivision of gastroduodenal artery",
-      "vietnamese": "phân khu của Động mạch vị-tá tràng",
+      "vietnamese": "phân khu động mạch vị-tá tràng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -206963,7 +206963,7 @@
     {
       "conceptId": "FMA70470",
       "english": "subdivision of splenic artery",
-      "vietnamese": "phân khu của Động mạch tỳ",
+      "vietnamese": "phân khu động mạch tỳ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207034,7 +207034,7 @@
     {
       "conceptId": "FMA70478",
       "english": "subdivision of superior mesenteric artery",
-      "vietnamese": "phân khu của động mạch mạc treo tràng trên",
+      "vietnamese": "phân khu động mạch mạc treo tràng trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207424,7 +207424,7 @@
     {
       "conceptId": "FMA70481",
       "english": "subdivision of inferior pancreaticoduodenal artery",
-      "vietnamese": "phân khu của Động mạch tá-tụy dưới",
+      "vietnamese": "phân khu động mạch tá-tụy dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207466,7 +207466,7 @@
     {
       "conceptId": "FMA70483",
       "english": "subdivision of inferior mesenteric artery",
-      "vietnamese": "phân khu của động mạch mạc treo dưới",
+      "vietnamese": "phân khu động mạch mạc treo dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207506,7 +207506,7 @@
     {
       "conceptId": "FMA70484",
       "english": "segment of renal artery",
-      "vietnamese": "đoạn của Động mạch thận",
+      "vietnamese": "đoạn động mạch thận",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207548,7 +207548,7 @@
     {
       "conceptId": "FMA70485",
       "english": "anterior division of renal artery",
-      "vietnamese": "nhánh trước của động mạch thận",
+      "vietnamese": "nhánh trước động mạch thận",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207579,7 +207579,7 @@
     {
       "conceptId": "FMA70486",
       "english": "anterior division of right renal artery",
-      "vietnamese": "ngành của động mạch thận phải trước",
+      "vietnamese": "ngành động mạch thận phải trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207636,7 +207636,7 @@
     {
       "conceptId": "FMA70487",
       "english": "anterior division of left renal artery",
-      "vietnamese": "ngành của động mạch thận trái trước",
+      "vietnamese": "ngành động mạch thận trái trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207693,7 +207693,7 @@
     {
       "conceptId": "FMA70488",
       "english": "posterior division of renal artery",
-      "vietnamese": "nhánh sau của động mạch thận",
+      "vietnamese": "nhánh sau động mạch thận",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207724,7 +207724,7 @@
     {
       "conceptId": "FMA70489",
       "english": "posterior division of right renal artery",
-      "vietnamese": "ngành của động mạch thận phải sau",
+      "vietnamese": "ngành động mạch thận phải sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207781,7 +207781,7 @@
     {
       "conceptId": "FMA70490",
       "english": "posterior division of left renal artery",
-      "vietnamese": "ngành của động mạch thận trái sau",
+      "vietnamese": "ngành động mạch thận trái sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207838,7 +207838,7 @@
     {
       "conceptId": "FMA70491",
       "english": "ureteric segment of renal artery",
-      "vietnamese": "niệu quản đoạn của Động mạch thận",
+      "vietnamese": "đoạn niệu quản động mạch thận",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207886,7 +207886,7 @@
     {
       "conceptId": "FMA70492",
       "english": "ureteric segment of right renal artery",
-      "vietnamese": "niệu quản đoạn của động mạch thận phải",
+      "vietnamese": "đoạn niệu quản động mạch thận phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -207932,7 +207932,7 @@
     {
       "conceptId": "FMA70493",
       "english": "ureteric segment of left renal artery",
-      "vietnamese": "niệu quản đoạn của động mạch thận trái",
+      "vietnamese": "đoạn niệu quản động mạch thận trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -208169,7 +208169,7 @@
     {
       "conceptId": "FMA70504",
       "english": "subdivision of common carotid artery",
-      "vietnamese": "phân khu của Động mạch cảnh chung",
+      "vietnamese": "phân khu động mạch cảnh chung",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -208211,7 +208211,7 @@
     {
       "conceptId": "FMA70506",
       "english": "subdivision of internal carotid artery",
-      "vietnamese": "phân khu của Động mạch cảnh trong",
+      "vietnamese": "phân khu động mạch cảnh trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -208254,7 +208254,7 @@
     {
       "conceptId": "FMA70523",
       "english": "subdivision of cerebral part of internal carotid artery",
-      "vietnamese": "phân khu của não phần của Động mạch cảnh trong",
+      "vietnamese": "phần phân khu não động mạch cảnh trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -208556,7 +208556,7 @@
     {
       "conceptId": "FMA70779",
       "english": "set of organs",
-      "vietnamese": "tập hợp của cơ quan",
+      "vietnamese": "tập hợp cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -209185,7 +209185,7 @@
     {
       "conceptId": "FMA71209",
       "english": "tributary of axillary vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch nách",
+      "vietnamese": "nhánh phụ tĩnh mạch nách",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -210064,7 +210064,7 @@
     {
       "conceptId": "FMA71313",
       "english": "set of levatores costarum longi",
-      "vietnamese": "tập hợp của cơ nâng sườn dài",
+      "vietnamese": "tập hợp cơ nâng sườn dài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -210116,7 +210116,7 @@
     {
       "conceptId": "FMA71314",
       "english": "set of levatores costarum breves",
-      "vietnamese": "tập hợp của cơ nâng sườn ngắn",
+      "vietnamese": "tập hợp cơ nâng sườn ngắn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -210601,7 +210601,7 @@
     {
       "conceptId": "FMA71562",
       "english": "set of calcaneal branches of posterior tibial artery",
-      "vietnamese": "tập hợp của gót nhánh của động mạch chày sau",
+      "vietnamese": "tập hợp gót nhánh động mạch chày sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -212318,7 +212318,7 @@
     {
       "conceptId": "FMA71903",
       "english": "subdivision of hepatic portal vein",
-      "vietnamese": "phân khu của TĨNH MẠCH CỬA CỦA GAN",
+      "vietnamese": "phân khu tĩnh MẠCH CỬA GAN",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -212524,7 +212524,7 @@
     {
       "conceptId": "FMA71907",
       "english": "trunk of branch of hepatic portal vein",
-      "vietnamese": "Thân của nhánh của TĨNH MẠCH CỬA CỦA GAN",
+      "vietnamese": "nhánh thân tĩnh MẠCH CỬA GAN",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -222253,7 +222253,7 @@
     {
       "conceptId": "FMA73203",
       "english": "trunk of subdivision of axillary artery",
-      "vietnamese": "Thân của phân khu của Động mạch nách",
+      "vietnamese": "phân khu thân động mạch nách",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -222309,7 +222309,7 @@
     {
       "conceptId": "FMA73204",
       "english": "trunk of branch of common iliac artery",
-      "vietnamese": "Thân của nhánh của động mạch chậu chung",
+      "vietnamese": "nhánh thân động mạch chậu chung",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224175,7 +224175,7 @@
     {
       "conceptId": "FMA74912",
       "english": "trunk of anterior interventricular branch of left coronary artery",
-      "vietnamese": "Thân của trước liên thất nhánh của động mạch vành trái",
+      "vietnamese": "nhánh thân trước liên thất động mạch vành trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224313,7 +224313,7 @@
     {
       "conceptId": "FMA75865",
       "english": "trunk of branch of internal carotid artery",
-      "vietnamese": "Thân của nhánh của Động mạch cảnh trong",
+      "vietnamese": "nhánh thân động mạch cảnh trong",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224527,7 +224527,7 @@
     {
       "conceptId": "FMA76128",
       "english": "trunk of inferior terminal branch of right middle cerebral artery",
-      "vietnamese": "Thân của dưới tận nhánh của động mạch não giữa phải",
+      "vietnamese": "nhánh thân dưới tận động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224722,7 +224722,7 @@
     {
       "conceptId": "FMA76259",
       "english": "branch of vertebral artery",
-      "vietnamese": "Nhánh của động mạch sống",
+      "vietnamese": "Nhánh động mạch sống",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224753,7 +224753,7 @@
     {
       "conceptId": "FMA76264",
       "english": "intracranial branch of vertebral artery",
-      "vietnamese": "trong sọ Nhánh của động mạch sống",
+      "vietnamese": "Nhánh trong sọ động mạch sống",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224787,7 +224787,7 @@
     {
       "conceptId": "FMA76269",
       "english": "branch of basilar artery",
-      "vietnamese": "nhánh của động mạch thân nền",
+      "vietnamese": "nhánh động mạch thân nền",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224818,7 +224818,7 @@
     {
       "conceptId": "FMA76301",
       "english": "trunk of branch of subclavian artery",
-      "vietnamese": "Thân của nhánh của Động mạch dưới đòn",
+      "vietnamese": "nhánh thân động mạch dưới đòn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224874,7 +224874,7 @@
     {
       "conceptId": "FMA76547",
       "english": "trunk of branch of common hepatic artery",
-      "vietnamese": "Thân của nhánh của động mạch gan chung",
+      "vietnamese": "nhánh thân động mạch gan chung",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224928,7 +224928,7 @@
     {
       "conceptId": "FMA76574",
       "english": "trunk of gastroduodenal artery",
-      "vietnamese": "Thân của Động mạch vị-tá tràng",
+      "vietnamese": "Thân động mạch vị-tá tràng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -224972,7 +224972,7 @@
     {
       "conceptId": "FMA76582",
       "english": "trunk of hepatic artery",
-      "vietnamese": "Thân của động mạch gan",
+      "vietnamese": "Thân động mạch gan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -225561,7 +225561,7 @@
     {
       "conceptId": "FMA77883",
       "english": "subdivision of brachiocephalic vein",
-      "vietnamese": "phân khu của Tĩnh mạch cánh tay đầu",
+      "vietnamese": "phân khu tĩnh mạch cánh tay đầu",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -225603,7 +225603,7 @@
     {
       "conceptId": "FMA77884",
       "english": "subdivision of subclavian vein",
-      "vietnamese": "phân khu của Tĩnh mạch dưới đòn",
+      "vietnamese": "phân khu tĩnh mạch dưới đòn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -226561,7 +226561,7 @@
     {
       "conceptId": "FMA78204",
       "english": "subdivision of external iliac vein",
-      "vietnamese": "phân khu của tĩnh mạch chậu ngoài",
+      "vietnamese": "phân khu tĩnh mạch chậu ngoài",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -226601,7 +226601,7 @@
     {
       "conceptId": "FMA78207",
       "english": "tributary of basilic vein",
-      "vietnamese": "nhánh phụ của tĩnh mạch nền",
+      "vietnamese": "nhánh phụ tĩnh mạch nền",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -226915,7 +226915,7 @@
     {
       "conceptId": "FMA78562",
       "english": "set of organ regions",
-      "vietnamese": "tập hợp của cơ quan vùng",
+      "vietnamese": "tập hợp cơ quan vùng",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -227005,7 +227005,7 @@
     {
       "conceptId": "FMA79615",
       "english": "branch of postcommunicating part of anterior cerebral artery",
-      "vietnamese": "nhánh của sau thông phần của động mạch não trước",
+      "vietnamese": "phần nhánh sau thông động mạch não trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -227689,7 +227689,7 @@
     {
       "conceptId": "FMA82594",
       "english": "segment of subclavian artery",
-      "vietnamese": "đoạn của Động mạch dưới đòn",
+      "vietnamese": "đoạn động mạch dưới đòn",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -228226,7 +228226,7 @@
     {
       "conceptId": "FMA83563",
       "english": "subdivision of muscle layer",
-      "vietnamese": "phân khu của cơ lớp",
+      "vietnamese": "lớp phân khu cơ",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231014,7 +231014,7 @@
     {
       "conceptId": "FMA86020",
       "english": "subdivision of transverse cervical artery",
-      "vietnamese": "phân khu của Động mạch cổ ngang",
+      "vietnamese": "phân khu động mạch cổ ngang",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231206,7 +231206,7 @@
     {
       "conceptId": "FMA86103",
       "english": "region of organ component",
-      "vietnamese": "vùng của cơ quan thành phần",
+      "vietnamese": "vùng cơ quan thành phần",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231347,7 +231347,7 @@
     {
       "conceptId": "FMA86187",
       "english": "segment of arterial tree organ",
-      "vietnamese": "đoạn của động mạch cây cơ quan",
+      "vietnamese": "đoạn động mạch cây cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231399,7 +231399,7 @@
     {
       "conceptId": "FMA86188",
       "english": "segment of venous tree organ",
-      "vietnamese": "đoạn của tĩnh mạch cây cơ quan",
+      "vietnamese": "đoạn tĩnh mạch cây cơ quan",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231545,7 +231545,7 @@
     {
       "conceptId": "FMA86254",
       "english": "segment of systemic artery",
-      "vietnamese": "đoạn của động mạch hệ thống",
+      "vietnamese": "đoạn động mạch hệ thống",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231585,7 +231585,7 @@
     {
       "conceptId": "FMA86256",
       "english": "segment of arterial trunk",
-      "vietnamese": "đoạn của động mạch Thân",
+      "vietnamese": "Thân đoạn động mạch",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231633,7 +231633,7 @@
     {
       "conceptId": "FMA86340",
       "english": "superior segmental branch of right renal artery",
-      "vietnamese": "phân đoạn nhánh của động mạch thận phải trên",
+      "vietnamese": "nhánh phân đoạn động mạch thận phải trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231698,7 +231698,7 @@
     {
       "conceptId": "FMA86341",
       "english": "superior segmental branch of left renal artery",
-      "vietnamese": "phân đoạn nhánh của động mạch thận trái trên",
+      "vietnamese": "nhánh phân đoạn động mạch thận trái trên",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231763,7 +231763,7 @@
     {
       "conceptId": "FMA86346",
       "english": "inferior segmental branch of right renal artery",
-      "vietnamese": "phân đoạn nhánh của động mạch thận phải dưới",
+      "vietnamese": "nhánh phân đoạn động mạch thận phải dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231828,7 +231828,7 @@
     {
       "conceptId": "FMA86347",
       "english": "inferior segmental branch of left renal artery",
-      "vietnamese": "phân đoạn nhánh của động mạch thận trái dưới",
+      "vietnamese": "nhánh phân đoạn động mạch thận trái dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231893,7 +231893,7 @@
     {
       "conceptId": "FMA86348",
       "english": "posterior segmental branch of right renal artery",
-      "vietnamese": "phân đoạn nhánh của động mạch thận phải sau",
+      "vietnamese": "nhánh phân đoạn động mạch thận phải sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -231956,7 +231956,7 @@
     {
       "conceptId": "FMA86349",
       "english": "posterior segmental branch of left renal artery",
-      "vietnamese": "phân đoạn nhánh của động mạch thận trái sau",
+      "vietnamese": "nhánh phân đoạn động mạch thận trái sau",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -232284,7 +232284,7 @@
     {
       "conceptId": "FMA87218",
       "english": "trunk of coronary artery",
-      "vietnamese": "Thân của động mạch vành",
+      "vietnamese": "Thân động mạch vành",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -232470,7 +232470,7 @@
     {
       "conceptId": "FMA228667",
       "english": "set of organ parts",
-      "vietnamese": "tập hợp của cơ quan phần",
+      "vietnamese": "tập hợp cơ quan phần",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -234775,7 +234775,7 @@
     {
       "conceptId": "FMA268712",
       "english": "segment of anterior tibial artery",
-      "vietnamese": "đoạn của động mạch chày trước",
+      "vietnamese": "đoạn động mạch chày trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -234887,7 +234887,7 @@
     {
       "conceptId": "FMA3862",
       "english": "anterior interventricular branch of left coronary artery",
-      "vietnamese": "liên thất nhánh của động mạch vành trái trước",
+      "vietnamese": "nhánh liên thất động mạch vành trái trước",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -241861,7 +241861,7 @@
     {
       "conceptId": "FMA14823",
       "english": "inferior branch of ileocolic artery",
-      "vietnamese": "nhánh của Động mạch hồi-đại tràng dưới",
+      "vietnamese": "nhánh động mạch hồi-đại tràng dưới",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -242126,7 +242126,7 @@
     {
       "conceptId": "FMA15427",
       "english": "medial branch of left portal vein",
-      "vietnamese": "nhánh trong của tĩnh mạch cửa trái",
+      "vietnamese": "nhánh trong tĩnh mạch cửa trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -242157,7 +242157,7 @@
     {
       "conceptId": "FMA15430",
       "english": "lateral branch of left portal vein",
-      "vietnamese": "nhánh bên trái của tĩnh mạch cửa",
+      "vietnamese": "nhánh bên trái tĩnh mạch cửa",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -242885,7 +242885,7 @@
     {
       "conceptId": "FMA20224",
       "english": "right side of rib cage",
-      "vietnamese": "bên của Xương sườn lồng phải",
+      "vietnamese": "bên xương sườn lồng phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -242958,7 +242958,7 @@
     {
       "conceptId": "FMA20225",
       "english": "left side of rib cage",
-      "vietnamese": "bên của Xương sườn lồng trái",
+      "vietnamese": "bên xương sườn lồng trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -253067,7 +253067,7 @@
     {
       "conceptId": "FMA61991",
       "english": "trunk of right middle cerebral artery",
-      "vietnamese": "Thân của động mạch não giữa phải",
+      "vietnamese": "Thân động mạch não giữa phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -253361,7 +253361,7 @@
     {
       "conceptId": "FMA67994",
       "english": "intrapulmonary part of right pulmonary artery",
-      "vietnamese": "trong phổi phần của động mạch phổi phải",
+      "vietnamese": "phần trong phổi động mạch phổi phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -253407,7 +253407,7 @@
     {
       "conceptId": "FMA67995",
       "english": "intrapulmonary part of left pulmonary artery",
-      "vietnamese": "trong phổi phần của động mạch phổi trái",
+      "vietnamese": "phần trong phổi động mạch phổi trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -254463,7 +254463,7 @@
     {
       "conceptId": "FMA68658",
       "english": "inferomedial branch of right pulmonary artery",
-      "vietnamese": "dưới-giữa nhánh của động mạch phổi phải",
+      "vietnamese": "nhánh dưới-giữa động mạch phổi phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -254756,7 +254756,7 @@
     {
       "conceptId": "FMA69566",
       "english": "trunk of right lateral plantar artery",
-      "vietnamese": "Thân của Động mạch gan chân ngoài phải",
+      "vietnamese": "Thân động mạch gan chân ngoài phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -254818,7 +254818,7 @@
     {
       "conceptId": "FMA69567",
       "english": "trunk of left lateral plantar artery",
-      "vietnamese": "Thân của Động mạch gan chân ngoài trái",
+      "vietnamese": "Thân động mạch gan chân ngoài trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -257877,7 +257877,7 @@
     {
       "conceptId": "FMA84856",
       "english": "subendocardial layer of myocardium of right ventricle",
-      "vietnamese": "dưới nội tâm mạc lớp của cơ tim thất phải",
+      "vietnamese": "lớp dưới nội tâm mạc cơ tim thất phải",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],
@@ -257923,7 +257923,7 @@
     {
       "conceptId": "FMA84857",
       "english": "subendocardial layer of myocardium of left ventricle",
-      "vietnamese": "dưới nội tâm mạc lớp của cơ tim thất trái",
+      "vietnamese": "lớp dưới nội tâm mạc cơ tim thất trái",
       "evidenceStatus": "PROVISIONAL_TRANSLATED",
       "translationMethod": "GENERATED_TRANSLATION",
       "sourceRefs": [],

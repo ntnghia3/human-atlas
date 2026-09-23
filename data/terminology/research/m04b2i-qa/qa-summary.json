@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "M04B2I-FINAL-QA-SUMMARY-1",
+  "milestone": "M04B2I-FINAL-QA",
+  "targetTotal": 280,
+  "generatedFlagged": 271,
+  "conflicts": 7,
+  "variants": 2,
+  "classifications": {
+    "QA_CLEAR": 0,
+    "QA_REPAIRED": 264,
+    "QA_RETAIN_PROVISIONAL": 0,
+    "QA_CONFLICT_PRESERVED": 9,
+    "QA_NEEDS_HUMAN_REVIEW": 7
+  },
+  "exactStringsChanged": 264,
+  "evidenceStatusesChanged": 0,
+  "verifiedStatusesChanged": 0,
+  "verifiedPromotionsFromGenerated": 0,
+  "remainingHumanReview": 7,
+  "totalConcepts": 3432,
+  "vietnameseUiCoverage": 3432,
+  "primaryUiLocalizationClass": {
+    "VERIFIED": 841,
+    "PROVISIONAL_SOURCED": 86,
+    "PROVISIONAL_TRANSLATED": 2505,
+    "NO_TRANSLATION_AVAILABLE": 0
+  },
+  "generatedInvariant": true,
+  "conflictInvariant": true,
+  "variantInvariant": true,
+  "repairRule": "REMOVE_OF_CONNECTOR_MOVE_LEADING_STRUCTURAL_HEAD_NORMALIZE_CASE_DEDUPLICATE_EXACT_HEAD_ONLY",
+  "noHistoricalMutation": true,
+  "inputCounts": {
+    "atlas": 3432,
+    "candidates": 3432,
+    "directCandidates": 516,
+    "derivedCandidates": 432,
+    "residual": 2512,
+    "compositionRules": 4
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "M04B2I-FINAL-QA-MANIFEST-1",
+  "milestone": "M04B2I-FINAL-QA",
+  "git": {
+    "branch": "main",
+    "head": "45d9f5673097c4bbf23b4137e634a71fcf8965eb"
+  },
+  "inputs": {
+    "data/terminology/research/m04b2i/localization-catalog.json": "ce3d41bcbc22c9936bd6075f50b20077f4ca2f2d69556252e60dce2cc0b16865",
+    "data/terminology/research/m04b2i/localization-records.jsonl": "2f67a0fafc58986955c27e9e1e3dd4ab5e417c1769478c8feee7dbdd816673d1",
+    "data/terminology/research/m04b2i/provisional-translations.jsonl": "ad6b5df98b574029023319cab3ac8f1ba19dceeab6904426977f2ca0bda7079e",
+    "data/terminology/research/m04b2i/quality-review.jsonl": "50b30fdeae5954fa842f390b6799e23a655ef37004525503389a370dbda886e9",
+    "data/terminology/research/m04b2i/coverage-summary.json": "e46320f15a7d8dbe9e3514ea26e1546988bccfadb8aa97afb4ed789a68cffe93",
+    "data/terminology/research/m04b2i/run-manifest.json": "ff9283d276f8dcd63ada39f08efe24d7008d45dc533cc1c9400054f0d1fea882"
+  },
+  "historicalInputs": {
+    "data/terminology/research/m04b2h/authority-component-lexicon.json": "8386f3eb1f7463c9abf89fc20cda2d668bce1bfd6980622eedccb31c9ef8a5fa",
+    "data/terminology/research/m04b2h/composition-rules.json": "5551dfb0b5f859d9c8a89dfdb563cdf9e1a5c601ecae49988a82323b77f60754",
+    "data/terminology/research/m04b2h/concept-candidates.jsonl": "c6df8f4d6632a38f683bde22352f5f2970d3b386afa1b294fca0db2099149046",
+    "data/terminology/research/m04b2h/direct-candidates.jsonl": "a5d7f20722ab4e7797c16a893c51365b8c6561039c91922ec1dc889c83698b28",
+    "data/terminology/research/m04b2h/derived-candidates.jsonl": "2d0fd4c6169e6f266195ff72e99444ebc674cc2e9fa6d6b5df9644102a277a6c",
+    "data/terminology/research/m04b2h/residual.jsonl": "ea182219dc57d34df3ed2b21121b3dcadf8e09538116271d39dd2048d646041b"
+  },
+  "targetAccounting": {
+    "total": 280,
+    "generatedFlagged": 271,
+    "conflicts": 7,
+    "variants": 2
+  },
+  "outputHashes": {
+    "data/terminology/research/m04b2i-qa/qa-decisions.jsonl": "badde2237747465916b0278f0a374f51fbab254ffe8a0e540b486e3948926dcd",
+    "data/terminology/research/m04b2i-qa/repaired-translations.jsonl": "540a3b5fc000c037311e836a06849f08ea6fc748df3e458cd88aacd36f2b4e6c",
+    "data/terminology/research/m04b2i-qa/residual-human-review.jsonl": "b71e59b90a247d9ca0af27c141fb8ff218cea66a118bcb64fb8e7295b2f20fd7",
+    "data/terminology/research/m04b2i-qa/qa-summary.json": "0e91cb158123e3bed43e0820dfa2e8d8399a4e2624c65ceadee7cfbd7f8807b0"
+  },
+  "classificationCounts": {
+    "QA_CLEAR": 0,
+    "QA_REPAIRED": 264,
+    "QA_RETAIN_PROVISIONAL": 0,
+    "QA_CONFLICT_PRESERVED": 9,
+    "QA_NEEDS_HUMAN_REVIEW": 7
+  },
+  "deterministic": true
+}
