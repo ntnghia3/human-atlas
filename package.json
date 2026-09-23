@@ -31,7 +31,9 @@
     "terminology:m04b2h": "node scripts/m04b2h-expand.mjs",
     "test:m04b2h": "node scripts/test-m04b2h.mjs",
     "terminology:m04b2i": "node scripts/m04b2i-localization.mjs",
-    "test:m04b2i": "node scripts/test-m04b2i.mjs"
+    "test:m04b2i": "node scripts/test-m04b2i.mjs",
+    "terminology:m04b2i:final-qa": "node scripts/m04b2i-final-qa.mjs",
+    "test:m04b2i:final-qa": "node scripts/test-m04b2i-final-qa.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",

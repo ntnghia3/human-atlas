@@ -13,6 +13,8 @@ import {
   resolveConceptName,
   resolveConceptLocalization,
   LOCALIZATION_CATALOG,
+  getEvidencePresentation,
+  getSourceDisplay,
 } from '../app/terminology.ts';
 import {SYSTEMS} from '../app/anatomy.ts';
 
@@ -49,13 +51,13 @@ assert.notEqual(resolveConceptName(localizedConcept, 'vi'), localizedConcept.nam
 assert.equal(matchesTerminologyQuery(localizedConcept, resolveConceptName(localizedConcept, 'vi')), true);
 assert.equal(resolveConceptName(localizedConcept, 'en'), localizedConcept.name);
 assert.ok(Object.values(TERMINOLOGY_SOURCES).every(source => source.identityVerified === true));
-const intentionallyEnglishUiKeys = new Set(['language.english', 'language.vietnamese', 'controls.skeleton', 'controls.organs']);
+const intentionallyBilingualUiKeys = new Set(['language.english', 'language.vietnamese', 'brand.name', 'identity.source']);
 for (const key of MESSAGE_KEYS) {
   assert.notEqual(translate('vi', key), key);
-  if (!intentionallyEnglishUiKeys.has(key)) assert.notEqual(translate('vi', key), translate('en', key), `${key} must be localized in Vietnamese mode`);
+  if (!intentionallyBilingualUiKeys.has(key)) assert.notEqual(translate('vi', key), translate('en', key), `${key} must be localized in Vietnamese mode`);
 }
-assert.equal(getMessage('vi', 'controls.skeleton'), getMessage('en', 'controls.skeleton'));
-assert.equal(getMessage('vi', 'controls.organs'), getMessage('en', 'controls.organs'));
+assert.equal(getMessage('vi', 'controls.skeleton'), 'Hệ xương');
+assert.equal(getMessage('vi', 'controls.organs'), 'Cơ quan');
 assert.equal(normalizeSearchText('  Đặng   CỘNG  '), 'dang cong');
 assert.equal(normalizeSearchText('BẠN\n bè'), 'ban be');
 assert.equal(normalizeSearchText('CỘNG'), 'cong');
@@ -94,5 +96,65 @@ assert.equal(matchesTerminologyQuery(concept, 'FMA00000', {[concept.id]: verifie
 assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_FMA_ID', {[concept.id]: verifiedEntry}, sourceBase, reviewers), true);
 assert.equal(matchesTerminologyQuery(concept, 'test_only_vi_search', {[concept.id]: verifiedEntry}, sourceBase, reviewers), true);
 assert.equal(matchesTerminologyQuery(concept, 'TEST_ONLY_LATIN_ALIAS', {[concept.id]: verifiedEntry}, sourceBase, reviewers), false, 'unclaimed Latin alias must not enter search');
+
+const localizationCounts = Object.values(LOCALIZATION_CATALOG).reduce((counts, record) => {
+  counts[record.evidenceStatus] = (counts[record.evidenceStatus] ?? 0) + 1;
+  return counts;
+}, {});
+assert.deepEqual(localizationCounts, {VERIFIED: 841, PROVISIONAL_SOURCED: 86, PROVISIONAL_TRANSLATED: 2505});
+assert.ok(Object.values(LOCALIZATION_CATALOG).every(record => record.vietnamese.trim().length > 0));
+
+const presentationFor = predicate => getEvidencePresentation(Object.values(LOCALIZATION_CATALOG).find(predicate), 'vi', TERMINOLOGY_SOURCES);
+const directPresentation = presentationFor(record => record.translationMethod === 'DIRECT_SOURCE' && record.evidenceStatus === 'VERIFIED');
+const multiAuthorityPresentation = presentationFor(record => record.translationMethod === 'MULTI_AUTHORITY');
+const derivedPresentation = presentationFor(record => record.translationMethod === 'CONTROLLED_DERIVED');
+const sourcedPresentation = presentationFor(record => record.evidenceStatus === 'PROVISIONAL_SOURCED' && record.sourceDisposition !== 'SOURCE_CONFLICT' && record.sourceDisposition !== 'SOURCE_VARIANT');
+const generatedPresentation = presentationFor(record => record.translationMethod === 'GENERATED_TRANSLATION');
+const conflictPresentation = presentationFor(record => record.sourceDisposition === 'SOURCE_CONFLICT');
+const variantPresentation = presentationFor(record => record.sourceDisposition === 'SOURCE_VARIANT');
+const finalQaReviewPresentation = getEvidencePresentation(LOCALIZATION_CATALOG.FMA5022, 'vi', TERMINOLOGY_SOURCES);
+
+assert.ok(directPresentation.sourceSummary?.includes('Đại học Y Hà Nội (2022)'));
+assert.equal(directPresentation.label, 'Đã xác minh nguồn');
+assert.equal(multiAuthorityPresentation.sourceCount, 2);
+assert.ok(multiAuthorityPresentation.description.includes('2 nguồn độc lập'));
+assert.ok(derivedPresentation.description.includes('quy tắc'));
+assert.equal(derivedPresentation.description.includes('CONTROLLED_DERIVED'), false);
+assert.equal(sourcedPresentation.label, 'Có nguồn tham khảo');
+assert.equal(sourcedPresentation.qualifier, 'Chưa xác minh đầy đủ');
+assert.equal(generatedPresentation.label, 'Bản dịch tạm');
+assert.equal(generatedPresentation.qualifier, 'Chưa xác định nguồn');
+assert.equal(generatedPresentation.sourceCount, 0);
+assert.equal(generatedPresentation.sourceSummary, undefined);
+assert.equal(conflictPresentation.label, 'Có biến thể nguồn');
+assert.ok(conflictPresentation.variants.length > 0);
+assert.equal(variantPresentation.label, 'Có biến thể nguồn');
+assert.equal(finalQaReviewPresentation.label, 'Bản dịch tạm');
+
+const defaultPresentationText = [
+  directPresentation.label,
+  directPresentation.qualifier,
+  directPresentation.description,
+  directPresentation.sourceSummary,
+].filter(Boolean).join(' ');
+for (const rawValue of ['VERIFIED', 'PROVISIONAL_SOURCED', 'PROVISIONAL_TRANSLATED', 'CONTROLLED_DERIVED', 'SOURCE_CANDIDATE', 'NVH2008', 'M04B2H']) {
+  assert.equal(defaultPresentationText.includes(rawValue), false, `${rawValue} must stay out of compact evidence presentation`);
+}
+const unknownSourceDisplay = getSourceDisplay('TEST_ONLY_UNKNOWN_SOURCE', [{sourceId: 'TEST_ONLY_UNKNOWN_SOURCE'}], 'vi', {});
+assert.equal(unknownSourceDisplay.shortDisplayName.includes('TEST_ONLY_UNKNOWN_SOURCE'), false);
+assert.equal(unknownSourceDisplay.fullDisplayName.includes('TEST_ONLY_UNKNOWN_SOURCE'), false);
+
+assert.equal(matchesTerminologyQuery({id: 'FMA3711', name: 'segment of artery', elements: []}, 'đoạn động mạch'), true);
+assert.equal(matchesTerminologyQuery({id: 'FMA3711', name: 'segment of artery', elements: []}, 'segment of artery'), true);
+
+assert.match(pageSource, /getEvidencePresentation/);
+assert.match(pageSource, /evidence\.technicalDetails/);
+assert.doesNotMatch(pageSource, /chosenLocalization\.translationMethod/);
+assert.doesNotMatch(pageSource, /chosenLocalization\.blockers/);
+assert.doesNotMatch(pageSource, /chosenLocalization\.provenance\.map/);
+const registeredKeys = new Set(MESSAGE_KEYS);
+for (const match of pageSource.matchAll(/\bt\(['"]([^'"]+)['"]/g)) {
+  assert.equal(registeredKeys.has(match[1]), true, `rendered UI key must be registered: ${match[1]}`);
+}
 
 console.log('Language persistence, UI fallback, Vietnamese search normalization, claim-level terminology gates, and revision-bound release checks passed.');

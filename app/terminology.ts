@@ -1,5 +1,5 @@
 import type {Concept} from './anatomy';
-import type {Language} from './localization';
+import {translate, type Language, type MessageKey} from './localization.ts';
 import {normalizeSearchText} from './search-normalization.ts';
 import {
   PRODUCTION_TERMINOLOGY_OVERLAY,
@@ -342,6 +342,57 @@ export interface TerminologyLocalizationRecord {
 }
 export type TerminologyLocalizationCatalog = Readonly<Record<string, TerminologyLocalizationRecord>>;
 
+export interface TerminologySourceLocatorPresentation {
+  page?: number;
+  chapter?: string;
+  section?: string;
+  table?: string;
+  entryId?: string;
+  nomenclatureId?: string;
+  url?: string;
+}
+
+export interface TerminologySourceDisplay {
+  /** Retained for the technical-details disclosure; never used in the compact summary. */
+  sourceId: string;
+  shortDisplayName: string;
+  fullDisplayName: string;
+  authors: readonly string[];
+  institution?: string;
+  publicationYear?: number | null;
+  edition?: string;
+  publisher?: string;
+  url?: string;
+  locators: readonly TerminologySourceLocatorPresentation[];
+  locatorCount: number;
+}
+
+export interface EvidenceTechnicalDetails {
+  evidenceStatus: LocalizationEvidenceStatus;
+  translationMethod: LocalizationTranslationMethod;
+  sourceIds: readonly string[];
+  sourceRevisions: readonly string[];
+  sourceRefs: readonly string[];
+  compositionRuleId?: string | null;
+  blockers: readonly string[];
+  sourceDisposition?: string;
+}
+
+export interface EvidencePresentation {
+  evidenceStatus: LocalizationEvidenceStatus;
+  translationMethod: LocalizationTranslationMethod;
+  label: string;
+  qualifier?: string;
+  description: string;
+  sourceSummary?: string;
+  sourceCount: number;
+  sources: readonly TerminologySourceDisplay[];
+  variants: readonly string[];
+  hasConflict: boolean;
+  showEnglishOriginal: boolean;
+  technical: EvidenceTechnicalDetails;
+}
+
 export const TERMINOLOGY_OVERLAY: TerminologyOverlay = PRODUCTION_TERMINOLOGY_OVERLAY;
 export const TERMINOLOGY_SOURCES: TerminologySourceCatalog = PRODUCTION_TERMINOLOGY_SOURCES;
 export const TERMINOLOGY_REVIEWERS: TerminologyReviewerCatalog = PRODUCTION_TERMINOLOGY_REVIEWERS;
@@ -680,6 +731,202 @@ export function resolveConceptName(
   const entry = overlay[concept.id];
   if (language === 'vi' && hasVerifiedVietnamese(entry, sourceCatalog, reviewers)) return entry.vietnamese!.preferred!.trim();
   return concept.name;
+}
+
+function sourceIdFromReference(reference: string): string {
+  const separator = reference.indexOf(':');
+  return separator > 0 ? reference.slice(0, separator) : reference;
+}
+
+function localizationSourceIds(
+  record: TerminologyLocalizationRecord,
+  sourceCatalog: TerminologySourceCatalog,
+): string[] {
+  const ids = [
+    ...(record.provenance ?? []).map(item => item.sourceId),
+    ...record.sourceRefs.map(sourceIdFromReference),
+  ];
+  return [...new Set(ids.filter(sourceId => hasText(sourceId) && (sourceCatalog[sourceId] || sourceId === sourceIdFromReference(sourceId))))];
+}
+
+function cleanAuthorName(author: string): string {
+  return author.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function compactInstitutionName(institution: string): string {
+  return institution
+    .split(',')[0]
+    .replace(/^Trường\s+/i, '')
+    .replace(/Thành phố Hồ Chí Minh/g, 'TP.HCM')
+    .trim();
+}
+
+function sourceShortDisplayName(
+  sourceId: string,
+  source: TerminologySourceRecord | undefined,
+  language: Language,
+): string {
+  if (!source) return translate(language, 'evidence.sourceUnavailable');
+  const institution = hasText(source.institution) ? compactInstitutionName(source.institution) : '';
+  const authors = (source.authors ?? []).map(cleanAuthorName).filter(Boolean);
+  const authorLabel = authors.length > 1
+    ? `${authors[0]}${language === 'vi' ? ' và cộng sự' : ' et al.'}`
+    : authors[0];
+  const base = institution || authorLabel || source.title.trim();
+  const year = typeof source.publicationYear === 'number' && Number.isInteger(source.publicationYear)
+    ? ` (${source.publicationYear})`
+    : '';
+  return `${base}${year}`.trim() || translate(language, 'evidence.sourceUnavailable');
+}
+
+function sourceLocatorKey(locator: TerminologySourceLocatorPresentation): string {
+  return [locator.page, locator.chapter, locator.section, locator.table, locator.entryId, locator.nomenclatureId, locator.url].join('|');
+}
+
+function buildSourceDisplay(
+  sourceId: string,
+  record: TerminologyLocalizationRecord,
+  sourceCatalog: TerminologySourceCatalog,
+  language: Language,
+): TerminologySourceDisplay {
+  const source = sourceCatalog[sourceId];
+  const provenance = (record.provenance ?? []).filter(item => item.sourceId === sourceId);
+  const locators = [...new Map(
+    provenance
+      .map(item => item.locator)
+      .filter((locator): locator is TerminologyProvenanceLocator => Boolean(locator))
+      .map(locator => {
+        const presentation: TerminologySourceLocatorPresentation = {
+          page: locator.page,
+          chapter: locator.chapter,
+          section: locator.section,
+          table: locator.table,
+          entryId: locator.entryId,
+          nomenclatureId: locator.nomenclatureId,
+          url: locator.url,
+        };
+        return [sourceLocatorKey(presentation), presentation] as const;
+      }),
+  ).values()];
+  const sourceEdition = source?.edition ?? provenance.find(item => hasText(item.sourceEdition))?.sourceEdition ?? undefined;
+  const firstUrl = locators.find(locator => hasText(locator.url))?.url;
+  return {
+    sourceId,
+    shortDisplayName: sourceShortDisplayName(sourceId, source, language),
+    fullDisplayName: source?.title?.trim() || sourceShortDisplayName(sourceId, source, language),
+    authors: source?.authors ?? [],
+    institution: source?.institution,
+    publicationYear: source?.publicationYear,
+    edition: sourceEdition,
+    publisher: source?.publisher,
+    url: firstUrl ?? source?.url,
+    locators: locators.slice(0, 8),
+    locatorCount: locators.length,
+  };
+}
+
+function localizationHasConflict(record: TerminologyLocalizationRecord): boolean {
+  const blockers = record.blockers.join(' ').toUpperCase();
+  const disposition = record.sourceDisposition?.toUpperCase() ?? '';
+  return record.variants.length > 1 || /SOURCE_(CONFLICT|VARIANT)/.test(blockers) || /SOURCE_(CONFLICT|VARIANT)/.test(disposition);
+}
+
+function evidenceCopyKeys(record: TerminologyLocalizationRecord, hasConflict: boolean): {
+  label: MessageKey;
+  description: MessageKey;
+  qualifier?: MessageKey;
+} {
+  if (record.evidenceStatus === 'NO_TRANSLATION_AVAILABLE') {
+    return {label: 'evidence.noTranslation.label', description: 'evidence.noTranslation.description'};
+  }
+  if (hasConflict) {
+    return {
+      label: 'evidence.conflict.label',
+      description: 'evidence.conflict.description',
+      qualifier: record.evidenceStatus === 'PROVISIONAL_SOURCED' ? 'evidence.sourced.qualifier' : undefined,
+    };
+  }
+  if (record.evidenceStatus === 'PROVISIONAL_TRANSLATED' || record.translationMethod === 'GENERATED_TRANSLATION') {
+    return {
+      label: 'evidence.generated.label',
+      description: 'evidence.generated.description',
+      qualifier: 'evidence.generated.qualifier',
+    };
+  }
+  if (record.evidenceStatus === 'PROVISIONAL_SOURCED' || record.translationMethod === 'SOURCE_CANDIDATE') {
+    return {
+      label: 'evidence.sourced.label',
+      description: 'evidence.sourced.description',
+      qualifier: 'evidence.sourced.qualifier',
+    };
+  }
+  if (record.translationMethod === 'CONTROLLED_DERIVED') {
+    return {label: 'evidence.derived.label', description: 'evidence.derived.description'};
+  }
+  return {label: 'evidence.direct.label', description: 'evidence.direct.description'};
+}
+
+export function getSourceDisplay(
+  sourceId: string,
+  provenance: readonly TerminologyLocalizationProvenance[] = [],
+  language: Language = 'vi',
+  sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
+): TerminologySourceDisplay {
+  const record: TerminologyLocalizationRecord = {
+    conceptId: '',
+    english: '',
+    vietnamese: '',
+    evidenceStatus: 'PROVISIONAL_SOURCED',
+    translationMethod: 'SOURCE_CANDIDATE',
+    sourceRefs: [],
+    componentEvidence: [],
+    compositionRuleId: null,
+    blockers: [],
+    variants: [],
+    verified: false,
+    provenance,
+  };
+  return buildSourceDisplay(sourceId, record, sourceCatalog, language);
+}
+
+export function getEvidencePresentation(
+  record: TerminologyLocalizationRecord,
+  language: Language = 'vi',
+  sourceCatalog: TerminologySourceCatalog = TERMINOLOGY_SOURCES,
+): EvidencePresentation {
+  const sourceIds = localizationSourceIds(record, sourceCatalog);
+  const sources = sourceIds.map(sourceId => buildSourceDisplay(sourceId, record, sourceCatalog, language));
+  const hasConflict = localizationHasConflict(record);
+  const copyKeys = evidenceCopyKeys(record, hasConflict);
+  const sourceSummary = sources.length > 0
+    ? `${sources.slice(0, 2).map(source => source.shortDisplayName).join(' · ')}${sources.length > 2 ? ` · ${translate(language, 'evidence.moreSources', {count: sources.length - 2})}` : ''}`
+    : undefined;
+  const description = record.translationMethod === 'MULTI_AUTHORITY' && sources.length > 1
+    ? translate(language, 'evidence.multiAuthority.description', {count: sources.length})
+    : translate(language, copyKeys.description);
+  return {
+    evidenceStatus: record.evidenceStatus,
+    translationMethod: record.translationMethod,
+    label: translate(language, copyKeys.label),
+    qualifier: copyKeys.qualifier ? translate(language, copyKeys.qualifier) : undefined,
+    description,
+    sourceSummary,
+    sourceCount: sources.length,
+    sources,
+    variants: [...new Set(record.variants.filter(value => hasText(value)).map(value => value.trim()))],
+    hasConflict,
+    showEnglishOriginal: true,
+    technical: {
+      evidenceStatus: record.evidenceStatus,
+      translationMethod: record.translationMethod,
+      sourceIds,
+      sourceRevisions: [...new Set((record.provenance ?? []).map(item => item.sourceRevision).filter((value): value is string => hasText(value)))],
+      sourceRefs: record.sourceRefs,
+      compositionRuleId: record.compositionRuleId,
+      blockers: record.blockers,
+      sourceDisposition: record.sourceDisposition,
+    },
+  };
 }
 
 function uniqueNonempty(values: readonly (string | undefined)[]): string[] {
