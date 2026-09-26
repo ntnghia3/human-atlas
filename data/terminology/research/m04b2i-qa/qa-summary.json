@@ -6,17 +6,17 @@
   "conflicts": 7,
   "variants": 2,
   "classifications": {
-    "QA_CLEAR": 0,
+    "QA_CLEAR": 3,
     "QA_REPAIRED": 264,
     "QA_RETAIN_PROVISIONAL": 0,
     "QA_CONFLICT_PRESERVED": 9,
-    "QA_NEEDS_HUMAN_REVIEW": 7
+    "QA_NEEDS_HUMAN_REVIEW": 4
   },
-  "exactStringsChanged": 264,
+  "exactStringsChanged": 248,
   "evidenceStatusesChanged": 0,
   "verifiedStatusesChanged": 0,
   "verifiedPromotionsFromGenerated": 0,
-  "remainingHumanReview": 7,
+  "remainingHumanReview": 4,
   "totalConcepts": 3432,
   "vietnameseUiCoverage": 3432,
   "primaryUiLocalizationClass": {
@@ -26,6 +26,14 @@
     "NO_TRANSLATION_AVAILABLE": 0
   },
   "generatedInvariant": true,
+  "translationQaPatchesApplied": 1263,
+  "translationQaVietnameseChanged": 121,
+  "provisionalTranslationQaPatchesSupplied": 313,
+  "provisionalTranslationQaPatchesApplied": 313,
+  "provisionalTranslationQaVietnameseChanged": 0,
+  "provisionalTranslationQaPatchesAlreadyApplied": 313,
+  "provisionalTranslationQaEvidenceStatusChanges": 0,
+  "provisionalTranslationQaVerifiedPromotions": 0,
   "conflictInvariant": true,
   "variantInvariant": true,
   "repairRule": "REMOVE_OF_CONNECTOR_MOVE_LEADING_STRUCTURAL_HEAD_NORMALIZE_CASE_DEDUPLICATE_EXACT_HEAD_ONLY",

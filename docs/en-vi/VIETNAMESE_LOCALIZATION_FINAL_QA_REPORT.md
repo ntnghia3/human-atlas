@@ -15,14 +15,16 @@ M04B2I final QA processed the complete target set in one deterministic run. No t
 
 | Decision | Count |
 |---|---:|
-| QA_CLEAR | 0 |
+| QA_CLEAR | 3 |
 | QA_REPAIRED | 264 |
 | QA_RETAIN_PROVISIONAL | 0 |
 | QA_CONFLICT_PRESERVED | 9 |
-| QA_NEEDS_HUMAN_REVIEW | 7 |
+| QA_NEEDS_HUMAN_REVIEW | 4 |
 | **Total** | **280** |
 
-Exactly 264 Vietnamese strings changed. Evidence statuses changed: 0; verified statuses changed: 0; generated promotions: 0.
+Exactly 248 Vietnamese strings changed. Evidence statuses changed: 0; verified statuses changed: 0; generated promotions: 0.
+
+The authoritative provisional translation QA overlay supplied 313 reviewed corrections and applied 313 changes (313 were already present on a deterministic rerun). It changed no evidence or source status and promoted nothing.
 
 ## Repairs
 
@@ -30,12 +32,12 @@ Repairs are limited to deterministic structural cleanup: removing machine-compos
 
 - segment of artery: **đoạn của Động mạch** → **đoạn động mạch** (FMA3711)
 - arch of aorta: **cung của động mạch chủ** → **cung động mạch chủ** (FMA3768)
-- trunk of right coronary artery: **Thân của động mạch vành phải** → **Thân động mạch vành phải** (FMA3802)
-- anterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải trước** → **nhánh thất động mạch vành phải trước** (FMA3813)
-- first anterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải trước thứ nhất** → **nhánh thất động mạch vành phải trước thứ nhất** (FMA3815)
+- trunk of right coronary artery: **Thân của động mạch vành phải** → **thân động mạch vành phải** (FMA3802)
+- anterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải trước** → **nhánh thất trước của động mạch vành phải** (FMA3813)
+- first anterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải trước thứ nhất** → **nhánh thất trước thứ nhất của động mạch vành phải** (FMA3815)
 - marginal branch of right coronary artery: **nhánh bờ phải của động mạch vành phải** → **nhánh bờ phải động mạch vành phải** (FMA3818)
-- posterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải sau** → **nhánh thất động mạch vành phải sau** (FMA3835)
-- first posterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải sau thứ nhất** → **nhánh thất động mạch vành phải sau thứ nhất** (FMA3837)
+- posterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải sau** → **nhánh thất sau của động mạch vành phải** (FMA3835)
+- first posterior ventricular branch of right coronary artery: **thất nhánh của động mạch vành phải sau thứ nhất** → **nhánh thất sau thứ nhất của động mạch vành phải** (FMA3837)
 
 ## Conflict and variant handling
 
@@ -43,13 +45,10 @@ All 7 source conflicts and 2 source variants are QA_CONFLICT_PRESERVED. Their so
 
 ## Human-review queue
 
-- FMA5022 — muscle organ: DUPLICATED_TRANSLATED_NOUN
-- FMA10474 — zone of muscle organ: DUPLICATED_TRANSLATED_NOUN
 - FMA52672 — communicating branch of nasociliary nerve with ciliary ganglion: MALFORMED_WITH_RELATION
 - FMA52673 — communicating branch of right nasociliary nerve with right ciliary ganglion: MALFORMED_WITH_RELATION
 - FMA52674 — communicating branch of left nasociliary nerve with left ciliary ganglion: MALFORMED_WITH_RELATION
 - FMA55672 — organ with organ cavity: MALFORMED_WITH_RELATION
-- FMA85453 — head of muscle organ: DUPLICATED_TRANSLATED_NOUN
 
 ## Final invariants
 

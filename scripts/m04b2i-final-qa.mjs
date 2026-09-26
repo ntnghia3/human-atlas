@@ -8,6 +8,10 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const M04B2I_DIR = join(ROOT, 'data', 'terminology', 'research', 'm04b2i');
 const M04B2H_DIR = join(ROOT, 'data', 'terminology', 'research', 'm04b2h');
 const OUT_DIR = join(ROOT, 'data', 'terminology', 'research', 'm04b2i-qa');
+const TRANSLATION_QA_DIR = join(ROOT, 'data', 'terminology', 'research', 'm04b2i-qa-translation');
+const TRANSLATION_PATCH_PATH = join(TRANSLATION_QA_DIR, 'translation-review-patches.jsonl');
+const PROVISIONAL_TRANSLATION_QA_DIR = join(ROOT, '.local', 'translation-qa');
+const PROVISIONAL_TRANSLATION_PATCH_PATH = join(PROVISIONAL_TRANSLATION_QA_DIR, 'provisional_translated_patch_01_02_313.jsonl');
 const TOTAL = 3432;
 const EXPECTED_GENERATED_FLAGS = 271;
 const EXPECTED_CONFLICTS = 7;
@@ -30,6 +34,103 @@ function normalizeEnglish(value) { return clean(value).toLocaleLowerCase('en').r
 function normalizeVietnamese(value) { return clean(value).replace(/\s+([,.;:)])/g, '$1'); }
 function asciiKey(value) { return normalizeVietnamese(value).toLocaleLowerCase('vi').normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
 function unique(values) { return [...new Set(values.filter(value => value !== undefined && value !== null && String(value).trim() !== ''))]; }
+
+function readTranslationPatches() {
+  if (!existsSync(TRANSLATION_PATCH_PATH)) return new Map();
+  const patches = readJsonl(TRANSLATION_PATCH_PATH);
+  const byId = new Map();
+  for (const patch of patches) {
+    if (byId.has(patch.conceptId)) throw new Error(`Duplicate translation QA patch for ${patch.conceptId}`);
+    if (patch.reviewOutcome !== 'VARIANT_CORRECTED') continue;
+    if (!patch.newVietnamese?.trim()) throw new Error(`Empty translation QA value for ${patch.conceptId}`);
+    byId.set(patch.conceptId, patch);
+  }
+  return byId;
+}
+
+function readProvisionalTranslationPatches() {
+  if (!existsSync(PROVISIONAL_TRANSLATION_PATCH_PATH)) return new Map();
+  const patches = readJsonl(PROVISIONAL_TRANSLATION_PATCH_PATH);
+  const byId = new Map();
+  for (const patch of patches) {
+    if (byId.has(patch.conceptId)) throw new Error(`Duplicate provisional translation patch for ${patch.conceptId}`);
+    if (patch.decision !== 'CORRECT') throw new Error(`Invalid provisional translation decision for ${patch.conceptId}`);
+    if (!patch.newVietnamese?.trim() || patch.newVietnamese === patch.oldVietnamese) throw new Error(`Invalid provisional translation value for ${patch.conceptId}`);
+    byId.set(patch.conceptId, patch);
+  }
+  return byId;
+}
+
+function applyTranslationOverlay(records, generated, catalog, quality, patches) {
+  if (!patches.size) return {records, generated, catalog, quality, changed: 0};
+  const apply = item => {
+    const patch = patches.get(item.conceptId);
+    if (!patch) return item;
+    if (item.evidenceStatus !== 'PROVISIONAL_TRANSLATED' || (item.translationMethod !== undefined && item.translationMethod !== 'GENERATED_TRANSLATION') || (item.method !== undefined && item.method !== 'BEST_EFFORT_TRANSLATION' && item.method !== 'COMPONENT_COMPOSITION') || (item.verified !== undefined && item.verified !== false) || (item.sourceRefs ?? []).length !== 0) {
+      throw new Error(`Translation QA patch targets a non-generated provisional record: ${item.conceptId}`);
+    }
+    if (item.vietnamese !== patch.oldVietnamese && item.vietnamese !== patch.newVietnamese) {
+      throw new Error(`Translation QA oldVietnamese mismatch during final QA for ${item.conceptId}`);
+    }
+    return item.vietnamese === patch.newVietnamese ? item : {...item, vietnamese: patch.newVietnamese};
+  };
+  const updatedRecords = records.map(apply);
+  const updatedGenerated = generated.map(apply);
+  const updatedCatalog = {...catalog, records: catalog.records.map(apply)};
+  const updatedQuality = quality.map(item => {
+    const patch = patches.get(item.conceptId);
+    if (!patch) return item;
+    if (item.english !== patch.english) throw new Error(`Translation QA quality-review English mismatch for ${item.conceptId}`);
+    return item.vietnamese === patch.newVietnamese ? item : {...item, vietnamese: patch.newVietnamese};
+  });
+  const changed = updatedRecords.filter((item, index) => item.vietnamese !== records[index].vietnamese).length;
+  return {records: updatedRecords, generated: updatedGenerated, catalog: updatedCatalog, quality: updatedQuality, changed};
+}
+
+function applyTranslationToQaMetadata(items, patches) {
+  return items.map(item => {
+    const patch = patches.get(item.conceptId);
+    if (!patch) return item;
+    const updated = {...item};
+    if (Object.prototype.hasOwnProperty.call(updated, 'postVietnamese')) updated.postVietnamese = patch.newVietnamese;
+    if (Object.prototype.hasOwnProperty.call(updated, 'vietnamese')) updated.vietnamese = patch.newVietnamese;
+    return updated;
+  });
+}
+
+function applyProvisionalTranslationOverlay(records, generated, catalog, quality, patches) {
+  if (!patches.size) return {records, generated, catalog, quality, changed: 0, alreadyApplied: 0};
+  const apply = (item, kind) => {
+    const patch = patches.get(item.conceptId);
+    if (!patch) return item;
+    if (item.english !== patch.english) throw new Error(`PROVISIONAL_TRANSLATION_DRIFT_CONFLICT English mismatch for ${item.conceptId}`);
+    if (kind !== 'quality' && (item.evidenceStatus !== 'PROVISIONAL_TRANSLATED' || (item.verified !== undefined && item.verified !== false) || (item.sourceRefs ?? []).length !== 0)) {
+      throw new Error(`PROVISIONAL_TRANSLATION_DRIFT_CONFLICT evidence mismatch for ${item.conceptId}`);
+    }
+    if (kind === 'quality') return item.vietnamese === patch.newVietnamese ? item : {...item, vietnamese: patch.newVietnamese};
+    if (item.vietnamese !== patch.oldVietnamese && item.vietnamese !== patch.newVietnamese) {
+      throw new Error(`PROVISIONAL_TRANSLATION_DRIFT_CONFLICT oldVietnamese mismatch for ${item.conceptId}`);
+    }
+    return item.vietnamese === patch.newVietnamese ? item : {...item, vietnamese: patch.newVietnamese};
+  };
+  const applyCollection = (items, kind) => {
+    const seen = new Set();
+    const updated = items.map(item => {
+      if (!patches.has(item.conceptId)) return item;
+      seen.add(item.conceptId);
+      return apply(item, kind);
+    });
+    for (const conceptId of patches.keys()) if (!seen.has(conceptId)) throw new Error(`PROVISIONAL_TRANSLATION_DRIFT_CONFLICT missing ${kind} record for ${conceptId}`);
+    return updated;
+  };
+  const updatedRecords = applyCollection(records, 'record');
+  const updatedGenerated = applyCollection(generated, 'generated');
+  const updatedCatalog = {...catalog, records: applyCollection(catalog.records, 'catalog')};
+  const updatedQuality = applyCollection(quality, 'quality');
+  const changed = updatedRecords.filter((item, index) => item.vietnamese !== records[index].vietnamese).length;
+  const alreadyApplied = [...patches.keys()].filter(conceptId => records.find(item => item.conceptId === conceptId)?.vietnamese === patches.get(conceptId).newVietnamese).length;
+  return {records: updatedRecords, generated: updatedGenerated, catalog: updatedCatalog, quality: updatedQuality, changed, alreadyApplied};
+}
 function hasPhrase(value, phrase) {
   const haystack = ` ${normalizeVietnamese(value).toLocaleLowerCase('vi').replace(/[^\p{L}\p{N}]+/gu, ' ')} `;
   const needle = ` ${normalizeVietnamese(phrase).toLocaleLowerCase('vi').replace(/[^\p{L}\p{N}]+/gu, ' ')} `;
@@ -217,6 +318,7 @@ function buildFinalQa() {
   mkdirSync(OUT_DIR, {recursive: true});
   const atlas = readJson(join(ROOT, 'public', 'models', 'atlas.json'));
   const records = readJsonl(join(M04B2I_DIR, 'localization-records.jsonl'));
+  const originalVietnamese = new Map(records.map(record => [record.conceptId, record.vietnamese]));
   const generated = readJsonl(join(M04B2I_DIR, 'provisional-translations.jsonl'));
   const quality = readJsonl(join(M04B2I_DIR, 'quality-review.jsonl'));
   const baseSummary = readJson(join(M04B2I_DIR, 'coverage-summary.json'));
@@ -227,6 +329,8 @@ function buildFinalQa() {
   const directCandidates = readJsonl(join(M04B2H_DIR, 'direct-candidates.jsonl'));
   const derivedCandidates = readJsonl(join(M04B2H_DIR, 'derived-candidates.jsonl'));
   const residual = readJsonl(join(M04B2H_DIR, 'residual.jsonl'));
+  const translationPatches = readTranslationPatches();
+  const provisionalTranslationPatches = readProvisionalTranslationPatches();
   const existingDecisions = existsSync(join(OUT_DIR, 'qa-decisions.jsonl')) ? new Map(readJsonl(join(OUT_DIR, 'qa-decisions.jsonl')).map(item => [item.conceptId, item])) : new Map();
   for (const record of records) {
     const prior = existingDecisions.get(record.conceptId);
@@ -314,29 +418,45 @@ function buildFinalQa() {
     const decision = decisions.find(item => item.conceptId === record.conceptId);
     return decision?.qaStatus === 'QA_REPAIRED' ? {...record, vietnamese: decision.postVietnamese, verified: false, sourceRefs: []} : record;
   });
-  writeJsonl(join(M04B2I_DIR, 'localization-records.jsonl'), updatedRecords);
-  writeJsonl(join(M04B2I_DIR, 'provisional-translations.jsonl'), updatedGenerated);
-  writeJson(join(M04B2I_DIR, 'localization-catalog.json'), catalog);
-  const refreshedManifest = {...baseManifest, qaOverlay: {path: 'data/terminology/research/m04b2i-qa', appliedDecisions: changedStrings.length, generatedEvidenceStatusChanges: 0, generatedVerifiedPromotions: 0}};
-  for (const name of ['localization-records.jsonl', 'localization-catalog.json', 'provisional-translations.jsonl']) refreshedManifest.outputHashes[`data/terminology/research/m04b2i/${name}`] = sha256File(join(M04B2I_DIR, name));
+  const overlay = applyTranslationOverlay(updatedRecords, updatedGenerated, catalog, quality, translationPatches);
+  const provisionalOverlay = applyProvisionalTranslationOverlay(overlay.records, overlay.generated, overlay.catalog, overlay.quality, provisionalTranslationPatches);
+  const provisionalCanonicalChanged = [...provisionalTranslationPatches].filter(([conceptId, patch]) => originalVietnamese.get(conceptId) !== patch.newVietnamese).length;
+  const provisionalCanonicalAlreadyApplied = [...provisionalTranslationPatches].filter(([conceptId, patch]) => originalVietnamese.get(conceptId) === patch.newVietnamese).length;
+  const persistedDecisions = applyTranslationToQaMetadata(applyTranslationToQaMetadata(decisions, translationPatches), provisionalTranslationPatches);
+  const persistedRepaired = applyTranslationToQaMetadata(applyTranslationToQaMetadata(repaired, translationPatches), provisionalTranslationPatches);
+  const persistedResidualHumanReview = applyTranslationToQaMetadata(applyTranslationToQaMetadata(residualHumanReview, translationPatches), provisionalTranslationPatches);
+  writeJsonl(join(M04B2I_DIR, 'localization-records.jsonl'), provisionalOverlay.records);
+  writeJsonl(join(M04B2I_DIR, 'provisional-translations.jsonl'), provisionalOverlay.generated);
+  writeJson(join(M04B2I_DIR, 'localization-catalog.json'), provisionalOverlay.catalog);
+  writeJsonl(join(M04B2I_DIR, 'quality-review.jsonl'), provisionalOverlay.quality);
+  const refreshedManifest = {...baseManifest, qaOverlay: {path: 'data/terminology/research/m04b2i-qa', appliedDecisions: changedStrings.length, generatedEvidenceStatusChanges: 0, generatedVerifiedPromotions: 0}, translationQaOverlay: {path: 'data/terminology/research/m04b2i-qa-translation', appliedPatches: translationPatches.size, changedVietnamese: overlay.changed, verifiedStatusChanges: 0}, provisionalTranslationQaOverlay: {path: '.local/translation-qa/provisional_translated_patch_01_02_313.jsonl', suppliedPatches: provisionalTranslationPatches.size, appliedPatches: provisionalTranslationPatches.size, changedVietnamese: provisionalCanonicalChanged, alreadyAppliedPatches: provisionalCanonicalAlreadyApplied, verifiedStatusChanges: 0, sourceStatusChanges: 0}};
+  for (const name of ['localization-records.jsonl', 'localization-catalog.json', 'provisional-translations.jsonl', 'quality-review.jsonl', 'coverage-summary.json']) refreshedManifest.outputHashes[`data/terminology/research/m04b2i/${name}`] = sha256File(join(M04B2I_DIR, name));
   writeJson(join(M04B2I_DIR, 'run-manifest.json'), refreshedManifest);
   const summary = {
     schemaVersion: 'M04B2I-FINAL-QA-SUMMARY-1', milestone: 'M04B2I-FINAL-QA', targetTotal: 280,
     generatedFlagged: qualityById.size, conflicts: conflictRecords.length, variants: variantRecords.length,
-    classifications: decisionCounts, exactStringsChanged: changedStrings.length, evidenceStatusesChanged: 0, verifiedStatusesChanged: 0,
+    classifications: decisionCounts, exactStringsChanged: persistedDecisions.filter(item => item.priorVietnamese !== item.postVietnamese).length, evidenceStatusesChanged: 0, verifiedStatusesChanged: 0,
     verifiedPromotionsFromGenerated: 0, remainingHumanReview: residualHumanReview.length,
-    totalConcepts: updatedRecords.length, vietnameseUiCoverage: updatedRecords.filter(record => record.evidenceStatus !== 'NO_TRANSLATION_AVAILABLE' && record.vietnamese.trim() !== record.english.trim()).length,
-    primaryUiLocalizationClass: Object.fromEntries(['VERIFIED', 'PROVISIONAL_SOURCED', 'PROVISIONAL_TRANSLATED', 'NO_TRANSLATION_AVAILABLE'].map(status => [status, updatedRecords.filter(record => record.evidenceStatus === status).length])),
-    generatedInvariant: updatedRecords.filter(record => record.evidenceStatus === 'PROVISIONAL_TRANSLATED').every(record => record.verified === false && record.sourceRefs.length === 0),
+    totalConcepts: provisionalOverlay.records.length, vietnameseUiCoverage: provisionalOverlay.records.filter(record => record.evidenceStatus !== 'NO_TRANSLATION_AVAILABLE' && record.vietnamese.trim() !== record.english.trim()).length,
+    primaryUiLocalizationClass: Object.fromEntries(['VERIFIED', 'PROVISIONAL_SOURCED', 'PROVISIONAL_TRANSLATED', 'NO_TRANSLATION_AVAILABLE'].map(status => [status, provisionalOverlay.records.filter(record => record.evidenceStatus === status).length])),
+    generatedInvariant: provisionalOverlay.records.filter(record => record.evidenceStatus === 'PROVISIONAL_TRANSLATED').every(record => record.verified === false && record.sourceRefs.length === 0),
+    translationQaPatchesApplied: translationPatches.size,
+    translationQaVietnameseChanged: overlay.changed,
+    provisionalTranslationQaPatchesSupplied: provisionalTranslationPatches.size,
+    provisionalTranslationQaPatchesApplied: provisionalTranslationPatches.size,
+    provisionalTranslationQaVietnameseChanged: provisionalCanonicalChanged,
+    provisionalTranslationQaPatchesAlreadyApplied: provisionalCanonicalAlreadyApplied,
+    provisionalTranslationQaEvidenceStatusChanges: 0,
+    provisionalTranslationQaVerifiedPromotions: 0,
     conflictInvariant: decisions.filter(item => item.sourceDisposition === 'SOURCE_CONFLICT').every(item => item.qaStatus === 'QA_CONFLICT_PRESERVED'),
     variantInvariant: decisions.filter(item => item.sourceDisposition === 'SOURCE_VARIANT').every(item => item.qaStatus === 'QA_CONFLICT_PRESERVED'),
     repairRule: 'REMOVE_OF_CONNECTOR_MOVE_LEADING_STRUCTURAL_HEAD_NORMALIZE_CASE_DEDUPLICATE_EXACT_HEAD_ONLY',
     noHistoricalMutation: true,
     inputCounts: {atlas: atlas.concepts.length, candidates: candidates.length, directCandidates: directCandidates.length, derivedCandidates: derivedCandidates.length, residual: residual.length, compositionRules: compositionRules.rules?.length ?? 0},
   };
-  writeJsonl(join(OUT_DIR, 'qa-decisions.jsonl'), decisions);
-  writeJsonl(join(OUT_DIR, 'repaired-translations.jsonl'), repaired);
-  writeJsonl(join(OUT_DIR, 'residual-human-review.jsonl'), residualHumanReview);
+  writeJsonl(join(OUT_DIR, 'qa-decisions.jsonl'), persistedDecisions);
+  writeJsonl(join(OUT_DIR, 'repaired-translations.jsonl'), persistedRepaired);
+  writeJsonl(join(OUT_DIR, 'residual-human-review.jsonl'), persistedResidualHumanReview);
   writeJson(join(OUT_DIR, 'qa-summary.json'), summary);
   const outputNames = ['qa-decisions.jsonl', 'repaired-translations.jsonl', 'residual-human-review.jsonl', 'qa-summary.json'];
   const outputHashes = Object.fromEntries(outputNames.map(name => [`data/terminology/research/m04b2i-qa/${name}`, sha256File(join(OUT_DIR, name))]));
@@ -375,11 +495,13 @@ M04B2I final QA processed the complete target set in one deterministic run. No t
 
 Exactly ${summary.exactStringsChanged} Vietnamese strings changed. Evidence statuses changed: ${summary.evidenceStatusesChanged}; verified statuses changed: ${summary.verifiedStatusesChanged}; generated promotions: ${summary.verifiedPromotionsFromGenerated}.
 
+The authoritative provisional translation QA overlay supplied ${summary.provisionalTranslationQaPatchesSupplied} reviewed corrections and applied ${summary.provisionalTranslationQaPatchesApplied} changes (${summary.provisionalTranslationQaPatchesAlreadyApplied} were already present on a deterministic rerun). It changed no evidence or source status and promoted nothing.
+
 ## Repairs
 
 Repairs are limited to deterministic structural cleanup: removing machine-composed “của” connectors for English of relations, moving an obvious leading structural head noun, normalizing accidental interior capitalization, and removing exact duplicated head nouns. Every repaired record remains PROVISIONAL_TRANSLATED, verified: false, and sourceRefs: [].
 
-${repaired.slice(0, 8).map(item => `- ${item.english}: **${item.priorVietnamese}** → **${item.vietnamese}** (${item.conceptId})`).join('\n') || '- No repaired strings.'}
+${persistedRepaired.slice(0, 8).map(item => `- ${item.english}: **${item.priorVietnamese}** → **${item.vietnamese}** (${item.conceptId})`).join('\n') || '- No repaired strings.'}
 
 ## Conflict and variant handling
 
@@ -387,7 +509,7 @@ All ${conflictRecords.length} source conflicts and ${variantRecords.length} sour
 
 ## Human-review queue
 
-${residualHumanReview.map(item => `- ${item.conceptId} — ${item.english}: ${item.postSemanticFindings.join(', ') || 'semantic ambiguity remains'}`).join('\n') || '- Empty.'}
+${persistedResidualHumanReview.map(item => `- ${item.conceptId} — ${item.english}: ${item.postSemanticFindings.join(', ') || 'semantic ambiguity remains'}`).join('\n') || '- Empty.'}
 
 ## Final invariants
 
