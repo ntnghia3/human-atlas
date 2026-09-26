@@ -3,15 +3,15 @@
   "milestone": "M04B2I-FINAL-QA",
   "git": {
     "branch": "main",
-    "head": "efa5ed0afc021fed57f3749c6b297b4dd6ea4346"
+    "head": "24b8e9adf8d98465619281322377ff2cc14ff369"
   },
   "inputs": {
-    "data/terminology/research/m04b2i/localization-catalog.json": "66bcea66da82d882d5096dda7da03bd33e9e4974117ea71704753e42ad49d1a5",
-    "data/terminology/research/m04b2i/localization-records.jsonl": "8afaca694e56fc1b4e9a2533863930650b0ef8b2fda66bdcd30aff3be0a4b9a6",
-    "data/terminology/research/m04b2i/provisional-translations.jsonl": "d438ea476cdae6259a5e944668d69b27febb4d4abe8c1a7d4925116795f8674f",
-    "data/terminology/research/m04b2i/quality-review.jsonl": "b3f1acaddc00abf25d71a306f3ec79f49e0baf7d232b3734fd1022efccfa0457",
+    "data/terminology/research/m04b2i/localization-catalog.json": "9279bc9d1d0f4057eee8a0a3a3292fbcdfa718cdaa0d148d122bd7e3673a4092",
+    "data/terminology/research/m04b2i/localization-records.jsonl": "99a136548d648dccd194e308579b3078173eb6f793bc14bb558d0c7eb8cfacc3",
+    "data/terminology/research/m04b2i/provisional-translations.jsonl": "1088f4e75cf13fc3c4c1f7bc61ec139d41802cc1c5e589f32589a874023e74a5",
+    "data/terminology/research/m04b2i/quality-review.jsonl": "8007e6ecbf070b62fb0fdb3d7abde07adf23ae59fb963939ed847bc5d02efbf6",
     "data/terminology/research/m04b2i/coverage-summary.json": "e46320f15a7d8dbe9e3514ea26e1546988bccfadb8aa97afb4ed789a68cffe93",
-    "data/terminology/research/m04b2i/run-manifest.json": "757b7a1add24ca3b1ba78ab156a727c6a2c9d99579d4b2cbba8a999755b1a570"
+    "data/terminology/research/m04b2i/run-manifest.json": "7724bbb7a5ed47e9db32ee4d8e891aa86752053543fe328a1bfe7e84507dfacf"
   },
   "historicalInputs": {
     "data/terminology/research/m04b2h/authority-component-lexicon.json": "8386f3eb1f7463c9abf89fc20cda2d668bce1bfd6980622eedccb31c9ef8a5fa",
@@ -28,10 +28,10 @@
     "variants": 2
   },
   "outputHashes": {
-    "data/terminology/research/m04b2i-qa/qa-decisions.jsonl": "d97b2688b9fb9c6d27037460befcb1ed40e824ac9c25aa13a9b21249f105a792",
-    "data/terminology/research/m04b2i-qa/repaired-translations.jsonl": "f9ab7115b89e15fb8f32711660a3d0666f5586527029a7c065ffbe5db643329c",
+    "data/terminology/research/m04b2i-qa/qa-decisions.jsonl": "6d814de233c2a33d07f74191c0990143f3c9592374aceab84c7c32dd46236261",
+    "data/terminology/research/m04b2i-qa/repaired-translations.jsonl": "9cec5a3fa46f900bf2e5a7189597b720db6fc328287b67ac885445084fa3a606",
     "data/terminology/research/m04b2i-qa/residual-human-review.jsonl": "1b37f23df9927d602f5e111a9408410dd174aa65daee46d088ce2e995a46e445",
-    "data/terminology/research/m04b2i-qa/qa-summary.json": "59ee263b0ec1d931a09a7a88834ee2700c5c661d6e216cc4ce5936d30743bcf1"
+    "data/terminology/research/m04b2i-qa/qa-summary.json": "7c187f2a6af05eaa7f9d354457dfb673ae5757c3eeedef50d02f2b415b3ccd62"
   },
   "classificationCounts": {
     "QA_CLEAR": 3,

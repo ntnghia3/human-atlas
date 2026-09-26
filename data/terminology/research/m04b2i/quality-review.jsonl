@@ -687,14 +687,14 @@
 {"conceptId":"FMA22967","english":"median antebrachial vein","vietnamese":"tĩnh mạch giữa cẳng tay","findings":[]}
 {"conceptId":"FMA22968","english":"right median antebrachial vein","vietnamese":"tĩnh mạch giữa cẳng tay phải","findings":[]}
 {"conceptId":"FMA22969","english":"left median antebrachial vein","vietnamese":"tĩnh mạch giữa cẳng tay trái","findings":[]}
-{"conceptId":"FMA23046","english":"medial proper palmar digital artery of ring finger","vietnamese":"động mạch gan tay ngón riêng trong của ngón áp út","findings":[]}
-{"conceptId":"FMA23047","english":"medial proper palmar digital artery of index finger","vietnamese":"động mạch gan tay ngón riêng trong của ngón trỏ","findings":[]}
-{"conceptId":"FMA23048","english":"lateral proper palmar digital artery of little finger","vietnamese":"động mạch gan tay ngón riêng ngoài của ngón út","findings":[]}
-{"conceptId":"FMA23050","english":"medial proper palmar digital artery of right index finger","vietnamese":"động mạch gan tay ngón riêng trong của ngón trỏ phải","findings":[]}
-{"conceptId":"FMA23051","english":"medial proper palmar digital artery of left index finger","vietnamese":"động mạch gan tay ngón riêng trong của ngón trỏ trái","findings":[]}
-{"conceptId":"FMA23052","english":"medial proper palmar digital artery of right ring finger","vietnamese":"động mạch gan tay ngón riêng trong của ngón áp út phải","findings":[]}
-{"conceptId":"FMA23054","english":"lateral proper palmar digital artery of right little finger","vietnamese":"động mạch gan tay ngón riêng ngoài của ngón út phải","findings":[]}
-{"conceptId":"FMA23055","english":"lateral proper palmar digital artery of left little finger","vietnamese":"động mạch gan tay ngón riêng ngoài của ngón út trái","findings":[]}
+{"conceptId":"FMA23046","english":"medial proper palmar digital artery of ring finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón áp út","findings":[]}
+{"conceptId":"FMA23047","english":"medial proper palmar digital artery of index finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón trỏ","findings":[]}
+{"conceptId":"FMA23048","english":"lateral proper palmar digital artery of little finger","vietnamese":"động mạch gan ngón tay riêng ngoài của ngón út","findings":[]}
+{"conceptId":"FMA23050","english":"medial proper palmar digital artery of right index finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón trỏ phải","findings":[]}
+{"conceptId":"FMA23051","english":"medial proper palmar digital artery of left index finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón trỏ trái","findings":[]}
+{"conceptId":"FMA23052","english":"medial proper palmar digital artery of right ring finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón áp út phải","findings":[]}
+{"conceptId":"FMA23054","english":"lateral proper palmar digital artery of right little finger","vietnamese":"động mạch gan ngón tay riêng ngoài của ngón út phải","findings":[]}
+{"conceptId":"FMA23055","english":"lateral proper palmar digital artery of left little finger","vietnamese":"động mạch gan ngón tay riêng ngoài của ngón út trái","findings":[]}
 {"conceptId":"FMA23062","english":"pectoral branch of thoraco-acromial artery","vietnamese":"nhánh ngực của động mạch cùng vai ngực","findings":[]}
 {"conceptId":"FMA23063","english":"pectoral branch of right thoraco-acromial artery","vietnamese":"nhánh ngực của động mạch cùng vai ngực phải","findings":[]}
 {"conceptId":"FMA23064","english":"pectoral branch of left thoraco-acromial artery","vietnamese":"nhánh ngực của động mạch cùng vai ngực trái","findings":[]}
@@ -1638,63 +1638,63 @@
 {"conceptId":"FMA68321","english":"right anterior basal segmental bronchial tree","vietnamese":"cây phế quản phân thùy đáy trước phải","findings":[]}
 {"conceptId":"FMA68322","english":"lateral basal segmental bronchial tree","vietnamese":"cây phế quản phân thùy đáy bên","findings":[]}
 {"conceptId":"FMA68418","english":"right main bronchus proper","vietnamese":"phế quản chính phải riêng","findings":[]}
-{"conceptId":"FMA68661","english":"apical part of apical segmental artery","vietnamese":"đỉnh phần của Động mạch phân thuỳ đỉnh","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68662","english":"apical part of right apical segmental artery","vietnamese":"đỉnh phần của phải Động mạch phân thuỳ đỉnh","findings":[]}
-{"conceptId":"FMA68664","english":"anterior part of apical segmental artery","vietnamese":"phần của Động mạch phân thuỳ đỉnh trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68665","english":"anterior part of right apical segmental artery","vietnamese":"phần của phải Động mạch phân thuỳ đỉnh trước","findings":[]}
-{"conceptId":"FMA68667","english":"subsegmental part of apical segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ đỉnh","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68668","english":"subsegmental part of posterior segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68669","english":"apical part of posterior segmental artery","vietnamese":"đỉnh phần của Động mạch phân thuỳ sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68670","english":"apical part of right posterior segmental artery","vietnamese":"đỉnh phần của phải Động mạch phân thuỳ sau","findings":[]}
-{"conceptId":"FMA68672","english":"posterior part of posterior segmental artery","vietnamese":"phần của Động mạch phân thuỳ sau sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68673","english":"posterior part of right posterior segmental artery","vietnamese":"phần của phải Động mạch phân thuỳ sau sau","findings":[]}
-{"conceptId":"FMA68675","english":"subsegmental part of anterior segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68676","english":"posterior part of anterior segmental artery","vietnamese":"phần của Động mạch phân thuỳ trước sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68677","english":"posterior branch of right anterior segmental artery","vietnamese":"nhánh của phải Động mạch phân thuỳ trước sau","findings":[]}
-{"conceptId":"FMA68682","english":"anterior branch of anterior segmental artery","vietnamese":"nhánh của Động mạch phân thuỳ trước trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68683","english":"anterior branch of right anterior segmental artery","vietnamese":"nhánh của phải Động mạch phân thuỳ trước trước","findings":[]}
-{"conceptId":"FMA68689","english":"subsegmental part of lateral segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ bên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68690","english":"posterior branch of lateral segmental artery","vietnamese":"nhánh của Động mạch phân thuỳ bên sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68691","english":"anterior branch of lateral segmental artery","vietnamese":"nhánh của Động mạch phân thuỳ bên trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68692","english":"subsegmental part of medial segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ giữa","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68693","english":"superior branch of medial segmental artery","vietnamese":"nhánh của Động mạch phân thuỳ giữa trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68694","english":"inferior branch of medial segmental artery","vietnamese":"nhánh của Động mạch phân thuỳ giữa dưới","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68704","english":"medial branch of superior segmental artery","vietnamese":"giữa nhánh của Động mạch phân thuỳ trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68705","english":"subsegmental part of superior segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68706","english":"medial branch of right superior segmental artery","vietnamese":"giữa nhánh của phải Động mạch phân thuỳ trên","findings":[]}
-{"conceptId":"FMA68708","english":"superior branch of superior segmental artery","vietnamese":"nhánh của Động mạch phân thuỳ trên trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68709","english":"superior branch of right superior segmental artery","vietnamese":"nhánh của phải Động mạch phân thuỳ trên trên","findings":[]}
-{"conceptId":"FMA68711","english":"lateral branch of superior segmental artery","vietnamese":"bên nhánh của Động mạch phân thuỳ trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68712","english":"lateral branch of right superior segmental artery","vietnamese":"bên nhánh của phải Động mạch phân thuỳ trên","findings":[]}
-{"conceptId":"FMA68720","english":"subsegmental part of anterior basal segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ đáy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68721","english":"lateral branch of anterior basal segmental artery","vietnamese":"bên nhánh của Động mạch phân thuỳ đáy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68722","english":"basal branch of anterior basal segmental artery","vietnamese":"đáy nhánh của Động mạch phân thuỳ đáy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68723","english":"basal branch of right anterior basal segmental artery","vietnamese":"đáy nhánh của phải Động mạch phân thuỳ đáy trước","findings":[]}
-{"conceptId":"FMA68725","english":"lateral branch of right anterior basal segmental artery","vietnamese":"bên nhánh của phải Động mạch phân thuỳ đáy trước","findings":[]}
-{"conceptId":"FMA68727","english":"subsegmental part of lateral basal segmental artery","vietnamese":"dưới phân đoạn phần của Động mạch phân thuỳ đáy bên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA68728","english":"lateral branch of right lateral basal segmental artery","vietnamese":"bên nhánh của phải Động mạch phân thuỳ đáy bên","findings":[]}
-{"conceptId":"FMA68733","english":"subsegmental part of posterior basal segmental artery","vietnamese":"dưới phân đoạn phần của sau đáy phân đoạn Động mạch","findings":[]}
-{"conceptId":"FMA68734","english":"accessory subsuperior branch of posterior basal segmental artery","vietnamese":"phụ dưới trên nhánh của sau đáy phân đoạn Động mạch","findings":[]}
-{"conceptId":"FMA68735","english":"accessory subsuperior branch of right posterior basal segmental artery","vietnamese":"phụ dưới trên nhánh của phải sau đáy phân đoạn Động mạch","findings":[]}
-{"conceptId":"FMA68737","english":"laterobasal branch of posterior basal segmental artery","vietnamese":"bên-đáy nhánh của sau đáy phân đoạn Động mạch","findings":[]}
-{"conceptId":"FMA68738","english":"laterobasal branch of right posterior basal segmental artery","vietnamese":"bên-đáy nhánh của phải sau đáy phân đoạn Động mạch","findings":[]}
-{"conceptId":"FMA68740","english":"mediobasal branch of posterior basal segmental artery","vietnamese":"giữa-đáy nhánh của sau đáy phân đoạn Động mạch","findings":[]}
-{"conceptId":"FMA68741","english":"mediobasal branch of right posterior basal segmental artery","vietnamese":"giữa-đáy nhánh của phải sau đáy phân đoạn Động mạch","findings":[]}
+{"conceptId":"FMA68661","english":"apical part of apical segmental artery","vietnamese":"phần đỉnh của động mạch phân thùy đỉnh","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68662","english":"apical part of right apical segmental artery","vietnamese":"phần đỉnh của động mạch phân thùy đỉnh phải","findings":[]}
+{"conceptId":"FMA68664","english":"anterior part of apical segmental artery","vietnamese":"phần trước của động mạch phân thùy đỉnh","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68665","english":"anterior part of right apical segmental artery","vietnamese":"phần trước của động mạch phân thùy đỉnh phải","findings":[]}
+{"conceptId":"FMA68667","english":"subsegmental part of apical segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy đỉnh","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68668","english":"subsegmental part of posterior segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68669","english":"apical part of posterior segmental artery","vietnamese":"phần đỉnh của động mạch phân thùy sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68670","english":"apical part of right posterior segmental artery","vietnamese":"phần đỉnh của động mạch phân thùy sau phải","findings":[]}
+{"conceptId":"FMA68672","english":"posterior part of posterior segmental artery","vietnamese":"phần sau của động mạch phân thùy sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68673","english":"posterior part of right posterior segmental artery","vietnamese":"phần sau của động mạch phân thùy sau phải","findings":[]}
+{"conceptId":"FMA68675","english":"subsegmental part of anterior segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68676","english":"posterior part of anterior segmental artery","vietnamese":"phần sau của động mạch phân thùy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68677","english":"posterior branch of right anterior segmental artery","vietnamese":"nhánh sau của động mạch phân thùy trước phải","findings":[]}
+{"conceptId":"FMA68682","english":"anterior branch of anterior segmental artery","vietnamese":"nhánh trước của động mạch phân thùy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68683","english":"anterior branch of right anterior segmental artery","vietnamese":"nhánh trước của động mạch phân thùy trước phải","findings":[]}
+{"conceptId":"FMA68689","english":"subsegmental part of lateral segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy bên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68690","english":"posterior branch of lateral segmental artery","vietnamese":"nhánh sau của động mạch phân thùy bên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68691","english":"anterior branch of lateral segmental artery","vietnamese":"nhánh trước của động mạch phân thùy bên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68692","english":"subsegmental part of medial segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy giữa","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68693","english":"superior branch of medial segmental artery","vietnamese":"nhánh trên của động mạch phân thùy giữa","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68694","english":"inferior branch of medial segmental artery","vietnamese":"nhánh dưới của động mạch phân thùy giữa","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68704","english":"medial branch of superior segmental artery","vietnamese":"nhánh trong của động mạch phân thùy trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68705","english":"subsegmental part of superior segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68706","english":"medial branch of right superior segmental artery","vietnamese":"nhánh trong của động mạch phân thùy trên phải","findings":[]}
+{"conceptId":"FMA68708","english":"superior branch of superior segmental artery","vietnamese":"nhánh trên của động mạch phân thùy trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68709","english":"superior branch of right superior segmental artery","vietnamese":"nhánh trên của động mạch phân thùy trên phải","findings":[]}
+{"conceptId":"FMA68711","english":"lateral branch of superior segmental artery","vietnamese":"nhánh ngoài của động mạch phân thùy trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68712","english":"lateral branch of right superior segmental artery","vietnamese":"nhánh ngoài của động mạch phân thùy trên phải","findings":[]}
+{"conceptId":"FMA68720","english":"subsegmental part of anterior basal segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy đáy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68721","english":"lateral branch of anterior basal segmental artery","vietnamese":"nhánh ngoài của động mạch phân thùy đáy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68722","english":"basal branch of anterior basal segmental artery","vietnamese":"nhánh đáy của động mạch phân thùy đáy trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68723","english":"basal branch of right anterior basal segmental artery","vietnamese":"nhánh đáy của động mạch phân thùy đáy trước phải","findings":[]}
+{"conceptId":"FMA68725","english":"lateral branch of right anterior basal segmental artery","vietnamese":"nhánh ngoài của động mạch phân thùy đáy trước phải","findings":[]}
+{"conceptId":"FMA68727","english":"subsegmental part of lateral basal segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy đáy bên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA68728","english":"lateral branch of right lateral basal segmental artery","vietnamese":"nhánh ngoài của động mạch phân thùy đáy bên phải","findings":[]}
+{"conceptId":"FMA68733","english":"subsegmental part of posterior basal segmental artery","vietnamese":"phần hạ phân thùy của động mạch phân thùy đáy sau","findings":[]}
+{"conceptId":"FMA68734","english":"accessory subsuperior branch of posterior basal segmental artery","vietnamese":"nhánh phụ dưới đỉnh của động mạch phân thùy đáy sau","findings":[]}
+{"conceptId":"FMA68735","english":"accessory subsuperior branch of right posterior basal segmental artery","vietnamese":"nhánh phụ dưới đỉnh của động mạch phân thùy đáy sau phải","findings":[]}
+{"conceptId":"FMA68737","english":"laterobasal branch of posterior basal segmental artery","vietnamese":"nhánh đáy bên của động mạch phân thùy đáy sau","findings":[]}
+{"conceptId":"FMA68738","english":"laterobasal branch of right posterior basal segmental artery","vietnamese":"nhánh đáy bên của động mạch phân thùy đáy sau phải","findings":[]}
+{"conceptId":"FMA68740","english":"mediobasal branch of posterior basal segmental artery","vietnamese":"nhánh đáy giữa của động mạch phân thùy đáy sau","findings":[]}
+{"conceptId":"FMA68741","english":"mediobasal branch of right posterior basal segmental artery","vietnamese":"nhánh đáy giữa của động mạch phân thùy đáy sau phải","findings":[]}
 {"conceptId":"FMA68878","english":"trunk of segmental pulmonary vein","vietnamese":"thân tĩnh mạch phổi phân thùy","findings":[]}
 {"conceptId":"FMA68879","english":"trunk of apical segmental vein","vietnamese":"thân tĩnh mạch phân thùy đỉnh","findings":[]}
 {"conceptId":"FMA68880","english":"trunk of right apical segmental vein","vietnamese":"thân tĩnh mạch phân thùy đỉnh phải","findings":[]}
-{"conceptId":"FMA68919","english":"apical part of apical segmental vein","vietnamese":"đỉnh phần của đỉnh phân đoạn đình sau","findings":[]}
-{"conceptId":"FMA68920","english":"anterior part of apical segmental vein","vietnamese":"phần của đỉnh phân đoạn đình sau trước","findings":[]}
-{"conceptId":"FMA68921","english":"anterior part of right apical segmental vein","vietnamese":"phần của phải đỉnh phân đoạn đình sau trước","findings":[]}
-{"conceptId":"FMA68926","english":"superior part of right anterior segmental vein","vietnamese":"phần của phải trước phân đoạn đình sau trên","findings":[]}
-{"conceptId":"FMA68928","english":"inferior part of right anterior segmental vein","vietnamese":"phần của phải trước phân đoạn đình sau dưới","findings":[]}
-{"conceptId":"FMA68944","english":"posterior part of lateral segmental vein","vietnamese":"phần của bên phân đoạn đình sau sau","findings":[]}
-{"conceptId":"FMA68945","english":"anterior part of lateral segmental vein","vietnamese":"phần của bên phân đoạn đình sau trước","findings":[]}
-{"conceptId":"FMA68982","english":"superior part of medial segmental vein","vietnamese":"phần của giữa phân đoạn đình sau trên","findings":[]}
-{"conceptId":"FMA68983","english":"inferior part of medial segmental vein","vietnamese":"phần của giữa phân đoạn đình sau dưới","findings":[]}
+{"conceptId":"FMA68919","english":"apical part of apical segmental vein","vietnamese":"phần đỉnh của tĩnh mạch phân thùy đỉnh","findings":[]}
+{"conceptId":"FMA68920","english":"anterior part of apical segmental vein","vietnamese":"phần trước của tĩnh mạch phân thùy đỉnh","findings":[]}
+{"conceptId":"FMA68921","english":"anterior part of right apical segmental vein","vietnamese":"phần trước của tĩnh mạch phân thùy đỉnh phải","findings":[]}
+{"conceptId":"FMA68926","english":"superior part of right anterior segmental vein","vietnamese":"phần trên của tĩnh mạch phân thùy trước phải","findings":[]}
+{"conceptId":"FMA68928","english":"inferior part of right anterior segmental vein","vietnamese":"phần dưới của tĩnh mạch phân thùy trước phải","findings":[]}
+{"conceptId":"FMA68944","english":"posterior part of lateral segmental vein","vietnamese":"phần sau của tĩnh mạch phân thùy bên","findings":[]}
+{"conceptId":"FMA68945","english":"anterior part of lateral segmental vein","vietnamese":"phần trước của tĩnh mạch phân thùy bên","findings":[]}
+{"conceptId":"FMA68982","english":"superior part of medial segmental vein","vietnamese":"phần trên của tĩnh mạch phân thùy giữa","findings":[]}
+{"conceptId":"FMA68983","english":"inferior part of medial segmental vein","vietnamese":"phần dưới của tĩnh mạch phân thùy giữa","findings":[]}
 {"conceptId":"FMA69418","english":"trunk of branch of popliteal artery","vietnamese":"thân nhánh của động mạch khoeo","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA69458","english":"subdivision of external iliac artery","vietnamese":"phân khu của Động mạch chậu ngoài","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA69459","english":"subdivision of deep femoral artery","vietnamese":"phân khu của sâu động mạch đùi","findings":[]}
+{"conceptId":"FMA69459","english":"subdivision of deep femoral artery","vietnamese":"phân khu động mạch đùi sâu","findings":[]}
 {"conceptId":"FMA69476","english":"subdivision of anterior tibial artery","vietnamese":"phân khu của động mạch chày trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA69494","english":"right arcuate artery","vietnamese":"động mạch cung phải","findings":[]}
 {"conceptId":"FMA69495","english":"left arcuate artery","vietnamese":"động mạch cung trái","findings":[]}
@@ -1703,18 +1703,18 @@
 {"conceptId":"FMA69713","english":"digital artery of foot","vietnamese":"động mạch ngón chân","findings":[]}
 {"conceptId":"FMA69784","english":"branch of posterior tibial artery","vietnamese":"Nhánh động mạch chày sau","findings":[]}
 {"conceptId":"FMA69796","english":"subdivision of internal iliac artery","vietnamese":"phân khu của động mạch chậu trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA69803","english":"subdivision of anterior division of internal iliac artery","vietnamese":"phân khu của trước ngành của động mạch chậu trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA69805","english":"subdivision of internal pudendal artery","vietnamese":"phân khu của trong thẹn Động mạch","findings":[]}
+{"conceptId":"FMA69803","english":"subdivision of anterior division of internal iliac artery","vietnamese":"phân khu ngành trước động mạch chậu trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA69805","english":"subdivision of internal pudendal artery","vietnamese":"phân khu động mạch thẹn trong","findings":[]}
 {"conceptId":"FMA70247","english":"subdivision of external iliac artery proper","vietnamese":"phân nhánh của động mạch chậu ngoài riêng","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70248","english":"femoral artery","vietnamese":"động mạch đùi","findings":[]}
 {"conceptId":"FMA70249","english":"right femoral artery","vietnamese":"động mạch đùi phải","findings":[]}
 {"conceptId":"FMA70250","english":"left femoral artery","vietnamese":"động mạch đùi trái","findings":[]}
 {"conceptId":"FMA70251","english":"subdivision of femoral artery","vietnamese":"phân nhánh của động mạch đùi","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70345","english":"subdivision of subclavian artery","vietnamese":"phân khu của Động mạch dưới đòn","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70353","english":"subdivision of thyrocervical artery","vietnamese":"phân khu của giáp-cổ Động mạch","findings":[]}
+{"conceptId":"FMA70353","english":"subdivision of thyrocervical artery","vietnamese":"phân khu động mạch giáp cổ","findings":[]}
 {"conceptId":"FMA70358","english":"subdivision of internal thoracic artery","vietnamese":"phân khu của Động mạch ngực trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70399","english":"subdivision of costocervical artery","vietnamese":"phân khu của sườn-cổ Động mạch","findings":[]}
-{"conceptId":"FMA70408","english":"subdivision of thoraco-acromial artery","vietnamese":"phân khu của ngực mỏm cùng vai Động mạch","findings":[]}
+{"conceptId":"FMA70399","english":"subdivision of costocervical artery","vietnamese":"phân khu động mạch sườn cổ","findings":[]}
+{"conceptId":"FMA70408","english":"subdivision of thoraco-acromial artery","vietnamese":"phân khu động mạch cùng vai ngực","findings":[]}
 {"conceptId":"FMA70422","english":"subdivision of subscapular artery","vietnamese":"phân khu của động mạch dưới vai","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70429","english":"subdivision of celiac artery","vietnamese":"phân khu của động mạch thân tạng","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70433","english":"subdivision of common hepatic artery","vietnamese":"phân khu của động mạch gan chung","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
@@ -1722,15 +1722,15 @@
 {"conceptId":"FMA70437","english":"superior pancreaticoduodenal artery","vietnamese":"động mạch tá tụy trên","findings":[]}
 {"conceptId":"FMA70439","english":"subdivision of right hepatic artery","vietnamese":"phân nhánh của động mạch gan phải","findings":[]}
 {"conceptId":"FMA70440","english":"subdivision of left hepatic artery","vietnamese":"phân nhánh của động mạch gan trái","findings":[]}
-{"conceptId":"FMA70442","english":"anterior superior segmental hepatic artery","vietnamese":"phân đoạn động mạch gan trên trước","findings":[]}
-{"conceptId":"FMA70443","english":"anterior inferior segmental hepatic artery","vietnamese":"phân đoạn động mạch gan dưới trước","findings":[]}
-{"conceptId":"FMA70445","english":"posterior superior segmental hepatic artery","vietnamese":"phân đoạn động mạch gan trên sau","findings":[]}
-{"conceptId":"FMA70446","english":"posterior inferior segmental hepatic artery","vietnamese":"phân đoạn động mạch gan dưới sau","findings":[]}
+{"conceptId":"FMA70442","english":"anterior superior segmental hepatic artery","vietnamese":"động mạch phân thùy gan trước trên","findings":[]}
+{"conceptId":"FMA70443","english":"anterior inferior segmental hepatic artery","vietnamese":"động mạch phân thùy gan trước dưới","findings":[]}
+{"conceptId":"FMA70445","english":"posterior superior segmental hepatic artery","vietnamese":"động mạch phân thùy gan sau trên","findings":[]}
+{"conceptId":"FMA70446","english":"posterior inferior segmental hepatic artery","vietnamese":"động mạch phân thùy gan sau dưới","findings":[]}
 {"conceptId":"FMA70447","english":"caudate lobe branch of right hepatic artery","vietnamese":"nhánh thùy đuôi của động mạch gan phải","findings":[]}
-{"conceptId":"FMA70449","english":"medial superior segmental hepatic artery","vietnamese":"giữa trên phân đoạn động mạch gan","findings":[]}
-{"conceptId":"FMA70450","english":"medial inferior segmental hepatic artery","vietnamese":"giữa dưới phân đoạn động mạch gan","findings":[]}
-{"conceptId":"FMA70452","english":"lateral superior segmental hepatic artery","vietnamese":"bên trên phân đoạn động mạch gan","findings":[]}
-{"conceptId":"FMA70453","english":"lateral inferior segmental hepatic artery","vietnamese":"bên dưới phân đoạn động mạch gan","findings":[]}
+{"conceptId":"FMA70449","english":"medial superior segmental hepatic artery","vietnamese":"động mạch phân thùy gan giữa trên","findings":[]}
+{"conceptId":"FMA70450","english":"medial inferior segmental hepatic artery","vietnamese":"động mạch phân thùy gan giữa dưới","findings":[]}
+{"conceptId":"FMA70452","english":"lateral superior segmental hepatic artery","vietnamese":"động mạch phân thùy gan bên trên","findings":[]}
+{"conceptId":"FMA70453","english":"lateral inferior segmental hepatic artery","vietnamese":"động mạch phân thùy gan bên dưới","findings":[]}
 {"conceptId":"FMA70455","english":"caudate lobe branch of left hepatic artery","vietnamese":"nhánh thùy đuôi của động mạch gan trái","findings":[]}
 {"conceptId":"FMA70456","english":"trunk of right hepatic artery","vietnamese":"thân động mạch gan phải","findings":[]}
 {"conceptId":"FMA70457","english":"trunk of left hepatic artery","vietnamese":"thân động mạch gan trái","findings":[]}
@@ -1740,22 +1740,22 @@
 {"conceptId":"FMA70481","english":"subdivision of inferior pancreaticoduodenal artery","vietnamese":"phân khu của Động mạch tá-tụy dưới","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70483","english":"subdivision of inferior mesenteric artery","vietnamese":"phân khu của động mạch mạc treo dưới","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70484","english":"segment of renal artery","vietnamese":"đoạn động mạch thận","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70485","english":"anterior division of renal artery","vietnamese":"nhánh trước của động mạch thận","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70486","english":"anterior division of right renal artery","vietnamese":"ngành của động mạch thận phải trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70487","english":"anterior division of left renal artery","vietnamese":"ngành của động mạch thận trái trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70488","english":"posterior division of renal artery","vietnamese":"nhánh sau của động mạch thận","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70489","english":"posterior division of right renal artery","vietnamese":"ngành của động mạch thận phải sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70490","english":"posterior division of left renal artery","vietnamese":"ngành của động mạch thận trái sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70485","english":"anterior division of renal artery","vietnamese":"ngành trước của động mạch thận","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70486","english":"anterior division of right renal artery","vietnamese":"ngành trước của động mạch thận phải","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70487","english":"anterior division of left renal artery","vietnamese":"ngành trước của động mạch thận trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70488","english":"posterior division of renal artery","vietnamese":"ngành sau của động mạch thận","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70489","english":"posterior division of right renal artery","vietnamese":"ngành sau của động mạch thận phải","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70490","english":"posterior division of left renal artery","vietnamese":"ngành sau của động mạch thận trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70491","english":"ureteric segment of renal artery","vietnamese":"đoạn niệu quản của động mạch thận","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70492","english":"ureteric segment of right renal artery","vietnamese":"đoạn niệu quản của động mạch thận phải","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70493","english":"ureteric segment of left renal artery","vietnamese":"đoạn niệu quản của động mạch thận trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70494","english":"segmental renal artery","vietnamese":"phân đoạn Động mạch thận","findings":[]}
-{"conceptId":"FMA70499","english":"superior segmental renal artery","vietnamese":"phân đoạn Động mạch thận trên","findings":[]}
-{"conceptId":"FMA70502","english":"inferior segmental renal artery","vietnamese":"phân đoạn Động mạch thận dưới","findings":[]}
-{"conceptId":"FMA70503","english":"posterior segmental renal artery","vietnamese":"phân đoạn Động mạch thận sau","findings":[]}
+{"conceptId":"FMA70494","english":"segmental renal artery","vietnamese":"động mạch phân thùy thận","findings":[]}
+{"conceptId":"FMA70499","english":"superior segmental renal artery","vietnamese":"động mạch phân thùy trên của thận","findings":[]}
+{"conceptId":"FMA70502","english":"inferior segmental renal artery","vietnamese":"động mạch phân thùy dưới của thận","findings":[]}
+{"conceptId":"FMA70503","english":"posterior segmental renal artery","vietnamese":"động mạch phân thùy sau của thận","findings":[]}
 {"conceptId":"FMA70504","english":"subdivision of common carotid artery","vietnamese":"phân khu của Động mạch cảnh chung","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70506","english":"subdivision of internal carotid artery","vietnamese":"phân khu của Động mạch cảnh trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70523","english":"subdivision of cerebral part of internal carotid artery","vietnamese":"phân khu của não phần của Động mạch cảnh trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA70523","english":"subdivision of cerebral part of internal carotid artery","vietnamese":"phân khu phần não của động mạch cảnh trong","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA70593","english":"subdivision of epidermis","vietnamese":"phân khu của biểu bì","findings":[]}
 {"conceptId":"FMA70676","english":"subdivision of superior temporal gyrus","vietnamese":"phân khu của hồi thái dương trên","findings":[]}
 {"conceptId":"FMA70701","english":"anterior part of superior temporal gyrus","vietnamese":"phần trước của hồi thái dương trên","findings":[]}
@@ -1763,14 +1763,14 @@
 {"conceptId":"FMA70741","english":"set of facial hairs","vietnamese":"nhóm lông mặt","findings":[]}
 {"conceptId":"FMA70752","english":"set of hairs","vietnamese":"tập hợp của lông","findings":[]}
 {"conceptId":"FMA70779","english":"set of organs","vietnamese":"tập hợp cơ quan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA70800","english":"set of dorsal metacarpal arteries","vietnamese":"tập hợp của lưng bàn tay động mạch","findings":[]}
-{"conceptId":"FMA70801","english":"set of dorsal digital arteries","vietnamese":"tập hợp của lưng ngón động mạch","findings":[]}
-{"conceptId":"FMA70815","english":"set of perforating arteries","vietnamese":"tập hợp của xuyên động mạch","findings":[]}
-{"conceptId":"FMA70821","english":"set of common plantar digital arteries","vietnamese":"tập hợp của chung gan chân ngón động mạch","findings":[]}
-{"conceptId":"FMA70839","english":"set of anterior intercostal veins","vietnamese":"tập hợp của trước liên sườn tĩnh mạch","findings":[]}
-{"conceptId":"FMA70917","english":"set of dorsal digital veins","vietnamese":"tập hợp của lưng ngón tĩnh mạch","findings":[]}
-{"conceptId":"FMA70919","english":"set of plantar digital veins","vietnamese":"tập hợp của gan chân ngón tĩnh mạch","findings":[]}
-{"conceptId":"FMA70922","english":"set of perforating veins","vietnamese":"tập hợp của xuyên tĩnh mạch","findings":[]}
+{"conceptId":"FMA70800","english":"set of dorsal metacarpal arteries","vietnamese":"tập hợp các động mạch mu bàn tay","findings":[]}
+{"conceptId":"FMA70801","english":"set of dorsal digital arteries","vietnamese":"tập hợp các động mạch mu ngón","findings":[]}
+{"conceptId":"FMA70815","english":"set of perforating arteries","vietnamese":"tập hợp các động mạch xuyên","findings":[]}
+{"conceptId":"FMA70821","english":"set of common plantar digital arteries","vietnamese":"tập hợp các động mạch gan ngón chân chung","findings":[]}
+{"conceptId":"FMA70839","english":"set of anterior intercostal veins","vietnamese":"tập hợp các tĩnh mạch gian sườn trước","findings":[]}
+{"conceptId":"FMA70917","english":"set of dorsal digital veins","vietnamese":"tập hợp các tĩnh mạch mu ngón","findings":[]}
+{"conceptId":"FMA70919","english":"set of plantar digital veins","vietnamese":"tập hợp các tĩnh mạch gan ngón chân","findings":[]}
+{"conceptId":"FMA70922","english":"set of perforating veins","vietnamese":"tập hợp các tĩnh mạch xuyên","findings":[]}
 {"conceptId":"FMA71012","english":"skin appendage","vietnamese":"phần phụ da","findings":[]}
 {"conceptId":"FMA71114","english":"brachium of inferior colliculus","vietnamese":"tay lồi não dưới","findings":[]}
 {"conceptId":"FMA71193","english":"lobe of thymus","vietnamese":"thùy của Tuyến ức","findings":[]}
@@ -1781,45 +1781,45 @@
 {"conceptId":"FMA71211","english":"right lateral thoracic vein","vietnamese":"tĩnh mạch ngực ngoài phải","findings":[]}
 {"conceptId":"FMA71212","english":"left lateral thoracic vein","vietnamese":"tĩnh mạch ngực ngoài trái","findings":[]}
 {"conceptId":"FMA71235","english":"region of dura mater","vietnamese":"vùng màng não cứng","findings":[]}
-{"conceptId":"FMA71307","english":"set of interspinales lumborum","vietnamese":"tập hợp của liên gai thắt lưng","findings":[]}
-{"conceptId":"FMA71309","english":"set of interspinales cervicis","vietnamese":"tập hợp của liên gai cổ","findings":[]}
+{"conceptId":"FMA71307","english":"set of interspinales lumborum","vietnamese":"tập hợp các cơ gian gai thắt lưng","findings":[]}
+{"conceptId":"FMA71309","english":"set of interspinales cervicis","vietnamese":"tập hợp các cơ gian gai cổ","findings":[]}
 {"conceptId":"FMA71313","english":"set of levatores costarum longi","vietnamese":"tập hợp của cơ nâng sườn dài","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA71314","english":"set of levatores costarum breves","vietnamese":"tập hợp của cơ nâng sườn ngắn","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA71318","english":"set of lumbricals of hand","vietnamese":"tập hợp của giun của bàn tay","findings":[]}
-{"conceptId":"FMA71319","english":"set of dorsal interossei of hand","vietnamese":"tập hợp của lưng gian cốt của bàn tay","findings":[]}
-{"conceptId":"FMA71320","english":"set of palmar interossei of hand","vietnamese":"tập hợp của gan tay gian cốt của bàn tay","findings":[]}
+{"conceptId":"FMA71318","english":"set of lumbricals of hand","vietnamese":"tập hợp các cơ giun của bàn tay","findings":[]}
+{"conceptId":"FMA71319","english":"set of dorsal interossei of hand","vietnamese":"tập hợp các cơ gian cốt mu tay","findings":[]}
+{"conceptId":"FMA71320","english":"set of palmar interossei of hand","vietnamese":"tập hợp các cơ gian cốt gan tay","findings":[]}
 {"conceptId":"FMA71442","english":"set of anterior cervical intertransversarii","vietnamese":"nhóm cơ gian mỏm ngang cổ trước","findings":[]}
 {"conceptId":"FMA71443","english":"set of posterior cervical intertransversarii","vietnamese":"nhóm cơ gian mỏm ngang cổ sau","findings":[]}
 {"conceptId":"FMA71502","english":"set of posterior temporal branches of lateral occipital artery","vietnamese":"nhóm nhánh thái dương sau của động mạch chẩm ngoài","findings":[]}
 {"conceptId":"FMA71537","english":"set of oesophageal branches of thoracic aorta","vietnamese":"nhóm nhánh thực quản của động mạch chủ ngực","findings":[]}
 {"conceptId":"FMA71562","english":"set of calcaneal branches of posterior tibial artery","vietnamese":"nhóm nhánh gót của động mạch chày sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA71564","english":"set of plantar digital arteries proper","vietnamese":"nhóm động mạch gan chân ngón riêng","findings":[]}
-{"conceptId":"FMA71708","english":"right lobe branch of right hepatic artery","vietnamese":"thùy nhánh của phải động mạch gan phải","findings":[]}
+{"conceptId":"FMA71708","english":"right lobe branch of right hepatic artery","vietnamese":"nhánh thùy phải của động mạch gan phải","findings":[]}
 {"conceptId":"FMA71709","english":"subdivision of right lobe branch of right hepatic artery","vietnamese":"nhánh thùy phải của động mạch gan phải","findings":[]}
-{"conceptId":"FMA71710","english":"left lobe branch of left hepatic artery","vietnamese":"thùy nhánh của trái động mạch gan trái","findings":[]}
+{"conceptId":"FMA71710","english":"left lobe branch of left hepatic artery","vietnamese":"nhánh thùy trái của động mạch gan trái","findings":[]}
 {"conceptId":"FMA71736","english":"subdivision of left lobe branch of left hepatic artery","vietnamese":"nhánh thùy trái của động mạch gan trái (và các phân nhánh)","findings":[]}
 {"conceptId":"FMA71856","english":"segment of biliary tree","vietnamese":"đoạn cây đường mật","findings":[]}
 {"conceptId":"FMA71859","english":"segment of right hepatic biliary tree","vietnamese":"đoạn cây đường mật gan phải","findings":[]}
 {"conceptId":"FMA71860","english":"segment of left hepatic biliary tree","vietnamese":"đoạn cây đường mật gan trái","findings":[]}
 {"conceptId":"FMA71865","english":"segmental tributary of right hepatic biliary tree","vietnamese":"nhánh phân thùy của cây mật gan phải","findings":[]}
 {"conceptId":"FMA71866","english":"segmental tributary of left hepatic biliary tree","vietnamese":"nhánh phân thùy của cây mật gan trái","findings":[]}
-{"conceptId":"FMA71867","english":"anterior superior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào của phải gan đường mật trên trước","findings":[]}
-{"conceptId":"FMA71868","english":"anterior inferior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào của phải gan đường mật dưới trước","findings":[]}
-{"conceptId":"FMA71869","english":"posterior superior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào của phải gan đường mật trên sau","findings":[]}
-{"conceptId":"FMA71870","english":"posterior inferior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào của phải gan đường mật dưới sau","findings":[]}
-{"conceptId":"FMA71885","english":"medial superior tributary of left hepatic biliary tree","vietnamese":"giữa trên nhánh đổ vào của trái gan đường mật","findings":[]}
-{"conceptId":"FMA71886","english":"medial inferior tributary of left hepatic biliary tree","vietnamese":"giữa dưới nhánh đổ vào của trái gan đường mật","findings":[]}
-{"conceptId":"FMA71887","english":"lateral superior tributary of left hepatic biliary tree","vietnamese":"bên trên nhánh đổ vào của trái gan đường mật","findings":[]}
-{"conceptId":"FMA71888","english":"lateral inferior tributary of left hepatic biliary tree","vietnamese":"bên dưới nhánh đổ vào của trái gan đường mật","findings":[]}
+{"conceptId":"FMA71867","english":"anterior superior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào trước trên của cây đường mật gan phải","findings":[]}
+{"conceptId":"FMA71868","english":"anterior inferior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào trước dưới của cây đường mật gan phải","findings":[]}
+{"conceptId":"FMA71869","english":"posterior superior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào sau trên của cây đường mật gan phải","findings":[]}
+{"conceptId":"FMA71870","english":"posterior inferior tributary of right hepatic biliary tree","vietnamese":"nhánh đổ vào sau dưới của cây đường mật gan phải","findings":[]}
+{"conceptId":"FMA71885","english":"medial superior tributary of left hepatic biliary tree","vietnamese":"nhánh đổ vào giữa trên của cây đường mật gan trái","findings":[]}
+{"conceptId":"FMA71886","english":"medial inferior tributary of left hepatic biliary tree","vietnamese":"nhánh đổ vào giữa dưới của cây đường mật gan trái","findings":[]}
+{"conceptId":"FMA71887","english":"lateral superior tributary of left hepatic biliary tree","vietnamese":"nhánh đổ vào bên trên của cây đường mật gan trái","findings":[]}
+{"conceptId":"FMA71888","english":"lateral inferior tributary of left hepatic biliary tree","vietnamese":"nhánh đổ vào bên dưới của cây đường mật gan trái","findings":[]}
 {"conceptId":"FMA71889","english":"caudate lobe tributary of left hepatic biliary tree","vietnamese":"nhánh thùy đuôi của cây mật gan trái","findings":[]}
 {"conceptId":"FMA71903","english":"subdivision of hepatic portal vein","vietnamese":"phân nhánh của tĩnh mạch cửa gan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA71904","english":"pre-hepatic portal vein","vietnamese":"đoạn trước gan của tĩnh mạch cửa","findings":[]}
 {"conceptId":"FMA71905","english":"subdivision of right hepatic portal vein","vietnamese":"phân nhánh của tĩnh mạch cửa gan phải","findings":[]}
 {"conceptId":"FMA71906","english":"subdivision of left hepatic portal vein","vietnamese":"phân nhánh của tĩnh mạch cửa gan trái","findings":[]}
 {"conceptId":"FMA71907","english":"trunk of branch of hepatic portal vein","vietnamese":"thân nhánh của tĩnh mạch cửa gan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA71908","english":"proximal phalanx of left middle finger","vietnamese":"gần đốt ngón của ngón giữa bàn tay bên trái","findings":[]}
-{"conceptId":"FMA71915","english":"proximal phalanx of left index finger","vietnamese":"gần đốt ngón của ngón trỏ bên trái","findings":[]}
-{"conceptId":"FMA71916","english":"proximal phalanx of left ring finger","vietnamese":"gần đốt ngón của ngón áp út bên trái","findings":[]}
+{"conceptId":"FMA71908","english":"proximal phalanx of left middle finger","vietnamese":"đốt gần của ngón giữa tay trái","findings":[]}
+{"conceptId":"FMA71915","english":"proximal phalanx of left index finger","vietnamese":"đốt gần của ngón trỏ bên trái","findings":[]}
+{"conceptId":"FMA71916","english":"proximal phalanx of left ring finger","vietnamese":"đốt gần của ngón áp út bên trái","findings":[]}
 {"conceptId":"FMA72058","english":"intrinsic ligament of larynx","vietnamese":"dây chằng nội tại của thanh quản","findings":[]}
 {"conceptId":"FMA72417","english":"brachium of superior colliculus","vietnamese":"tay gò trên","findings":[]}
 {"conceptId":"FMA72671","english":"right superior parietal lobule","vietnamese":"Tiểu thuỳ đỉnh trên phải","findings":[]}
@@ -1828,10 +1828,10 @@
 {"conceptId":"FMA72688","english":"left inferior temporal gyrus","vietnamese":"hồi thái dương dưới trái","findings":[]}
 {"conceptId":"FMA72689","english":"right fusiform gyrus","vietnamese":"hồi hình thoi phải","findings":[]}
 {"conceptId":"FMA72690","english":"left fusiform gyrus","vietnamese":"hồi hình thoi trái","findings":[]}
-{"conceptId":"FMA72800","english":"anterior part of right superior temporal gyrus","vietnamese":"phần của phải trên thái dương hồi trước","findings":[]}
-{"conceptId":"FMA72801","english":"anterior part of left superior temporal gyrus","vietnamese":"phần của trái trên thái dương hồi trước","findings":[]}
-{"conceptId":"FMA72804","english":"posterior part of right superior temporal gyrus","vietnamese":"phần của phải trên thái dương hồi sau","findings":[]}
-{"conceptId":"FMA72805","english":"posterior part of left superior temporal gyrus","vietnamese":"phần của trái trên thái dương hồi sau","findings":[]}
+{"conceptId":"FMA72800","english":"anterior part of right superior temporal gyrus","vietnamese":"phần trước của hồi thái dương trên phải","findings":[]}
+{"conceptId":"FMA72801","english":"anterior part of left superior temporal gyrus","vietnamese":"phần trước của hồi thái dương trên trái","findings":[]}
+{"conceptId":"FMA72804","english":"posterior part of right superior temporal gyrus","vietnamese":"phần sau của hồi thái dương trên phải","findings":[]}
+{"conceptId":"FMA72805","english":"posterior part of left superior temporal gyrus","vietnamese":"phần sau của hồi thái dương trên trái","findings":[]}
 {"conceptId":"FMA72830","english":"right globus pallidus","vietnamese":"cầu nhạt phải","findings":[]}
 {"conceptId":"FMA72831","english":"left globus pallidus","vietnamese":"cầu nhạt trái","findings":[]}
 {"conceptId":"FMA72832","english":"right amygdala","vietnamese":"thể hạnh nhân phải","findings":[]}
@@ -1858,10 +1858,10 @@
 {"conceptId":"FMA73462","english":"brachium of left superior colliculus","vietnamese":"tay gò trên trái","findings":[]}
 {"conceptId":"FMA73463","english":"brachium of right inferior colliculus","vietnamese":"tay gò dưới phải","findings":[]}
 {"conceptId":"FMA73464","english":"brachium of left inferior colliculus","vietnamese":"tay gò dưới trái","findings":[]}
-{"conceptId":"FMA74075","english":"set of right levatores costarum longi","vietnamese":"tập hợp của phải cơ nâng sườn dài","findings":[]}
-{"conceptId":"FMA74076","english":"set of left levatores costarum longi","vietnamese":"tập hợp của trái cơ nâng sườn dài","findings":[]}
-{"conceptId":"FMA74077","english":"set of right levatores costarum breves","vietnamese":"tập hợp của phải cơ nâng sườn ngắn","findings":[]}
-{"conceptId":"FMA74078","english":"set of left levatores costarum breves","vietnamese":"tập hợp của trái cơ nâng sườn ngắn","findings":[]}
+{"conceptId":"FMA74075","english":"set of right levatores costarum longi","vietnamese":"tập hợp các cơ nâng sườn dài phải","findings":[]}
+{"conceptId":"FMA74076","english":"set of left levatores costarum longi","vietnamese":"tập hợp các cơ nâng sườn dài trái","findings":[]}
+{"conceptId":"FMA74077","english":"set of right levatores costarum breves","vietnamese":"tập hợp các cơ nâng sườn ngắn phải","findings":[]}
+{"conceptId":"FMA74078","english":"set of left levatores costarum breves","vietnamese":"tập hợp các cơ nâng sườn ngắn trái","findings":[]}
 {"conceptId":"FMA74779","english":"musculature of chest","vietnamese":"hệ cơ ngực","findings":[]}
 {"conceptId":"FMA74866","english":"zone of diencephalon","vietnamese":"vùng gian não","findings":[]}
 {"conceptId":"FMA74912","english":"trunk of anterior interventricular branch of left coronary artery","vietnamese":"thân nhánh gian thất trước của động mạch vành trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
@@ -1875,8 +1875,8 @@
 {"conceptId":"FMA76259","english":"branch of vertebral artery","vietnamese":"Nhánh của động mạch sống","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA76264","english":"intracranial branch of vertebral artery","vietnamese":"trong sọ Nhánh của động mạch sống","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA76269","english":"branch of basilar artery","vietnamese":"nhánh của động mạch nền","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA76301","english":"trunk of branch of subclavian artery","vietnamese":"Thân của nhánh của Động mạch dưới đòn","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA76547","english":"trunk of branch of common hepatic artery","vietnamese":"Thân của nhánh của động mạch gan chung","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA76301","english":"trunk of branch of subclavian artery","vietnamese":"thân của nhánh động mạch dưới đòn","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA76547","english":"trunk of branch of common hepatic artery","vietnamese":"thân của nhánh động mạch gan chung","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA76574","english":"trunk of gastroduodenal artery","vietnamese":"Thân động mạch vị-tá tràng","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA76582","english":"trunk of hepatic artery","vietnamese":"Thân động mạch gan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA76767","english":"anterior cardiac vein","vietnamese":"tĩnh mạch tim trước","findings":[]}
@@ -1900,8 +1900,8 @@
 {"conceptId":"FMA78450","english":"left lateral ventricle","vietnamese":"não thất bên trái","findings":[]}
 {"conceptId":"FMA78467","english":"cerebral aqueduct","vietnamese":"cống não","findings":[]}
 {"conceptId":"FMA78497","english":"central canal of spinal cord","vietnamese":"ống trung tâm của tủy sống","findings":[]}
-{"conceptId":"FMA78562","english":"set of organ regions","vietnamese":"tập hợp cơ quan vùng","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA78590","english":"set of heterogeneous clusters","vietnamese":"tập hợp của không đồng nhất cụm","findings":[]}
+{"conceptId":"FMA78562","english":"set of organ regions","vietnamese":"tập hợp các vùng cơ quan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA78590","english":"set of heterogeneous clusters","vietnamese":"tập hợp các cụm không đồng nhất","findings":[]}
 {"conceptId":"FMA79615","english":"branch of postcommunicating part of anterior cerebral artery","vietnamese":"nhánh phần sau thông của động mạch não trước","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA79631","english":"branch of sphenoid part of middle cerebral artery","vietnamese":"nhánh phần bướm của động mạch não giữa","findings":[]}
 {"conceptId":"FMA79658","english":"dorsal scapular artery","vietnamese":"động mạch vai lưng","findings":[]}
@@ -1910,20 +1910,20 @@
 {"conceptId":"FMA81150","english":"lobule of cerebral hemisphere","vietnamese":"tiểu thùy bán cầu đại não","findings":[]}
 {"conceptId":"FMA81752","english":"right cervical rotator","vietnamese":"cơ xoay cổ phải","findings":[]}
 {"conceptId":"FMA81753","english":"left cervical rotator","vietnamese":"cơ xoay cổ trái","findings":[]}
-{"conceptId":"FMA82472","english":"cardinal organ part","vietnamese":"chính cơ quan phần","findings":[]}
-{"conceptId":"FMA82478","english":"lobular organ component","vietnamese":"tiểu thùy cơ quan thành phần","findings":[]}
-{"conceptId":"FMA82481","english":"organ chamber","vietnamese":"cơ quan buồng","findings":[]}
-{"conceptId":"FMA82485","english":"organ component layer","vietnamese":"cơ quan thành phần lớp","findings":[]}
+{"conceptId":"FMA82472","english":"cardinal organ part","vietnamese":"phần cơ quan chính","findings":[]}
+{"conceptId":"FMA82478","english":"lobular organ component","vietnamese":"thành phần cơ quan tiểu thùy","findings":[]}
+{"conceptId":"FMA82481","english":"organ chamber","vietnamese":"buồng cơ quan","findings":[]}
+{"conceptId":"FMA82485","english":"organ component layer","vietnamese":"lớp thành phần cơ quan","findings":[]}
 {"conceptId":"FMA82494","english":"lobular segment","vietnamese":"phân đoạn tiểu thùy","findings":[]}
 {"conceptId":"FMA82594","english":"segment of subclavian artery","vietnamese":"đoạn động mạch dưới đòn","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA82695","english":"trunk of right portal vein","vietnamese":"Thân của phải tĩnh mạch cửa","findings":[]}
+{"conceptId":"FMA82695","english":"trunk of right portal vein","vietnamese":"thân của tĩnh mạch cửa phải","findings":[]}
 {"conceptId":"FMA82697","english":"trunk of left portal vein","vietnamese":"thân tĩnh mạch cửa trái","findings":[]}
 {"conceptId":"FMA82706","english":"caudate lobe branch of right portal vein","vietnamese":"nhánh thùy đuôi của tĩnh mạch cửa phải","findings":[]}
 {"conceptId":"FMA82734","english":"right long ciliary nerve","vietnamese":"thần kinh mi dài phải","findings":[]}
 {"conceptId":"FMA82735","english":"left long ciliary nerve","vietnamese":"thần kinh mi dài trái","findings":[]}
-{"conceptId":"FMA83115","english":"cell part cluster","vietnamese":"tế bào phần cụm","findings":[]}
-{"conceptId":"FMA83143","english":"cell part cluster of neuraxis","vietnamese":"tế bào phần cụm của trục thần kinh","findings":[]}
-{"conceptId":"FMA83153","english":"organ component of neuraxis","vietnamese":"cơ quan thành phần của trục thần kinh","findings":[]}
+{"conceptId":"FMA83115","english":"cell part cluster","vietnamese":"cụm phần tế bào","findings":[]}
+{"conceptId":"FMA83143","english":"cell part cluster of neuraxis","vietnamese":"cụm phần tế bào của trục thần kinh","findings":[]}
+{"conceptId":"FMA83153","english":"organ component of neuraxis","vietnamese":"thành phần cơ quan của trục thần kinh","findings":[]}
 {"conceptId":"FMA83465","english":"segment of white matter of neuraxis","vietnamese":"đoạn chất trắng của trục thần kinh","findings":[]}
 {"conceptId":"FMA83563","english":"subdivision of muscle layer","vietnamese":"phân tầng lớp cơ","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA83686","english":"nucleus of neuraxis","vietnamese":"nhân của trục thần kinh","findings":[]}
@@ -1937,46 +1937,46 @@
 {"conceptId":"FMA83874","english":"gyrus of neuraxis","vietnamese":"hồi của trục thần kinh","findings":[]}
 {"conceptId":"FMA83904","english":"septum of neuraxis","vietnamese":"vách của trục thần kinh","findings":[]}
 {"conceptId":"FMA83906","english":"commissure of neuraxis","vietnamese":"mép của trục thần kinh","findings":[]}
-{"conceptId":"FMA83912","english":"gray matter of diencephalon","vietnamese":"xám chất của gian não","findings":[]}
-{"conceptId":"FMA83915","english":"gray matter of hypothalamus","vietnamese":"xám chất của vùng hạ đồi","findings":[]}
-{"conceptId":"FMA83929","english":"white matter of neuraxis","vietnamese":"trắng chất của trục thần kinh","findings":[]}
-{"conceptId":"FMA83930","english":"white matter of telencephalon","vietnamese":"trắng chất của Đoan não","findings":[]}
+{"conceptId":"FMA83912","english":"gray matter of diencephalon","vietnamese":"chất xám của gian não","findings":[]}
+{"conceptId":"FMA83915","english":"gray matter of hypothalamus","vietnamese":"chất xám của vùng hạ đồi","findings":[]}
+{"conceptId":"FMA83929","english":"white matter of neuraxis","vietnamese":"chất trắng của trục thần kinh","findings":[]}
+{"conceptId":"FMA83930","english":"white matter of telencephalon","vietnamese":"chất trắng của đoan não","findings":[]}
 {"conceptId":"FMA83966","english":"tentorium cerebelli","vietnamese":"lều tiểu não","findings":[]}
 {"conceptId":"FMA84054","english":"zone of neuraxis","vietnamese":"vùng của trục thần kinh","findings":[]}
-{"conceptId":"FMA84059","english":"nuclear complex of neuraxis","vietnamese":"nhân phức hợp của trục thần kinh","findings":[]}
-{"conceptId":"FMA84081","english":"circumventricular organ of neuraxis","vietnamese":"quanh não thất cơ quan của trục thần kinh","findings":[]}
-{"conceptId":"FMA84201","english":"secondary incisor tooth","vietnamese":"thứ cấp Răng cửa","findings":[]}
-{"conceptId":"FMA84203","english":"secondary canine tooth","vietnamese":"thứ cấp răng nanh","findings":[]}
-{"conceptId":"FMA84207","english":"secondary molar tooth","vietnamese":"thứ cấp Răng cối; Răng hàm lớn","findings":[]}
-{"conceptId":"FMA84881","english":"subdivision of subarachnoid space","vietnamese":"phân khu của dưới nhện khoang","findings":[]}
-{"conceptId":"FMA84926","english":"anatomical compartment space","vietnamese":"giải phẫu khoang khoang","findings":[]}
-{"conceptId":"FMA84953","english":"space of compartment of head","vietnamese":"khoang của khoang của Đầu","findings":[]}
-{"conceptId":"FMA85095","english":"proper palmar digital vein of little finger","vietnamese":"chính gan tay ngón đình sau của út ngón tay","findings":[]}
-{"conceptId":"FMA85096","english":"proper palmar digital vein of right index finger","vietnamese":"chính gan tay ngón đình sau của ngón trỏ bên phải","findings":[]}
-{"conceptId":"FMA85097","english":"proper palmar digital vein of left index finger","vietnamese":"chính gan tay ngón đình sau của ngón trỏ bên trái","findings":[]}
-{"conceptId":"FMA85098","english":"proper palmar digital vein of right middle finger","vietnamese":"chính gan tay ngón đình sau của ngón giữa bàn tay bên phải","findings":[]}
-{"conceptId":"FMA85099","english":"proper palmar digital vein of left middle finger","vietnamese":"chính gan tay ngón đình sau của ngón giữa bàn tay bên trái","findings":[]}
-{"conceptId":"FMA85100","english":"proper palmar digital vein of right ring finger","vietnamese":"chính gan tay ngón đình sau của ngón áp út bên phải","findings":[]}
-{"conceptId":"FMA85101","english":"proper palmar digital vein of left ring finger","vietnamese":"chính gan tay ngón đình sau của ngón áp út bên trái","findings":[]}
-{"conceptId":"FMA85102","english":"proper palmar digital vein of right little finger","vietnamese":"chính gan tay ngón đình sau của ngón út bên phải","findings":[]}
-{"conceptId":"FMA85103","english":"proper palmar digital vein of left little finger","vietnamese":"chính gan tay ngón đình sau của ngón út bên trái","findings":[]}
-{"conceptId":"FMA85107","english":"third common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch ba","findings":[]}
-{"conceptId":"FMA85108","english":"fourth common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch tư","findings":[]}
-{"conceptId":"FMA85109","english":"branch of first common palmar digital artery","vietnamese":"nhánh của thứ nhất chung gan tay ngón Động mạch","findings":[]}
-{"conceptId":"FMA85110","english":"branch of second common palmar digital artery","vietnamese":"nhánh của thứ hai chung gan tay ngón Động mạch","findings":[]}
-{"conceptId":"FMA85111","english":"medial proper palmar digital artery of middle finger","vietnamese":"giữa chính gan tay ngón Động mạch của giữa ngón tay","findings":[]}
-{"conceptId":"FMA85112","english":"medial proper palmar digital artery of right middle finger","vietnamese":"giữa chính gan tay ngón Động mạch của ngón giữa bàn tay bên phải","findings":[]}
-{"conceptId":"FMA85114","english":"lateral proper palmar digital artery of ring finger","vietnamese":"bên chính gan tay ngón Động mạch của vòng ngón tay","findings":[]}
-{"conceptId":"FMA85115","english":"lateral proper palmar digital artery of right ring finger","vietnamese":"bên chính gan tay ngón Động mạch của ngón áp út bên phải","findings":[]}
-{"conceptId":"FMA85116","english":"lateral proper palmar digital artery of left ring finger","vietnamese":"bên chính gan tay ngón Động mạch của ngón áp út bên trái","findings":[]}
-{"conceptId":"FMA85117","english":"branch of third common palmar digital artery","vietnamese":"nhánh của ba chung gan tay ngón Động mạch","findings":[]}
-{"conceptId":"FMA85118","english":"left first common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch thứ nhất trái","findings":[]}
-{"conceptId":"FMA85119","english":"right second common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch thứ hai phải","findings":[]}
-{"conceptId":"FMA85120","english":"left second common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch thứ hai trái","findings":[]}
-{"conceptId":"FMA85121","english":"right third common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch ba phải","findings":[]}
-{"conceptId":"FMA85122","english":"left third common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch ba trái","findings":[]}
-{"conceptId":"FMA85123","english":"right fourth common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch tư phải","findings":[]}
-{"conceptId":"FMA85124","english":"left fourth common palmar digital artery","vietnamese":"chung gan tay ngón Động mạch tư trái","findings":[]}
+{"conceptId":"FMA84059","english":"nuclear complex of neuraxis","vietnamese":"phức hợp nhân của trục thần kinh","findings":[]}
+{"conceptId":"FMA84081","english":"circumventricular organ of neuraxis","vietnamese":"cơ quan quanh não thất của trục thần kinh","findings":[]}
+{"conceptId":"FMA84201","english":"secondary incisor tooth","vietnamese":"răng cửa vĩnh viễn","findings":[]}
+{"conceptId":"FMA84203","english":"secondary canine tooth","vietnamese":"răng nanh vĩnh viễn","findings":[]}
+{"conceptId":"FMA84207","english":"secondary molar tooth","vietnamese":"răng cối vĩnh viễn","findings":[]}
+{"conceptId":"FMA84881","english":"subdivision of subarachnoid space","vietnamese":"phân khu của khoang dưới nhện","findings":[]}
+{"conceptId":"FMA84926","english":"anatomical compartment space","vietnamese":"khoang của ngăn giải phẫu","findings":[]}
+{"conceptId":"FMA84953","english":"space of compartment of head","vietnamese":"khoang của ngăn vùng đầu","findings":[]}
+{"conceptId":"FMA85095","english":"proper palmar digital vein of little finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón út","findings":[]}
+{"conceptId":"FMA85096","english":"proper palmar digital vein of right index finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón trỏ phải","findings":[]}
+{"conceptId":"FMA85097","english":"proper palmar digital vein of left index finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón trỏ trái","findings":[]}
+{"conceptId":"FMA85098","english":"proper palmar digital vein of right middle finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón giữa phải","findings":[]}
+{"conceptId":"FMA85099","english":"proper palmar digital vein of left middle finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón giữa trái","findings":[]}
+{"conceptId":"FMA85100","english":"proper palmar digital vein of right ring finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón áp út phải","findings":[]}
+{"conceptId":"FMA85101","english":"proper palmar digital vein of left ring finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón áp út trái","findings":[]}
+{"conceptId":"FMA85102","english":"proper palmar digital vein of right little finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón út phải","findings":[]}
+{"conceptId":"FMA85103","english":"proper palmar digital vein of left little finger","vietnamese":"tĩnh mạch gan ngón tay riêng của ngón út trái","findings":[]}
+{"conceptId":"FMA85107","english":"third common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ ba","findings":[]}
+{"conceptId":"FMA85108","english":"fourth common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ tư","findings":[]}
+{"conceptId":"FMA85109","english":"branch of first common palmar digital artery","vietnamese":"nhánh của động mạch gan ngón tay chung thứ nhất","findings":[]}
+{"conceptId":"FMA85110","english":"branch of second common palmar digital artery","vietnamese":"nhánh của động mạch gan ngón tay chung thứ hai","findings":[]}
+{"conceptId":"FMA85111","english":"medial proper palmar digital artery of middle finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón giữa","findings":[]}
+{"conceptId":"FMA85112","english":"medial proper palmar digital artery of right middle finger","vietnamese":"động mạch gan ngón tay riêng trong của ngón giữa phải","findings":[]}
+{"conceptId":"FMA85114","english":"lateral proper palmar digital artery of ring finger","vietnamese":"động mạch gan ngón tay riêng ngoài của ngón áp út","findings":[]}
+{"conceptId":"FMA85115","english":"lateral proper palmar digital artery of right ring finger","vietnamese":"động mạch gan ngón tay riêng ngoài của ngón áp út phải","findings":[]}
+{"conceptId":"FMA85116","english":"lateral proper palmar digital artery of left ring finger","vietnamese":"động mạch gan ngón tay riêng ngoài của ngón áp út trái","findings":[]}
+{"conceptId":"FMA85117","english":"branch of third common palmar digital artery","vietnamese":"nhánh của động mạch gan ngón tay chung thứ ba","findings":[]}
+{"conceptId":"FMA85118","english":"left first common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ nhất trái","findings":[]}
+{"conceptId":"FMA85119","english":"right second common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ hai phải","findings":[]}
+{"conceptId":"FMA85120","english":"left second common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ hai trái","findings":[]}
+{"conceptId":"FMA85121","english":"right third common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ ba phải","findings":[]}
+{"conceptId":"FMA85122","english":"left third common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ ba trái","findings":[]}
+{"conceptId":"FMA85123","english":"right fourth common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ tư phải","findings":[]}
+{"conceptId":"FMA85124","english":"left fourth common palmar digital artery","vietnamese":"động mạch gan ngón tay chung thứ tư trái","findings":[]}
 {"conceptId":"FMA85453","english":"head of muscle organ","vietnamese":"đầu cơ","findings":["DUPLICATED_ANATOMICAL_HEAD","MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA86020","english":"subdivision of transverse cervical artery","vietnamese":"phân nhánh của động mạch cổ ngang","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA86033","english":"opponens digiti minimi of foot","vietnamese":"cơ đối ngón út bàn chân","findings":[]}
@@ -1985,18 +1985,18 @@
 {"conceptId":"FMA86103","english":"region of organ component","vietnamese":"vùng thành phần cơ quan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA86127","english":"branch of posterior choroidal artery","vietnamese":"nhánh của động mạch mạch mạc sau","findings":[]}
 {"conceptId":"FMA86140","english":"organ segment","vietnamese":"phân đoạn cơ quan","findings":[]}
-{"conceptId":"FMA86187","english":"segment of arterial tree organ","vietnamese":"đoạn động mạch cây cơ quan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86188","english":"segment of venous tree organ","vietnamese":"đoạn tĩnh mạch cây cơ quan","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86195","english":"segment of lacrimal duct","vietnamese":"đoạn của lệ ống","findings":[]}
-{"conceptId":"FMA86212","english":"region of wall of heart","vietnamese":"vùng của thành của tim","findings":[]}
+{"conceptId":"FMA86187","english":"segment of arterial tree organ","vietnamese":"đoạn cây động mạch","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86188","english":"segment of venous tree organ","vietnamese":"đoạn cây tĩnh mạch","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86195","english":"segment of lacrimal duct","vietnamese":"đoạn ống lệ","findings":[]}
+{"conceptId":"FMA86212","english":"region of wall of heart","vietnamese":"vùng thành tim","findings":[]}
 {"conceptId":"FMA86254","english":"segment of systemic artery","vietnamese":"đoạn động mạch hệ thống","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86256","english":"segment of arterial trunk","vietnamese":"Thân đoạn động mạch","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86340","english":"superior segmental branch of right renal artery","vietnamese":"phân đoạn nhánh của động mạch thận phải trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86341","english":"superior segmental branch of left renal artery","vietnamese":"phân đoạn nhánh của động mạch thận trái trên","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86346","english":"inferior segmental branch of right renal artery","vietnamese":"phân đoạn nhánh của động mạch thận phải dưới","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86347","english":"inferior segmental branch of left renal artery","vietnamese":"phân đoạn nhánh của động mạch thận trái dưới","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86348","english":"posterior segmental branch of right renal artery","vietnamese":"phân đoạn nhánh của động mạch thận phải sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
-{"conceptId":"FMA86349","english":"posterior segmental branch of left renal artery","vietnamese":"phân đoạn nhánh của động mạch thận trái sau","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86256","english":"segment of arterial trunk","vietnamese":"đoạn thân động mạch","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86340","english":"superior segmental branch of right renal artery","vietnamese":"nhánh phân thùy trên của động mạch thận phải","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86341","english":"superior segmental branch of left renal artery","vietnamese":"nhánh phân thùy trên của động mạch thận trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86346","english":"inferior segmental branch of right renal artery","vietnamese":"nhánh phân thùy dưới của động mạch thận phải","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86347","english":"inferior segmental branch of left renal artery","vietnamese":"nhánh phân thùy dưới của động mạch thận trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86348","english":"posterior segmental branch of right renal artery","vietnamese":"nhánh phân thùy sau của động mạch thận phải","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
+{"conceptId":"FMA86349","english":"posterior segmental branch of left renal artery","vietnamese":"nhánh phân thùy sau của động mạch thận trái","findings":["MALFORMED_VIETNAMESE_WORD_ORDER"]}
 {"conceptId":"FMA86375","english":"ligament organ component","vietnamese":"thành phần cơ quan dây chằng","findings":[]}
 {"conceptId":"FMA86464","english":"corpus callosum","vietnamese":"thể trai","findings":[]}
 {"conceptId":"FMA86565","english":"region of papillary muscle of left ventricle","vietnamese":"vùng cơ nhú của tâm thất trái","findings":[]}
@@ -2011,8 +2011,8 @@
 {"conceptId":"FMA230986","english":"middle phalanx of right little toe","vietnamese":"đốt giữa ngón chân út phải","findings":[]}
 {"conceptId":"FMA230988","english":"middle phalanx of left little toe","vietnamese":"đốt giữa ngón chân út trái","findings":[]}
 {"conceptId":"FMA241998","english":"cerebral white matter","vietnamese":"chất trắng não","findings":[]}
-{"conceptId":"FMA242770","english":"region of wall of ventricular system of neuraxis","vietnamese":"vùng của thành của thất hệ của trục thần kinh","findings":[]}
-{"conceptId":"FMA242789","english":"region of ventricular system of neuraxis","vietnamese":"vùng của thất hệ của trục thần kinh","findings":[]}
+{"conceptId":"FMA242770","english":"region of wall of ventricular system of neuraxis","vietnamese":"vùng thành hệ thống não thất của trục thần kinh","findings":[]}
+{"conceptId":"FMA242789","english":"region of ventricular system of neuraxis","vietnamese":"vùng hệ thống não thất của trục thần kinh","findings":[]}
 {"conceptId":"FMA256174","english":"region of cerebral white matter","vietnamese":"vùng chất trắng não","findings":[]}
 {"conceptId":"FMA256194","english":"orbital gyrus","vietnamese":"hồi ổ mắt","findings":[]}
 {"conceptId":"FMA256237","english":"segment of neuraxis","vietnamese":"phân đoạn trục thần kinh","findings":[]}
@@ -2447,11 +2447,11 @@
 {"conceptId":"FMA79182","english":"skeleton of left hand proper","vietnamese":"khung xương bàn tay riêng trái","findings":[]}
 {"conceptId":"FMA79269","english":"content of thorax","vietnamese":"thành phần trong lồng ngực","findings":[]}
 {"conceptId":"FMA79273","english":"content of mediastinum","vietnamese":"thành phần trong lồng ngực","findings":[]}
-{"conceptId":"FMA79274","english":"content of superior mediastinum","vietnamese":"nội dung của trung thất trên","findings":[]}
-{"conceptId":"FMA79275","english":"content of inferior mediastinum","vietnamese":"nội dung của trung thất dưới","findings":[]}
-{"conceptId":"FMA79276","english":"content of anterior mediastinum","vietnamese":"nội dung của trung thất trước","findings":[]}
-{"conceptId":"FMA79277","english":"content of posterior mediastinum","vietnamese":"nội dung của trung thất sau","findings":[]}
-{"conceptId":"FMA79278","english":"content of middle mediastinum","vietnamese":"nội dung của trung thất giữa","findings":[]}
+{"conceptId":"FMA79274","english":"content of superior mediastinum","vietnamese":"thành phần của trung thất trên","findings":[]}
+{"conceptId":"FMA79275","english":"content of inferior mediastinum","vietnamese":"thành phần của trung thất dưới","findings":[]}
+{"conceptId":"FMA79276","english":"content of anterior mediastinum","vietnamese":"thành phần của trung thất trước","findings":[]}
+{"conceptId":"FMA79277","english":"content of posterior mediastinum","vietnamese":"thành phần của trung thất sau","findings":[]}
+{"conceptId":"FMA79278","english":"content of middle mediastinum","vietnamese":"thành phần của trung thất giữa","findings":[]}
 {"conceptId":"FMA82672","english":"superior systemic venous tree","vietnamese":"cây tĩnh mạch hệ thống trên","findings":[]}
 {"conceptId":"FMA82673","english":"inferior systemic venous tree","vietnamese":"cây tĩnh mạch hệ thống dưới","findings":[]}
 {"conceptId":"FMA83447","english":"myocardium of right ventricle proper","vietnamese":"cơ tim thất phải riêng","findings":[]}
@@ -2467,12 +2467,12 @@
 {"conceptId":"FMA85031","english":"compartment of abdomen","vietnamese":"khoang của ổ bụng","findings":[]}
 {"conceptId":"FMA85055","english":"right pulmopleural compartment","vietnamese":"khoang phổi - màng phổi phải","findings":[]}
 {"conceptId":"FMA85056","english":"left pulmopleural compartment","vietnamese":"khoang phổi - màng phổi trái","findings":[]}
-{"conceptId":"FMA86056","english":"myocardial zone 4","vietnamese":"cơ tim vùng bốn","findings":[]}
-{"conceptId":"FMA86063","english":"myocardial zone 11","vietnamese":"cơ tim vùng mười một","findings":[]}
-{"conceptId":"FMA86064","english":"myocardial zone 12","vietnamese":"cơ tim vùng mười hai","findings":[]}
+{"conceptId":"FMA86056","english":"myocardial zone 4","vietnamese":"vùng cơ tim 4","findings":[]}
+{"conceptId":"FMA86063","english":"myocardial zone 11","vietnamese":"vùng cơ tim 11","findings":[]}
+{"conceptId":"FMA86064","english":"myocardial zone 12","vietnamese":"vùng cơ tim 12","findings":[]}
 {"conceptId":"FMA86917","english":"musculature of abdomen","vietnamese":"hệ cơ bụng","findings":[]}
-{"conceptId":"FMA87178","english":"myocardium of lateral wall of left ventricle","vietnamese":"cơ tim của bên thành của trái tâm thất","findings":[]}
-{"conceptId":"FMA87179","english":"myocardium of inferior wall of left ventricle","vietnamese":"cơ tim của dưới thành của trái tâm thất","findings":[]}
+{"conceptId":"FMA87178","english":"myocardium of lateral wall of left ventricle","vietnamese":"cơ tim thành bên tâm thất trái","findings":[]}
+{"conceptId":"FMA87179","english":"myocardium of inferior wall of left ventricle","vietnamese":"cơ tim thành dưới tâm thất trái","findings":[]}
 {"conceptId":"FMA87542","english":"anterior thoracic wall","vietnamese":"thành ngực trước","findings":[]}
 {"conceptId":"FMA87543","english":"anterior chest wall","vietnamese":"thành ngực trước","findings":[]}
 {"conceptId":"FMA87552","english":"posterior chest","vietnamese":"ngực sau","findings":[]}
@@ -2489,8 +2489,8 @@
 {"conceptId":"FMA242611","english":"left archicortex","vietnamese":"vỏ cổ trái","findings":[]}
 {"conceptId":"FMA242625","english":"right prefrontal cortex","vietnamese":"vỏ não trước trán phải","findings":[]}
 {"conceptId":"FMA242627","english":"left prefrontal cortex","vietnamese":"vỏ não trước trán trái","findings":[]}
-{"conceptId":"FMA242675","english":"ventricular system of neuraxis","vietnamese":"thất hệ của trục thần kinh","findings":[]}
-{"conceptId":"FMA242787","english":"ventricular system of brain","vietnamese":"thất hệ của não","findings":[]}
+{"conceptId":"FMA242675","english":"ventricular system of neuraxis","vietnamese":"hệ thống não thất của trục thần kinh","findings":[]}
+{"conceptId":"FMA242787","english":"ventricular system of brain","vietnamese":"hệ thống não thất","findings":[]}
 {"conceptId":"FMA259054","english":"wall of abdomen","vietnamese":"thành của bụng","findings":[]}
 {"conceptId":"FMA259209","english":"thoracic segment of trunk","vietnamese":"đoạn ngực của thân mình","findings":[]}
 {"conceptId":"FMA259211","english":"abdominal segment of trunk","vietnamese":"đoạn bụng của thân mình","findings":[]}

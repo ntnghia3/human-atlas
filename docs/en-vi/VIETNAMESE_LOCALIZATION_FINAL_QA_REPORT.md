@@ -24,7 +24,7 @@ M04B2I final QA processed the complete target set in one deterministic run. No t
 
 Exactly 248 Vietnamese strings changed. Evidence statuses changed: 0; verified statuses changed: 0; generated promotions: 0.
 
-The authoritative provisional translation QA overlay supplied 313 reviewed corrections and applied 313 changes (313 were already present on a deterministic rerun). It changed no evidence or source status and promoted nothing.
+The authoritative provisional translation QA overlays supplied 506 reviewed corrections and applied 506 patch rows. The remaining final overlay supplied 193 rows; 193 were already present on a deterministic rerun. These overlays changed no evidence or source status and promoted nothing.
 
 ## Repairs
 

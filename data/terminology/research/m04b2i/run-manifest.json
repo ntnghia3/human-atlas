@@ -33,10 +33,10 @@
     "run-manifest.json": "data/terminology/research/m04b2i/run-manifest.json"
   },
   "outputHashes": {
-    "data/terminology/research/m04b2i/localization-records.jsonl": "8afaca694e56fc1b4e9a2533863930650b0ef8b2fda66bdcd30aff3be0a4b9a6",
-    "data/terminology/research/m04b2i/localization-catalog.json": "66bcea66da82d882d5096dda7da03bd33e9e4974117ea71704753e42ad49d1a5",
-    "data/terminology/research/m04b2i/provisional-translations.jsonl": "d438ea476cdae6259a5e944668d69b27febb4d4abe8c1a7d4925116795f8674f",
-    "data/terminology/research/m04b2i/quality-review.jsonl": "b3f1acaddc00abf25d71a306f3ec79f49e0baf7d232b3734fd1022efccfa0457",
+    "data/terminology/research/m04b2i/localization-records.jsonl": "99a136548d648dccd194e308579b3078173eb6f793bc14bb558d0c7eb8cfacc3",
+    "data/terminology/research/m04b2i/localization-catalog.json": "9279bc9d1d0f4057eee8a0a3a3292fbcdfa718cdaa0d148d122bd7e3673a4092",
+    "data/terminology/research/m04b2i/provisional-translations.jsonl": "1088f4e75cf13fc3c4c1f7bc61ec139d41802cc1c5e589f32589a874023e74a5",
+    "data/terminology/research/m04b2i/quality-review.jsonl": "8007e6ecbf070b62fb0fdb3d7abde07adf23ae59fb963939ed847bc5d02efbf6",
     "data/terminology/research/m04b2i/coverage-summary.json": "e46320f15a7d8dbe9e3514ea26e1546988bccfadb8aa97afb4ed789a68cffe93"
   },
   "accounting": {
@@ -129,6 +129,15 @@
     "appliedPatches": 313,
     "changedVietnamese": 0,
     "alreadyAppliedPatches": 313,
+    "verifiedStatusChanges": 0,
+    "sourceStatusChanges": 0
+  },
+  "remainingProvisionalTranslationQaOverlay": {
+    "path": ".local/translation-qa/provisional_translated_patch_REMAINING_FINAL_193.jsonl",
+    "suppliedPatches": 193,
+    "appliedPatches": 193,
+    "changedVietnamese": 0,
+    "alreadyAppliedPatches": 193,
     "verifiedStatusChanges": 0,
     "sourceStatusChanges": 0
   }

@@ -8,13 +8,19 @@ import {buildFinalQa} from './m04b2i-final-qa.mjs';
 const ROOT = resolve(join(fileURLToPath(import.meta.url), '..', '..'));
 const M04B2I_DIR = join(ROOT, 'data', 'terminology', 'research', 'm04b2i');
 const INPUT_DIR = join(ROOT, '.local', 'translation-qa');
-const PATCH_PATH = join(INPUT_DIR, 'provisional_translated_patch_01_02_313.jsonl');
-const CHECKED_PATH = join(INPUT_DIR, 'final_review_01_02_CHECKED.jsonl');
+const REMAINING_FINAL = process.argv.includes('--remaining-final');
+const PATCH_PATH = join(INPUT_DIR, REMAINING_FINAL ? 'provisional_translated_patch_REMAINING_FINAL_193.jsonl' : 'provisional_translated_patch_01_02_313.jsonl');
+const CHECKED_PATH = join(INPUT_DIR, REMAINING_FINAL ? 'final_review_616_CHECKED.jsonl' : 'final_review_01_02_CHECKED.jsonl');
 const SOURCE_SENSITIVE_PATH = join(INPUT_DIR, 'final_review_01_02_SOURCE_SENSITIVE_11.jsonl');
-const SUMMARY_PATH = join(INPUT_DIR, 'final_review_01_02_QA_SUMMARY.json');
-const REPORT_PATH = join(ROOT, 'docs', 'en-vi', 'PROVISIONAL_TRANSLATION_QA_INTEGRATION_REPORT.md');
+const SUMMARY_PATH = join(INPUT_DIR, REMAINING_FINAL ? 'final_review_616_QA_SUMMARY.json' : 'final_review_01_02_QA_SUMMARY.json');
+const PREVIOUS_PATCH_PATH = join(INPUT_DIR, 'provisional_translated_patch_01_02_313.jsonl');
+const AUDIT_OVERRIDES_PATH = join(INPUT_DIR, 'final_review_03_AUDIT_OVERRIDES_33.jsonl');
+const REPORT_PATH = join(ROOT, 'docs', 'en-vi', REMAINING_FINAL ? 'PROVISIONAL_TRANSLATION_QA_FINAL_INTEGRATION_REPORT.md' : 'PROVISIONAL_TRANSLATION_QA_INTEGRATION_REPORT.md');
 const TOTAL = 3432;
 const EXPECTED_COUNTS = {VERIFIED: 841, PROVISIONAL_SOURCED: 86, PROVISIONAL_TRANSLATED: 2505, NO_TRANSLATION_AVAILABLE: 0};
+const EXPECTED_PATCH_ROWS = REMAINING_FINAL ? 193 : 313;
+const EXPECTED_REVIEW_ROWS = REMAINING_FINAL ? 616 : 400;
+const EXPECTED_KEEP_ROWS = REMAINING_FINAL ? 118 : 87;
 const PRESERVED_KEYS = [
   'evidenceStatus', 'translationMethod', 'verified', 'sourceRefs', 'provenance', 'componentEvidence',
   'generatedFromVerifiedLexicon', 'generationMethod', 'sourceDisposition', 'variants', 'blockers',
@@ -44,8 +50,10 @@ function readInputs() {
   return {
     patch: readJsonl(PATCH_PATH),
     checked: readJsonl(CHECKED_PATH),
-    sourceSensitive: readJsonl(SOURCE_SENSITIVE_PATH),
+    sourceSensitive: REMAINING_FINAL ? [] : readJsonl(SOURCE_SENSITIVE_PATH),
     inputSummary: readJson(SUMMARY_PATH),
+    previousPatch: REMAINING_FINAL ? readJsonl(PREVIOUS_PATCH_PATH) : [],
+    auditOverrides: REMAINING_FINAL ? readJsonl(AUDIT_OVERRIDES_PATH) : [],
   };
 }
 
@@ -58,18 +66,27 @@ function readProduction() {
 }
 
 function validateInputs(inputs, production) {
-  const {patch, checked, sourceSensitive, inputSummary} = inputs;
+  const {patch, checked, sourceSensitive, inputSummary, previousPatch, auditOverrides} = inputs;
   const {records, generated, catalog, quality} = production;
-  assert.equal(patch.length, 313, 'authoritative patch row count');
+  assert.equal(patch.length, EXPECTED_PATCH_ROWS, 'authoritative patch row count');
   assert.equal(duplicateIds(patch).length, 0, 'duplicate patch IDs');
-  assert.equal(checked.length, 400, 'reviewed set row count');
+  assert.equal(checked.length, EXPECTED_REVIEW_ROWS, 'reviewed set row count');
   assert.equal(duplicateIds(checked).length, 0, 'duplicate reviewed IDs');
-  assert.deepEqual(inputSummary.decisionCounts, {CORRECT: 313, KEEP: 87});
-  assert.deepEqual(inputSummary.missingTargets, []);
-  assert.deepEqual(inputSummary.duplicateTargetIds, []);
-  assert.equal(inputSummary.englishMismatches, 0);
-  assert.equal(inputSummary.oldVietnameseMismatches, 0);
-  assert.equal(sourceSensitive.length, 11, 'source-sensitive guardrail row count');
+  if (REMAINING_FINAL) {
+    assert.equal(inputSummary.status, 'PASS');
+    assert.deepEqual(inputSummary.finalDecisionCounts, {CORRECT: 498, KEEP: 118});
+    assert.deepEqual(inputSummary.remainingFinalPatch, {rows: 193, batch03Corrections: 169, batch04Corrections: 16, reAuditCorrectionsOnAlreadyIntegrated01And02: 8, duplicateConceptIds: 0, blankNewVietnamese: 0, unchangedCorrectRows: 0});
+    assert.deepEqual(inputSummary.batch03FinalAudit, {geminiInputRecords: 200, manualAuditOverrides: 33, finalCorrect: 169, finalKeep: 31, missingIds: 0, extraIds: 0});
+    assert.deepEqual(inputSummary.invariants, {englishMismatch: 0, oldVietnameseMismatchAgainstBatchInputs: 0, missingConceptIds: 0, extraConceptIds: 0});
+    assert.equal(auditOverrides.length, 33, 'batch 03 audit override row count');
+  } else {
+    assert.deepEqual(inputSummary.decisionCounts, {CORRECT: 313, KEEP: 87});
+    assert.deepEqual(inputSummary.missingTargets, []);
+    assert.deepEqual(inputSummary.duplicateTargetIds, []);
+    assert.equal(inputSummary.englishMismatches, 0);
+    assert.equal(inputSummary.oldVietnameseMismatches, 0);
+    assert.equal(sourceSensitive.length, 11, 'source-sensitive guardrail row count');
+  }
   assert.deepEqual(counts(records, 'evidenceStatus'), EXPECTED_COUNTS, 'current evidence class counts');
   assert.equal(records.length, TOTAL);
   assert.equal(generated.length, EXPECTED_COUNTS.PROVISIONAL_TRANSLATED);
@@ -83,8 +100,17 @@ function validateInputs(inputs, production) {
   const patchIds = patch.map(item => item.conceptId);
   const correctIds = checked.filter(item => item.decision === 'CORRECT').map(item => item.conceptId);
   const keepIds = checked.filter(item => item.decision === 'KEEP').map(item => item.conceptId);
-  assert.equal(setOf(patchIds).size, 313);
-  assert.ok(sameSet(patchIds, correctIds), 'patch IDs must equal reviewed CORRECT IDs');
+  assert.equal(setOf(patchIds).size, EXPECTED_PATCH_ROWS);
+  if (REMAINING_FINAL) {
+    const previousIds = previousPatch.map(item => item.conceptId);
+    const unionIds = [...new Set([...previousIds, ...patchIds])];
+    const overlapIds = patchIds.filter(id => previousIds.includes(id));
+    assert.equal(previousIds.length, 313, 'previous integrated patch row count');
+    assert.equal(new Set(previousIds).size, 313, 'previous integrated patch unique count');
+    assert.equal(overlapIds.length, 8, 're-audit overlap count');
+    assert.ok(sameSet(unionIds, correctIds), 'previous plus remaining patch IDs must equal final CORRECT IDs');
+    assert.equal(new Set(unionIds).size, 498, 'final unique CORRECT concept count');
+  } else assert.ok(sameSet(patchIds, correctIds), 'patch IDs must equal reviewed CORRECT IDs');
   assert.equal(patchIds.some(id => keepIds.includes(id)), false, 'KEEP records must not be patched');
 
   const states = new Map();
@@ -117,6 +143,9 @@ function validateInputs(inputs, production) {
     patchIds,
     keepIds,
     states,
+    previousPatchIds: previousPatch.map(item => item.conceptId),
+    reviewCorrectIds: correctIds,
+    reviewKeepIds: keepIds,
     beforeCounts: counts(records, 'evidenceStatus'),
     before: production,
   };
@@ -163,43 +192,13 @@ function buildReport({inputs, result, after, appliedIds, alreadyAppliedIds, drif
   const afterCounts = after ? counts(after.records, 'evidenceStatus') : beforeCounts;
   const patchRows = inputs.patch.length;
   const checkedKeep = inputs.checked.filter(item => item.decision === 'KEEP').length;
-  const sourceSensitiveProvisional = after ? inputs.sourceSensitive.filter(item => byId(after.records).get(item.conceptId)?.evidenceStatus === 'PROVISIONAL_TRANSLATED').length : 0;
   const status = error ? 'DRIFT_CONFLICT / FAILED' : 'PASS';
-  return `# Provisional Translation QA Integration Report
-
-## Result
-
-**${status}** — the authoritative .local/translation-qa/provisional_translated_patch_01_02_313.jsonl input was validated against the current M04B2I dataset.
-
-| Measure | Count |
-|---|---:|
-| Patch records supplied | ${patchRows} |
-| Corrections applied this run | ${appliedIds.length} |
-| Corrections already present on rerun | ${alreadyAppliedIds.length} |
-| KEEP records requiring no change | ${checkedKeep} |
-| Duplicate patch IDs | 0 |
-| Unknown concept IDs | 0 |
-| Drift conflicts | ${driftConflicts.length} |
-
-The patch contract required exact conceptId, English, and old Vietnamese matches; decision CORRECT; nonblank newVietnamese; and a changed new value. No value was forced or invented. ${error ? `The integration stopped before applying the patch: ${error.message}` : 'All 313 patch rows passed and the deterministic final-QA overlay completed.'}
-
-## Evidence accounting
-
-| Evidence class | Before | After |
-|---|---:|---:|
-| VERIFIED | ${beforeCounts.VERIFIED} | ${afterCounts.VERIFIED} |
-| PROVISIONAL_SOURCED | ${beforeCounts.PROVISIONAL_SOURCED} | ${afterCounts.PROVISIONAL_SOURCED} |
-| PROVISIONAL_TRANSLATED | ${beforeCounts.PROVISIONAL_TRANSLATED} | ${afterCounts.PROVISIONAL_TRANSLATED} |
-| English-only fallback | ${beforeCounts.NO_TRANSLATION_AVAILABLE} | ${afterCounts.NO_TRANSLATION_AVAILABLE} |
-| **Total concepts** | **${Object.values(beforeCounts).reduce((sum, count) => sum + count, 0)}** | **${Object.values(afterCounts).reduce((sum, count) => sum + count, 0)}** |
-
-No evidence status, verified flag, source reference, provenance, or release status was promoted. The 11 source-sensitive reviewed concepts remain PROVISIONAL_TRANSLATED (${sourceSensitiveProvisional}/11 confirmed after integration). Official release remains UNRELEASED.
-
-The 87 KEEP records were not changed. No unresolved 03/04 records were read or applied; the forbidden translated2.txt, final_review_03_of_04.jsonl, final_review_04_of_04.jsonl, and final_review_03_04_INPUT_216.jsonl files were not used as patch inputs.
-
-## Synchronized artifacts
-
-- data/terminology/research/m04b2i/localization-records.jsonl
+  const title = REMAINING_FINAL ? 'Provisional Translation QA Final Integration Report' : 'Provisional Translation QA Integration Report';
+  const source = REMAINING_FINAL ? 'provisional_translated_patch_REMAINING_FINAL_193.jsonl' : 'provisional_translated_patch_01_02_313.jsonl';
+  const reviewSet = REMAINING_FINAL ? `The final reviewed set is complete: 616 unique concepts consisting of batch 01+02 (400), batch 03 (200), and batch 04 (16). Final decisions are CORRECT 498 and KEEP 118. The previous integration supplied 313 CORRECT rows; this integration supplies 193 remaining rows, including 169 batch-03 corrections, 16 batch-04 corrections, and 8 re-audit corrections to concepts already changed by the earlier integration. The 8-row overlap means 313 + 193 integration operations produce 498 unique CORRECT concepts.` : 'The reviewed batch contained 400 unique concepts with 313 CORRECT rows and 87 KEEP rows.';
+  const scopeNote = REMAINING_FINAL ? 'This 616-concept review set is only a QA subset. It does not mean that all 2505 PROVISIONAL_TRANSLATED concepts have been manually reviewed.' : 'This reviewed batch is only a QA subset of the full PROVISIONAL_TRANSLATED catalog.';
+  const evidenceNote = REMAINING_FINAL ? 'No evidence status, verified flag, source reference, provenance, or release status was promoted. All affected generated records remain PROVISIONAL_TRANSLATED and verified:false. Official release remains UNRELEASED.' : 'No evidence status, verified flag, source reference, provenance, or release status was promoted. Official release remains UNRELEASED.';
+  const files = `- data/terminology/research/m04b2i/localization-records.jsonl
 - data/terminology/research/m04b2i/provisional-translations.jsonl
 - data/terminology/research/m04b2i/localization-catalog.json
 - data/terminology/research/m04b2i/quality-review.jsonl
@@ -211,6 +210,48 @@ The 87 KEEP records were not changed. No unresolved 03/04 records were read or a
 - data/terminology/research/m04b2i-qa/run-manifest.json
 - scripts/m04b2i-final-qa.mjs
 - scripts/m04b2i-provisional-translation-integration.mjs
+- package.json
+- docs/en-vi/${REMAINING_FINAL ? 'PROVISIONAL_TRANSLATION_QA_FINAL_INTEGRATION_REPORT.md' : 'PROVISIONAL_TRANSLATION_QA_INTEGRATION_REPORT.md'}`;
+  return `# ${title}
+
+## Result
+
+**${status}** — the authoritative .local/translation-qa/${source} input was validated against the current M04B2I dataset.
+
+| Measure | Count |
+|---|---:|
+| Patch records supplied | ${patchRows} |
+| Expected corrections | ${patchRows} |
+| Corrections applied this run | ${appliedIds.length} |
+| Corrections already present on deterministic rerun | ${alreadyAppliedIds.length} |
+| KEEP records requiring no change | ${checkedKeep} |
+| Duplicate patch IDs | 0 |
+| Unknown concept IDs | 0 |
+| Drift conflicts | ${driftConflicts.length} |
+
+The patch contract required exact conceptId, English, and old Vietnamese matches; decision CORRECT; nonblank newVietnamese; and a changed new value. No value was forced or invented. ${error ? `The integration stopped before applying the patch: ${error.message}` : `All ${patchRows} patch rows passed and the deterministic final-QA overlay completed.`}
+
+${reviewSet}
+
+${scopeNote}
+
+## Evidence accounting
+
+| Evidence class | Before | After |
+|---|---:|---:|
+| VERIFIED | ${beforeCounts.VERIFIED} | ${afterCounts.VERIFIED} |
+| PROVISIONAL_SOURCED | ${beforeCounts.PROVISIONAL_SOURCED} | ${afterCounts.PROVISIONAL_SOURCED} |
+| PROVISIONAL_TRANSLATED | ${beforeCounts.PROVISIONAL_TRANSLATED} | ${afterCounts.PROVISIONAL_TRANSLATED} |
+| English-only fallback | ${beforeCounts.NO_TRANSLATION_AVAILABLE} | ${afterCounts.NO_TRANSLATION_AVAILABLE} |
+| **Total concepts** | **${Object.values(beforeCounts).reduce((sum, count) => sum + count, 0)}** | **${Object.values(afterCounts).reduce((sum, count) => sum + count, 0)}** |
+
+${evidenceNote}
+
+The ${checkedKeep} KEEP records were not changed. The authoritative mutation source was only the remaining patch file. The separate audit files were used for accounting/guardrails only, not as mutation sources.
+
+## Synchronized artifacts
+
+${files}
 
 The .local input bundle was treated as read-only. No git add, commit, push, reset, or clean was performed.
 

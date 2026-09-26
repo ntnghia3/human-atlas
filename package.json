@@ -34,6 +34,7 @@
     "test:m04b2i": "node scripts/test-m04b2i.mjs",
     "terminology:m04b2i:final-qa": "node scripts/m04b2i-final-qa.mjs",
     "terminology:m04b2i:provisional-translation-integration": "node scripts/m04b2i-provisional-translation-integration.mjs",
+    "terminology:m04b2i:provisional-translation-final-integration": "node scripts/m04b2i-provisional-translation-integration.mjs --remaining-final",
     "terminology:m04b2i:translation-qa": "node scripts/m04b2i-translation-qa.mjs",
     "test:m04b2i:final-qa": "node scripts/test-m04b2i-final-qa.mjs"
   },
